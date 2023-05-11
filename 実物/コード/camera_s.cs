@@ -9,6 +9,7 @@ public class ts : MonoBehaviour
 
     void Start()
     {
+        transform.position = target.gameObject.transform.position + new Vector3(0, 1, 0) - transform.forward;
         transform.SetParent(target.gameObject.transform);
     }
 
