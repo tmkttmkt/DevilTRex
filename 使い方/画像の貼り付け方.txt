@@ -1,0 +1,3 @@
+1.画像を用意しアセットに入れる
+2.アセットに入れた画像をクリックしtexture typeをSpriteにする
+3.scrite rendererで選択する
