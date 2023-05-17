@@ -11,3 +11,16 @@ U:\課題研究\start2\obj\Debug\start2.vbproj.CoreCompileInputs.cache
 U:\課題研究\start2\obj\Debug\start2.exe
 U:\課題研究\start2\obj\Debug\start2.xml
 U:\課題研究\start2\obj\Debug\start2.pdb
+U:\tet\実物\vb_from\start2\bin\Debug\start2.exe.config
+U:\tet\実物\vb_from\start2\bin\Debug\start2.exe
+U:\tet\実物\vb_from\start2\bin\Debug\start2.pdb
+U:\tet\実物\vb_from\start2\bin\Debug\start2.xml
+U:\tet\実物\vb_from\start2\obj\Debug\start2.vbprojAssemblyReference.cache
+U:\tet\実物\vb_from\start2\obj\Debug\start2.Form1.resources
+U:\tet\実物\vb_from\start2\obj\Debug\start2.Resources.resources
+U:\tet\実物\vb_from\start2\obj\Debug\start2.Settei.resources
+U:\tet\実物\vb_from\start2\obj\Debug\start2.vbproj.GenerateResource.cache
+U:\tet\実物\vb_from\start2\obj\Debug\start2.vbproj.CoreCompileInputs.cache
+U:\tet\実物\vb_from\start2\obj\Debug\start2.exe
+U:\tet\実物\vb_from\start2\obj\Debug\start2.xml
+U:\tet\実物\vb_from\start2\obj\Debug\start2.pdb

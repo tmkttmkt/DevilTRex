@@ -43,30 +43,34 @@ public class NewBehaviourScript : MonoBehaviour
             }
         }
         else if(!input_E && !flg_e) { flg_e = true; }
-            // Wキー（前方移動）
-        if (Input.GetKey(KeyCode.W))
+        // Wキー（前方移動）
+        if (!Cursor.visible)
         {
-            transform.position += speed * transform.forward * Time.deltaTime;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.position += speed * transform.forward * Time.deltaTime;
+            }
 
-        // Sキー（後方移動）
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= speed * transform.forward * Time.deltaTime;
-        }
+            // Sキー（後方移動）
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.position -= speed * transform.forward * Time.deltaTime;
+            }
 
-        // Dキー（右移動）
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += speed * transform.right * Time.deltaTime;
-        }
+            // Dキー（右移動）
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += speed * transform.right * Time.deltaTime;
+            }
 
-        // Aキー（左移動）
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= speed * transform.right * Time.deltaTime;
+            // Aキー（左移動）
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position -= speed * transform.right * Time.deltaTime;
+            }
+        
+            float mouseX = Input.GetAxis("Mouse X");
+            transform.Rotate(Vector3.up, mouseX * 1000f * Time.deltaTime);
         }
-        float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(Vector3.up, mouseX * 1000f * Time.deltaTime);
     }
 }
