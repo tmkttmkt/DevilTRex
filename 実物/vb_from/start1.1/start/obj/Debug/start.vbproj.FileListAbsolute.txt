@@ -1,0 +1,13 @@
+U:\課題研究\start\bin\Debug\start.exe.config
+U:\課題研究\start\bin\Debug\start.exe
+U:\課題研究\start\bin\Debug\start.pdb
+U:\課題研究\start\bin\Debug\start.xml
+U:\課題研究\start\obj\Debug\start.vbprojAssemblyReference.cache
+U:\課題研究\start\obj\Debug\start.Resources.resources
+U:\課題研究\start\obj\Debug\start.vbproj.GenerateResource.cache
+U:\課題研究\start\obj\Debug\start.vbproj.CoreCompileInputs.cache
+U:\課題研究\start\obj\Debug\start.exe
+U:\課題研究\start\obj\Debug\start.xml
+U:\課題研究\start\obj\Debug\start.pdb
+U:\課題研究\start\obj\Debug\start.Form2.resources
+U:\課題研究\start\obj\Debug\start.settei.resources
