@@ -16,7 +16,7 @@ Public Class Form1
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
-            Process.Start("R:\情報技術研究部\actitlop\ゴミ箱\妨害メッセージ\実行.exe")
+            Process.Start("test2.txt")
         Catch ex As Exception
             MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
         End Try
