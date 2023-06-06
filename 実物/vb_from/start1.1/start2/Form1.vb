@@ -16,7 +16,7 @@ Public Class Form1
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
-            Process.Start("DTR.exe")
+            Process.Start("Goodbye Unity.exe")
             Application.Exit()
         Catch ex As Exception
             MessageBox.Show("ファイルが開けませんでした:" & ex.Message)

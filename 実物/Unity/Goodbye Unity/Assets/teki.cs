@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class teki : MonoBehaviour
 {
     public NavMeshAgent player;
-    public GameObject target;
+    [SerializeField]GameObject target;
     // Start is called before the first frame update
     void Start()
     {
