@@ -62,13 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ata.cs" />
-    <Compile Include="Assets\came.cs" />
-    <Compile Include="Assets\Item.cs" />
-    <Compile Include="Assets\kabe.cs" />
-    <Compile Include="Assets\NewBehaviourScript.cs" />
-    <Compile Include="Assets\teki.cs" />
-    <Compile Include="Assets\test.cs" />
+    <Compile Include="Assets\Script\ata.cs" />
+    <Compile Include="Assets\Script\came.cs" />
+    <Compile Include="Assets\Script\idou_mause.cs" />
+    <Compile Include="Assets\Script\Item.cs" />
+    <Compile Include="Assets\Script\rokka.cs" />
+    <Compile Include="Assets\Script\teki.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>U:/tet/実物/unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
