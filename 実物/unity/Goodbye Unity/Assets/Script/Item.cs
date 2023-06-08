@@ -5,20 +5,20 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject item2;
+    [SerializeField] GameObject item;
     void Start()
     {
-        item2.gameObject.SetActive(item);
+        item.gameObject.SetActive(item);
     }
 
     // Update is called once per frame
-    bool item = false;
+    bool flg_item = false;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))//GetKeyDownで押したときに1回動作
         {
-            item = !item;
-            item2.gameObject.SetActive(item);
+            flg_item = !flg_item;
+            item.gameObject.SetActive(item);
         }
 
        

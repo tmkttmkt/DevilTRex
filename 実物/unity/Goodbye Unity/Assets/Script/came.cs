@@ -9,7 +9,7 @@ public class came : MonoBehaviour
 
     void Start()
     {
-        transform.position = target.gameObject.transform.position + new Vector3(0, 1, 0) - transform.forward;
+        transform.position = target.gameObject.transform.position + new Vector3(0, 2, 0) - transform.forward;
         transform.SetParent(target.gameObject.transform);
     }
 

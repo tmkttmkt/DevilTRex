@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class idou_mause : MonoBehaviour
 {
+    public rokka tai;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("aaaa");
+        //Debug.Log("aaaa");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -15,10 +16,13 @@ public class idou_mause : MonoBehaviour
     // Update is called once per frame
     float speed = 3.0f;
     bool flg_e = true;//押せる状態のときに信
+    bool flg_rok = true;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
+//exeじゃなくても閉じるため
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -31,21 +35,22 @@ public class idou_mause : MonoBehaviour
             flg_e = false;
             if (Cursor.visible)
             {
-                Debug.Log("kes");
+                //Debug.Log("kes");
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
-                Debug.Log("hyouzi");
+                //Debug.Log("hyouzi");
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
         }
         else if (!input_E && !flg_e) { flg_e = true; }
         // Wキー（前方移動）
-        if (!Cursor.visible)
+        if (!Cursor.visible && !tai.flg)
         {
+            flg_rok = true;
             if (Input.GetKey(KeyCode.W))
             {
                 transform.position += speed * transform.forward * Time.deltaTime;
@@ -71,6 +76,20 @@ public class idou_mause : MonoBehaviour
 
             float mouseX = Input.GetAxis("Mouse X");
             transform.Rotate(Vector3.up, mouseX * 1000f * Time.deltaTime);
+        }
+        else if(tai.flg && flg_rok)
+        {
+            float interpolatedValue = (Time.time - tai.startTime) / tai.distance;
+            //球面線形移動
+            transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
+
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == tai.move_rok)
+        {
+            flg_rok = false;
         }
     }
 }

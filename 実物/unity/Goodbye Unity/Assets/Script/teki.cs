@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 public class teki : MonoBehaviour
 {
-    public NavMeshAgent player;
+    public NavMeshAgent nav;
     [SerializeField]GameObject target;
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject.GetComponent<NavMeshAgent>();
+        nav = gameObject.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -17,13 +17,13 @@ public class teki : MonoBehaviour
     {
         if (target != null)
         {
-            player.destination = target.transform.position;
+            nav.destination = target.transform.position;
         }
         else Debug.Log("ngo");
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Cube")
+        if (collision.gameObject ==target)
         {
             Debug.Log("Hit"); // ログを表示する
         }
