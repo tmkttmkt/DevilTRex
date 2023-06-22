@@ -25,8 +25,9 @@ public class rokka : MonoBehaviour
                     Physics.Raycast(this.transform.position, roka.transform.position - this.transform.position, out hit);
 
                     GameObject hitObject = hit.collider.gameObject;
+                    float hitdis = Vector3.Distance(this.transform.position, hitObject.transform.position);
                     Debug.Log("一番近いやつ : " + hitObject.name);
-                    if (roka == hitObject && dis <= 10f)
+                    if ((roka == hitObject && dis <= 10f) || (roka!=hitObject && dis<=hitdis &&  dis <= 10f))
                     {
                         Debug.Log("起動!");
                         flg = true;

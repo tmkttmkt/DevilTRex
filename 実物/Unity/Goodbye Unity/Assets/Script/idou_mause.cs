@@ -48,6 +48,14 @@ public class idou_mause : MonoBehaviour
         }
         else if (!input_E && !flg_e) { flg_e = true; }
         // Wキー（前方移動）
+
+        if (!Cursor.visible)
+        {
+            //マウス移動
+            float mouseX = Input.GetAxis("Mouse X");
+            transform.Rotate(Vector3.up, mouseX * 500f * Time.deltaTime);
+
+        }
         if (!Cursor.visible && !tai.flg)
         {
             flg_rok = true;
@@ -74,8 +82,6 @@ public class idou_mause : MonoBehaviour
                 transform.position -= speed * transform.right * Time.deltaTime;
             }
 
-            float mouseX = Input.GetAxis("Mouse X");
-            transform.Rotate(Vector3.up, mouseX * 1000f * Time.deltaTime);
         }
         else if(tai.flg && flg_rok)
         {
