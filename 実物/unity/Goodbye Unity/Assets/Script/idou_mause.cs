@@ -16,7 +16,7 @@ public class idou_mause : MonoBehaviour
     // Update is called once per frame
     float speed = 3.0f;
     bool flg_e = true;//押せる状態のときに信
-    bool flg_rok = true;
+    public bool flg_rok = true;
 
     void Update()
     {

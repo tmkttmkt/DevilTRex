@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class teki : MonoBehaviour
 {
     public NavMeshAgent nav;
-    [SerializeField]GameObject target;
+    [SerializeField]idou_mause target;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +15,9 @@ public class teki : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (target != null )
         {
+            if(!target.flg_rok && target.tai.flg)
             nav.destination = target.transform.position;
         }
         else Debug.Log("ngo");

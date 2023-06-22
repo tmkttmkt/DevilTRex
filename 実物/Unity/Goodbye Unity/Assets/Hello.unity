@@ -7775,6 +7775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u968E\u6BB5"
       objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 582589202dece994cb37e17447ca896c,
         type: 3}
       propertyPath: m_IsActive
@@ -7849,11 +7854,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582589202dece994cb37e17447ca896c, type: 3}
@@ -11090,6 +11090,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u968E\u6BB5 (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 582589202dece994cb37e17447ca896c,
         type: 3}
       propertyPath: m_IsActive
@@ -11164,11 +11169,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582589202dece994cb37e17447ca896c, type: 3}
@@ -12589,7 +12589,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &889459064
 BoxCollider:
@@ -13975,6 +13975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tai: {fileID: 839770686}
+  flg_rok: 1
 --- !u!114 &982461393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15924,13 +15925,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144056196}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0646f8b778e4aa5488890ff3b3ecfd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nav: {fileID: 1144056202}
-  target: {fileID: 982461386}
+  target: {fileID: 982461392}
 --- !u!65 &1144056198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19222,6 +19223,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u968E\u6BB5 (5)"
       objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 582589202dece994cb37e17447ca896c,
         type: 3}
       propertyPath: m_IsActive
@@ -19296,11 +19302,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582589202dece994cb37e17447ca896c, type: 3}
@@ -19801,6 +19802,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u968E\u6BB5 (3)"
       objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 582589202dece994cb37e17447ca896c,
         type: 3}
       propertyPath: m_IsActive
@@ -19876,11 +19882,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582589202dece994cb37e17447ca896c, type: 3}
 --- !u!1001 &1387444075
@@ -19894,6 +19895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\u968E\u6BB5 (4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 582589202dece994cb37e17447ca896c,
         type: 3}
@@ -19969,11 +19975,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582589202dece994cb37e17447ca896c, type: 3}
@@ -24915,6 +24916,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u968E\u6BB5 (2)"
       objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 582589202dece994cb37e17447ca896c,
         type: 3}
       propertyPath: m_IsActive
@@ -24989,11 +24995,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 582589202dece994cb37e17447ca896c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582589202dece994cb37e17447ca896c, type: 3}
