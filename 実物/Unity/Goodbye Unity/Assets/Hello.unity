@@ -3609,6 +3609,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.w
       value: 2.3510647e-38
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: f9a47027053dd8c4caf49384752e927a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fe617ed3ab9796b49baefdf490dd2d8c, type: 2}
     - target: {fileID: -4216859302048453862, guid: f9a47027053dd8c4caf49384752e927a,
         type: 3}
       propertyPath: m_LocalPosition.x
