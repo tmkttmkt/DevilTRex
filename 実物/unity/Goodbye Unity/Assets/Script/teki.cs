@@ -17,7 +17,7 @@ public class teki : MonoBehaviour
     {
         if (target != null )
         {
-            if(!target.flg_rok && !target.tai.flg)
+            if(!target.tai.flg)
             nav.destination = target.transform.position;
         }
         else Debug.Log("ngo");
