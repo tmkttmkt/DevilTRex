@@ -92,7 +92,7 @@ public class idou_mause : MonoBehaviour
         }
 
     }
-    void OnTriggerEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         //OnCollisionEnter
         if (collision.gameObject == tai.move_rok)
