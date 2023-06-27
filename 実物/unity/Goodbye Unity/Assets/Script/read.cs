@@ -12,15 +12,15 @@ public class read : MonoBehaviour
         string te,key,val;
         while(true){
             te = fail.ReadLine();
-            Debug.Log(te);
+            //Debug.Log(te);
             if (te == null) break;
             val = te.Remove(0, te.IndexOf("=") + 1);
             key = te.Remove(te.IndexOf("="));
             stetting[key] = int.Parse(val);
-            Debug.Log(val);
-            Debug.Log(key);
+            //Debug.Log(val);
+            //Debug.Log(key);
         }
-        Debug.Log(stetting);
+        //Debug.Log(stetting);
         fail.Close();
     }
     public Dictionary<string, int> stetting = new Dictionary<string, int>();

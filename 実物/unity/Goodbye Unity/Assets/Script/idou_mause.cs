@@ -90,12 +90,16 @@ public class idou_mause : MonoBehaviour
             transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
 
         }
+        if (transform.position== tai.move_rok.transform.position && flg_rok)
+        {
+            Debug.Log("wad");
+            flg_rok = false;
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == tai.move_rok)
         {
-            flg_rok = false;
         }
     }
 }
