@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9a47027053dd8c4caf49384752e927a
+guid: 3ff505a206a020346a29a53816e062a8
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
@@ -39,7 +39,7 @@ ModelImporter:
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
       internalID: -6140374235425719669
       firstFrame: 0
-      lastFrame: 43
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

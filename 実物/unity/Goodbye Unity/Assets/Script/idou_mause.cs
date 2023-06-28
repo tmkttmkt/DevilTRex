@@ -15,7 +15,6 @@ public class idou_mause : MonoBehaviour
 
     // Update is called once per frame
     float speed = 3.0f;
-    bool flg_e = true;//押せる状態のときに信
     public bool flg_rok = true;
 
     void Update()
@@ -29,10 +28,8 @@ public class idou_mause : MonoBehaviour
             Application.Quit();
 #endif
         }
-        bool input_E = Input.GetKey(KeyCode.E);
-        if (input_E && flg_e)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            flg_e = false;
             if (Cursor.visible)
             {
                 //Debug.Log("kes");
@@ -46,7 +43,7 @@ public class idou_mause : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
-        else if (!input_E && !flg_e) { flg_e = true; }
+
         // Wキー（前方移動）
 
         if (!Cursor.visible)
