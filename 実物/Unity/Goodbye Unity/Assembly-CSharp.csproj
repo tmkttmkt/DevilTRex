@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\read.cs" />
     <Compile Include="Assets\Script\rokka.cs" />
     <Compile Include="Assets\Script\teki.cs" />
+    <Compile Include="Assets\Script\time.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>U:/tet/実物/unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

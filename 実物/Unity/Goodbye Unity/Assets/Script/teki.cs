@@ -24,7 +24,7 @@ public class teki : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
+        //Debug.Log(collision.gameObject);
         if (collision.gameObject ==target)
         {
             Debug.Log("Hit");// ログを表示する

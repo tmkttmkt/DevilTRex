@@ -11,7 +11,6 @@ public class anime : MonoBehaviour
     {
         //変数animに、Animatorコンポーネントを設定する
         anim = gameObject.GetComponent<Animator>();
-        Debug.Log(anim);
     }
 
     //===== 主処理 =====
