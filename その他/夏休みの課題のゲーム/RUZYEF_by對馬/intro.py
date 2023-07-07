@@ -7,23 +7,27 @@ from Unit import *#Units
 HEIGHT=900
 WIDTH=900
 TITLE="RUZYEF"
+GRAY=(64,64,64)
+BLACK=(0,0,0)
+WHITE=(255,255,255)
+BACK=-1
+NOT_BACK=0
 
+title_mode={"START":0,"execution":1,"CONTINUATION":2,"EXPLANATION":3}
 class Buttan:
     def __init__(self,color,pos,scope,txt):
         self.txt=txt
-        self.key=keys.Q
         self.color=color
         self.pos=pos
         self.scope=scope
         if 0!=len(self.txt):
-            self.txtsize=(((self.scope[0]-60)/len(self.txt))*(90/60))
+            self.txtsize=(((self.scope[0])/len(self.txt))*(90/60))
         else:
             self.txtsize=0
         self.rect=Rect(pos,scope)
     def draw(self):
         screen.draw.filled_rect(self.rect,self.color)
-        screen.draw.text(self.txt,self.pos,fontname='genshingothic-bold.ttf',color=(0,0,0),fontsize=self.txtsize)
-        screen.draw.text("("+self.key.code+")",(self.pos[0]+self.scope[0]-60,self.pos[1]),color=(0,0,0),fontsize=60)
+        screen.draw.text(self.txt,self.pos,fontname='genshingothic-bold.ttf',color=BLACK,fontsize=self.txtsize)
     def key_down(self,key):
         if key==self.key:
             return True
@@ -34,51 +38,48 @@ class Buttan:
                 return True
         return False
 
-
 class Start:
     def __init__(self):
-        self.title_mode=0
-        self.start=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"START")
-        self.conit=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"CONTINUATION")
-        self.exp=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"EXPLANATION")
-        self.txt ="\n"
-        self.txt+="\n"
-        self.txt+="\n"
+        self.title_mode=title_mode["START"]
+        self.start=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"START")
+        self.conit=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"CONTINUATION")
+        self.exp=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"EXPLANATION")
+        self.exo_txt ="\n"
+        self.exo_txt+="\n"
+        self.exo_txt+="\n"
     def set_start(self):
-        self.title_mode=0
+        self.title_mode=title_mode["START"]
     def draw(self):
-        if self.title_mode==0:
+        if self.title_mode==title_mode["START"]:
             screen.fill((128, 0, 0))
-            screen.draw.text("RUZYEF",(WIDTH/2-200,HEIGHT/3-100),fontname='fugazone_regular.ttf',color=(0,0,0),fontsize=100)
+            screen.draw.text("RUZYEF",(WIDTH/2-200,HEIGHT/3-100),fontname='fugazone_regular.ttf',color=BLACK,fontsize=100)
             self.start.draw()
             self.conit.draw()
             self.exp.draw()
-        elif self.title_mode==1:
+        elif self.title_mode==title_mode["execution"]:
             return
-        elif self.title_mode==2:
+        elif self.title_mode==title_mode["CONTINUATION"]:
             screen.fill((255,255,0))
-            screen.draw.text("chachachachara\nchachachachara",(0,0),fontname='genshingothic-bold.ttf',color=(0,0,0),fontsize=50)
-        elif self.title_mode==3:
-            screen.fill((255,255,255))
-            screen.draw.text(self.txt,(0,0),fontname='genshingothic-bold.ttf',color=(0,0,0),fontsize=50)
+            screen.draw.text("chachachachara\nchachachachara",(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
+        elif self.title_mode==title_mode["EXPLANATION"]:
+            screen.fill(WHITE)
+            screen.draw.text(self.exo_txt,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
     def mouse_down(self,pos,key):
-        if self.title_mode==0:
+        if self.title_mode==title_mode["START"]:
             if self.start.collidepoint(pos,key):
-                self.title_mode=1
-                return 1
+                self.title_mode=title_mode["execution"]
             elif self.conit.collidepoint(pos,key):
-                self.title_mode=2
+                self.title_mode=title_mode["CONTINUATION"]
             elif self.exp.collidepoint(pos,key):
-                self.title_mode=3
-        elif self.title_mode==1:
-            return 0
-        elif self.title_mode==2:
+                self.title_mode=title_mode["EXPLANATION"]
+        elif self.title_mode==title_mode["execution"]:
+            pass
+        elif self.title_mode==title_mode["CONTINUATION"]:
             if key==mouse.LEFT or key==mouse.RIGHT:
-                self.title_mode=0
-        elif self.title_mode==3:
+                self.title_mode=title_mode["START"]
+        elif self.title_mode==title_mode["EXPLANATION"]:
             if key==mouse.LEFT or key==mouse.RIGHT:
-                self.title_mode=0
-        return 0
+                self.title_mode=title_mode["START"]
 class Maps:
     def __init__(self):
         self.mode=-1
@@ -86,7 +87,9 @@ class Maps:
         self.set_buttan()
         self.pov=[0,0]
     def set_buttan(self):
-        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test "),Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," map "),Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
+        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
+                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," map ")
+                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
     def update(self):
         moto_pov=[self.pov[0],self.pov[1]]
         if keyboard.s:
@@ -112,8 +115,8 @@ class Maps:
                     i+=1
                 if self.mode==2:
                     self.mode=-1
-                    return 1
-        return 0
+                    return BACK
+        return NOT_BACK
     def draw(self):
         screen.fill((172,172,172))
         if self.mode==-1:
@@ -263,7 +266,7 @@ start=Start()
 time=0
 def draw():
     start.draw()
-    if start.title_mode==1:
+    if start.title_mode==title_mode["execution"]:
         maps.draw()
     
 def update():
@@ -273,8 +276,8 @@ def update():
 def on_key_down(key):
     pass
 def on_mouse_down(pos,button):
-    if start.title_mode==1:
-        if 1==maps.mouse_down(pos,button):
+    if start.title_mode==title_mode["execution"]:
+        if BACK==maps.mouse_down(pos,button):
             start.set_start()
     else:
         start.mouse_down(pos,button)
