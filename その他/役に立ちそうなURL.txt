@@ -1,2 +1,4 @@
 https://www.youtube.com/watch?v=PCaJotlUywo
 鬼ごっこゲームを作る Part2 鬼のAI編
+https://www.fenet.jp/dotnet/column/language/9700/
+exeの起動・exeの実行結果を取り込む・exeの終了を待ち合わせる・exeのパスを取得する方法
