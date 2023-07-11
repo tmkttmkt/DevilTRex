@@ -4,6 +4,7 @@ import random
 import os
 import math
 from Unit import *#Units
+import numpy as np 
 HEIGHT=900
 WIDTH=900
 TITLE="RUZYEF"
@@ -127,7 +128,7 @@ class Maps:
 class Map:
     def __init__(self,wide):
         self.rect=Rect((0,0),(wide[0],wide[1]))
-        self.date= [[1 for i in range(self.rect[2])] for j in range(self.rect[3])]
+        self.date= np.array([[1 for i in range(self.rect[2])] for j in range(self.rect[3])])
         self.draw_date=pygame.Surface((self.rect[2],self.rect[3]), flags=0)
         #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
         self.color=[(0,0,0),(0,255,0),(0,128,255),(32,32,32),(128,64,0),(0,128,0),(128,128,128)]
@@ -139,10 +140,10 @@ class Map:
         rect=self.draw_date.blit(source,[0,0], area=None, special_flags = 0)
         for y in range(rect[1]):
             for x in range(rect[0]):
-                self.date[y][x]=i=0
+                self.date[y,x]=i=0
                 for set_color in self.color:
                     if set_color==self.draw_date.get_at((x, y)):
-                        self.date[y][x]=i
+                        self.date[y,x]=i
                     i+=1
     def draw(self,pov):
         screen.blit(self.draw_date,(pov[0],pov[1]))
@@ -167,7 +168,7 @@ class Map:
                 for x in range(self.rect[2]):
                     if(y >= a*x+b -haba and y <= a*x+b +haba):
                         if(y >= ap*x+bp and y <= ap*x+bgp):
-                            self.date[y][x]=setd
+                            self.date[y,x]=setd
                             self.draw_date.set_at((x,y),self.color[setd])
         elif(ysen==0 and xsen==0):
             return
@@ -179,7 +180,7 @@ class Map:
             haba=int(haba)
             for x in range(pos[0],go_pos[0]):
                 for y in range(pos[1]-haba,pos[1]+haba):
-                    self.date[y][x]=setd
+                    self.date[y,x]=setd
                     self.draw_date.set_at((x,y),self.color[setd])
         elif(xsen==0):
             if(pos[1]>go_pos[1]):
@@ -189,13 +190,13 @@ class Map:
             haba=int(haba)
             for y in range(pos[1],go_pos[1]):
                 for x in range(pos[0]-haba,pos[0]+haba):
-                    self.date[y][x]=setd
+                    self.date[y,x]=setd
                     self.draw_date.set_at((x,y),self.color[setd])
     def en(self,pos,haba,setd):
         for y in range(pos[1]-haba,pos[1]+haba):
             for x in range(pos[0]-haba,pos[0]+haba):
                 if((x-pos[0])**2+(y-pos[1])**2<=(haba/2)**2):
-                    self.date[y][x]=setd
+                    self.date[y,x]=setd
                     self.draw_date.set_at((x,y),self.color[setd])
     def daen(self,fpos,setd):
         x_min=self.rect[2]
@@ -221,16 +222,16 @@ class Map:
             for x in range(x_min,x_max):
                 siki=((x-cen[0])/xr)**2+((y-cen[1])/yr)**2
                 if(siki<=1):
-                    self.date[y][x]=setd
+                    self.date[y,x]=setd
                     self.draw_date.set_at((x,y),self.color[setd])
     def sikaku(self,pos,go_pos,setd):
         for y in range(pos[1] if pos[1]<go_pos[1] else go_pos[1],go_pos[1] if pos[1]<go_pos[1] else pos[1]):
             for x in range(pos[0] if pos[0]<go_pos[0] else go_pos[0],go_pos[0] if pos[0]<go_pos[0] else pos[0]):
-                self.date[y][x]=setd
+                self.date[y,x]=setd
                 self.draw_date.set_at((x,y),self.color[setd])                          
     def all(self,setd):
         self.draw_date.fill(self.color[1],None, special_flags=0)
-        self.date= [[setd for i in range(self.rect[2])] for j in range(self.rect[3])]
+        self.date= np.array([[setd for i in range(self.rect[2])] for j in range(self.rect[3])])
 class test(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
