@@ -12,6 +12,7 @@ public class time : MonoBehaviour
     private float timerDuration; // タイマーの時間（秒）
     private float timerValue; // タイマーの現在の値
     private bool start = false;
+    public bool Tre_eat = false;
     private Text timerText; // タイマーを表示するテキストオブジェクト
     [SerializeField] Text rast;
 

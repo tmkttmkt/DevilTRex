@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 public class teki : MonoBehaviour
 {
-    [SerializeField]Text rast;
+    [SerializeField]time rast;
     public NavMeshAgent nav;
     [SerializeField]idou_mause target;
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class teki : MonoBehaviour
         if (collision.gameObject.name == target.name)
         {
             Debug.Log("Hit");// ログを表示する
-            rast.text = "RIPお前\nGAMEOVERA";
+            rast.Tre_eat=true;//text = "RIPお前\nGAMEOVERA";
         }
 
     }
