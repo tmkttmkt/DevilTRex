@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 public class read : MonoBehaviour
 {
+    public Dictionary<string, int> stetting = new Dictionary<string, int>();
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,12 @@ public class read : MonoBehaviour
             val = te.Remove(0, te.IndexOf("=") + 1);
             key = te.Remove(te.IndexOf("="));
             stetting[key] = int.Parse(val);
-            Debug.Log(val);
             Debug.Log(key);
+            Debug.Log(val);
         }
-        Debug.Log(stetting);
+        //Debug.Log(stetting);
         fail.Close();
     }
-    public Dictionary<string, int> stetting = new Dictionary<string, int>();
     // Update is called once per frame
     void Update()
     {
