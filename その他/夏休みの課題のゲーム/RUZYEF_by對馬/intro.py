@@ -87,6 +87,10 @@ class Maps:
         self.list=[tesmap(),test(),Map([900,900])]
         self.set_buttan()
         self.pov=[0,0]
+        self.return_buttan_list=[#Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
+                                #,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," map ")
+                                #,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
+        self.return_mode=False
     def set_buttan(self):
         self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
                         ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," map ")
@@ -275,6 +279,8 @@ def update():
     time+=1
     maps.update()
 def on_key_down(key):
+    if key==keys.ESCAPE:
+
     pass
 def on_mouse_down(pos,button):
     if start.title_mode==title_mode["execution"]:
