@@ -4,6 +4,7 @@ import random
 import os
 import math
 from Unit import *#Units
+from enu import cldt,title_mode
 import numpy as np 
 HEIGHT=900
 WIDTH=900
@@ -14,7 +15,7 @@ WHITE=(255,255,255)
 BACK=-1
 NOT_BACK=0
 
-title_mode={"START":0,"execution":1,"CONTINUATION":2,"EXPLANATION":3}
+
 class Buttan:
     def __init__(self,color,pos,scope,txt):
         self.txt=txt
@@ -33,15 +34,14 @@ class Buttan:
         if key==self.key:
             return True
         return False
-    def collidepoint(self,pos,key):
-        if key==mouse.LEFT or key==mouse.RIGHT:
-            if(self.pos[0]<=pos[0] and pos[0]<=self.pos[0]+self.scope[0] and self.pos[1]<=pos[1] and pos[1]<=self.pos[1]+self.scope[1]):
-                return True
+    def collidepoint(self,pos):
+        if(self.pos[0]<=pos[0] and pos[0]<=self.pos[0]+self.scope[0] and self.pos[1]<=pos[1] and pos[1]<=self.pos[1]+self.scope[1]):
+            return True
         return False
 
 class Start:
     def __init__(self):
-        self.title_mode=title_mode["START"]
+        self.title_mode=title_mode.START
         self.start=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"START")
         self.conit=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"CONTINUATION")
         self.exp=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"EXPLANATION")
@@ -49,47 +49,43 @@ class Start:
         self.exo_txt+="\n"
         self.exo_txt+="\n"
     def set_start(self):
-        self.title_mode=title_mode["START"]
+        self.title_mode=title_mode.START
     def draw(self):
-        if self.title_mode==title_mode["START"]:
+        if self.title_mode==title_mode.START:
             screen.fill((128, 0, 0))
             screen.draw.text("RUZYEF",(WIDTH/2-200,HEIGHT/3-100),fontname='fugazone_regular.ttf',color=BLACK,fontsize=100)
             self.start.draw()
             self.conit.draw()
             self.exp.draw()
-        elif self.title_mode==title_mode["execution"]:
+        elif self.title_mode==title_mode.execution:
             return
-        elif self.title_mode==title_mode["CONTINUATION"]:
+        elif self.title_mode==title_mode.CONTINUATION:
             screen.fill((255,255,0))
             screen.draw.text("chachachachara\nchachachachara",(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
-        elif self.title_mode==title_mode["EXPLANATION"]:
+        elif self.title_mode==title_mode.EXPLANATION:
             screen.fill(WHITE)
             screen.draw.text(self.exo_txt,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
-    def mouse_down(self,pos,key):
-        if self.title_mode==title_mode["START"]:
-            if self.start.collidepoint(pos,key):
-                self.title_mode=title_mode["execution"]
-            elif self.conit.collidepoint(pos,key):
-                self.title_mode=title_mode["CONTINUATION"]
-            elif self.exp.collidepoint(pos,key):
-                self.title_mode=title_mode["EXPLANATION"]
-        elif self.title_mode==title_mode["execution"]:
+    def mouse_down(self,pos):
+        if self.title_mode==title_mode.START:
+            if self.start.collidepoint(pos):
+                self.title_mode=title_mode.execution
+            elif self.conit.collidepoint(pos):
+                self.title_mode=title_mode.CONTINUATION
+            elif self.exp.collidepoint(pos):
+                self.title_mode=title_mode.EXPLANATION
+        elif self.title_mode==title_mode.execution:
             pass
-        elif self.title_mode==title_mode["CONTINUATION"]:
-            if key==mouse.LEFT or key==mouse.RIGHT:
-                self.title_mode=title_mode["START"]
-        elif self.title_mode==title_mode["EXPLANATION"]:
-            if key==mouse.LEFT or key==mouse.RIGHT:
-                self.title_mode=title_mode["START"]
+        elif self.title_mode==title_mode.CONTINUATION or self.title_mode==title_mode.EXPLANATION:
+                self.title_mode=title_mode.START
 class Maps:
     def __init__(self):
         self.mode=-1
         self.list=[tesmap(),test(),Map([900,900])]
         self.set_buttan()
         self.pov=[0,0]
-        self.return_buttan_list=[#Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
-                                #,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," map ")
-                                #,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
+        self.ret=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"return")
+        self.set=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"setting")
+        self.menu=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60]," menu ")
         self.return_mode=False
     def set_buttan(self):
         self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
@@ -110,25 +106,42 @@ class Maps:
             if(self.pov[0]<0):
                 self.pov[0] += 10
         self.list[self.mode].units.set_pov([self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]])
-    def mouse_down(self,pos,key):
+    def mouse_down(self,pos):
         if self.mode==-1:
-            if key==mouse.LEFT or key==mouse.RIGHT:
-                i=0
-                for obj in self.buttan_list:
-                    if obj.collidepoint(pos,key):
-                        self.mode=i
-                    i+=1
-                if self.mode==2:
+            i=0
+            for obj in self.buttan_list:
+                if obj.collidepoint(pos):
+                    self.mode=i
+                i+=1
+            if self.mode==2:
+                self.mode=-1
+                return BACK
+        else:
+            if self.return_mode:
+                if self.ret.collidepoint(pos):
+                    self.return_mode=False
+                if self.set.collidepoint(pos):
+                    pass
+                if self.menu.collidepoint(pos):
                     self.mode=-1
-                    return BACK
+            else:
+                self.list[self.mode].units.mouse_down(pos)
         return NOT_BACK
+    def key_down(self,key):
+        if key==keys.ESCAPE:
+            self.return_mode=not self.return_mode
     def draw(self):
-        screen.fill((172,172,172))
         if self.mode==-1:
+            screen.fill((172,172,172))
             for obj in self.buttan_list:
                 obj.draw()
         else:
             self.list[self.mode].draw(self.pov)
+            if self.return_mode:
+                screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
+                self.ret.draw()
+                self.set.draw()
+                self.menu.draw()
 class Map:
     def __init__(self,wide):
         self.rect=Rect((0,0),(wide[0],wide[1]))
@@ -271,7 +284,7 @@ start=Start()
 time=0
 def draw():
     start.draw()
-    if start.title_mode==title_mode["execution"]:
+    if start.title_mode==title_mode.execution:
         maps.draw()
     
 def update():
@@ -279,15 +292,14 @@ def update():
     time+=1
     maps.update()
 def on_key_down(key):
-    if key==keys.ESCAPE:
-
-    pass
+    maps.key_down(key)
 def on_mouse_down(pos,button):
-    if start.title_mode==title_mode["execution"]:
-        if BACK==maps.mouse_down(pos,button):
-            start.set_start()
-    else:
-        start.mouse_down(pos,button)
+    if button==mouse.LEFT or button==mouse.RIGHT:
+        if start.title_mode==title_mode.execution:
+            if BACK==maps.mouse_down(pos):
+                start.set_start()
+        else:
+            start.mouse_down(pos)
 
 
 
