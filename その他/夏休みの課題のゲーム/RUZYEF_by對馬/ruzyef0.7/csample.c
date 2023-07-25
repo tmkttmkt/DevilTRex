@@ -74,7 +74,7 @@ int cfunc(int *date,int wei,int hei,int loc_x,int loc_y,int pos_x,int pos_y){
         cost=usi->cost;
         usi++;
         nokori--;
-        printf(" %d ",mae-sen);
+        //printf(" %d ",mae-sen);
         for(i=0;i<AR;i++){
             tot_x+=arry[i][0];
             tot_y+=arry[i][1];
