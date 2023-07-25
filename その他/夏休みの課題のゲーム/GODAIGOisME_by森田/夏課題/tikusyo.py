@@ -13,11 +13,14 @@ player_y = 0
 player_speed_x = 5
 player_speed_y = 0
 player_angle = 1
-angles = 1
+angles = 0
+hiku = 0.8
+max_angle = 100
 gravity = 0.5
 owari = False
 hajime = False
 
+angles = max_angle
 ball=Actor('baka')
 
 def on_key_down(key):
@@ -25,7 +28,7 @@ def on_key_down(key):
     hajime = True
         
 def update():
-    global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles,owari,hajime
+    global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles,owari,hajime,hiku
     if hajime == True:
         print(player_speed_x)
         if(player_speed_x >= 10):
@@ -33,7 +36,7 @@ def update():
         player_x += player_speed_x
         player_y += player_speed_y
         if owari == False:
-            player_angle += 15
+            angles -= hiku
         player_speed_y += gravity
 
         if player_y >= HEIGHT - 20:
@@ -53,7 +56,7 @@ def update():
             player_speed_x = 5
             player_speed_y = 0
             player_angle = 1
-            angles = 1
+            angles = max_angles
             gravity = 0.5
             owari = False
 def draw():
@@ -62,6 +65,6 @@ def draw():
     screen.fill((255, 255, 255))
     ball.x = player_x
     ball.y = player_y
-    ball.angle = player_angle
+    ball.angle += angles
     ball.draw()
 pgzrun.go()
