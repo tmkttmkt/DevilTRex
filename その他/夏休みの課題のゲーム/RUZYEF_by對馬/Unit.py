@@ -21,6 +21,8 @@ class Unit(Actor):
         super().__init__('tank_syo',center=(x,y))
         self.point=[x,y]
         self.goal=goal.defense
+    def mouse_down(self,pos):
+        pass
     def move(self,pos):
         pass
 

@@ -15,6 +15,59 @@ WHITE=(255,255,255)
 BACK=-1
 NOT_BACK=0
 
+class Time_sys:
+    def __init__(self,now_time):
+        self.time=now_time+[0]
+        self.speed=1
+        self.pos=(10,10)
+        self.scope=(170,50+50)
+        self.stop=Smol_Buttan(WHITE,(20,20),(30,30),"||",0)
+        self.sp1=Smol_Buttan(WHITE,(20+30+10,20),(30,30)," <",1)
+        self.sp2=Smol_Buttan(WHITE,(20+(30+10)*2,20),(30,30),"<<",2)
+        self.sp3=Smol_Buttan(WHITE,(20+(30+10)*3,20),(30,30),"<<<",4)
+
+    def draw(self):
+        screen.draw.filled_rect(Rect(self.pos,self.scope),(128,64,64))
+        self.stop.draw(self.speed)
+        self.sp1.draw(self.speed)
+        self.sp2.draw(self.speed)
+        self.sp3.draw(self.speed)
+        screen.draw.text(self.time_text(),(10,60),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=30)
+    def mouse_down(self,pos):
+        if(self.pos[0]<=pos[0] and pos[0]<=self.pos[0]+self.scope[0] and self.pos[1]<=pos[1] and pos[1]<=self.pos[1]+self.scope[1]):
+            if self.stop.collidepoint(pos):
+                self.speed=0
+            elif self.sp1.collidepoint(pos):
+                self.speed=1
+            elif self.sp2.collidepoint(pos):
+                self.speed=2
+            elif self.sp3.collidepoint(pos):
+                self.speed=4
+            return True
+        return False
+    def time_text(self):
+        return str(self.time[0])+"/"+str(self.time[1])+"月"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])
+    def update(self):
+        self.time[5]+=self.speed
+        if self.time[5]>60:
+            self.time[5]-=60
+            self.time[4]+=1
+            if self.time[4]>60:
+                self.time[4]-=60
+                self.time[3]+=1
+                if self.time[3]>24:
+                    self.time[4]-=60
+                    self.time[3]+=1     
+    def key_down(self,key):
+        if key==keys.K_1:
+            self.speed=1
+        elif key==keys.K_2:
+            self.speed=2
+        elif key==keys.K_3:
+            self.speed=4
+        elif key==keys.K_0:
+            self.speed=0
+
 
 class Buttan:
     def __init__(self,color,pos,scope,txt):
@@ -38,7 +91,14 @@ class Buttan:
         if(self.pos[0]<=pos[0] and pos[0]<=self.pos[0]+self.scope[0] and self.pos[1]<=pos[1] and pos[1]<=self.pos[1]+self.scope[1]):
             return True
         return False
-
+class Smol_Buttan(Buttan):
+    def __init__(self,color,pos,scope,txt,mode):
+        self.mode=mode
+        super().__init__(color,pos,scope,txt)
+    def draw(self,speed):
+        super().draw()
+        if speed==self.mode:
+            screen.draw.rect(self.rect,(255,0,0))
 class Start:
     def __init__(self):
         self.title_mode=title_mode.START
@@ -80,7 +140,7 @@ class Start:
 class Maps:
     def __init__(self):
         self.mode=-1
-        self.list=[tesmap(),test(),Map([900,900])]
+        self.list=[tesmap(),test()]
         self.set_buttan()
         self.pov=[0,0]
         self.ret=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"return")
@@ -105,7 +165,9 @@ class Maps:
         if keyboard.a:
             if(self.pov[0]<0):
                 self.pov[0] += 10
-        self.list[self.mode].units.set_pov([self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]])
+        if self.mode!=-1:
+            self.list[self.mode].time.update()
+            self.list[self.mode].units.set_pov([self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]])
     def mouse_down(self,pos):
         if self.mode==-1:
             i=0
@@ -125,9 +187,11 @@ class Maps:
                 if self.menu.collidepoint(pos):
                     self.mode=-1
             else:
-                self.list[self.mode].units.mouse_down(pos)
+                if not self.list[self.mode].time.mouse_down(pos):
+                    self.list[self.mode].units.mouse_down(pos)
         return NOT_BACK
     def key_down(self,key):
+        self.list[self.mode].time.key_down(key)
         if key==keys.ESCAPE:
             self.return_mode=not self.return_mode
     def draw(self):
@@ -137,13 +201,14 @@ class Maps:
                 obj.draw()
         else:
             self.list[self.mode].draw(self.pov)
+            self.list[self.mode].time.draw()
             if self.return_mode:
                 screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
                 self.ret.draw()
                 self.set.draw()
                 self.menu.draw()
 class Map:
-    def __init__(self,wide):
+    def __init__(self,wide,time):
         self.rect=Rect((0,0),(wide[0],wide[1]))
         self.date= np.array([[1 for i in range(self.rect[2])] for j in range(self.rect[3])])
         self.draw_date=pygame.Surface((self.rect[2],self.rect[3]), flags=0)
@@ -151,6 +216,7 @@ class Map:
         self.color=[(0,0,0),(0,255,0),(0,128,255),(32,32,32),(128,64,0),(0,128,0),(128,128,128)]
         self.draw_date.fill(self.color[1],None, special_flags=0)
         self.units=Units()
+        self.time=Time_sys(time)
     def setdate(self,name):
         source=pygame.image.load(os.path.join('images', name))
         source=source.convert()
@@ -221,7 +287,6 @@ class Map:
         y_min=self.rect[3]
         y_max=0
         for pos in fpos:
-            print(pos)
             if(pos[0]<x_min):
                 x_min=pos[0]
             if(pos[0]>x_max):
@@ -230,11 +295,9 @@ class Map:
                 y_min=pos[1]
             if(pos[1]>y_max):
                 y_max=pos[1]
-        print(x_min,x_max,y_min,y_max)
         xr=(x_max-x_min)/2
         yr=(y_max-y_min)/2
         cen=[(x_max+x_min)/2,(y_max+y_min)/2]
-        print(cen,xr,yr)
         for y in range(y_min,y_max):
             for x in range(x_min,x_max):
                 siki=((x-cen[0])/xr)**2+((y-cen[1])/yr)**2
@@ -253,11 +316,11 @@ class test(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
         wide_rect=source.get_clip()
-        super().__init__([wide_rect[2],wide_rect[3]])
+        super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
         self.setdate('test.png')  
 class tesmap(Map):
     def __init__(self):
-        super().__init__([1000,1000])
+        super().__init__([1000,1000],[43,7,3,7,30])
         
         self.en([0,50],10,2)
         self.sen([0,50],[100,400],10,2)
@@ -281,18 +344,16 @@ class tesmap(Map):
         self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
 maps=Maps()
 start=Start()
-time=0
 def draw():
     start.draw()
     if start.title_mode==title_mode.execution:
         maps.draw()
     
 def update():
-    global time,maps
-    time+=1
     maps.update()
 def on_key_down(key):
     maps.key_down(key)
+    time_sys.key_down(key)
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
         if start.title_mode==title_mode.execution:
