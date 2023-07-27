@@ -68,10 +68,13 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
             else if(*date==2)point_cost=10.0;
             cost+=(int)(sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost*10);
             if(tot_x==pos_x && tot_y==pos_y){
+                    new->pos[0]=tot_x;
+                    new->pos[1]=tot_y;
+                    new->mae=naw;
                     nokori=0;
                     break;
             }
-            if(new==sen+900*900-1){
+            if(new==sen+900*900*10-1){
                 free(sen);
                 free(cost_map);
                 return -2;
@@ -88,16 +91,23 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
             }
         }
     }
+    i=0;
+    date=date_start;
+    cost_map=at_cost_map;
     do{
         *date=new->pos[0];
         date++;
         *date=new->pos[1];
         date++;
         i++;
+        printf("\n(%d,%d)",*(date-1),*date);
         new=new->mae;
+        printf("\ncc\n");
     }while(new != sen);
+    printf("\nbb\n");
     free(cost_map);
     free(sen);
+    printf("\naa\n");
     return i;
 }
     void tree(struct pas *new){

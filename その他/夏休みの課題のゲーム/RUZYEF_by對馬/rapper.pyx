@@ -23,7 +23,6 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
     lis=[]
     if num>0:
         lis=np.array(date_list1[:num*2]).reshape(-1,2)
-        lis=np.append(lis, [pos], axis=0)
     print()
     print(num,lis)
     print(time()-start)

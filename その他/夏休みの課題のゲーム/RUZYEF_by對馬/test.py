@@ -21,7 +21,7 @@ ti=0
 def sort(pos):
     global date
     start=time()
-    lis=call_move_func(date,[500,500],pos,[0,0])
+    lis=call_move_func(date,[500,500],[501,501],[0,0])
     print(time()-start)
     if len(lis)>0:
         pygame.draw.line(draw_date,(255,255,255),[500,500],[lis[0][0],lis[0][1]], width=1)
