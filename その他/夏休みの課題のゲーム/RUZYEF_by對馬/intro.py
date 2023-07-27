@@ -67,8 +67,6 @@ class Time_sys:
             self.speed=4
         elif key==keys.K_0:
             self.speed=0
-
-
 class Buttan:
     def __init__(self,color,pos,scope,txt):
         self.txt=txt
@@ -168,7 +166,7 @@ class Maps:
         if self.mode!=-1:
             self.list[self.mode].time.update()
             self.list[self.mode].units.set_pov([self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]])
-    def mouse_down(self,pos):
+    def mouse_down(self,pos,button):
         if self.mode==-1:
             i=0
             for obj in self.buttan_list:
@@ -188,19 +186,19 @@ class Maps:
                     self.mode=-1
             else:
                 if not self.list[self.mode].time.mouse_down(pos):
-                    self.list[self.mode].units.mouse_down(pos)
+                    self.list[self.mode].units.mouse_down(pos,button)
         return NOT_BACK
     def key_down(self,key):
         self.list[self.mode].time.key_down(key)
         if key==keys.ESCAPE:
             self.return_mode=not self.return_mode
-    def draw(self):
+    def draw(self,screen):
         if self.mode==-1:
             screen.fill((172,172,172))
             for obj in self.buttan_list:
                 obj.draw()
         else:
-            self.list[self.mode].draw(self.pov)
+            self.list[self.mode].draw(self.pov,screen)
             self.list[self.mode].time.draw()
             if self.return_mode:
                 screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
@@ -228,9 +226,9 @@ class Map:
                     if set_color==self.draw_date.get_at((x, y)):
                         self.date[y,x]=i
                     i+=1
-    def draw(self,pov):
+    def draw(self,pov,screen):
         screen.blit(self.draw_date,(pov[0],pov[1]))
-        self.units.draw()
+        self.units.draw(screen)
     def sen(self,pos,go_pos,haba,setd):
         haba/=2
         xsen=(pos[0]-go_pos[0])
@@ -347,7 +345,7 @@ start=Start()
 def draw():
     start.draw()
     if start.title_mode==title_mode.execution:
-        maps.draw()
+        maps.draw(screen)
     
 def update():
     maps.update()
@@ -357,7 +355,7 @@ def on_key_down(key):
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
         if start.title_mode==title_mode.execution:
-            if BACK==maps.mouse_down(pos):
+            if BACK==maps.mouse_down(pos,button):
                 start.set_start()
         else:
             start.mouse_down(pos)
