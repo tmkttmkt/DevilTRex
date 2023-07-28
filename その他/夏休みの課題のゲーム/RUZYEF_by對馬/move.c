@@ -45,7 +45,7 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
     naw->pos[0]=loc_x;
     naw->pos[1]=loc_y;
     naw->cost=cost;
-    naw->yte=(int)(sqrtf((loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y))*10);
+    naw->yte=(loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y);
     new++;
     printf("start\n");
     while(nokori>0){
@@ -57,7 +57,7 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
         last++;
         nokori--;
         printf("|%d,%d|",tot_x,tot_y);
-        printf("(%d,%d)",last-sen,naw-sen);
+        printf("(%d,%d)",last-sen,new-sen);
         for(i=0;i<16;i++){
             tot_x+=arry[i][0];
             tot_y+=arry[i][1];
@@ -66,7 +66,7 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
             cost_map=at_cost_map+tot_x+tot_y*900;
             if(*date==4)point_cost=2.0;
             else if(*date==2)point_cost=10.0;
-            cost+=(int)(sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost*10);
+            cost+=(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
             if(tot_x==pos_x && tot_y==pos_y){
                     new->pos[0]=tot_x;
                     new->pos[1]=tot_y;
@@ -85,10 +85,12 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
                 new->pos[0]=tot_x;
                 new->pos[1]=tot_y;
                 new->cost=cost;
-                new->yte=(int)(sqrtf(loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y)*10);
+                new->yte=(tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y);
                 new->mae=naw;
                 nokori++;
             }
+            tot_x-=arry[i][0];
+            tot_y-=arry[i][1];
         }
     }
     i=0;
@@ -118,6 +120,7 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
             struct pas *point=last,*exm=last;
             struct pas box;
             for(int i=1;i<num;i++){
+                point++;
                 if(point->yte+point->cost < exm->yte+exm->cost){
                     exm=point;
                 }
@@ -125,8 +128,9 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
                     if(point->yte < exm->yte)exm=point;
                 }
             }
-            box=*exm;
-            *exm=*point;
-            *point=box;
-            return exm;
+            box=*last;
+            *last=*exm;
+            *exm=box;
+            printf("\n||%d||",last->cost+last->yte);
+            return last;
     }
