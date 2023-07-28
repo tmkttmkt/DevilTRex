@@ -4,8 +4,8 @@
 struct pas
 {
         int pos[2];
-        int cost;
-        int yte;
+        float cost;
+        float yte;
         struct pas *oya;
         struct pas *R_ko;
         struct pas *L_ko;
@@ -15,19 +15,24 @@ struct pas
 };
 struct pas *next_point(struct pas *,int);
 void tree(struct pas *);
+double point_time=0.0;
+
 int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
     const int arry[16][2]={{1,1},{-1,1},{1,-1},{-1,-1},{1,0},{-1,0},{0,1},{0,-1},
                         {2,1},{1,2},{-2,1},{-1,2},{2,-1},{1,-2},{-2,-1},{-1,-2}};
     int nokori=1;
     struct pas *sen;
     struct pas *naw,*new,*last;
-    //struct pas box;
-    int cost=0;
-    int point_cost;
+    float cost=0;
+    float point_cost;
     int tot_x,tot_y;
     int i;
     int *date_start=date;
     int *cost_map,*at_cost_map;
+    double time1,time2;
+    double time,kitaku_time=0.0;
+    point_time=0.0;
+    time1=(double)clock() / CLOCKS_PER_SEC;
     if(loc_x==pos_x&&loc_y==pos_y){
         return -1;
     }
@@ -45,28 +50,32 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
     naw->pos[0]=loc_x;
     naw->pos[1]=loc_y;
     naw->cost=cost;
-    naw->yte=(loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y);
-    new++;
-    printf("start\n");
+    naw->yte=sqrtf((loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y));
+    time2=(double)clock() / CLOCKS_PER_SEC;
+    printf("c %f\n",time2-time1);
+    time1=(double)clock() / CLOCKS_PER_SEC;
     while(nokori>0){
-        printf("\n%d",nokori);
         naw=next_point(last,nokori);
+        time=(double)clock() / CLOCKS_PER_SEC;
         cost=naw->cost;
         tot_x=naw->pos[0];
         tot_y=naw->pos[1];
         last++;
         nokori--;
-        printf("|%d,%d|",tot_x,tot_y);
-        printf("(%d,%d)",last-sen,new-sen);
         for(i=0;i<16;i++){
             tot_x+=arry[i][0];
             tot_y+=arry[i][1];
-            point_cost=1.0;
+            if(tot_x<0 || tot_y<0 || tot_x>=900 || tot_y>=900){
+                tot_x-=arry[i][0];
+                tot_y-=arry[i][1];
+                continue;
+            }
             date=date_start+tot_x+tot_y*900;
             cost_map=at_cost_map+tot_x+tot_y*900;
+            point_cost=1.0;
             if(*date==4)point_cost=2.0;
             else if(*date==2)point_cost=10.0;
-            cost+=(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
+            cost+=sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
             if(tot_x==pos_x && tot_y==pos_y){
                     new->pos[0]=tot_x;
                     new->pos[1]=tot_y;
@@ -85,14 +94,20 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
                 new->pos[0]=tot_x;
                 new->pos[1]=tot_y;
                 new->cost=cost;
-                new->yte=(tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y);
+                new->yte=sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y));
                 new->mae=naw;
                 nokori++;
             }
+            cost-=sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
             tot_x-=arry[i][0];
             tot_y-=arry[i][1];
         }
+        kitaku_time+=(double)clock() / CLOCKS_PER_SEC;
+        kitaku_time-=time;
     }
+    time2=(double)clock() / CLOCKS_PER_SEC;
+    printf("c %f\n",time2-time1);
+    time1=(double)clock() / CLOCKS_PER_SEC;
     i=0;
     date=date_start;
     cost_map=at_cost_map;
@@ -102,14 +117,13 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
         *date=new->pos[1];
         date++;
         i++;
-        printf("\n(%d,%d)",*(date-1),*date);
         new=new->mae;
-        printf("\ncc\n");
     }while(new != sen);
-    printf("\nbb\n");
     free(cost_map);
     free(sen);
-    printf("\naa\n");
+    time2=(double)clock() / CLOCKS_PER_SEC;
+    printf("c %f\n",time2-time1);
+    printf("cc%f\ncc%f\n",point_time,kitaku_time);
     return i;
 }
     void tree(struct pas *new){
@@ -119,6 +133,8 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
         {
             struct pas *point=last,*exm=last;
             struct pas box;
+            double time;
+            time=(double)clock() / CLOCKS_PER_SEC;
             for(int i=1;i<num;i++){
                 point++;
                 if(point->yte+point->cost < exm->yte+exm->cost){
@@ -131,6 +147,7 @@ int func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
             box=*last;
             *last=*exm;
             *exm=box;
-            printf("\n||%d||",last->cost+last->yte);
+            point_time+=(double)clock() / CLOCKS_PER_SEC;
+            point_time-=time;
             return last;
     }

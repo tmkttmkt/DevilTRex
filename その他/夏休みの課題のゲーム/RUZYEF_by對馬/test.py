@@ -15,14 +15,14 @@ import pgzrun
 import pygame
 HEIGHT=900
 WIDTH=900
-date=np.array([[rd.randint(0,10) for i in range(900)] for j in range(900)])
+date=np.array([[rd.randint(1,1) for i in range(900)] for j in range(900)])
 draw_date=pygame.Surface((900,900), flags=0)
 ti=0
 def sort(pos):
     global date
     start=time()
-    lis=call_move_func(date,[500,500],[490,490],[0,0])
-    print(time()-start)
+    lis=call_move_func(date,[500,500],pos,[0,0])
+    print("all",time()-start)
     if len(lis)>0:
         pygame.draw.line(draw_date,(255,255,255),[500,500],[lis[0][0],lis[0][1]])
         for i in range(len(lis)-1):
