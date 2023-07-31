@@ -24,9 +24,10 @@ def sort(pos):
     lis=call_move_func(date,[500,500],pos,[0,0])
     print("all",time()-start)
     if len(lis)>0:
-        pygame.draw.line(draw_date,(255,255,255),[500,500],[lis[0][0],lis[0][1]])
+        naw=[500+lis[0][0],500+lis[0][1]]
+        pygame.draw.line(draw_date,(255,255,255),[500,500],naw)
         for i in range(len(lis)-1):
-            pygame.draw.line(draw_date,(255,255,255),[lis[i][0],lis[i][1]],[lis[i+1][0],lis[i+1][1]])
+            pygame.draw.line(draw_date,(255,255,255),naw,naw+lis[i])
 def draw():
     screen.fill((255,0,0))
     screen.blit(draw_date,(0,0))

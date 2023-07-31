@@ -21,9 +21,9 @@ class Time_sys:
         self.speed=1
         self.pos=(10,10)
         self.scope=(170,50+50)
-        self.stop=Smol_Buttan(WHITE,(20,20),(30,30),"||",0)
+        self.stop=Smol_Buttan(WHITE,(20,20),(30,30)," ||",0)
         self.sp1=Smol_Buttan(WHITE,(20+30+10,20),(30,30)," <",1)
-        self.sp2=Smol_Buttan(WHITE,(20+(30+10)*2,20),(30,30),"<<",2)
+        self.sp2=Smol_Buttan(WHITE,(20+(30+10)*2,20),(30,30)," <<",2)
         self.sp3=Smol_Buttan(WHITE,(20+(30+10)*3,20),(30,30),"<<<",4)
 
     def draw(self):
@@ -165,7 +165,8 @@ class Maps:
                 self.pov[0] += 10
         if self.mode!=-1:
             self.list[self.mode].time.update()
-            self.list[self.mode].units.set_pov([self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]])
+            self.list[self.mode].units.set_pov(moto_pov)
+            self.list[self.mode].units.update()
     def mouse_down(self,pos,button):
         if self.mode==-1:
             i=0
@@ -213,7 +214,7 @@ class Map:
         #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
         self.color=[(0,0,0),(0,255,0),(0,128,255),(32,32,32),(128,64,0),(0,128,0),(128,128,128)]
         self.draw_date.fill(self.color[1],None, special_flags=0)
-        self.units=Units()
+        self.units=Units(self)
         self.time=Time_sys(time)
     def setdate(self,name):
         source=pygame.image.load(os.path.join('images', name))
