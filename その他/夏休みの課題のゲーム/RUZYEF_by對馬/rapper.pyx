@@ -22,13 +22,15 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
     lis=[]
     if num>0:
         lis=np.flipud(np.array(date_list1[:num*2]).reshape(-1,2))
+        print(lis)
         ind=len(lis)-1
-        while ind>0:
+        while ind>=0:
             lis[ind][0]-=lis[ind-1][0]
             lis[ind][1]-=lis[ind-1][1]
-        lis[0][0]-=pos_x
-        lis[0][1]-=pos_y
-    #print(lis)
+            ind-=1
+        lis[0][0]-=loc_x
+        lis[0][1]-=loc_y
+    print(lis)
     #print(num)
     print(" ",time()-start)
     return lis

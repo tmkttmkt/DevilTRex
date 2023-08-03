@@ -26,8 +26,10 @@ def sort(pos):
     if len(lis)>0:
         naw=[500+lis[0][0],500+lis[0][1]]
         pygame.draw.line(draw_date,(255,255,255),[500,500],naw)
-        for i in range(len(lis)-1):
-            pygame.draw.line(draw_date,(255,255,255),naw,naw+lis[i])
+        for i in range(len(lis)-1-1):
+            pygame.draw.line(draw_date,(255,255,255),naw,[naw[0]+lis[i+1][0],naw[1]+lis[i+1][1]])
+            naw[0]+=lis[i+1][0]
+            naw[1]+=lis[i+1][1]
 def draw():
     screen.fill((255,0,0))
     screen.blit(draw_date,(0,0))
