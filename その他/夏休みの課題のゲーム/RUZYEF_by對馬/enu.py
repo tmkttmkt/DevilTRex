@@ -7,6 +7,7 @@ class cldt(Enum):
     road=(128,64,0)
     woods=(0,128,0)
     urban=(128,128,128)
+#0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
 class goal(Enum):
     move=1
     speed_move=2

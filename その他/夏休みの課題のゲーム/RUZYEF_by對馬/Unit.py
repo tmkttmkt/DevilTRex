@@ -1,7 +1,7 @@
 from pgzero.actor import Actor
 from pgzero.keyboard import keyboard
 from pgzero.constants import mouse
-import math
+from math import sqrt
 #from pgzero.game import screen
 from rapper import call_move_func
 from enu import goal
@@ -47,7 +47,7 @@ class Unit(Actor):
         self.mouse=False
         self.goal=goal.defense
         self.point_list=[]
-        self.speed=1
+        self.speed=10
         self.nokori=(-1,-1)
     def draw(self,screen):
         super().draw()
@@ -67,26 +67,37 @@ class Unit(Actor):
         self.mouse=False
     def move(self,pos,pov,date):
         self.goal=goal.move
-        self.point_list=call_move_func(date,pos,self.center,pov)
+        self.point_list=call_move_func(date,self.center,pos,pov)
     def update(self):
-        if self.mode==goal.move:
-            if self.nokori==(-1,-1):
-                nokori=0
-            else:
-                nokori=sqrt((self.x-self.nokori[0])**2+(self.y-self.nokori[1])**2)
-            while(0<len(self.point_list)):
-                li=self.point_list.pop(0)
-                sya=sqrt(li[0]**2+li[1]**2)
-                nokori+=sya
-                if nokori<self.speed:
-                    self.x+=li[0]
-                    self.y+=li[1]
-                elif nokori>self.speed:
-                    self.nokori=(self.x+li[0],self.li[1])
-                    self.x+=(self.speed-(nokori-sya))*(li[0]/sya)
-                    self.y+=(self.speed-(nokori-sya))*(li[1]/sya)
+        if self.goal==goal.move:
+            if 0<len(self.point_list):
+                #print(self.nokori)
+                if self.nokori==(-1,-1):
+                    nokori=0
                 else:
+                    nokori=sqrt((self.nokori[0])**2+(self.nokori[1])**2)
+                    self.x=int(self.x+self.nokori[0])
+                    self.y=int(self.y+self.nokori[1])
+                    #print("a",self.nokori,(self.x,self.y))
                     self.nokori=(-1,-1)
+                while(0<len(self.point_list)):
+                    li=self.point_list.pop(0)
+                    sya=sqrt(li[0]**2+li[1]**2)
+                    nokori+=sya
+                    if nokori<self.speed:
+                        self.x+=li[0]
+                        self.y+=li[1]
+                    elif nokori>self.speed:
+                        x=(self.speed-(nokori-sya))*(li[0]/sya)
+                        y=(self.speed-(nokori-sya))*(li[1]/sya)
+                        self.nokori=(li[0]-x,li[1]-y)
+                        #print("b",(self.speed-(nokori-sya)),self.nokori)
+                        self.x+=x
+                        self.y+=y
+                        break
+                    #print(li,(self.x,self.y))
+            else:
+                self.goal=goal.defense
 
 
 

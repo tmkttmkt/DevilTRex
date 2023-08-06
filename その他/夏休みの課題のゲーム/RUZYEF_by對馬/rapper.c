@@ -19563,7 +19563,7 @@ __pyx_t_3 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __p
  *     print(lis)
  *     #print(num)
  *     print(" ",time()-start)             # <<<<<<<<<<<<<<
- *     return lis
+ *     return list(lis)
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -19606,11 +19606,13 @@ __pyx_t_3 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __p
   /* "rapper.pyx":36
  *     #print(num)
  *     print(" ",time()-start)
- *     return lis             # <<<<<<<<<<<<<<
+ *     return list(lis)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_lis);
-  __pyx_r = __pyx_v_lis;
+  __pyx_t_2 = PySequence_List(__pyx_v_lis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* "rapper.pyx":8

@@ -6,6 +6,8 @@ import math
 from Unit import *#Units
 from enu import cldt,title_mode
 import numpy as np 
+import gc
+#gc.collect()
 HEIGHT=900
 WIDTH=900
 TITLE="RUZYEF"
@@ -352,7 +354,6 @@ def update():
     maps.update()
 def on_key_down(key):
     maps.key_down(key)
-    time_sys.key_down(key)
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
         if start.title_mode==title_mode.execution:

@@ -33,4 +33,4 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
     print(lis)
     #print(num)
     print(" ",time()-start)
-    return lis
+    return list(lis)
