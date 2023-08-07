@@ -6,6 +6,7 @@ import math
 from Unit import *#Units
 from enu import cldt,title_mode
 import numpy as np 
+import re
 import gc
 #gc.collect()
 HEIGHT=900
@@ -140,7 +141,7 @@ class Start:
 class Maps:
     def __init__(self):
         self.mode=-1
-        self.list=[tesmap(),test()]
+        self.map=Map([900,900],[0,0,0,0,0])
         self.set_buttan()
         self.pov=[0,0]
         self.ret=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"return")
@@ -154,29 +155,31 @@ class Maps:
     def update(self):
         moto_pov=[self.pov[0],self.pov[1]]
         if keyboard.s:
-            if(self.pov[1]>-(self.list[self.mode].rect[3]-HEIGHT)):
+            if(self.pov[1]>-(self.map.rect[3]-HEIGHT)):
                 self.pov[1] -= 10
         if keyboard.w:
             if(self.pov[1]<0):
                 self.pov[1] += 10
         if keyboard.d:
-            if(self.pov[0]>-(self.list[self.mode].rect[2]-WIDTH)):
+            if(self.pov[0]>-(self.map.rect[2]-WIDTH)):
                 self.pov[0]-= 10
         if keyboard.a:
             if(self.pov[0]<0):
                 self.pov[0] += 10
         if self.mode!=-1:
-            self.list[self.mode].time.update()
-            self.list[self.mode].units.set_pov(moto_pov)
-            self.list[self.mode].units.update()
+            self.map.time.update()
+            self.map.units.set_pov(moto_pov)
+            self.map.units.update()
     def mouse_down(self,pos,button):
         if self.mode==-1:
-            i=0
+            i=1
             for obj in self.buttan_list:
                 if obj.collidepoint(pos):
-                    self.mode=i
+                    map_class=globals(re.sub(" ","",obj.txt))
+                    self.mode=map_class
+                    break
                 i+=1
-            if self.mode==2:
+            if self.mode==len(self.buttan_list):
                 self.mode=-1
                 return BACK
         else:
@@ -188,11 +191,11 @@ class Maps:
                 if self.menu.collidepoint(pos):
                     self.mode=-1
             else:
-                if not self.list[self.mode].time.mouse_down(pos):
-                    self.list[self.mode].units.mouse_down(pos,button)
+                if not self.map.time.mouse_down(pos):
+                    self.map.units.mouse_down(pos,button)
         return NOT_BACK
     def key_down(self,key):
-        self.list[self.mode].time.key_down(key)
+        self.map.time.key_down(key)
         if key==keys.ESCAPE:
             self.return_mode=not self.return_mode
     def draw(self,screen):
@@ -201,8 +204,8 @@ class Maps:
             for obj in self.buttan_list:
                 obj.draw()
         else:
-            self.list[self.mode].draw(self.pov,screen)
-            self.list[self.mode].time.draw()
+            self.map.draw(self.pov,screen)
+            self.map.time.draw()
             if self.return_mode:
                 screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
                 self.ret.draw()
