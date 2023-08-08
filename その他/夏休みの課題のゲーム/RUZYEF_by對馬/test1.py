@@ -2,9 +2,10 @@ import pgzrun
 HEIGHT=900
 WIDTH=900
 ti=0
-tank=Actor('tank_syo',center=(100,100))
+tank=Actor('tank_syo',center=(0,0))
 def draw():
     screen.fill((255,0,0))
+    tank.draw()
 def update():
     global ti
     ti+=1

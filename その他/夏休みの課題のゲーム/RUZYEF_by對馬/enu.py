@@ -12,7 +12,8 @@ class goal(Enum):
     move=1
     speed_move=2
     fire=3
-    defense=4
+    precision_fire=4
+    defense=5
 class title_mode(Enum):
     START=0
     execution=1

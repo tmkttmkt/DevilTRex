@@ -9,14 +9,7 @@ import numpy as np
 import re
 import gc
 #gc.collect()
-HEIGHT=900
-WIDTH=900
-TITLE="RUZYEF"
-GRAY=(64,64,64)
-BLACK=(0,0,0)
-WHITE=(255,255,255)
-BACK=-1
-NOT_BACK=0
+from var import *
 
 class Time_sys:
     def __init__(self,now_time):
@@ -141,19 +134,18 @@ class Start:
 class Maps:
     def __init__(self):
         self.mode=-1
-        self.map=Map([900,900],[0,0,0,0,0])
-        self.set_buttan()
+        self.map=None
         self.pov=[0,0]
         self.ret=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"return")
         self.set=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"setting")
         self.menu=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60]," menu ")
         self.return_mode=False
-    def set_buttan(self):
+        self.state=None
         self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
-                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," map ")
+                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," nmap ")
                         ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
     def update(self):
-        moto_pov=[self.pov[0],self.pov[1]]
+        moto_pov=self.pov.copy()
         if keyboard.s:
             if(self.pov[1]>-(self.map.rect[3]-HEIGHT)):
                 self.pov[1] -= 10
@@ -166,22 +158,17 @@ class Maps:
         if keyboard.a:
             if(self.pov[0]<0):
                 self.pov[0] += 10
-        if self.mode!=-1:
-            self.map.time.update()
-            self.map.units.set_pov(moto_pov)
-            self.map.units.update()
+        if self.map!=None:
+            self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
     def mouse_down(self,pos,button):
-        if self.mode==-1:
-            i=1
+        if self.map==None:
             for obj in self.buttan_list:
                 if obj.collidepoint(pos):
-                    map_class=globals(re.sub(" ","",obj.txt))
-                    self.mode=map_class
+                    if obj.txt=="return":
+                        return  BACK
+                    map_class=globals().get(re.sub(" ","",obj.txt))
+                    self.map=map_class()
                     break
-                i+=1
-            if self.mode==len(self.buttan_list):
-                self.mode=-1
-                return BACK
         else:
             if self.return_mode:
                 if self.ret.collidepoint(pos):
@@ -189,17 +176,23 @@ class Maps:
                 if self.set.collidepoint(pos):
                     pass
                 if self.menu.collidepoint(pos):
-                    self.mode=-1
+                    self.return_mode=False
+                    self.map=None
             else:
                 if not self.map.time.mouse_down(pos):
-                    self.map.units.mouse_down(pos,button)
+                    obj=self.map.units.mouse_down(pos,button)
+                    if obj!=None:
+                        if obj==CHANGE:
+                            self.state=None
+                        else:
+                            self.state=Unit_state(obj)
         return NOT_BACK
     def key_down(self,key):
         self.map.time.key_down(key)
         if key==keys.ESCAPE:
             self.return_mode=not self.return_mode
     def draw(self,screen):
-        if self.mode==-1:
+        if self.map==None:
             screen.fill((172,172,172))
             for obj in self.buttan_list:
                 obj.draw()
@@ -211,6 +204,9 @@ class Maps:
                 self.ret.draw()
                 self.set.draw()
                 self.menu.draw()
+        if self.state!=None:
+            self.state.draw(screen)
+
 class Map:
     def __init__(self,wide,time):
         self.rect=Rect((0,0),(wide[0],wide[1]))
@@ -235,6 +231,10 @@ class Map:
     def draw(self,pov,screen):
         screen.blit(self.draw_date,(pov[0],pov[1]))
         self.units.draw(screen)
+    def update(self,pov):
+        self.time.update()
+        self.units.update()
+        self.units.set_pov(pov)
     def sen(self,pos,go_pos,haba,setd):
         haba/=2
         xsen=(pos[0]-go_pos[0])
@@ -322,7 +322,7 @@ class test(Map):
         wide_rect=source.get_clip()
         super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
         self.setdate('test.png')  
-class tesmap(Map):
+class nmap(Map):
     def __init__(self):
         super().__init__([1000,1000],[43,7,3,7,30])
         
@@ -360,7 +360,7 @@ def on_key_down(key):
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
         if start.title_mode==title_mode.execution:
-            if BACK==maps.mouse_down(pos,button):
+            if maps.mouse_down(pos,button)==BACK:
                 start.set_start()
         else:
             start.mouse_down(pos)
