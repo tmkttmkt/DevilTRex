@@ -145,21 +145,22 @@ class Maps:
                         ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," nmap ")
                         ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
     def update(self):
-        moto_pov=self.pov.copy()
-        if keyboard.s:
-            if(self.pov[1]>-(self.map.rect[3]-HEIGHT)):
-                self.pov[1] -= 10
-        if keyboard.w:
-            if(self.pov[1]<0):
-                self.pov[1] += 10
-        if keyboard.d:
-            if(self.pov[0]>-(self.map.rect[2]-WIDTH)):
-                self.pov[0]-= 10
-        if keyboard.a:
-            if(self.pov[0]<0):
-                self.pov[0] += 10
-        if self.map!=None:
-            self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
+        if not self.return_mode:
+            moto_pov=self.pov.copy()
+            if keyboard.s:
+                if(self.pov[1]>-(self.map.rect[3]-HEIGHT)):
+                    self.pov[1] -= 10
+            if keyboard.w:
+                if(self.pov[1]<0):
+                    self.pov[1] += 10
+            if keyboard.d:
+                if(self.pov[0]>-(self.map.rect[2]-WIDTH)):
+                    self.pov[0]-= 10
+            if keyboard.a:
+                if(self.pov[0]<0):
+                    self.pov[0] += 10
+            if self.map!=None:
+                self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
     def mouse_down(self,pos,button):
         if self.map==None:
             for obj in self.buttan_list:

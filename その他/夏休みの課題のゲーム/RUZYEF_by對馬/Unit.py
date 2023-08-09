@@ -44,7 +44,13 @@ class Units:
             if not flg:
                 for obj in self.list:
                     obj.fire(pos)
+                    obj.mouse_up()
                 ret_obj=CHANGE
+            else:
+                for obj in self.list:
+                    if obj!=ret_obj:
+                        obj.mouse_up()
+
         return ret_obj
     def set_pov(self,pov):
         for obj in self.list:
@@ -55,29 +61,36 @@ class Unit(Actor):
         self.mouse=False
         self.goal=goal.defense
         self.point_list=[]
-        self.fre_point=(-1,-1)
+        self.fire_point=(-1,-1)
         self.nokori=(-1,-1)
 
-        self.speed=10
+        self.speed=2
         self.armor=0
         self.soldier=12
         self.morale=1.0
-        self.guns=[]
+        self.guns=[Gun(12,0,1,3,100,60,900,1.5)]
         self.bullets=[]
     def set_pov(self,pov):
-        self.x-=pov[0]
-        self.y-=pov[1]
-        for bullet in self.bullets:
-            pass
+        self.x+=pov[0]
+        self.y+=pov[1]
+        for bul in self.bullets:
+            bul.x+=pov[0]
+            bul.y+=pov[1]
     def draw(self,screen):
         super().draw()
         if self.mouse:
             screen.draw.circle(self.center,10, (255,0,0))
-    def fire(self):
-        pass
+        for bul in self.bullets:
+            bul.draw()
+    def fire(self,pos):
+        if self.mouse:
+            self.fire_point=pos
+            self.goal=goal.fire
     def Left_down(self,pos):
-        self.mouse=self.collidepoint(pos)
-        return self.mouse
+        if self.collidepoint(pos):
+            self.mouse=True
+            return True
+        return False
     def Right_down(self,pos):
         if self.collidepoint(pos):
             self.mouse=True
@@ -126,15 +139,16 @@ class Unit(Actor):
         elif self.goal==goal.fire:
             if self.fire_point!=(-1,-1):
                 for gun in self.guns:
-                    gun.fire(self.center,self.fire_point)
+                    if gun.can:
+                        self.bullets.append(gun.fire(self.center,self.fire_point))
             else:
                 self.goal=goal.defense
         elif self.goal==goal.precision_fire:
             pass
         for gun in self.guns:
             gun.update()
-        for bullet in self.bullets:
-            bullet.update()
+        for bul in self.bullets:
+            bul.update()
 class Gun:
     def __init__(self,cal,explo,penet,wei,ran,inter,speed,hei):
         self.caliber=cal
@@ -151,27 +165,34 @@ class Gun:
         if not self.can:
             self.time+=1
             if self.interval<self.time:
+                self.time=0
                 self.can=True
     def fire(self,loc,pos):
-        if self.can:
-            sya=sqrt((loc[0]-pos[0])**2+(loc[1]-pos[1])**2)
-            seeta=acos((pos[0]-loc[0])/sya)
-            speed_x=self.bullet_speed*cos(seeta)
-            speed_y=self.bullet_speed*sin(seeta)
-            speed_z=1
-            speed=[speed_x,speed_y,speed_z]
-            return Bullet(loc,self.height,speed)
-        else :
-            return
+        sya=sqrt((loc[0]-pos[0])**2+(loc[1]-pos[1])**2)
+        seeta=acos((pos[0]-loc[0])/sya)
+        print(seeta)
+        speed_x=self.bullet_speed*cos(seeta)
+        speed_y=self.bullet_speed*sin(seeta)*-(loc[1]-pos[1])/fabs(loc[1]-pos[1])
+        """
+        speed_x=self.bullet_speed*((pos[0]-loc[0])/sya)
+        speed_y=self.bullet_speed*((pos[1]-loc[1])/sya)
+        """
+        speed_z=1
+        speed=[speed_x,speed_y,speed_z]
+        self.time=0
+        self.can=False
+        return Bullet(loc,self.height,speed)
 
 class Bullet(Actor):
     def __init__(self,pos,hei,speed) -> None:
-        self.hei=hei
-        self.speed=speed
         super().__init__('ho',center=pos)
+        self.z=hei
+        self.speed=list(map(lambda x: x*KERO_SCL*TIME_SCL,speed))
     def update(self):
         self.x+=self.speed[0]
         self.y+=self.speed[1]
+        self.speed[2]-=G
+        self.z+=self.speed[2]
         self.angle+=30
 
 class Unit_state:
