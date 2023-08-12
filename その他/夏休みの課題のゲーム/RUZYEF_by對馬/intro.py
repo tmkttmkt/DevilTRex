@@ -181,7 +181,9 @@ class Maps:
                     self.map=None
             else:
                 if not self.map.time.mouse_down(pos):
-                    obj=self.map.units.mouse_down(pos,button)
+                    obj=None
+                    for units in self.map.units_list:
+                        obj=units.mouse_down(pos,button)
                     if obj!=None:
                         if obj==CHANGE:
                             self.state=None
@@ -199,6 +201,7 @@ class Maps:
                 obj.draw()
         else:
             self.map.draw(self.pov,screen)
+            
             self.map.time.draw()
             if self.return_mode:
                 screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
@@ -216,7 +219,8 @@ class Map:
         #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
         self.color=[(0,0,0),(0,255,0),(0,128,255),(32,32,32),(128,64,0),(0,128,0),(128,128,128)]
         self.draw_date.fill(self.color[1],None, special_flags=0)
-        self.units=Units(self)
+        self.units_list=[Units(self)]
+        self.bullets=Bullets(self)
         self.time=Time_sys(time)
     def setdate(self,name):
         source=pygame.image.load(os.path.join('images', name))
@@ -231,11 +235,15 @@ class Map:
                     i+=1
     def draw(self,pov,screen):
         screen.blit(self.draw_date,(pov[0],pov[1]))
-        self.units.draw(screen)
+        self.bullets.draw()
+        for units in self.units_list:
+            units.draw(screen)
     def update(self,pov):
         self.time.update()
-        self.units.update()
-        self.units.set_pov(pov)
+        for units in self.units_list:
+            self.bullets.update()
+            self.bullets.add_Bullets(units.update(self.bullets.list))
+            units.set_pov(pov)
     def sen(self,pos,go_pos,haba,setd):
         haba/=2
         xsen=(pos[0]-go_pos[0])

@@ -7,10 +7,12 @@ from math import fabs, sqrt,cos,sin,asin,acos
 from var import *
 #from pgzero.game import screen
 from rapper import call_move_func
+import random
 from enu import goal
 class Units:
     def __init__(self,map):
         self.list=[Unit((HEIGHT/2,WIDTH/2)),Unit((HEIGHT/4,WIDTH/4)),Unit((HEIGHT/4,WIDTH/2)),Unit((HEIGHT/2,WIDTH/4))]
+        #self.command=command
         self.map=map
         self.pov=[0,0]
     def set_unit(self,pos):
@@ -18,9 +20,13 @@ class Units:
     def draw(self,screen):
         for obj in self.list:
             obj.draw(screen)
-    def update(self):
+    def update(self,list):
+        bullets=[]
         for obj in self.list:
-            obj.update()
+            bul=obj.update()
+            if bul!=None:
+                bullets+=bul
+        return bullets
     def mouse_down(self,pos,button):
         ret_obj=None
         if button==mouse.RIGHT:
@@ -52,6 +58,8 @@ class Units:
                         obj.mouse_up()
 
         return ret_obj
+    def set_unit(self,pos):
+        self.list.append(Unit(pos))
     def set_pov(self,pov):
         for obj in self.list:
             obj.set_pov(pov)
@@ -103,6 +111,8 @@ class Unit(Actor):
             self.goal=goal.move
             self.point_list=call_move_func(date,self.center,pos,pov)
     def update(self):
+        for gun in self.guns:
+            gun.update()
         if self.goal==goal.move:
             if 0<len(self.point_list):
                 #print(self.nokori)
@@ -110,8 +120,8 @@ class Unit(Actor):
                     nokori=0
                 else:
                     nokori=sqrt((self.nokori[0])**2+(self.nokori[1])**2)
-                    self.x=int(self.x+self.nokori[0])
-                    self.y=int(self.y+self.nokori[1])
+                    self.x=int(round(self.x+self.nokori[0],0))
+                    self.y=int(round(self.y+self.nokori[1],0))
                     #print("a",self.nokori,(self.x,self.y))
                     self.nokori=(-1,-1)
                 while(0<len(self.point_list)):
@@ -138,17 +148,16 @@ class Unit(Actor):
             pass
         elif self.goal==goal.fire:
             if self.fire_point!=(-1,-1):
+                bullets=[]
                 for gun in self.guns:
                     if gun.can:
-                        self.bullets.append(gun.fire(self.center,self.fire_point))
+                        bullets.append(gun.fire(self.center,self.fire_point))
+                        return bullets
+                return bullets
             else:
                 self.goal=goal.defense
         elif self.goal==goal.precision_fire:
             pass
-        for gun in self.guns:
-            gun.update()
-        for bul in self.bullets:
-            bul.update()
 class Gun:
     def __init__(self,cal,explo,penet,wei,ran,inter,speed,hei):
         self.caliber=cal
@@ -187,14 +196,51 @@ class Bullet(Actor):
     def __init__(self,pos,hei,speed) -> None:
         super().__init__('ho',center=pos)
         self.z=hei
-        self.speed=list(map(lambda x: x*KERO_SCL*TIME_SCL,speed))
+        self.speed=speed
+        self.speed[0]*=KERO_SCL*TIME_SCL
+        self.speed[1]*=KERO_SCL*TIME_SCL
+        self.speed[2]*=TIME_SCL
     def update(self):
         self.x+=self.speed[0]
         self.y+=self.speed[1]
         self.speed[2]-=G
         self.z+=self.speed[2]
         self.angle+=30
-
+class Bullets:
+    def __init__(self,map):
+        self.map=map
+        self.list=[]
+    def draw(self):
+        for bul in self.list:
+            bul.draw()
+    def update(self):
+        for bul in self.list:
+            bul.update()
+            pos=bul.center
+            pos=(int(round(pos[0],0)),int(round(pos[1],0)))
+            sta=self.map.date[pos[1],pos[0]]
+            print(sta,pos)
+            #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
+            if sta==2:
+                if bul.z<-1:
+                    self.list.remove(bul)
+                    continue
+            else:
+                if bul.z<0:
+                    self.list.remove(bul)
+                    continue
+            if sta==5:
+                if 1==random.randint(10):
+                    self.list.remove(bul)
+                    continue
+            elif sta==6:
+                if 1==random.randint(4):
+                    self.list.remove(bul)
+                    continue
+    def add_Bullets(self,bUl_list):
+        if list==type(bUl_list):
+            self.list+=bUl_list
+    
 class Unit_state:
     def __init__(self,unit:Unit):
         self.unit=unit
