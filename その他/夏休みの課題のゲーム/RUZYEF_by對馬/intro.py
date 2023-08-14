@@ -4,7 +4,7 @@ import random
 import os
 import math
 from Unit import *#Units
-from enu import cldt,title_mode
+from enu import title_mode
 import numpy as np 
 import re
 import gc
@@ -242,7 +242,7 @@ class Map:
         self.time.update()
         for units in self.units_list:
             self.bullets.update()
-            self.bullets.add_Bullets(units.update(self.bullets.list))
+            units.update(self.bullets.list)
             units.set_pov(pov)
     def sen(self,pos,go_pos,haba,setd):
         haba/=2

@@ -8,10 +8,10 @@ from var import *
 #from pgzero.game import screen
 from rapper import call_move_func
 import random
-from enu import goal
+from enu import goal,unit_type
 class Units:
     def __init__(self,map):
-        self.list=[Unit((HEIGHT/2,WIDTH/2)),Unit((HEIGHT/4,WIDTH/4)),Unit((HEIGHT/4,WIDTH/2)),Unit((HEIGHT/2,WIDTH/4))]
+        self.list=[Unit((HEIGHT/2,WIDTH/2),unit_type.infantry),Unit((HEIGHT/4,WIDTH/4),unit_type.infantry),Unit((HEIGHT/4,WIDTH/2),unit_type.infantry),Unit((HEIGHT/2,WIDTH/4),unit_type.infantry)]
         #self.command=command
         self.map=map
         self.pov=[0,0]
@@ -26,7 +26,9 @@ class Units:
             bul=obj.update()
             if bul!=None:
                 bullets+=bul
-        return bullets
+            for bul in list:
+                bul.collide(obj)
+        list+=bullets
     def mouse_down(self,pos,button):
         ret_obj=None
         if button==mouse.RIGHT:
@@ -63,8 +65,16 @@ class Units:
     def set_pov(self,pov):
         for obj in self.list:
             obj.set_pov(pov)
+class sov_ply(Units):
+    pass
+class sov(Units):
+    pass
+class ger_ply(Units):
+    pass
+class ger(Units):
+    pass
 class Unit(Actor):
-    def __init__(self,pos):
+    def __init__(self,pos,type:unit_type):
         super().__init__('sol_syo',center=pos)
         self.mouse=False
         self.goal=goal.defense
@@ -72,10 +82,12 @@ class Unit(Actor):
         self.fire_point=(-1,-1)
         self.nokori=(-1,-1)
 
+        self.type=type
         self.speed=2
         self.armor=0
         self.soldier=12
         self.morale=1.0
+        self.hei=2
         self.guns=[Gun(12,0,1,3,100,60,900,1.5)]
         self.bullets=[]
     def set_pov(self,pov):
@@ -191,7 +203,6 @@ class Gun:
         self.time=0
         self.can=False
         return Bullet(loc,self.height,speed)
-
 class Bullet(Actor):
     def __init__(self,pos,hei,speed) -> None:
         super().__init__('ho',center=pos)
@@ -206,6 +217,12 @@ class Bullet(Actor):
         self.speed[2]-=G
         self.z+=self.speed[2]
         self.angle+=30
+    def collide(self,obj):
+        if self.cllidepoint(obj.center):
+            if self.z<obj.hei:
+                if obj.type==unit_type.infantry:
+                    if 1==random.randint(10):
+                        pass
 class Bullets:
     def __init__(self,map):
         self.map=map
@@ -236,11 +253,7 @@ class Bullets:
             elif sta==6:
                 if 1==random.randint(4):
                     self.list.remove(bul)
-                    continue
-    def add_Bullets(self,bUl_list):
-        if list==type(bUl_list):
-            self.list+=bUl_list
-    
+                    continue   
 class Unit_state:
     def __init__(self,unit:Unit):
         self.unit=unit

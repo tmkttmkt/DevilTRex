@@ -19,4 +19,8 @@ class title_mode(Enum):
     execution=1
     CONTINUATION=2
     EXPLANATION=3
+class unit_type(Enum):
+    tank=1
+    artillery=1
+    infantry=1
 
