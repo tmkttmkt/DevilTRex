@@ -21,6 +21,13 @@ class title_mode(Enum):
     EXPLANATION=3
 class unit_type(Enum):
     tank=1
-    artillery=1
-    infantry=1
+    artillery=2
+    infantry=3
+class bullet_type(Enum):
+    #wartherで確認
+    HE=1
+    AP=2
+    ki_rifles=3
+    rifles=4
+
 

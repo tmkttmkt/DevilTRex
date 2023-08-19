@@ -12,11 +12,13 @@ import gc
 from var import *
 
 class Time_sys:
-    def __init__(self,now_time):
-        self.time=now_time+[0]
+    def __init__(self,nen,getu,now_time):
+        self.nen=nen
+        self.getu=getu
+        self.time=now_time+[0,0]
         self.speed=1
         self.pos=(10,10)
-        self.scope=(170,50+50)
+        self.scope=(170,50+100)
         self.stop=Smol_Buttan(WHITE,(20,20),(30,30)," ||",0)
         self.sp1=Smol_Buttan(WHITE,(20+30+10,20),(30,30)," <",1)
         self.sp2=Smol_Buttan(WHITE,(20+(30+10)*2,20),(30,30)," <<",2)
@@ -42,18 +44,21 @@ class Time_sys:
             return True
         return False
     def time_text(self):
-        return str(self.time[0])+"/"+str(self.time[1])+"月"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])
+        return str(self.nen)+"年"+str(self.getu)+"月\n"+str(self.time[0])+"日"+str(self.time[1])+":"+str(self.time[2])+":"+str(self.time[3])
     def update(self):
-        self.time[5]+=self.speed
-        if self.time[5]>60:
-            self.time[5]-=60
-            self.time[4]+=1
-            if self.time[4]>60:
-                self.time[4]-=60
-                self.time[3]+=1
-                if self.time[3]>24:
-                    self.time[4]-=60
-                    self.time[3]+=1     
+        self.time[4]+=self.speed
+        if self.time[4]>60:
+            self.time[4]-=60
+            self.time[3]+=1        
+            if self.time[3]>60:
+                self.time[3]-=60
+                self.time[2]+=1
+                if self.time[2]>60:
+                    self.time[2]-=60
+                    self.time[1]+=1
+                    if self.time[1]>24:
+                        self.time[1]-=24
+                        self.time[0]+=1    
     def key_down(self,key):
         if key==keys.K_1:
             self.speed=1
@@ -184,11 +189,11 @@ class Maps:
                     obj=None
                     for units in self.map.units_list:
                         obj=units.mouse_down(pos,button)
-                    if obj!=None:
-                        if obj==CHANGE:
-                            self.state=None
-                        else:
-                            self.state=Unit_state(obj)
+                        if obj!=None:
+                            if obj==CHANGE:
+                                self.state=None
+                            else:
+                                self.state=Unit_state(obj)
         return NOT_BACK
     def key_down(self,key):
         self.map.time.key_down(key)
@@ -212,16 +217,16 @@ class Maps:
             self.state.draw(screen)
 
 class Map:
-    def __init__(self,wide,time):
+    def __init__(self,wide,nen,getu,time):
         self.rect=Rect((0,0),(wide[0],wide[1]))
         self.date= np.array([[1 for i in range(self.rect[2])] for j in range(self.rect[3])])
         self.draw_date=pygame.Surface((self.rect[2],self.rect[3]), flags=0)
         #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
         self.color=[(0,0,0),(0,255,0),(0,128,255),(32,32,32),(128,64,0),(0,128,0),(128,128,128)]
         self.draw_date.fill(self.color[1],None, special_flags=0)
-        self.units_list=[Units(self)]
+        self.units_list=[]
         self.bullets=Bullets(self)
-        self.time=Time_sys(time)
+        self.time=Time_sys(nen,getu,time)
     def setdate(self,name):
         source=pygame.image.load(os.path.join('images', name))
         source=source.convert()
@@ -241,8 +246,8 @@ class Map:
     def update(self,pov):
         self.time.update()
         for units in self.units_list:
-            self.bullets.update()
             units.update(self.bullets.list)
+            self.bullets.update()
             units.set_pov(pov)
     def sen(self,pos,go_pos,haba,setd):
         haba/=2
@@ -329,12 +334,11 @@ class test(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
         wide_rect=source.get_clip()
-        super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
+        super().__init__([wide_rect[2],wide_rect[3]],43,7,[3,7,30])
         self.setdate('test.png')  
 class nmap(Map):
     def __init__(self):
-        super().__init__([1000,1000],[43,7,3,7,30])
-        
+        super().__init__([900,900],43,7,[3,7,30])
         self.en([0,50],10,2)
         self.sen([0,50],[100,400],10,2)
         self.en([100,400],10,2)
@@ -342,19 +346,26 @@ class nmap(Map):
         self.en([600,500],10,2)
         self.sen([600,500],[900,400],5,2)
         self.sen([600,500],[700,900],5,2)
-    
         self.sikaku([250,70],[390,140],6)
         self.sen([400,0],[300,100],5,4)
         self.sen([300,100],[900,100],5,4)
         self.sen([300,100],[290,400],5,4)
         self.sen([290,400],[200,800],5,4)
         self.sen([200,800],[100,900],5,4)
-
-
         self.sen([300,0],[200,900],10,3)
-
         self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
         self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
+        g=ger(self)
+        g.set_unit((300,100),Kar98k_syo)
+        g.set_unit((600,400),Kar98k_syo)
+        g.set_unit((200,400),Kar98k_syo)
+        sp=sov_ply(self)
+        sp.set_unit((300,800),mosin_syo)
+        sp.set_unit((570, 530),mosin_syo)
+        sp.set_unit((65, 450),mosin_syo)
+        sp.set_unit((450, 450),test_syo)
+        #プレイヤーは後ろ
+        self.units_list+=[sp,g]
 maps=Maps()
 start=Start()
 def draw():
