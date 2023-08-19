@@ -3,14 +3,12 @@ import pygame
 from pygame import Vector2
 import pgzrun
 
-WIDTH = 1600
+WIDTH = 600
 HEIGHT = 600
 GRAVITY = 0.5
 
 player_x = 110
 player_y = 600
-x2 = 0
-y2 = 0
 player_speed_x = 5
 player_speed_y = 5
 player_speed_x2 = 5
@@ -27,20 +25,31 @@ owari = False
 hajime = False
 tobu = False
 root = 0
-x3 = 0
-y3 = 0
-target_x = None
-target_y = None
+gauge_value = 19
+max_gauge = 10
 kyori = 100
-flg = 1
+flg = True
+angle_mode = False
 angles = max_angle
 ball=Actor('baka',(0,-1600))
+gauge_speed = 0.3
+font_value = 0
+kiroku = 0
 
 def update():
-    global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles,owari,hajime,hiku,root,tobu,x3,y3,kyori,player_speed_x2,player_speed_y2,target_x,target_y,angle3
+    global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles
+    global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
+    global player_speed_y2,target_x,target_y,angle3,flg,root2,angle_mode,gauge_value,font_value,kiroku
+
+    gauge_value += gauge_speed
+
+    if gauge_value >= max_gauge:
+        gauge_value = 0
     
     if hajime == True:
-        print(player_y)
+        if player_x > WIDTH:
+            player_x = 0
+            kiroku += 600
         if player_angle > 0:
             player_angle -= hiku
         else:
@@ -65,46 +74,43 @@ def update():
                     gravity = 0
                     owari = True
         if tobu == False:
-            x2 = mouse_x - player_x
-            y2 = mouse_y - player_y
-            root = math.sqrt(x2**2 + y2**2)
             #if root > 0:
-            x3 = (x2 / root) * player_speed_x2
-            y3 = (y2 / root) * player_speed_y2
-            player_x += x3
-            player_y += y3
+            if flg == True:
+                root2 = math.atan2(player_y - mouse_y,mouse_x - player_x)
+                flg = False
+            player_x += player_speed_x2 * math.cos(root2)
+            player_y -= player_speed_y2 * math.sin(root2)
             kyori -= 1
             if kyori == 0:
                 tobu = True
-            #player_y = mouse_y * player_speed_y * 0.5
-            #x2 = ball.x - mouse_x
-            #x2 = x2 ** 2
-            #y2 = ball.y - mouse_y
-            #y2 = y2 ** 2
-            #root1 = math.sqrt(x2)
-            #root2 = math.sqrt(y2)
-            #player_y -= root2 + player_speed_y
-            #player_x -= root1 + player_speed_x
-            
+        if angle_mode == True and owari == True:
+            font_max = int(kiroku)
+            if font_value < font_max:
+                font_value += 3
     else:
         player_x = 110
         player_y = 300
 def draw():
-    global player_x,player_y,player_angle
+    global player_x,player_y,player_angle,angle_mode
     screen.clear()
     screen.fill((255, 255, 255))
+    gauge_width =  HEIGHT * gauge_value / max_gauge
+    gauge_width = min(gauge_width,HEIGHT - 102)
+    gauge_x = 20
+    gauge_rect = Rect(WIDTH//2 - 50,HEIGHT - gauge_width, 50,gauge_width)
+    screen.draw.rect(Rect((220, 100), (200, 600)),(0,0,0))
+    screen.draw.filled_rect(gauge_rect, (0, 255, 0))
     ball.x = player_x
     ball.y = player_y
     ball.angle = angles
     ball.draw()
-    #ball_center_x, ball_center_y = ball.pos
-    #delta_y = cursor_y - ball_center_y
-    #delta_x = cursor_x - ball_center_x
-    #angle_radians = math.atan2(delta_y, delta_x)
-    #height = math.tan(angle_radians) * delta_x
-    
+    if angle_mode == False:
+        screen.draw.text("覚悟をみせろ",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
+    if angle_mode == True and owari == True:
+        screen.draw.text("結果" + str(font_value) + "m",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
 def on_mouse_down(pos,button):
-    global mouse_x, mouse_y,x2,y2,root,flg,hajime
+    global mouse_x, mouse_y,x2,y2,root,flg,hajime,angle_mode
+    angle_mode = True
     hajime = True
     #if tobu == False and flg == 1:
     mouse_y = pos[1]
