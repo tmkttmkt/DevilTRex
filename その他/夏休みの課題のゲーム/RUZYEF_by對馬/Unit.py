@@ -1,4 +1,6 @@
+from ast import List
 import re
+from turtle import back
 from pgzero.actor import Actor
 from pgzero.keyboard import keyboard
 from pgzero.constants import mouse
@@ -6,8 +8,9 @@ from pgzero.rect import Rect
 from math import fabs, sqrt,cos,sin,asin,acos,degrees
 from var import *
 #from pgzero.game import screen
-from rapper import call_move_func
+from rapper import call_move_func,call_withdrawal_fnuc
 import random
+import numpy as np
 from enu import goal,unit_type,bullet_type
 class Units:
     def __init__(self,map):
@@ -21,7 +24,7 @@ class Units:
     def update(self,list):
         bullets=[]
         for obj in self.list:
-            exm=obj.update()
+            exm=obj.update(self.map.date)
             if exm!=None:
                 bullets+=exm
             for bul in list:
@@ -112,8 +115,10 @@ class Unit(Actor):
         self.mouse=False
         self.goal=goal.defense
         self.point_list=[]
+        self.back_list=[]
         self.fire_point=(-1,-1)
         self.nokori=(-1,-1)
+        self.back_nokori=(-1,-1)
         self.name="NULL"
 
         self.type=type
@@ -126,12 +131,13 @@ class Unit(Actor):
         self.time=0
         self.guns=[]
         self.atacked_unit=[]
+        self.back_flg=False
     def atacked(self,damag,uni):
         self.soldier-=damag[0]
         self.morale-=damag[1]
         flg=True
         for o in self.atacked_unit:
-            if o==uni:
+            if o[0]==uni:
                 flg=False
         if flg:
             self.atacked_unit.append([uni,10])
@@ -144,9 +150,18 @@ class Unit(Actor):
             screen.draw.circle(self.center,10, (255,0,0))
     def fire(self,pos):
         if self.mouse:
+            self.point_list=[]
             self.fire_point=pos
             self.goal=goal.fire
         return False
+    def withdrawal(self,date):
+        self.withdrawal=True
+        print("a")
+        out=[]
+        for uni in self.atacked_unit:
+            out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
+        print(out)
+        self.back_list=call_withdrawal_fnuc(date,self.center,np.array(out),len(out))
     def mouse_down_on(self,pos):
         if self.collidepoint(pos):
             self.mouse=True
@@ -160,7 +175,7 @@ class Unit(Actor):
         if self.mouse:
             self.goal=goal.move
             self.point_list=call_move_func(date,self.center,pos,pov)
-    def update(self):
+    def update(self,date):
         for gun in self.guns:
             gun.update()
         self.time+=1
@@ -170,11 +185,63 @@ class Unit(Actor):
                 state[1]-=1
                 if state[1]<0:
                     self.atacked_unit.remove(state)
+            if self.morale<90:
+                self.withdrawal(date)
             if self.MAX_morale>self.morale:
                 self.morale+=1
             else:
                 self.morale=self.MAX_morale
-        if self.goal==goal.move:
+        if self.back_flg:
+            if 0<len(self.back_list):
+                #print(self.nokori)
+                if self.back_nokori==(-1,-1):
+                    nokori=0
+                else:
+                    nokori=sqrt((self.back_nokori[0])**2+(self.back_nokori[1])**2)
+                    self.x=int(round(self.x+self.back_nokori[0],0))
+                    self.y=int(round(self.y+self.back_nokori[1],0))
+                    #print("a",self.back_nokori,(self.x,self.y))
+                while(0<len(self.back_list)):
+                    back_speed=self.speed*0.7
+                    if nokori>back_speed:
+                        x=(nokori-back_speed)*(self.back_nokori[0]/nokori)
+                        y=(nokori-back_speed)*(self.back_nokori[1]/nokori)
+                        self.back_nokori=(x,y)
+                        #print("b",(back_spee-(nokori-sya)),self.back_nokori)
+                        self.x-=x
+                        self.y-=y
+                        break
+                    li=self.back_list.pop(0)
+                    sya=sqrt(li[0]**2+li[1]**2)
+                    syaka=sya
+                    pos=(int(round(self.center[0]+li[0])),int(round(self.center[1]+li[1])))
+                    sta=date[pos[1],pos[0]]
+                    #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
+                    if sta==2:
+                        sya*=20
+                    elif sta==5 or sta==6:
+                        sya*=2
+                    elif sta==2 or sta==3:
+                        sya*=0.5
+                    nokori+=sya
+                    if nokori<back_speed:
+                        self.x+=li[0]
+                        self.y+=li[1]
+                    elif nokori>back_speed:
+                        x=(back_speed-(nokori-sya))*(li[0]/syaka)
+                        y=(back_speed-(nokori-sya))*(li[1]/syaka)
+                        self.back_nokori=(li[0]-x,li[1]-y)
+                        #print("b",(back_spee-(nokori-sya)),self.back_nokori)
+                        self.x+=x
+                        self.y+=y
+                        break
+                    else:
+                        self.back_nokori=(-1,-1)
+                    #print(li,(self.x,self.y))
+            else:
+                self.goal=goal.defense
+                self.back_nokori=(-1,-1)
+        elif self.goal==goal.move:
             if 0<len(self.point_list):
                 #print(self.nokori)
                 if self.nokori==(-1,-1):
@@ -184,25 +251,45 @@ class Unit(Actor):
                     self.x=int(round(self.x+self.nokori[0],0))
                     self.y=int(round(self.y+self.nokori[1],0))
                     #print("a",self.nokori,(self.x,self.y))
-                    self.nokori=(-1,-1)
                 while(0<len(self.point_list)):
+                    if nokori>self.speed:
+                        x=(nokori-self.speed)*(self.nokori[0]/nokori)
+                        y=(nokori-self.speed)*(self.nokori[1]/nokori)
+                        self.nokori=(x,y)
+                        #print("b",(self.speed-(nokori-sya)),self.nokori)
+                        self.x-=x
+                        self.y-=y
+                        break
                     li=self.point_list.pop(0)
                     sya=sqrt(li[0]**2+li[1]**2)
+                    syaka=sya
+                    pos=(int(round(self.center[0]+li[0])),int(round(self.center[1]+li[1])))
+                    sta=date[pos[1],pos[0]]
+                    #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
+                    if sta==2:
+                        sya*=20
+                    elif sta==5 or sta==6:
+                        sya*=2
+                    elif sta==2 or sta==3:
+                        sya*=0.5
                     nokori+=sya
                     if nokori<self.speed:
                         self.x+=li[0]
                         self.y+=li[1]
                     elif nokori>self.speed:
-                        x=(self.speed-(nokori-sya))*(li[0]/sya)
-                        y=(self.speed-(nokori-sya))*(li[1]/sya)
+                        x=(self.speed-(nokori-sya))*(li[0]/syaka)
+                        y=(self.speed-(nokori-sya))*(li[1]/syaka)
                         self.nokori=(li[0]-x,li[1]-y)
                         #print("b",(self.speed-(nokori-sya)),self.nokori)
                         self.x+=x
                         self.y+=y
                         break
+                    else:
+                        self.nokori=(-1,-1)
                     #print(li,(self.x,self.y))
             else:
                 self.goal=goal.defense
+                self.nokori=(-1,-1)
         elif self.goal==goal.speed_move:
             pass
         elif self.goal==goal.defense:
@@ -222,14 +309,14 @@ class Unit(Actor):
             pass
 class test_syo(Unit):
     def __init__(self,pos):
-        super().__init__(pos,3,0,12,100,2,unit_type.infantry)
+        super().__init__(pos,2,0,12,100,2,unit_type.infantry)
         i=1
         while i>0:
             self.guns.append(Mosin_Nagant())
             i-=1
 class mosin_syo(Unit):
     def __init__(self, pos):
-        super().__init__(pos,3,0,12,100,2,unit_type.infantry)
+        super().__init__(pos,2,0,12,100,2,unit_type.infantry)
         self.name="モシン分隊"
         self.guns.append(DP28())
         i=11
@@ -238,7 +325,7 @@ class mosin_syo(Unit):
             i-=1
 class Kar98k_syo(Unit):
     def __init__(self, pos):
-        super().__init__(pos,3,0,12,100,2,unit_type.infantry)
+        super().__init__(pos,2,0,12,100,2,unit_type.infantry)
         self.name="カービン98分隊"
         self.guns.append(MG34())
         i=11
@@ -367,7 +454,7 @@ class Bullets:
             if pos[0]<0 or pos[1]<0 or pos[1]>=self.map.date.shape[1] or pos[0]>=self.map.date.shape[0]:
                 self.list.remove(bul)
                 continue
-            pos=(int(round(pos[0],0)),int(round(pos[1],0)))
+            pos=(int(round(pos[0])),int(round(pos[1])))
             sta=self.map.date[pos[1],pos[0]]
             #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
             if sta==2:

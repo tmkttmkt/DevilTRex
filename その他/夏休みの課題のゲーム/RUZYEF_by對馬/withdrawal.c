@@ -1,6 +1,7 @@
 #include "pas.h"
+#define HABA 600
 
-int move_func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
+int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
     const int arry[16][2]={{1,1},{2,1},{1,2},
                         {-1,1},{-2,1},{-1,2},
                         {1,-1},{2,-1},{1,-2},
@@ -9,37 +10,48 @@ int move_func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
     int nokori=1;
     struct pas *sen;
     struct pas *naw,*new,*last;
+    struct pas *top;
     float cost=0;
     float point_cost;
     int tot_x,tot_y;
-    int i;
+    int i,m=0;
+    float pos_x=0,pos_y=0;
     int *date_start=date;
     float *cost_map,*at_cost_map;
-    struct pas *top;
     double time1,time2;
+    printf("a");
     time1=(double)clock() / CLOCKS_PER_SEC;
-    if(loc_x==pos_x&&loc_y==pos_y){
-        return -1;
-    }
-    cost_map=(float *)malloc(sizeof(float) * 900 * 900);
-    sen = (struct pas*)malloc(sizeof(struct pas) * 900 * 900*10);
+    cost_map=(float *)malloc(sizeof(float) * (HABA+1) * (HABA+1));
+    sen = (struct pas*)malloc(sizeof(struct pas) * (HABA+1) * (HABA+1)*2);
     if(sen==NULL ||  cost_map==NULL){
         free(sen);
         free(cost_map);
         return -3;
     }
     at_cost_map=cost_map;
-    for(i=0;i<900*900;i++){
+    for(i=0;i<(HABA+1) * (HABA+1);i++){
         *at_cost_map=9999.9;
         at_cost_map++;
     }
+    printf("a");
     at_cost_map=cost_map;
 
     naw=new=last=top=sen;
+    while(n>m){
+        pos_x+=*out;
+        out++;
+        pos_y+=*out;
+        out++;
+        m++;
+    }
+    
+    printf("a");
+    pos_x/=n;
+    pos_y/=n;
     naw->pos[0]=loc_x;
     naw->pos[1]=loc_y;
     naw->cost=cost;
-    naw->yte=sqrtf((loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y));
+    naw->yte=-sqrtf((loc_x-pos_x)*(loc_x-pos_x)+(loc_y-pos_y)*(loc_y-pos_y));
     time2=(double)clock() / CLOCKS_PER_SEC;
     printf("c %f\n",time2-time1);
     time1=(double)clock() / CLOCKS_PER_SEC;
@@ -54,31 +66,38 @@ int move_func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
         for(i=0;i<16;i++){
             tot_x+=arry[i][0];
             tot_y+=arry[i][1];
-            if(tot_x<0 || tot_y<0 || tot_x>=900 || tot_y>=900){
+            if(tot_x-loc_x<-HABA/2 || tot_y-loc_y<HABA/2 || tot_x-loc_x>HABA/2 || tot_y-loc_y>HABA/2){
                 tot_x-=arry[i][0];
                 tot_y-=arry[i][1];
                 continue;
             }
-            date=date_start+tot_x+tot_y*900;
-            cost_map=at_cost_map+tot_x+tot_y*900;
+            date=date_start+tot_x+tot_y*y_lan;
+            cost_map=at_cost_map+(tot_x-loc_x-HABA/2)+(tot_x-loc_x-HABA/2)*(HABA+1);
             //0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
             point_cost=1.0;
             if(*date==1)point_cost=1.0;
             else if(*date==2)point_cost=20.0;
             else if(*date==3)point_cost=0.5;
             else if(*date==4)point_cost=0.5;
-            else if(*date==5)point_cost=2.0;
-            else if(*date==6)point_cost=2.0;
-            else continue;
-            cost+=sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
-            if(tot_x==pos_x && tot_y==pos_y){
+            else if(*date==5){
                     new->pos[0]=tot_x;
                     new->pos[1]=tot_y;
                     new->mae=naw;
                     nokori=0;
                     break;
             }
-            if(new==sen+900*900*10-1){
+            else if(*date==6){
+                    new->pos[0]=tot_x;
+                    new->pos[1]=tot_y;
+                    new->mae=naw;
+                    nokori=0;
+                    break;
+            }
+            else continue;
+            cost+=sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
+            if(tot_x==pos_x && tot_y==pos_y){
+            }
+            if(new==sen+(HABA/2+1)*(HABA/2+1)*10-1){
                 free(sen);
                 free(cost_map);
                 return -2;
@@ -89,8 +108,12 @@ int move_func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
                 new->pos[0]=tot_x;
                 new->pos[1]=tot_y;
                 new->cost=cost;
-                new->yte=sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y));
                 new->mae=naw;
+                naw->yte=-sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y));
+                if (sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y))>300){
+                    nokori=0;
+                    break;
+                }
                 tree(new,top);
                 nokori++;
             }
