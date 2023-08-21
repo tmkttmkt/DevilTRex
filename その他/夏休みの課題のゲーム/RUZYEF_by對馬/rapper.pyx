@@ -39,6 +39,8 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
 def call_withdrawal_fnuc(np.ndarray[np.int32_t, ndim=2] date2,loc,np.ndarray[np.int32_t, ndim=2] out,int i):
     cdef:
         int loc_x,loc_y,y_lan
+        int n
+    n=0
     start=time()
     loc_x=loc[0]
     loc_y=loc[1]
@@ -47,6 +49,10 @@ def call_withdrawal_fnuc(np.ndarray[np.int32_t, ndim=2] date2,loc,np.ndarray[np.
     cdef int[:] outli = out.ravel()
     print(" ",time()-start)
     start=time()
+    while i>n:
+        print(outli[n*2])
+        print(outli[n*2+1])
+        n+=1
     num=withdrawal_func(&date_list2[0],y_lan,loc_x,loc_y,&outli[0],i)
     print(" ",time()-start)
     start=time()

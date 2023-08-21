@@ -20,25 +20,25 @@ struct pas
 
 
 // プロトタイプ宣言
-void tree(struct pas *new,struct pas *top){
+void tree(struct pas *nw,struct pas *top){
     struct pas *point=top;
     while(1){
-        if(point->cost+point->yte > new->cost+new->yte){
+        if(point->cost+point->yte > nw->cost+nw->yte){
             if(point->R_ko!=NULL){
                 point=point->R_ko;
             }
             else{
-                point->R_ko=new;
+                point->R_ko=nw;
                 break;
             }
         }
-        else if(point->cost+point->yte == new->cost+new->yte){
-            if(point->yte > new->yte){
+        else if(point->cost+point->yte == nw->cost+nw->yte){
+            if(point->yte > nw->yte){
                 if(point->R_ko!=NULL){
                     point=point->R_ko;
                 }
                 else{
-                    point->R_ko=new;
+                    point->R_ko=nw;
                     break;
                 }
             }
@@ -47,7 +47,7 @@ void tree(struct pas *new,struct pas *top){
                     point=point->L_ko;
                 }
                 else{
-                    point->L_ko=new;
+                    point->L_ko=nw;
                     break;
                 }
             }
@@ -57,7 +57,7 @@ void tree(struct pas *new,struct pas *top){
             point=point->L_ko;
             }
             else{
-                point->L_ko=new;
+                point->L_ko=nw;
                 break;
             }
         }

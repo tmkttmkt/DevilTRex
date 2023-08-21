@@ -155,7 +155,7 @@ class Unit(Actor):
             self.goal=goal.fire
         return False
     def withdrawal(self,date):
-        self.withdrawal=True
+        self.back_flg=True
         print("a")
         out=[]
         for uni in self.atacked_unit:
@@ -185,7 +185,7 @@ class Unit(Actor):
                 state[1]-=1
                 if state[1]<0:
                     self.atacked_unit.remove(state)
-            if self.morale<90:
+            if self.morale<95:
                 self.withdrawal(date)
             if self.MAX_morale>self.morale:
                 self.morale+=1
@@ -239,6 +239,8 @@ class Unit(Actor):
                         self.back_nokori=(-1,-1)
                     #print(li,(self.x,self.y))
             else:
+                self.back_flg=False
+                self.morale+=round((100-self.morale)/2)
                 self.goal=goal.defense
                 self.back_nokori=(-1,-1)
         elif self.goal==goal.move:
