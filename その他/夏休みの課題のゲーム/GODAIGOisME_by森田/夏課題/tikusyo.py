@@ -1,8 +1,10 @@
+import pgzrun
 import math
 import random
 import pygame
+import pgzero
 from pgzhelper import *
-import pgzrun
+
 
 WIDTH = 700
 HEIGHT = 700
@@ -40,6 +42,38 @@ map_data3 = [[0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,9,0],
             [1,1,1,1,1,1,1,1,1,1]]
 
+map_data4 = [[0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [1,1,1,1,1,1,1,1,1,1]]
+
+map_data5 = [[0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [1,1,1,1,1,1,1,1,1,1]]
+
+map_data6 = [[0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [1,1,1,1,1,1,1,1,1,1]]
 
 player_x = 110
 player_y = 600
@@ -72,10 +106,12 @@ angles = max_angle
 gauge_mode = True
 
 ball=Actor('baka',(0,-1600))
+ball.scale = 0.5
 sora = Actor('sora.png',topleft=(0,0))
 zimen = Actor('jimen.png',topleft=(0,0))
 ramen = Actor("cupmen.png",topleft=(0,0))
-
+ca_ue = Actor('canon_une.png',topleft=(-590,-15))
+taiya = Actor('taiya.png',topleft=(-150,265))
 
 gauge_speed = 0.3
 random_number = 1
@@ -173,7 +209,7 @@ def draw():
                 if map_data2[y][x] == 1:
                     zimen.topleft=(70*x,70*y)
                     zimen.draw()
-    if stage >= 3:
+    if stage == 3:
         for y in range(10):
             for x in range(10):
                 sora.topleft=(70*x,70*y)
@@ -182,9 +218,49 @@ def draw():
                     zimen.topleft=(70*x,70*y)
                     zimen.draw()
                 if random_number == 1:
-                    ramen.topleft = (230,230)
+                    ramen.topleft = (230,550)
+                    ramen.scale = 0.25
                     ramen.draw()
-                    ramen.scale = 2
+    if stage == 4:
+        for y in range(10):
+            for x in range(10):
+                sora.topleft=(70*x,70*y)
+                sora.draw()
+                if map_data2[y][x] == 1:
+                    zimen.topleft=(70*x,70*y)
+                    zimen.draw()
+
+    if stage == 5:
+        for y in range(10):
+            for x in range(10):
+                sora.topleft=(70*x,70*y)
+                sora.draw()
+                if map_data2[y][x] == 1:
+                    zimen.topleft=(70*x,70*y)
+                    zimen.draw()
+    if stage == 6:
+        for y in range(10):
+            for x in range(10):
+                sora.topleft=(70*x,70*y)
+                sora.draw()
+                if map_data2[y][x] == 1:
+                    zimen.topleft=(70*x,70*y)
+                    zimen.draw()
+    
+    ball.x = player_x
+    ball.y = player_y
+    ball.scale = 1.5
+    ball.angle = angles
+    ball.draw()
+    if angle_mode == False or stage == 1:
+        screen.draw.text("覚悟をみせろ",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
+        ca_ue.scale = 0.25
+        ca_ue.draw()
+        taiya.scale = 0.25
+        taiya.draw()
+    else:
+        if hajime == True and owari == False:
+            screen.draw.text("ただいま" + str(int(kiroku)) + "m",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
     if gauge_mode == True:
         gauge_width =  HEIGHT * gauge_value / max_gauge
         gauge_width = min(gauge_width,HEIGHT - 102)
@@ -192,17 +268,13 @@ def draw():
         gauge_rect = Rect(WIDTH//2 - 50,HEIGHT - gauge_width, 50,gauge_width)
         screen.draw.rect(Rect((220, 100), (200, 600)),(0,0,0))
         screen.draw.filled_rect(gauge_rect, (0, 255, 0))
-    ball.x = player_x
-    ball.y = player_y
-    ball.angle = angles
-    ball.draw()
-    if angle_mode == False:
-        screen.draw.text("覚悟をみせろ",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
-    else:
-        if hajime == True and owari == False:
-            screen.draw.text("ただいま" + str(int(kiroku)) + "m",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
     if angle_mode == True and owari == True:
         screen.draw.text("結果" + str(font_value) + "m",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
+        ramen_x = ramen.x + 1200
+        kiroku2 = ramen_x - kiroku
+        if kiroku2 < 0:
+            kiroku2 *= -1
+        screen.draw.text("麺との距離" + str(int(kiroku2)) + "m",(WIDTH//2,HEIGHT//4),fontname="in_game.ttf",color="red",fontsize=30)
 def on_mouse_down(pos,button):
     global mouse_x, mouse_y,x2,y2,root,flg,hajime,angle_mode
     if gauge_mode == False:
