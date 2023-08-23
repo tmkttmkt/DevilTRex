@@ -33,23 +33,17 @@ int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
         at_cost_map++;
     }
     at_cost_map=cost_map;
-
     naw=new=last=top=sen;
-    printf("%d",n);
     while(n>m){
-        printf("%d",*out);
         pos_x+=(float)*out;
         out++;
-        printf("%d",*out);
         pos_y+=(float)*out;
-        printf("(%f,%f)",pos_x,pos_y);
         out++;
         m++;
     }
-    printf("(%f,%f)-",pos_x,pos_y);
     pos_x/=n;
     pos_y/=n;
-    printf("-(%f,%f)\n",pos_x,pos_y);
+    printf("(%f,%f)\n",pos_x,pos_y);
     naw->pos[0]=loc_x;
     naw->pos[1]=loc_y;
     naw->cost=cost;
@@ -59,7 +53,7 @@ int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
     time1=(double)clock() / CLOCKS_PER_SEC;
     while(nokori>0){
         naw=next_point_tree(&top);
-        //printf("\n|%d,%d,%d|%d,%d|\n",top-sen,naw-sen,nokori,naw->pos[0],naw->pos[1]);
+        //printf("\n|%f,%f!!%d|%d,%d|\n",naw->cost,naw->yte,nokori,naw->pos[0],naw->pos[1]);
         //printf("\n%d",nokori);
         cost=naw->cost;
         tot_x=naw->pos[0];
@@ -117,7 +111,7 @@ int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
                 new->pos[1]=tot_y;
                 new->cost=cost;
                 new->mae=naw;
-                naw->yte=-1.1*sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y));
+                new->yte=-1.1*sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y));
                 if (sqrtf((tot_x-pos_x)*(tot_x-pos_x)+(tot_y-pos_y)*(tot_y-pos_y))>300){
                     nokori=0;
                     printf("a");

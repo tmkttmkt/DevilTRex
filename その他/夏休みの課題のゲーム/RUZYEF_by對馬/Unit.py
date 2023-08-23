@@ -75,8 +75,7 @@ class sov_ply(Units):
                     if obj!=ret_obj:
                         obj.mouse_up()
         return ret_obj
-class sov(Units):
-    pass
+class ger_ply(Units):
     def mouse_down(self,pos,button):
         ret_obj=None
         if button==mouse.RIGHT:
@@ -107,8 +106,23 @@ class sov(Units):
                     if obj!=ret_obj:
                         obj.mouse_up()
         return ret_obj
+
+class sov(Units):
+    def update(self, list):
+        self.AI()
+        super().update(list)
+    def AI(self):
+        for unit in self.list:
+            if len(unit.atacked_unit)>2:
+                unit.withdrawal(self.map.date)
 class ger(Units):
-    pass
+    def update(self, list):
+        self.AI()
+        super().update(list)
+    def AI(self):
+        for unit in self.list:
+            if len(unit.atacked_unit)>2:
+                unit.withdrawal(self.map.date)
 class Unit(Actor):
     def __init__(self,pos,speed,armor,soldier,morale,hei,type:unit_type):
         super().__init__('sol_syo',center=pos)
@@ -156,7 +170,6 @@ class Unit(Actor):
         return False
     def withdrawal(self,date):
         self.back_flg=True
-        print("a")
         out=[]
         for uni in self.atacked_unit:
             out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
@@ -185,8 +198,6 @@ class Unit(Actor):
                 state[1]-=1
                 if state[1]<0:
                     self.atacked_unit.remove(state)
-            if self.morale<95:
-                self.withdrawal(date)
             if self.MAX_morale>self.morale:
                 self.morale+=1
             else:
@@ -243,6 +254,8 @@ class Unit(Actor):
                 self.morale+=round((100-self.morale)/2)
                 self.goal=goal.defense
                 self.back_nokori=(-1,-1)
+        elif self.morale<0:
+            self.withdrawal(date)
         elif self.goal==goal.move:
             if 0<len(self.point_list):
                 #print(self.nokori)
@@ -442,6 +455,9 @@ class Bullet(Actor):
                             return (3,40)
             else:
                 return (0,1)
+    def set_pov(self,pov):
+        self.x+=pov[0]
+        self.y+=pov[1]
 class Bullets:
     def __init__(self,map):
         self.map=map
@@ -476,6 +492,9 @@ class Bullets:
                 if 1==random.randint(1,4):
                     self.list.remove(bul)
                     continue   
+    def set_pov(self,pov):
+        for obj in self.list:
+            obj.set_pov(pov)
 class Unit_state:
     def __init__(self,unit:Unit):
         self.unit=unit

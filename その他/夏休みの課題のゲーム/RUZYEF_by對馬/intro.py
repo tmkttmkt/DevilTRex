@@ -1,3 +1,4 @@
+from turtle import speed
 import pygame
 import pgzrun
 import random
@@ -11,10 +12,10 @@ import gc
 #gc.collect()
 from var import *
 
+file_count=None
+
 class Time_sys:
-    def __init__(self,nen,getu,now_time):
-        self.nen=nen
-        self.getu=getu
+    def __init__(self,now_time):
         self.time=now_time+[0,0]
         self.speed=1
         self.pos=(10,10)
@@ -44,21 +45,24 @@ class Time_sys:
             return True
         return False
     def time_text(self):
-        return str(self.nen)+"年"+str(self.getu)+"月\n"+str(self.time[0])+"日"+str(self.time[1])+":"+str(self.time[2])+":"+str(self.time[3])
+        return str(self.time[0])+"年"+str(self.time[1])+"月\n"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])+":"+str(self.time[5])
+    def save_text(self):
+        return str(self.time[0])+"年"+str(self.time[1])+"月"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])+":"+str(self.time[5])
     def update(self):
-        self.time[4]+=self.speed
+        self.time[6]+=self.speed
         if self.time[4]>60:
-            self.time[4]-=60
-            self.time[3]+=1        
-            if self.time[3]>60:
-                self.time[3]-=60
-                self.time[2]+=1
-                if self.time[2]>60:
-                    self.time[2]-=60
-                    self.time[1]+=1
-                    if self.time[1]>24:
-                        self.time[1]-=24
-                        self.time[0]+=1    
+            self.time[6]-=60
+            self.time[5]+=1        
+            if self.time[5]>60:
+                self.time[5]-=60
+                self.time[4]+=1
+                if self.time[4]>60:
+                    self.time[4]-=60
+                    self.time[3]+=1
+                    if self.time[3]>24:
+                        self.time[3]-=24
+                        self.time[2]+=1 
+        return self.speed   
     def key_down(self,key):
         if key==keys.K_1:
             self.speed=1
@@ -68,6 +72,31 @@ class Time_sys:
             self.speed=4
         elif key==keys.K_0:
             self.speed=0
+class Load:
+    def __init__(self,ma,ti,pas) -> None:
+        self.map=ma
+        self.time=ti
+        self.txt_pas=str(pas)
+        print(ma,ti)
+        self.mae=Buttan(WHITE,(700-70-10,600-40-10),(70,40),"mae")
+        self.usi=Buttan(WHITE,(700+(-70-10)*2,600+(-40-10)*1),(70,40),"usi")
+        self.kettei=Buttan(WHITE,(700+(-70-10)*3,600+(-40-10)*1),(70,40),"ket")
+    def draw(self):
+        screen.draw.filled_rect(Rect((200,300),(500,300)),GRAY)
+        screen.draw.text("map="+self.map,(200,300),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=30)
+        screen.draw.text("\ntime="+self.time,(200,300),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=30)
+        self.mae.draw()
+        self.usi.draw()
+        self.kettei.draw()
+    def collidepoint(self,pos):
+        if self.usi.collidepoint(pos):
+            return -1
+        elif self.mae.collidepoint(pos):
+            return 1
+        elif self.kettei.collidepoint(pos):
+            return 0
+    def pas(self):
+        return "save/date"+self.txt_pas
 class Buttan:
     def __init__(self,color,pos,scope,txt):
         self.txt=txt
@@ -107,8 +136,15 @@ class Start:
         self.exo_txt ="\n"
         self.exo_txt+="\n"
         self.exo_txt+="\n"
+        self.save=[]
+        self.save_return=Buttan(GRAY,[60,60],[240,60],"return")
+        self.save_num=0
+        self.load_num()
+        self.load_all()
     def set_start(self):
         self.title_mode=title_mode.START
+        self.load_num()
+        self.load_all()
     def draw(self):
         if self.title_mode==title_mode.START:
             screen.fill((128, 0, 0))
@@ -119,8 +155,12 @@ class Start:
         elif self.title_mode==title_mode.execution:
             return
         elif self.title_mode==title_mode.CONTINUATION:
-            screen.fill((255,255,0))
-            screen.draw.text("chachachachara\nchachachachara",(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
+            screen.fill(YELLOW)
+            if 0!=len(self.save):
+                self.save_return.draw()
+                self.save[self.save_num].draw()
+            else:
+                screen.draw.text("セーブデータが存在しません\nクリックでスタート画面に戻れます",(0,400),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=55)
         elif self.title_mode==title_mode.EXPLANATION:
             screen.fill(WHITE)
             screen.draw.text(self.exo_txt,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
@@ -134,15 +174,47 @@ class Start:
                 self.title_mode=title_mode.EXPLANATION
         elif self.title_mode==title_mode.execution:
             pass
-        elif self.title_mode==title_mode.CONTINUATION or self.title_mode==title_mode.EXPLANATION:
+        elif self.title_mode==title_mode.CONTINUATION:
+            if 0!=len(self.save):
+                if self.save_return.collidepoint(pos):
+                    self.title_mode=title_mode.START
+                exm=self.save[self.save_num].collidepoint(pos)
+                if exm==0:
+                    return self.save[self.save_num].pas()
+                elif exm==-1 or exm==1:
+                    self.save_num+=exm
+                    if self.save_num<0:
+                        self.save_num=len(self.save)-1
+                    if self.save_num>len(self.save)-1:
+                        self.save_num=0
+                    print(self.save_num)
+            else:
                 self.title_mode=title_mode.START
+        elif self.title_mode==title_mode.EXPLANATION:
+                self.title_mode=title_mode.START
+    def load_num(self):
+        global file_count
+        folder_path = "save"
+        file_count = len([f for f in os.listdir(folder_path)])
+        print(file_count)
+    def load_all(self):
+        global file_count
+        n=0
+        while n<file_count:
+            with open("save/date"+str(n),mode="r") as f:
+                txt=f.readlines()[0]
+                map_name=txt[:txt.find(":")]
+                txt=txt[txt.find(":")+2:]
+                time_name=txt[:txt.find(":")]
+                self.save.append(Load(map_name,time_name,n))
+            n+=1
 class Maps:
     def __init__(self):
         self.mode=-1
         self.map=None
         self.pov=[0,0]
         self.ret=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"return")
-        self.set=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"setting")
+        self.seve=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," seve ")
         self.menu=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60]," menu ")
         self.return_mode=False
         self.state=None
@@ -166,6 +238,18 @@ class Maps:
                     self.pov[0] += 10
             if self.map!=None:
                 self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
+    def load(self,pas):
+        with open(pas,mode="r") as f:
+            txt_list=f.readlines()
+            txt=txt_list.pop(0)
+            map_name=txt[:txt.find(":")]
+            map_class=globals().get(map_name)
+            txt=txt[txt.find(":")+2:]
+            txt[:txt.find(":")]
+            for txt in txt_list:
+                pass
+            map_class(time,unit_list)
+
     def mouse_down(self,pos,button):
         if self.map==None:
             for obj in self.buttan_list:
@@ -179,8 +263,8 @@ class Maps:
             if self.return_mode:
                 if self.ret.collidepoint(pos):
                     self.return_mode=False
-                if self.set.collidepoint(pos):
-                    pass
+                if self.seve.collidepoint(pos):
+                    self.map.save()
                 if self.menu.collidepoint(pos):
                     self.return_mode=False
                     self.map=None
@@ -211,13 +295,13 @@ class Maps:
             if self.return_mode:
                 screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
                 self.ret.draw()
-                self.set.draw()
+                self.seve.draw()
                 self.menu.draw()
         if self.state!=None:
             self.state.draw(screen)
 
 class Map:
-    def __init__(self,wide,nen,getu,time):
+    def __init__(self,wide,time):
         self.rect=Rect((0,0),(wide[0],wide[1]))
         self.date= np.array([[1 for i in range(self.rect[2])] for j in range(self.rect[3])])
         self.draw_date=pygame.Surface((self.rect[2],self.rect[3]), flags=0)
@@ -226,7 +310,13 @@ class Map:
         self.draw_date.fill(self.color[1],None, special_flags=0)
         self.units_list=[]
         self.bullets=Bullets(self)
-        self.time=Time_sys(nen,getu,time)
+        self.time=Time_sys(time)
+    def save(self):
+        global file_count
+        with open("save/date"+str(file_count),mode="w") as f:
+            txt=self.__class__.__name__+":"
+            txt+=self.time.save_text()+":"
+            f.write(txt)
     def setdate(self,name):
         source=pygame.image.load(os.path.join('images', name))
         source=source.convert()
@@ -244,11 +334,14 @@ class Map:
         for units in self.units_list:
             units.draw(screen)
     def update(self,pov):
-        self.time.update()
-        for units in self.units_list:
-            units.update(self.bullets.list)
+        speed=self.time.update()
+        while speed>0:
             self.bullets.update()
-            units.set_pov(pov)
+            self.bullets.set_pov(pov)
+            for units in self.units_list:
+                units.update(self.bullets.list)
+                units.set_pov(pov)
+            speed-=1
     def sen(self,pos,go_pos,haba,setd):
         haba/=2
         xsen=(pos[0]-go_pos[0])
@@ -334,11 +427,16 @@ class test(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
         wide_rect=source.get_clip()
-        super().__init__([wide_rect[2],wide_rect[3]],43,7,[3,7,30])
+        super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
+        self.setdate('test.png')  
+    def __init__(self,time,unit_list):
+        source=pygame.image.load(os.path.join('images', 'test.png'))
+        wide_rect=source.get_clip()
+        super().__init__([wide_rect[2],wide_rect[3]],time)
         self.setdate('test.png')  
 class nmap(Map):
     def __init__(self):
-        super().__init__([900,900],43,7,[3,7,30])
+        super().__init__([900,900],[43,7,3,7,30])
         self.en([0,50],10,2)
         self.sen([0,50],[100,400],10,2)
         self.en([100,400],10,2)
@@ -355,6 +453,26 @@ class nmap(Map):
         self.sen([300,0],[200,900],10,3)
         self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
         self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
+        self.set_unit()
+    def __init__(self,time,unit_list):
+        super().__init__([900,900],time)
+        self.en([0,50],10,2)
+        self.sen([0,50],[100,400],10,2)
+        self.en([100,400],10,2)
+        self.sen([100,400],[600,500],10,2)
+        self.en([600,500],10,2)
+        self.sen([600,500],[900,400],5,2)
+        self.sen([600,500],[700,900],5,2)
+        self.sikaku([250,70],[390,140],6)
+        self.sen([400,0],[300,100],5,4)
+        self.sen([300,100],[900,100],5,4)
+        self.sen([300,100],[290,400],5,4)
+        self.sen([290,400],[200,800],5,4)
+        self.sen([200,800],[100,900],5,4)
+        self.sen([300,0],[200,900],10,3)
+        self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
+        self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
+    def set_unit(self):
         g=ger(self)
         g.set_unit((300,100),Kar98k_syo)
         g.set_unit((600,400),Kar98k_syo)
@@ -383,7 +501,9 @@ def on_mouse_down(pos,button):
             if maps.mouse_down(pos,button)==BACK:
                 start.set_start()
         else:
-            start.mouse_down(pos)
+            exm=start.mouse_down(pos)
+            if None!=exm:
+                maps.load(exm)
 
 
 

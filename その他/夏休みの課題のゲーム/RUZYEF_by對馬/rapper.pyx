@@ -49,10 +49,6 @@ def call_withdrawal_fnuc(np.ndarray[np.int32_t, ndim=2] date2,loc,np.ndarray[np.
     cdef int[:] outli = out.ravel()
     print(" ",time()-start)
     start=time()
-    while i>n:
-        print(outli[n*2])
-        print(outli[n*2+1])
-        n+=1
     num=withdrawal_func(&date_list2[0],y_lan,loc_x,loc_y,&outli[0],i)
     print(" ",time()-start)
     start=time()
