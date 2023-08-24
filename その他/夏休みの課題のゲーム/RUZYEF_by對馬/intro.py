@@ -45,6 +45,20 @@ class Time_sys:
                 self.speed=4
             return True
         return False
+    def past_time(self,time):
+        n=5
+        exm_time=[]
+        now_time=self.time.copy()
+        lis=[0,0,0,24,60,60]
+        while n>=0:
+            if now_time[n]-time[n]>=0:
+                exm_time.append(now_time[n]-time[n])
+            else:
+                exm_time.append(now_time[n]-time[n]+lis[n])
+                now_time[n]-=1
+            n-=1
+
+        return str(exm_time[5])+"年"+str(exm_time[4])+"月"+str(exm_time[3])+"日"+str(exm_time[2])+"時"+str(exm_time[1])+"分"+str(exm_time[0])+"秒"
     def time_text(self):
         return str(self.time[0])+"年"+str(self.time[1])+"月\n"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])+":"+str(self.time[5])
     def save_text(self):
@@ -281,14 +295,17 @@ class Maps:
                     self.map=None
             else:
                 if not self.map.time.mouse_down(pos):
-                    obj=None
-                    for units in self.map.units_list:
-                        obj=units.mouse_down(pos,button)
-                        if obj!=None:
-                            if obj==CHANGE:
-                                self.state=None
-                            else:
-                                self.state=Unit_state(obj)
+                    if not self.map.vic_mode:
+                        obj=None
+                        for units in self.map.units_list:
+                            obj=units.mouse_down(pos,button)
+                            if obj!=None:
+                                if obj==CHANGE:
+                                    self.state=None
+                                else:
+                                    self.state=Unit_state(obj)
+                    else:
+                        return BACK
         return NOT_BACK
     def key_down(self,key):
         self.map.time.key_down(key)
@@ -319,9 +336,11 @@ class Map:
         #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
         self.color=[(0,0,0),(0,255,0),(0,128,255),(32,32,32),(128,64,0),(0,128,0),(128,128,128)]
         self.draw_date.fill(self.color[1],None, special_flags=0)
+        self.vic_mode=False
         self.units_list=[]
         self.bullets=Bullets(self)
         self.time=Time_sys(time)
+        self.start_time=time
     def save(self):
         global file_count
         with open("save/date"+str(file_count),mode="w") as f:
@@ -345,6 +364,15 @@ class Map:
         self.bullets.draw()
         for units in self.units_list:
             units.draw(screen)
+        if self.vic_mode:
+            screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
+            if self.vic_:
+                txt="勝利"
+            else:
+                txt="敗北"
+            screen.draw.text(txt,(WIDTH/2-100,200),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=100)
+            txt=self.time.time_text()+"\nかかった時間"+self.time.past_time(self.start_time)
+            screen.draw.text(txt,(WIDTH/2-100,200+100),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
     def update(self,pov):
         speed=self.time.update()
         while speed>0:
@@ -435,6 +463,9 @@ class Map:
     def all(self,setd):
         self.draw_date.fill(self.color[1],None, special_flags=0)
         self.date= np.array([[setd for i in range(self.rect[2])] for j in range(self.rect[3])])
+    def vic(self):
+        self.vic_mode=True
+        #self.vic_=
 class test(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))

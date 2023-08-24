@@ -377,6 +377,9 @@ class test_syo(Unit):
         while i>0:
             self.guns.append(Mosin_Nagant())
             i-=1
+    def draw(self, screen):
+        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+1,self.height+1)),RED)
+        super().draw(screen)
 class mosin_syo(Unit):
     def __init__(self, pos):
         super().__init__(pos,2,0,12,100,2,unit_type.infantry)
@@ -386,6 +389,9 @@ class mosin_syo(Unit):
         while i>0:
             self.guns.append(Mosin_Nagant())
             i-=1
+    def draw(self, screen):
+        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+1,self.height+1)),RED)
+        super().draw(screen)
 class Kar98k_syo(Unit):
     def __init__(self, pos):
         super().__init__(pos,2,0,12,100,2,unit_type.infantry)
@@ -395,6 +401,9 @@ class Kar98k_syo(Unit):
         while i>0:
             self.guns.append(Kar98k())
             i-=1
+    def draw(self, screen):
+        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+1,self.height+1)),RED)
+        super().draw(screen)
 class Gun:
     def __init__(self,cal,explo,penet,wei,ran,inter,speed,hei,bul,sou):
         self.caliber=cal
