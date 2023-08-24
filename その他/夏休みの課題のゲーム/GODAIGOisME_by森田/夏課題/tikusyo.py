@@ -62,10 +62,15 @@ kyori = 50
 kaiten = True
 stage = 1
 
+red = 0
+blue = 0
+green = 0
+
 flg = True
 angle_mode = False
 water_flg = False
 angles = max_angle
+
 
 gauge_mode = True
 
@@ -79,6 +84,8 @@ taiya = Actor('taiya.png',topleft=(-150,265))
 tree = Actor('tree.png',topleft=(0,0))
 water = Actor('water.png',topleft=(0,0))
 
+
+
 water.rect = Rect((water.x, water.y), (500, 100))
 ramen.rect = Rect((ramen.x, ramen.y), (40, 100))
 random_x = random.randint(100, 500)
@@ -91,6 +98,9 @@ kiroku = 0
 kiroku2 = 0
 kiroku_value = 0
 
+ramen.center = (random_x,600)
+
+
 def on_key_down(key):
     global gauge_mode
     
@@ -102,7 +112,10 @@ def update():
     global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles
     global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
     global player_speed_y2,target_x,target_y,angle3,flg,root2,angle_mode,gauge_value
-    global font_value,kiroku,stage,kaiten,water_flg,kiroku2,kiroku_value
+    global font_value,kiroku,stage,kaiten,water_flg,kiroku2,kiroku_value,red,blue,green
+    red = random.randint(0, 255)
+    blue = random.randint(0, 255)
+    green = random.randint(0, 255)
     if gauge_mode == True:
         gauge_value += gauge_speed
         kyori += 2
@@ -160,7 +173,7 @@ def update():
             if font_value < font_max:
                 font_value += 3
             if kiroku_value < kiroku2:
-                kiroku_value += 5
+                kiroku_value += 10
     else:
         player_x = 110
         player_y = 500
@@ -180,10 +193,44 @@ def Mappp():
                 tree.topleft=(70*x,70*y)
                 tree.draw()    
 def Kekka(flg):
+    screen.draw.filled_rect(Rect((100, 100), (500, 500)), (255, 255, 255))
+    screen.draw.rect(Rect((100, 100), (500, 500)), (0, 0, 0))
     if flg == 1:
-        screen.draw.text("審議会の評価：すごい！",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="red",fontsize=30)
+        screen.draw.text("審議会の評価：すごい！",(210,350),fontname="in_game.ttf",color="red",fontsize=30)
     if flg == 2:
-        screen.draw.text("審議会の評価：凡庸！",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
+        screen.draw.text("審議会の評価：凡庸！",(210,350),fontname="in_game.ttf",color="red",fontsize=30)
+    if flg == 3:
+        screen.draw.text("審議会の評価：下手くそ！",(210,350),fontname="in_game.ttf",color="blue",fontsize=30)
+    if flg == 4:
+        screen.draw.text("審議会の評価：IQ－100",(210,350),fontname="in_game.ttf",color="blue",fontsize=30)
+
+class Mini_map():
+    def __init__(self):
+        self.minimap_width = WIDTH // 2
+        self.minimap_height = HEIGHT // 4
+        self.minimap_x = 0
+        self.minimap_y = 0
+    def draw(self):
+    # ミニマップの背景を描画
+        screen.draw.filled_rect(Rect(0, 0, self.minimap_width, self.minimap_height // 2), "gray")
+        screen.draw.rect(Rect(0, 0, self.minimap_width, self.minimap_height // 2), "black")
+    
+    # プレイヤーの位置をミニマップ上に描画
+        ramen_minimap_x = (ramen.x + (random_number - 1) * 600) / random_number
+        ramen_minimap_x = ramen_minimap_x // 2
+        ramen_minimap_y = (self.minimap_height / HEIGHT) * ramen.y
+        ramen_minimap_y = ramen_minimap_y // 2
+        screen.draw.filled_circle((ramen_minimap_x, ramen_minimap_y), 5, "red")
+    
+        player_minimap_x = (ball.x + (stage - 1) * 600) / random_number
+        player_minimap_x = player_minimap_x // 2
+        player_minimap_y = (self.minimap_height / HEIGHT) * ball.y
+        player_minimap_y = player_minimap_y // 2
+        if player_minimap_x <= self.minimap_width:
+            screen.draw.filled_circle((player_minimap_x, player_minimap_y), 5, "blue")
+
+Mini_Mop = Mini_map()
+
 def draw():
     global player_x,player_y,player_angle,angle_mode,kyori,men_kyori,kiroku2
     screen.clear()
@@ -200,22 +247,19 @@ def draw():
     if stage == 2:
         Mappp()
         if random_number == 2:
-            ramen.topleft = (random_x,550)
             ramen.scale = 0.25
             ramen.draw()
     if stage == 3:
         Mappp()
         if random_number == 3:
-            ramen.topleft = (random_x,550)
             ramen.scale = 0.25
             ramen.draw()
     if stage == 4:
         Mappp()
         if random_number == 4:
-            ramen.topleft = (random_x,550)
             ramen.scale = 0.25
             ramen.draw()
-            
+    
     ball.x = player_x
     ball.y = player_y
     water.x = player_x
@@ -223,13 +267,14 @@ def draw():
     ball.angle = angles
     ball.scale = 1.25
     ball.draw()
+    Mini_Mop.draw()
     water.rect = Rect((player_x - 120, player_y - 70), (250, 150))
     ramen.rect = Rect((random_x - 40,480), (150, 150))
     if stage == random_number:
         screen.draw.rect(ramen.rect, (255,0, 0, 100))
     screen.draw.rect(water.rect, (255, 0, 0, 100))
     if angle_mode == False or stage == 1:
-        #screen.draw.text("覚悟をみせろ",(WIDTH//2,HEIGHT//2),fontname="in_game.ttf",color="blue",fontsize=30)
+        screen.draw.text("覚悟をみせろ",(30,HEIGHT//2),fontname="in_game.ttf",color = (red,blue,green),fontsize=30)
         men_kyori = random_x + ((random_number - 1) * 600)
         screen.draw.text("麺まであと"+ str(men_kyori) + "m",(400,0),fontname="in_game.ttf",color="blue",fontsize=30)
         ca_ue.scale = 0.35
@@ -251,27 +296,29 @@ def draw():
         screen.draw.rect(gauge_rect, (0,0, 0))
         
     if angle_mode == True and owari == True:
-        screen.draw.text("結果" + str(font_value) + "m",(WIDTH//2,200),fontname="in_game.ttf",color="blue",fontsize=30)
+        if water_flg == True:
+            clock.tick(2)
+            water.draw()
+            if water.rect.colliderect(ramen.rect) and stage == random_number:
+                Kekka(1)
+            else:
+                if kiroku2 >= 100 and kiroku2 <= 600:
+                    Kekka(2)
+                else:
+                    if kiroku2 >= 600 and kiroku2 <= 1000:
+                        Kekka(3)
+                    else:
+                        if kiroku2 >= 1000:
+                            Kekka(4)
+        screen.draw.text("結果",(210,200),fontname="in_game.ttf",color="blue",fontsize=30)
+        screen.draw.text("結果" + str(font_value) + "m",(210,200),fontname="in_game.ttf",color="blue",fontsize=30)
+        clock.tick(2)
         kiroku2 = men_kyori - kiroku
-        #if stage == random_number:
-            #kiroku2 = ramen.x - ball.x
-        #else:
-            #stage_kyori = (stage - random_number) * 600
-            #if stage_kyori < 0:
-             #   stage_kyori *= -1
-            #kiroku2 = ramen.x - stage_kyori
         if kiroku2 < 0:
             kiroku2 *= -1
-        screen.draw.text("麺との距離" + str(int(kiroku_value)) + "m",(WIDTH//2,HEIGHT//4),fontname="in_game.ttf",color="red",fontsize=30)
+        screen.draw.text("麺との距離" + str(int(kiroku_value)) + "m",(210,250),fontname="in_game.ttf",color="red",fontsize=30)
         
-    if water_flg == True:
-        clock.tick(2)
-        water.draw()
-        if water.rect.colliderect(ramen.rect) and stage == random_number:
-            Kekka(1)
-        else:
-            if kiroku2 >= 100 and kiroku2 <= 600:
-                Kekka(2)
+    
 def on_mouse_down(pos,button):
     global mouse_x, mouse_y,x2,y2,root,flg,hajime,angle_mode
     if gauge_mode == False:
