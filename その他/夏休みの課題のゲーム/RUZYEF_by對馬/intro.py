@@ -24,7 +24,8 @@ class Time_sys:
         self.sp1=Smol_Buttan(WHITE,(20+30+10,20),(30,30)," <",1)
         self.sp2=Smol_Buttan(WHITE,(20+(30+10)*2,20),(30,30)," <<",2)
         self.sp3=Smol_Buttan(WHITE,(20+(30+10)*3,20),(30,30),"<<<",4)
-
+    def set_time(self,now_time):
+        self.time=now_time+[0,0]
     def draw(self):
         screen.draw.filled_rect(Rect(self.pos,self.scope),(128,64,64))
         self.stop.draw(self.speed)
@@ -47,7 +48,7 @@ class Time_sys:
     def time_text(self):
         return str(self.time[0])+"年"+str(self.time[1])+"月\n"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])+":"+str(self.time[5])
     def save_text(self):
-        return str(self.time[0])+"年"+str(self.time[1])+"月"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])+":"+str(self.time[5])
+        return str(self.time[0])+"年"+str(self.time[1])+"月"+str(self.time[2])+"日"+str(self.time[3])+"時"+str(self.time[4])+"分"+str(self.time[5])+"秒"
     def update(self):
         self.time[6]+=self.speed
         if self.time[4]>60:
@@ -77,7 +78,6 @@ class Load:
         self.map=ma
         self.time=ti
         self.txt_pas=str(pas)
-        print(ma,ti)
         self.mae=Buttan(WHITE,(700-70-10,600-40-10),(70,40),"mae")
         self.usi=Buttan(WHITE,(700+(-70-10)*2,600+(-40-10)*1),(70,40),"usi")
         self.kettei=Buttan(WHITE,(700+(-70-10)*3,600+(-40-10)*1),(70,40),"ket")
@@ -204,7 +204,7 @@ class Start:
             with open("save/date"+str(n),mode="r") as f:
                 txt=f.readlines()[0]
                 map_name=txt[:txt.find(":")]
-                txt=txt[txt.find(":")+2:]
+                txt=txt[txt.find(":")+1:]
                 time_name=txt[:txt.find(":")]
                 self.save.append(Load(map_name,time_name,n))
             n+=1
@@ -238,17 +238,28 @@ class Maps:
                     self.pov[0] += 10
             if self.map!=None:
                 self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
+    def time_load(self,txt):
+        name_list=["年","月","日","時","分","秒"]
+        lis=[]
+        for c in name_list:
+            lis.append(int(txt[:txt.find(c)]))
+            txt=txt[txt.find(c)+1:]
+        return lis
     def load(self,pas):
         with open(pas,mode="r") as f:
             txt_list=f.readlines()
             txt=txt_list.pop(0)
             map_name=txt[:txt.find(":")]
-            map_class=globals().get(map_name)
             txt=txt[txt.find(":")+2:]
-            txt[:txt.find(":")]
+            time_name=txt[:txt.find(":")]
+            time=self.time_load(time_name)
+
+            unit_list=[]
             for txt in txt_list:
                 pass
-            map_class(time,unit_list)
+            map_class=globals().get(map_name)
+            map_class().load(time,unit_list)
+            print(time)
 
     def mouse_down(self,pos,button):
         if self.map==None:
@@ -317,6 +328,7 @@ class Map:
             txt=self.__class__.__name__+":"
             txt+=self.time.save_text()+":"
             f.write(txt)
+            file_count+=1
     def setdate(self,name):
         source=pygame.image.load(os.path.join('images', name))
         source=source.convert()
@@ -429,11 +441,8 @@ class test(Map):
         wide_rect=source.get_clip()
         super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
         self.setdate('test.png')  
-    def __init__(self,time,unit_list):
-        source=pygame.image.load(os.path.join('images', 'test.png'))
-        wide_rect=source.get_clip()
-        super().__init__([wide_rect[2],wide_rect[3]],time)
-        self.setdate('test.png')  
+    def load(self,time,unit_list):
+        pass
 class nmap(Map):
     def __init__(self):
         super().__init__([900,900],[43,7,3,7,30])
@@ -454,24 +463,8 @@ class nmap(Map):
         self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
         self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
         self.set_unit()
-    def __init__(self,time,unit_list):
-        super().__init__([900,900],time)
-        self.en([0,50],10,2)
-        self.sen([0,50],[100,400],10,2)
-        self.en([100,400],10,2)
-        self.sen([100,400],[600,500],10,2)
-        self.en([600,500],10,2)
-        self.sen([600,500],[900,400],5,2)
-        self.sen([600,500],[700,900],5,2)
-        self.sikaku([250,70],[390,140],6)
-        self.sen([400,0],[300,100],5,4)
-        self.sen([300,100],[900,100],5,4)
-        self.sen([300,100],[290,400],5,4)
-        self.sen([290,400],[200,800],5,4)
-        self.sen([200,800],[100,900],5,4)
-        self.sen([300,0],[200,900],10,3)
-        self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
-        self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
+    def load(self,time,unit_list):
+        pass
     def set_unit(self):
         g=ger(self)
         g.set_unit((300,100),Kar98k_syo)

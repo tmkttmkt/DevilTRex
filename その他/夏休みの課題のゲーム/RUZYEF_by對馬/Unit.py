@@ -1,6 +1,7 @@
 from ast import List
+from os import remove
 import re
-from turtle import back
+from turtle import back, width
 from pgzero.actor import Actor
 from pgzero.keyboard import keyboard
 from pgzero.constants import mouse
@@ -24,7 +25,7 @@ class Units:
     def update(self,list):
         bullets=[]
         for obj in self.list:
-            exm=obj.update(self.map.date)
+            exm=obj.update(self.map.date,self.list)
             if exm!=None:
                 bullets+=exm
             for bul in list:
@@ -33,6 +34,8 @@ class Units:
                     if dameg!=None:
                         print(dameg)
                         obj.atacked(dameg,bul.unit)
+            if obj.delete():
+                self.list.remove(obj)
         list+=bullets
     def set_unit(self,pos,unit_class):
         self.list.append(unit_class(pos))
@@ -106,7 +109,6 @@ class ger_ply(Units):
                     if obj!=ret_obj:
                         obj.mouse_up()
         return ret_obj
-
 class sov(Units):
     def update(self, list):
         self.AI()
@@ -146,6 +148,10 @@ class Unit(Actor):
         self.guns=[]
         self.atacked_unit=[]
         self.back_flg=False
+    def delete(self):
+        if self.soldier<=0:
+            return True
+        return False
     def atacked(self,damag,uni):
         self.soldier-=damag[0]
         self.morale-=damag[1]
@@ -168,13 +174,22 @@ class Unit(Actor):
             self.fire_point=pos
             self.goal=goal.fire
         return False
-    def withdrawal(self,date):
+    def withdrawal(self,date,lit):
         self.back_flg=True
         out=[]
         for uni in self.atacked_unit:
-            out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
-        print(out)
-        self.back_list=call_withdrawal_fnuc(date,self.center,np.array(out),len(out))
+            flg=True
+            for obj in lit:
+                if uni[0]==obj:
+                    flg=False
+            if flg:
+                out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
+        if len(out)!=0:
+            self.back_list=call_withdrawal_fnuc(date,self.center,np.array(out),len(out))
+        else:
+            for uni in self.atacked_unit:
+                out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
+
     def mouse_down_on(self,pos):
         if self.collidepoint(pos):
             self.mouse=True
@@ -188,7 +203,7 @@ class Unit(Actor):
         if self.mouse:
             self.goal=goal.move
             self.point_list=call_move_func(date,self.center,pos,pov)
-    def update(self,date):
+    def update(self,date,lit):
         for gun in self.guns:
             gun.update()
         self.time+=1
@@ -255,7 +270,7 @@ class Unit(Actor):
                 self.goal=goal.defense
                 self.back_nokori=(-1,-1)
         elif self.morale<0:
-            self.withdrawal(date)
+            self.withdrawal(date,lit)
         elif self.goal==goal.move:
             if 0<len(self.point_list):
                 #print(self.nokori)
@@ -308,11 +323,44 @@ class Unit(Actor):
         elif self.goal==goal.speed_move:
             pass
         elif self.goal==goal.defense:
-            pass
+            unit_list=self.atacked_unit.copy()
+            for unit in unit_list:
+                for obj in lit:
+                    if unit[0]==obj:
+                        unit_list.remove(unit)
+            if 0!=len(unit_list):
+                bullets=[]
+                n=0
+                for gun in self.guns:
+                    if n>=self.soldier:
+                        break
+                    n+=1
+                    if gun.can:
+                        um=random.randint(0,len(unit_list)-1)
+                        point=self.atacked_unit[um][0].center
+                        
+                        if self.center[0]<point[0]:
+                            x=point[0]+self.atacked_unit[um][0].width/2
+                        else:
+                            x=point[0]-self.atacked_unit[um][0].width/2
+                        if self.center[1]<point[1]:
+                            y=point[1]+self.atacked_unit[um][0].height/2
+                        else:
+                            y=point[1]-self.atacked_unit[um][0].height/2
+                        bul=gun.fire(self.center,(x,y),self)
+                        
+                        #bul=gun.fire(self.center,point,self)
+                        if bul!=None:
+                            bullets.append(bul)
+                return bullets
         elif self.goal==goal.fire:
             if self.fire_point!=(-1,-1):
                 bullets=[]
+                n=0
                 for gun in self.guns:
+                    if n>=self.soldier:
+                        break
+                    n+=1
                     if gun.can:
                         bul=gun.fire(self.center,self.fire_point,self)
                         if bul!=None:
@@ -408,7 +456,7 @@ class Kar98k(Gun):
         super().__init__(7.92,0,5,9.9,500,FPS_SCL*(12+random.gauss(0,4)),760*random.gauss(1,0.1),1.5,bullet_type.ki_rifles,(5,6*FPS_SCL))
 class MG34(Gun):
     def __init__(self):
-        super().__init__(7.92,0,5,9.9,700,FPS_SCL*12*60/800,755*random.gauss(1,0.1),0.3,bullet_type.rifles,(50,13*FPS_SCL))
+        super().__init__(7.92,0,5,9.9,700,FPS_SCL*60/800,755*random.gauss(1,0.1),0.3,bullet_type.rifles,(50,13*FPS_SCL))
 class Bullet(Actor):
     def __init__(self,cal,pos,hei,speed,type:bullet_type,uni) -> None:
         if type==bullet_type.ki_rifles:
@@ -421,6 +469,7 @@ class Bullet(Actor):
         self.z=hei
         self.speed=speed
         self.unit=uni
+        self.time=0
     def update(self):
         #self.speed[0]+=0.25*self.caliber/1000*self.speed[0]**2*(1 if self.speed[0]<0 else -1)
         #self.speed[1]+=0.25*self.caliber/1000*self.speed[1]**2*(1 if self.speed[1]<0 else -1)
@@ -429,32 +478,34 @@ class Bullet(Actor):
         self.y+=self.speed[1]
         self.speed[2]-=G
         self.z+=self.speed[2]
+        self.time+=1
         print(self.speed,self.center,self.z)
                             #sol,mora
-    def collide(self,obj)->(int,int) or None:
-        if obj.colliderect(Rect(self.center,(self.past[0]-self.center[0],self.past[1]-self.center[1]))):
-            print("b",self.z)
-            if self.z<obj.hei:
-                if obj.type==unit_type.infantry:
-                    if 10>=random.randint(1,10):
-                        if self.type==bullet_type.rifles: 
-                            return (1,5)
-                        elif self.type==bullet_type.AP:
-                            return (1,15)
-                        elif self.type==bullet_type.HE:
-                            return (3,40)
-                    else:
-                        return (0,1)
-                elif obj.type==unit_type.artillery:
-                    if 10>=random.randint(1,10):
-                        if self.type==bullet_type.rifles: 
-                            return (1,5)
-                        elif self.type==bullet_type.AP:
-                            return (1,15)
-                        elif self.type==bullet_type.HE:
-                            return (3,40)
-            else:
-                return (0,1)
+    def collide(self,obj):
+        if self.time>=3:
+            if obj.colliderect(Rect(self.center,(self.past[0]-self.center[0],self.past[1]-self.center[1]))):
+                print("b",self.z)
+                if self.z<obj.hei:
+                    if obj.type==unit_type.infantry:
+                        if 5>=random.randint(1,10):
+                            if self.type==bullet_type.rifles: 
+                                return (1,5)
+                            elif self.type==bullet_type.AP:
+                                return (1,15)
+                            elif self.type==bullet_type.HE:
+                                return (3,40)
+                        else:
+                            return (0,1)
+                    elif obj.type==unit_type.artillery:
+                        if 7>=random.randint(1,10):
+                            if self.type==bullet_type.rifles: 
+                                return (1,5)
+                            elif self.type==bullet_type.AP:
+                                return (1,15)
+                            elif self.type==bullet_type.HE:
+                                return (3,40)
+                else:
+                    return (0,1)
     def set_pov(self,pov):
         self.x+=pov[0]
         self.y+=pov[1]
@@ -501,12 +552,23 @@ class Unit_state:
     def draw(self,screen):
         screen.draw.filled_rect(Rect((200,HEIGHT-200), (WIDTH-200*2,200)),WHITE)
         screen.draw.text(self.text(),(200,HEIGHT-200),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=30)
-    def text(self):
-        txt=self.unit.name+"　兵数："+str(self.unit.soldier)+"  士気："+str(self.unit.morale)
+        screen.draw.text(self.gun_text(),(200,HEIGHT-200+30),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=15)
+    def gun_text(self):
+        txt=""
         for gun in self.unit.guns:
-            txt+="\n"+str(round(gun.time/gun.interval,1))
-            txt+="  "+str(gun.sou)
+            txt+=gun.__class__.__name__
+            txt+="  残弾数:"+str(gun.sou_max-gun.sou)
+            if gun.sou_max-gun.sou!=0:
+                if gun.can:
+                    txt+="  装填"+"100%"
+                else:
+                    txt+="  装填 "+str(int(gun.time/gun.interval*100))+"%"
+            else:
+                txt+="装填残り"+str(int((gun.sou_interval-gun.time)/60))+"秒"
+            txt+="\n"
         return txt
+    def text(self):
+        return self.unit.name+"　兵数："+str(self.unit.soldier)+"  士気："+str(self.unit.morale)
 
 
 
