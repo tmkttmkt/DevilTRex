@@ -50,14 +50,15 @@ class Time_sys:
         exm_time=[]
         now_time=self.time.copy()
         lis=[0,0,0,24,60,60]
-        while n>=0:
+        time+=[0]
+        while n>0:
             if now_time[n]-time[n]>=0:
                 exm_time.append(now_time[n]-time[n])
             else:
                 exm_time.append(now_time[n]-time[n]+lis[n])
-                now_time[n]-=1
+                now_time[n-1]-=1
             n-=1
-
+        exm_time+=[0]
         return str(exm_time[5])+"年"+str(exm_time[4])+"月"+str(exm_time[3])+"日"+str(exm_time[2])+"時"+str(exm_time[1])+"分"+str(exm_time[0])+"秒"
     def time_text(self):
         return str(self.time[0])+"年"+str(self.time[1])+"月\n"+str(self.time[2])+"日"+str(self.time[3])+":"+str(self.time[4])+":"+str(self.time[5])
@@ -65,7 +66,7 @@ class Time_sys:
         return str(self.time[0])+"年"+str(self.time[1])+"月"+str(self.time[2])+"日"+str(self.time[3])+"時"+str(self.time[4])+"分"+str(self.time[5])+"秒"
     def update(self):
         self.time[6]+=self.speed
-        if self.time[4]>60:
+        if self.time[6]>60:
             self.time[6]-=60
             self.time[5]+=1        
             if self.time[5]>60:
@@ -201,7 +202,6 @@ class Start:
                         self.save_num=len(self.save)-1
                     if self.save_num>len(self.save)-1:
                         self.save_num=0
-                    print(self.save_num)
             else:
                 self.title_mode=title_mode.START
         elif self.title_mode==title_mode.EXPLANATION:
@@ -210,7 +210,6 @@ class Start:
         global file_count
         folder_path = "save"
         file_count = len([f for f in os.listdir(folder_path)])
-        print(file_count)
     def load_all(self):
         global file_count
         n=0
@@ -273,7 +272,6 @@ class Maps:
                 pass
             map_class=globals().get(map_name)
             map_class().load(time,unit_list)
-            print(time)
 
     def mouse_down(self,pos,button):
         if self.map==None:
@@ -294,7 +292,13 @@ class Maps:
                     self.return_mode=False
                     self.map=None
             else:
-                if not self.map.time.mouse_down(pos):
+                if self.map.vic_mode:
+                    self.map=None
+                    self.state=None
+                else:
+                    if self.map.time_draw:
+                        if self.map.time.mouse_down(pos):
+                            return NOT_BACK
                     if not self.map.vic_mode:
                         obj=None
                         for units in self.map.units_list:
@@ -304,13 +308,16 @@ class Maps:
                                     self.state=None
                                 else:
                                     self.state=Unit_state(obj)
-                    else:
-                        return BACK
+
         return NOT_BACK
     def key_down(self,key):
         self.map.time.key_down(key)
         if key==keys.ESCAPE:
             self.return_mode=not self.return_mode
+        elif key==keys.SPACE:
+            self.map.vic_draw=not self.map.vic_draw
+        elif key==keys.T:
+            self.map.time_draw=not self.map.time_draw
     def draw(self,screen):
         if self.map==None:
             screen.fill((172,172,172))
@@ -318,8 +325,6 @@ class Maps:
                 obj.draw()
         else:
             self.map.draw(self.pov,screen)
-            
-            self.map.time.draw()
             if self.return_mode:
                 screen.draw.filled_rect(Rect((WIDTH/2-120-20,HEIGHT/2-20), (280,40+140+60)),WHITE)
                 self.ret.draw()
@@ -340,7 +345,21 @@ class Map:
         self.units_list=[]
         self.bullets=Bullets(self)
         self.time=Time_sys(time)
+        self.time_draw=True
         self.start_time=time
+        self.vic_txt="殲滅せよ！"
+        self.vic_draw=True
+    def search(self,rect:Rect):
+        lis=[]
+        for units in self.units_list:
+            for unit in units.list:
+                if rect.collidepoint(unit.center):
+                    lis.append(unit)
+        return lis
+    def vic_if(self):
+        return False
+    def los_if(self):
+        return False
     def save(self):
         global file_count
         with open("save/date"+str(file_count),mode="w") as f:
@@ -364,6 +383,11 @@ class Map:
         self.bullets.draw()
         for units in self.units_list:
             units.draw(screen)
+        if self.time_draw:
+            self.time.draw()
+        if self.vic_draw:
+            screen.draw.filled_rect(Rect((500,0), (400,100)),WHITE)
+            screen.draw.text(self.vic_txt,(500,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
         if self.vic_mode:
             screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
             if self.vic_:
@@ -371,17 +395,24 @@ class Map:
             else:
                 txt="敗北"
             screen.draw.text(txt,(WIDTH/2-100,200),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=100)
-            txt=self.time.time_text()+"\nかかった時間"+self.time.past_time(self.start_time)
+            txt=self.time.time_text()+"\nかかった時間 \n"+self.time.past_time(self.start_time)+"\n残り部隊  "+str(len(self.units_list[0].list))
             screen.draw.text(txt,(WIDTH/2-100,200+100),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
     def update(self,pov):
-        speed=self.time.update()
-        while speed>0:
-            self.bullets.update()
-            self.bullets.set_pov(pov)
-            for units in self.units_list:
-                units.update(self.bullets.list)
-                units.set_pov(pov)
-            speed-=1
+        if not self.vic_mode:
+            speed=self.time.update()
+            while speed>0:
+                self.bullets.update()
+                self.bullets.set_pov(pov)
+                for units in self.units_list:
+                    units.update(self.bullets.list)
+                    units.set_pov(pov)
+                speed-=1
+            if self.vic_if():
+                self.vic_mode=True
+                self.vic_=True
+            elif self.los_if():
+                self.vic_mode=True
+                self.vic_=False
     def sen(self,pos,go_pos,haba,setd):
         haba/=2
         xsen=(pos[0]-go_pos[0])
@@ -463,9 +494,6 @@ class Map:
     def all(self,setd):
         self.draw_date.fill(self.color[1],None, special_flags=0)
         self.date= np.array([[setd for i in range(self.rect[2])] for j in range(self.rect[3])])
-    def vic(self):
-        self.vic_mode=True
-        #self.vic_=
 class test(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
@@ -494,6 +522,10 @@ class nmap(Map):
         self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
         self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
         self.set_unit()
+    def vic_if(self):
+        return 0==len(self.units_list[1].list)
+    def los_if(self):
+        return 0==len(self.units_list[0].list)
     def load(self,time,unit_list):
         pass
     def set_unit(self):
@@ -505,7 +537,7 @@ class nmap(Map):
         sp.set_unit((300,800),mosin_syo)
         sp.set_unit((570, 530),mosin_syo)
         sp.set_unit((65, 450),mosin_syo)
-        sp.set_unit((450, 450),test_syo)
+        sp.set_unit((450, 450),Kar98k_syo)
         #プレイヤーは後ろ
         self.units_list+=[sp,g]
 maps=Maps()

@@ -8,11 +8,12 @@ from pgzero.constants import mouse
 from pgzero.rect import Rect
 from math import fabs, sqrt,cos,sin,asin,acos,degrees
 from var import *
+from enu import goal,unit_type,bullet_type
+from func import rerect
 #from pgzero.game import screen
 from rapper import call_move_func,call_withdrawal_fnuc
 import random
 import numpy as np
-from enu import goal,unit_type,bullet_type
 class Units:
     def __init__(self,map):
         self.list=[]
@@ -115,16 +116,32 @@ class sov(Units):
         super().update(list)
     def AI(self):
         for unit in self.list:
+            lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
+            for o in lis:
+                for obj in self.list:
+                    if o==obj:
+                        lis.remove(o)
+            if len(lis)!=0:
+                unit.fire(lis[0].center,True)
             if len(unit.atacked_unit)>2:
-                unit.withdrawal(self.map.date)
+                unit.withdrawal(self.map.date,self.list)
 class ger(Units):
     def update(self, list):
         self.AI()
         super().update(list)
     def AI(self):
         for unit in self.list:
+            lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
+            for o in lis:
+                for obj in self.list:
+                    if o==obj:
+                        lis.remove(o)
+            if len(lis)!=0:
+                unit.fire(lis[0].center,True)
+            else:
+                unit.goal=goal.defense
             if len(unit.atacked_unit)>2:
-                unit.withdrawal(self.map.date)
+                unit.withdrawal(self.map.date,self.list)
 class Unit(Actor):
     def __init__(self,pos,speed,armor,soldier,morale,hei,type:unit_type):
         super().__init__('sol_syo',center=pos)
@@ -168,8 +185,8 @@ class Unit(Actor):
         super().draw()
         if self.mouse:
             screen.draw.circle(self.center,10, (255,0,0))
-    def fire(self,pos):
-        if self.mouse:
+    def fire(self,pos,flg=False):
+        if self.mouse or flg:
             self.point_list=[]
             self.fire_point=pos
             self.goal=goal.fire
@@ -338,7 +355,7 @@ class Unit(Actor):
                     if gun.can:
                         um=random.randint(0,len(unit_list)-1)
                         point=self.atacked_unit[um][0].center
-                        
+                        """
                         if self.center[0]<point[0]:
                             x=point[0]+self.atacked_unit[um][0].width/2
                         else:
@@ -348,8 +365,8 @@ class Unit(Actor):
                         else:
                             y=point[1]-self.atacked_unit[um][0].height/2
                         bul=gun.fire(self.center,(x,y),self)
-                        
-                        #bul=gun.fire(self.center,point,self)
+                        """
+                        bul=gun.fire(self.center,point,self)
                         if bul!=None:
                             bullets.append(bul)
                 return bullets
@@ -378,7 +395,7 @@ class test_syo(Unit):
             self.guns.append(Mosin_Nagant())
             i-=1
     def draw(self, screen):
-        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+1,self.height+1)),RED)
+        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+2,self.height+2)),RED)
         super().draw(screen)
 class mosin_syo(Unit):
     def __init__(self, pos):
@@ -390,7 +407,7 @@ class mosin_syo(Unit):
             self.guns.append(Mosin_Nagant())
             i-=1
     def draw(self, screen):
-        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+1,self.height+1)),RED)
+        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+2,self.height+2)),RED)
         super().draw(screen)
 class Kar98k_syo(Unit):
     def __init__(self, pos):
@@ -402,7 +419,7 @@ class Kar98k_syo(Unit):
             self.guns.append(Kar98k())
             i-=1
     def draw(self, screen):
-        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+1,self.height+1)),RED)
+        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+2,self.height+2)),BLUE)
         super().draw(screen)
 class Gun:
     def __init__(self,cal,explo,penet,wei,ran,inter,speed,hei,bul,sou):
@@ -453,7 +470,7 @@ class Gun:
         self.time=0
         self.can=False
         print(pos,degrees(tate_seeta),sya)
-        return Bullet(self.caliber,loc,self.height,speed,self.bullet,uni)
+        return Bullet(self.caliber,loc,self.height+1,speed,self.bullet,uni)
 class Mosin_Nagant(Gun):
     def __init__(self):
         super().__init__(7.62,0,5,9.7,400,FPS_SCL*(12+random.gauss(0,4)),810*random.gauss(1,0.1),1.5,bullet_type.rifles,(5,7*FPS_SCL))
@@ -491,30 +508,31 @@ class Bullet(Actor):
         print(self.speed,self.center,self.z)
                             #sol,mora
     def collide(self,obj):
-        if self.time>=3:
-            if obj.colliderect(Rect(self.center,(self.past[0]-self.center[0],self.past[1]-self.center[1]))):
-                print("b",self.z)
-                if self.z<obj.hei:
-                    if obj.type==unit_type.infantry:
-                        if 5>=random.randint(1,10):
-                            if self.type==bullet_type.rifles: 
-                                return (1,5)
-                            elif self.type==bullet_type.AP:
-                                return (1,15)
-                            elif self.type==bullet_type.HE:
-                                return (3,40)
-                        else:
-                            return (0,1)
-                    elif obj.type==unit_type.artillery:
-                        if 7>=random.randint(1,10):
-                            if self.type==bullet_type.rifles: 
-                                return (1,5)
-                            elif self.type==bullet_type.AP:
-                                return (1,15)
-                            elif self.type==bullet_type.HE:
-                                return (3,40)
-                else:
-                    return (0,1)
+        ex=Rect(self.center,(self.past[0]-self.center[0],self.past[1]-self.center[1]))
+        ex=rerect(ex)
+        if obj.colliderect(ex):
+            print("b",self.z)
+            if self.z<obj.hei:
+                if obj.type==unit_type.infantry:
+                    if 7>=random.randint(1,10):
+                        if self.type==bullet_type.rifles: 
+                            return (1,5)
+                        elif self.type==bullet_type.AP:
+                            return (1,15)
+                        elif self.type==bullet_type.HE:
+                            return (3,40)
+                    else:
+                        return (0,1)
+                elif obj.type==unit_type.artillery:
+                    if 7>=random.randint(1,10):
+                        if self.type==bullet_type.rifles: 
+                            return (1,5)
+                        elif self.type==bullet_type.AP:
+                            return (1,15)
+                        elif self.type==bullet_type.HE:
+                            return (3,40)
+            else:
+                return (0,1)
     def set_pov(self,pov):
         self.x+=pov[0]
         self.y+=pov[1]
@@ -532,26 +550,27 @@ class Bullets:
             if pos[0]<0 or pos[1]<0 or pos[1]>=self.map.date.shape[1] or pos[0]>=self.map.date.shape[0]:
                 self.list.remove(bul)
                 continue
-            pos=(int(round(pos[0])),int(round(pos[1])))
-            sta=self.map.date[pos[1],pos[0]]
-            #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
-            if sta==2:
-                if bul.z<-1:
-                    self.list.remove(bul)
-                    continue
-            else:
-                if bul.z<0:
-                    self.list.remove(bul)
-                    continue
-            if sta==5:
-                if bul.z<20:
-                    if 1==random.randint(1,10):
+            if bul.time>=3:
+                pos=(int(round(pos[0])),int(round(pos[1])))
+                sta=self.map.date[pos[1],pos[0]]
+                #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
+                if sta==2:
+                    if bul.z<-1:
                         self.list.remove(bul)
                         continue
-            elif sta==6:
-                if 1==random.randint(1,4):
-                    self.list.remove(bul)
-                    continue   
+                else:
+                    if bul.z<0:
+                        self.list.remove(bul)
+                        continue
+                if sta==5:
+                    if bul.z<20:
+                        if 1==random.randint(1,10):
+                            self.list.remove(bul)
+                            continue
+                elif sta==6:
+                    if 1==random.randint(1,4):
+                        self.list.remove(bul)
+                        continue   
     def set_pov(self,pov):
         for obj in self.list:
             obj.set_pov(pov)
