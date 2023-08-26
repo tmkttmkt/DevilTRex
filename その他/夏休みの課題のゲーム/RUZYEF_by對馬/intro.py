@@ -231,8 +231,8 @@ class Maps:
         self.menu=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60]," menu ")
         self.return_mode=False
         self.state=None
-        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
-                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," nmap ")
+        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"beerui")
+                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"sityefk")
                         ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
     def update(self):
         if not self.return_mode:
@@ -494,7 +494,7 @@ class Map:
     def all(self,setd):
         self.draw_date.fill(self.color[1],None, special_flags=0)
         self.date= np.array([[setd for i in range(self.rect[2])] for j in range(self.rect[3])])
-class test(Map):
+class sityefk(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
         wide_rect=source.get_clip()
@@ -502,7 +502,7 @@ class test(Map):
         self.setdate('test.png')  
     def load(self,time,unit_list):
         pass
-class nmap(Map):
+class beerui(Map):
     def __init__(self):
         super().__init__([900,900],[43,7,3,7,30])
         self.en([0,50],10,2)
