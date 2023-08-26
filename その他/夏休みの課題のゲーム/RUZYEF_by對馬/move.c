@@ -64,11 +64,11 @@ int move_func(int * date,int loc_x,int loc_y,int pos_x,int pos_y) {
             //0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
             point_cost=1.0;
             if(*date==1)point_cost=1.0;
-            else if(*date==2)point_cost=20.0;
+            else if(*date==2)point_cost=50.0;
             else if(*date==3)point_cost=0.5;
             else if(*date==4)point_cost=0.5;
-            else if(*date==5)point_cost=2.0;
-            else if(*date==6)point_cost=2.0;
+            else if(*date==5)point_cost=3.0;
+            else if(*date==6)point_cost=3.0;
             else continue;
             cost+=sqrtf(arry[i][1]*arry[i][1]+arry[i][0]*arry[i][0])*point_cost;
             if(tot_x==pos_x && tot_y==pos_y){
