@@ -14,9 +14,7 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
     loc_y=loc[1]-pov[1]
     pos_x=pos[0]-pov[0]
     pos_y=pos[1]-pov[1]
-    cdef int[:] date_list1= date[-pov[1]:-pov[1]+900,-pov[0]:-pov[0]+900].ravel()
-    print(date_list1.shape)
-    print(date_list1)
+    cdef int[:] date_list1= date[pov[0]:pov[0]+900, pov[1]:pov[1]+900].ravel()
     print(" ",time()-start)
     start=time()
     num=move_func(&date_list1[0],loc_x,loc_y,pos_x,pos_y)
@@ -36,17 +34,16 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
     print(lis)
     #print(num)
     print(" ",time()-start)
-    print(loc_x,loc_y,pos_x,pos_y,pov)
     return list(lis)
 
-def call_withdrawal_fnuc(np.ndarray[np.int32_t, ndim=2] date2,loc,pov,np.ndarray[np.int32_t, ndim=2] out,int i):
+def call_withdrawal_fnuc(np.ndarray[np.int32_t, ndim=2] date2,loc,np.ndarray[np.int32_t, ndim=2] out,int i):
     cdef:
         int loc_x,loc_y,y_lan
         int n
     n=0
     start=time()
-    loc_x=loc[0]-pov[0]
-    loc_y=loc[1]-pov[1]
+    loc_x=loc[0]
+    loc_y=loc[1]
     y_lan=date2.shape[0]
     cdef int[:] date_list2= date2.ravel()
     cdef int[:] outli = out.ravel()
