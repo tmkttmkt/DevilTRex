@@ -78,7 +78,7 @@ int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
             //0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
             point_cost=1.0;
             if(*date==1)point_cost=1.0;
-            else if(*date==2)point_cost=50.0;
+            else if(*date==2)point_cost=20.0;
             else if(*date==3)point_cost=0.5;
             else if(*date==4)point_cost=0.5;
             else if(*date==5){
