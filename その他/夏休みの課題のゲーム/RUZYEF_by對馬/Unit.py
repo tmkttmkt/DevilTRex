@@ -26,7 +26,7 @@ class Units:
     def update(self,list):
         bullets=[]
         for obj in self.list:
-            exm=obj.update(self.map.date,self.list)
+            exm=obj.update(self.map.date,self.pov,self.list)
             if exm!=None:
                 bullets+=exm
             for bul in list:
@@ -40,7 +40,8 @@ class Units:
         list+=bullets
     def set_unit(self,pos,unit_class):
         self.list.append(unit_class(pos))
-    def set_pov(self,pov):
+    def set_pov(self,pov,pov_dn):
+        self.pov=pov_dn
         for obj in self.list:
             obj.set_pov(pov)
     def mouse_down(self,pos,button):
@@ -117,12 +118,19 @@ class sov(Units):
     def AI(self):
         for unit in self.list:
             lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
+            i=0
+            de_list=[]
             for o in lis:
                 for obj in self.list:
                     if o==obj:
-                        lis.remove(o)
+                        de_list.append(o)
+                        break
+            for ob in de_list:
+                lis.remove(ob)
             if len(lis)!=0:
                 unit.fire(lis[0].center,True)
+            else:
+                unit.goal=goal.defense
             if len(unit.atacked_unit)>2:
                 unit.withdrawal(self.map.date,self.list)
 class ger(Units):
@@ -132,10 +140,15 @@ class ger(Units):
     def AI(self):
         for unit in self.list:
             lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
+            i=0
+            de_list=[]
             for o in lis:
                 for obj in self.list:
                     if o==obj:
-                        lis.remove(o)
+                        de_list.append(o)
+                        break
+            for ob in de_list:
+                lis.remove(ob)
             if len(lis)!=0:
                 unit.fire(lis[0].center,True)
             else:
@@ -179,6 +192,7 @@ class Unit(Actor):
         if flg:
             self.atacked_unit.append([uni,10])
     def set_pov(self,pov):
+        self.fire_point=(self.fire_point[0]+pov[0],self.fire_point[1]+pov[1])
         self.x+=pov[0]
         self.y+=pov[1]
     def draw(self,screen):
@@ -191,7 +205,7 @@ class Unit(Actor):
             self.fire_point=pos
             self.goal=goal.fire
         return False
-    def withdrawal(self,date,lit):
+    def withdrawal(self,date,pov,lit):
         self.back_flg=True
         out=[]
         for uni in self.atacked_unit:
@@ -202,10 +216,12 @@ class Unit(Actor):
             if flg:
                 out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
         if len(out)!=0:
-            self.back_list=call_withdrawal_fnuc(date,self.center,np.array(out),len(out))
+            self.back_list=call_withdrawal_fnuc(date,self.center,pov,np.array(out),len(out))
         else:
             for uni in self.atacked_unit:
                 out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
+            if len(out)!=0:
+                self.back_list=call_withdrawal_fnuc(date,self.center,pov,np.array(out),len(out))
 
     def mouse_down_on(self,pos):
         if self.collidepoint(pos):
@@ -220,7 +236,7 @@ class Unit(Actor):
         if self.mouse:
             self.goal=goal.move
             self.point_list=call_move_func(date,self.center,pos,pov)
-    def update(self,date,lit):
+    def update(self,date,pov,lit):
         for gun in self.guns:
             gun.update()
         self.time+=1
@@ -258,7 +274,7 @@ class Unit(Actor):
                     sya=sqrt(li[0]**2+li[1]**2)
                     syaka=sya
                     pos=(int(round(self.center[0]+li[0])),int(round(self.center[1]+li[1])))
-                    sta=date[pos[1],pos[0]]
+                    sta=date[pos[1]-pov[1],pos[0]-pov[0]]
                     #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
                     if sta==2:
                         sya*=20
@@ -287,7 +303,7 @@ class Unit(Actor):
                 self.goal=goal.defense
                 self.back_nokori=(-1,-1)
         elif self.morale<0:
-            self.withdrawal(date,lit)
+            self.withdrawal(date,pov,lit)
         elif self.goal==goal.move:
             if 0<len(self.point_list):
                 #print(self.nokori)
@@ -314,9 +330,9 @@ class Unit(Actor):
                     sta=date[pos[1],pos[0]]
                     #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
                     if sta==2:
-                        sya*=20
+                        sya*=50
                     elif sta==5 or sta==6:
-                        sya*=2
+                        sya*=3
                     elif sta==2 or sta==3:
                         sya*=0.5
                     nokori+=sya
@@ -455,7 +471,7 @@ class Gun:
         if tate_kaku>1:
             tate_kaku=1
         tate_seeta=asin(tate_kaku)/2
-        if degrees(tate_kaku)>20:
+        if degrees(tate_kaku)>20 or sya==0:
             return
         tate_seeta+=random.gauss(0,tate_kaku*tate_kaku/10)
         yx_speed=speed*cos(tate_seeta)
@@ -514,7 +530,7 @@ class Bullet(Actor):
             print("b",self.z)
             if self.z<obj.hei:
                 if obj.type==unit_type.infantry:
-                    if 7>=random.randint(1,10):
+                    if 1>=random.randint(1,10):
                         if self.type==bullet_type.rifles: 
                             return (1,5)
                         elif self.type==bullet_type.AP:
@@ -543,7 +559,7 @@ class Bullets:
     def draw(self):
         for bul in self.list:
             bul.draw()
-    def update(self):
+    def update(self,pov):
         for bul in self.list:
             bul.update()
             pos=bul.center
@@ -551,7 +567,7 @@ class Bullets:
                 self.list.remove(bul)
                 continue
             if bul.time>=3:
-                pos=(int(round(pos[0])),int(round(pos[1])))
+                pos=(int(round(pos[0]+pov[0])),int(round(pos[1]+pov[0])))
                 sta=self.map.date[pos[1],pos[0]]
                 #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
                 if sta==2:

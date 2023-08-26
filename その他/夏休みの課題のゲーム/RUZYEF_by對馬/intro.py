@@ -231,8 +231,8 @@ class Maps:
         self.menu=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60]," menu ")
         self.return_mode=False
         self.state=None
-        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60]," test ")
-                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," nmap ")
+        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"sityefk")
+                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"beerui")
                         ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
     def update(self):
         if not self.return_mode:
@@ -250,7 +250,7 @@ class Maps:
                 if(self.pov[0]<0):
                     self.pov[0] += 10
             if self.map!=None:
-                self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
+                self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]),self.pov)
     def time_load(self,txt):
         name_list=["年","月","日","時","分","秒"]
         lis=[]
@@ -371,13 +371,16 @@ class Map:
         source=pygame.image.load(os.path.join('images', name))
         source=source.convert()
         rect=self.draw_date.blit(source,[0,0], area=None, special_flags = 0)
-        for y in range(rect[1]):
-            for x in range(rect[0]):
+        print
+        for y in range(rect[3]):
+            for x in range(rect[2]):
                 self.date[y,x]=i=0
+                #print(self.draw_date.get_at((x, y)))
                 for set_color in self.color:
                     if set_color==self.draw_date.get_at((x, y)):
                         self.date[y,x]=i
                     i+=1
+        print(self.date)
     def draw(self,pov,screen):
         screen.blit(self.draw_date,(pov[0],pov[1]))
         self.bullets.draw()
@@ -397,15 +400,15 @@ class Map:
             screen.draw.text(txt,(WIDTH/2-100,200),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=100)
             txt=self.time.time_text()+"\nかかった時間 \n"+self.time.past_time(self.start_time)+"\n残り部隊  "+str(len(self.units_list[0].list))
             screen.draw.text(txt,(WIDTH/2-100,200+100),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
-    def update(self,pov):
+    def update(self,pov,pov_dn):
         if not self.vic_mode:
             speed=self.time.update()
             while speed>0:
-                self.bullets.update()
+                self.bullets.update(pov_dn)
                 self.bullets.set_pov(pov)
                 for units in self.units_list:
                     units.update(self.bullets.list)
-                    units.set_pov(pov)
+                    units.set_pov(pov,pov_dn)
                 speed-=1
             if self.vic_if():
                 self.vic_mode=True
@@ -494,15 +497,44 @@ class Map:
     def all(self,setd):
         self.draw_date.fill(self.color[1],None, special_flags=0)
         self.date= np.array([[setd for i in range(self.rect[2])] for j in range(self.rect[3])])
-class test(Map):
+class sityefk(Map):
     def __init__(self):
         source=pygame.image.load(os.path.join('images', 'test.png'))
         wide_rect=source.get_clip()
         super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
         self.setdate('test.png')  
+        self.set_unit()
+    def set_unit(self):
+
+
+
+
+
+
+
+
+
+
+
+
+        gp=ger_ply(self)
+        gp.set_unit((641, 639),Kar98k_syo)
+        gp.set_unit((590, 691),Kar98k_syo)
+        gp.set_unit((625, 692),Kar98k_syo)
+        gp.set_unit((575, 410),Kar98k_syo)
+        gp.set_unit((598, 640),Kar98k_syo)
+        s=sov(self)
+        s.set_unit((122, 353),mosin_syo)
+        s.set_unit((208, 79),mosin_syo)
+        s.set_unit((215, 132),mosin_syo)
+        s.set_unit((259, 79),mosin_syo)
+        s.set_unit((260, 130),mosin_syo)
+        s.set_unit((681, 154),mosin_syo)
+        #プレイヤーは後ろ
+        self.units_list+=[gp,s]
     def load(self,time,unit_list):
         pass
-class nmap(Map):
+class beerui(Map):
     def __init__(self):
         super().__init__([900,900],[43,7,3,7,30])
         self.en([0,50],10,2)
@@ -537,7 +569,6 @@ class nmap(Map):
         sp.set_unit((300,800),mosin_syo)
         sp.set_unit((570, 530),mosin_syo)
         sp.set_unit((65, 450),mosin_syo)
-        sp.set_unit((450, 450),Kar98k_syo)
         #プレイヤーは後ろ
         self.units_list+=[sp,g]
 maps=Maps()
@@ -553,6 +584,7 @@ def on_key_down(key):
     maps.key_down(key)
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
+        print(pos)
         if start.title_mode==title_mode.execution:
             if maps.mouse_down(pos,button)==BACK:
                 start.set_start()
