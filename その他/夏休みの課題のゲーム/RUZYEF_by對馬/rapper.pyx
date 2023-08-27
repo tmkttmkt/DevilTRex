@@ -25,7 +25,7 @@ def call_move_func(np.ndarray[np.int32_t, ndim=2] date,loc,pos,pov):
         lis=np.flipud(np.array(date_list1[:num*2]).reshape(-1,2))
         print(lis)
         ind=len(lis)-1
-        while ind>=0:
+        while ind>0:
             lis[ind][0]-=lis[ind-1][0]
             lis[ind][1]-=lis[ind-1][1]
             ind-=1
@@ -57,7 +57,7 @@ def call_withdrawal_fnuc(np.ndarray[np.int32_t, ndim=2] date2,loc,np.ndarray[np.
         lis=np.flipud(np.array(date_list2[:num*2]).reshape(-1,2))
         print(lis)
         ind=len(lis)-1
-        while ind>=0:
+        while ind>0:
             lis[ind][0]-=lis[ind-1][0]
             lis[ind][1]-=lis[ind-1][1]
             ind-=1

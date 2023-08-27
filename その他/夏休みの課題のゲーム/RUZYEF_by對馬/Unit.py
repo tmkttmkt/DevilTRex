@@ -23,20 +23,21 @@ class Units:
     def draw(self,screen):
         for obj in self.list:
             obj.draw(screen)
-    def update(self,list):
+    def update(self,list,ri):
         bullets=[]
         for obj in self.list:
-            exm=obj.update(self.map.date,self.list)
+            exm=obj.update(self.map.date,self.list,ri)
             if exm!=None:
                 bullets+=exm
             for bul in list:
                 if bul.unit!=obj:
-                    dameg=bul.collide(obj)
+                    dameg=bul.collide(obj,self.map.date[int(obj.center[1]),int(obj.center[0])])
                     if dameg!=None:
                         print(dameg)
                         obj.atacked(dameg,bul.unit)
             if obj.delete():
                 self.list.remove(obj)
+                del obj
         list+=bullets
     def set_unit(self,pos,unit_class):
         self.list.append(unit_class(pos))
@@ -111,36 +112,48 @@ class ger_ply(Units):
                         obj.mouse_up()
         return ret_obj
 class sov(Units):
-    def update(self, list):
+    def update(self, list,sou):
         self.AI()
-        super().update(list)
+        super().update(list,sou)
     def AI(self):
         for unit in self.list:
             lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
+            i=0
+            de_list=[]
             for o in lis:
                 for obj in self.list:
                     if o==obj:
-                        lis.remove(o)
-            if len(lis)!=0:
-                unit.fire(lis[0].center,True)
-            if len(unit.atacked_unit)>2:
-                unit.withdrawal(self.map.date,self.list)
-class ger(Units):
-    def update(self, list):
-        self.AI()
-        super().update(list)
-    def AI(self):
-        for unit in self.list:
-            lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
-            for o in lis:
-                for obj in self.list:
-                    if o==obj:
-                        lis.remove(o)
+                        de_list.append(o)
+                        break
+            for ob in de_list:
+                lis.remove(ob)
             if len(lis)!=0:
                 unit.fire(lis[0].center,True)
             else:
                 unit.goal=goal.defense
-            if len(unit.atacked_unit)>2:
+            if len(unit.atacked_unit)>2 and not unit.back_flg:
+                unit.withdrawal(self.map.date,self.list)
+class ger(Units):
+    def update(self, list,sou):
+        self.AI()
+        super().update(list,sou)
+    def AI(self):
+        for unit in self.list:
+            lis=self.map.search(Rect((unit.x-100,unit.y-100),(unit.width+200,unit.height+200)))
+            i=0
+            de_list=[]
+            for o in lis:
+                for obj in self.list:
+                    if o==obj:
+                        de_list.append(o)
+                        break
+            for ob in de_list:
+                lis.remove(ob)
+            if len(lis)!=0:
+                unit.fire(lis[0].center,True)
+            else:
+                unit.goal=goal.defense
+            if len(unit.atacked_unit)>2 and not unit.back_flg:
                 unit.withdrawal(self.map.date,self.list)
 class Unit(Actor):
     def __init__(self,pos,speed,armor,soldier,morale,hei,type:unit_type):
@@ -192,6 +205,7 @@ class Unit(Actor):
             self.goal=goal.fire
         return False
     def withdrawal(self,date,lit):
+        self.point_list=[]
         self.back_flg=True
         out=[]
         for uni in self.atacked_unit:
@@ -200,12 +214,19 @@ class Unit(Actor):
                 if uni[0]==obj:
                     flg=False
             if flg:
-                out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
+                out+=[[int(uni[0].center[0]),int(uni[0].center[1])]]
         if len(out)!=0:
             self.back_list=call_withdrawal_fnuc(date,self.center,np.array(out),len(out))
         else:
             for uni in self.atacked_unit:
-                out+=[[int(round(uni[0].center[0])),int(round(uni[0].center[1]))]]
+                out+=[[int(uni[0].center[0]),int(uni[0].center[1])]]
+            if len(out)!=0:
+                self.back_list=call_withdrawal_fnuc(date,self.center,np.array(out),len(out))
+            else:
+                return
+        if len(self.back_list)<2:
+            self.back_list=[]
+            self.back_flg=False
 
     def mouse_down_on(self,pos):
         if self.collidepoint(pos):
@@ -220,9 +241,10 @@ class Unit(Actor):
         if self.mouse:
             self.goal=goal.move
             self.point_list=call_move_func(date,self.center,pos,pov)
-    def update(self,date,lit):
-        for gun in self.guns:
-            gun.update()
+    def update(self,date,lit,ri):
+        if not self.back_flg:
+            for gun in self.guns:
+                gun.update()
         self.time+=1
         if self.time>=180:
             self.time-=180
@@ -241,8 +263,6 @@ class Unit(Actor):
                     nokori=0
                 else:
                     nokori=sqrt((self.back_nokori[0])**2+(self.back_nokori[1])**2)
-                    self.x=int(round(self.x+self.back_nokori[0],0))
-                    self.y=int(round(self.y+self.back_nokori[1],0))
                     #print("a",self.back_nokori,(self.x,self.y))
                 while(0<len(self.back_list)):
                     back_speed=self.speed*0.7
@@ -251,35 +271,35 @@ class Unit(Actor):
                         y=(nokori-back_speed)*(self.back_nokori[1]/nokori)
                         self.back_nokori=(x,y)
                         #print("b",(back_spee-(nokori-sya)),self.back_nokori)
-                        self.x-=x
-                        self.y-=y
                         break
                     li=self.back_list.pop(0)
                     sya=sqrt(li[0]**2+li[1]**2)
                     syaka=sya
-                    pos=(int(round(self.center[0]+li[0])),int(round(self.center[1]+li[1])))
+                    pos=(int(self.center[0]+li[0]),int(self.center[1]+li[1]))
+                    if pos[0]>=900 or pos[1]>=900:
+                        print("で",pos)
+                        self.back_list=[]
+                        break
                     sta=date[pos[1],pos[0]]
                     #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
                     if sta==2:
-                        sya*=20
+                        sya*=50
                     elif sta==5 or sta==6:
                         sya*=2
                     elif sta==2 or sta==3:
                         sya*=0.5
                     nokori+=sya
-                    if nokori<back_speed:
-                        self.x+=li[0]
-                        self.y+=li[1]
-                    elif nokori>back_speed:
-                        x=(back_speed-(nokori-sya))*(li[0]/syaka)
-                        y=(back_speed-(nokori-sya))*(li[1]/syaka)
-                        self.back_nokori=(li[0]-x,li[1]-y)
+                    self.x+=li[0]
+                    self.y+=li[1]
+                    if nokori>back_speed:
+                        x=(nokori-back_speed)*(li[0]/syaka)
+                        y=(nokori-back_speed)*(li[1]/syaka)
+                        self.back_nokori=(x,y)
                         #print("b",(back_spee-(nokori-sya)),self.back_nokori)
-                        self.x+=x
-                        self.y+=y
                         break
-                    else:
+                    elif nokori==back_speed:
                         self.back_nokori=(-1,-1)
+                        break
                     #print(li,(self.x,self.y))
             else:
                 self.back_flg=False
@@ -295,8 +315,6 @@ class Unit(Actor):
                     nokori=0
                 else:
                     nokori=sqrt((self.nokori[0])**2+(self.nokori[1])**2)
-                    self.x=int(round(self.x+self.nokori[0],0))
-                    self.y=int(round(self.y+self.nokori[1],0))
                     #print("a",self.nokori,(self.x,self.y))
                 while(0<len(self.point_list)):
                     if nokori>self.speed:
@@ -304,35 +322,33 @@ class Unit(Actor):
                         y=(nokori-self.speed)*(self.nokori[1]/nokori)
                         self.nokori=(x,y)
                         #print("b",(self.speed-(nokori-sya)),self.nokori)
-                        self.x-=x
-                        self.y-=y
                         break
                     li=self.point_list.pop(0)
                     sya=sqrt(li[0]**2+li[1]**2)
                     syaka=sya
-                    pos=(int(round(self.center[0]+li[0])),int(round(self.center[1]+li[1])))
+                    pos=(int(self.center[0]+li[0]),int(self.center[1]+li[1]))
+                    print(pos,self.center,li,len(self.point_list))
                     sta=date[pos[1],pos[0]]
                     #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
                     if sta==2:
-                        sya*=20
+                        sya*=50
+                        print(pos)
                     elif sta==5 or sta==6:
                         sya*=2
                     elif sta==2 or sta==3:
                         sya*=0.5
                     nokori+=sya
-                    if nokori<self.speed:
-                        self.x+=li[0]
-                        self.y+=li[1]
-                    elif nokori>self.speed:
-                        x=(self.speed-(nokori-sya))*(li[0]/syaka)
-                        y=(self.speed-(nokori-sya))*(li[1]/syaka)
-                        self.nokori=(li[0]-x,li[1]-y)
+                    self.x+=li[0]
+                    self.y+=li[1]
+                    if nokori>self.speed:
+                        x=(nokori-self.speed)*(li[0]/syaka)
+                        y=(nokori-self.speed)*(li[1]/syaka)
+                        self.nokori=(x,y)
                         #print("b",(self.speed-(nokori-sya)),self.nokori)
-                        self.x+=x
-                        self.y+=y
                         break
-                    else:
+                    elif nokori==self.speed:
                         self.nokori=(-1,-1)
+                        break
                     #print(li,(self.x,self.y))
             else:
                 self.goal=goal.defense
@@ -341,20 +357,24 @@ class Unit(Actor):
             pass
         elif self.goal==goal.defense:
             unit_list=self.atacked_unit.copy()
+            li=[]
             for unit in unit_list:
                 for obj in lit:
                     if unit[0]==obj:
-                        unit_list.remove(unit)
+                        li.append(unit)
+            for s in li:
+                unit_list.remove(s)
             if 0!=len(unit_list):
                 bullets=[]
                 n=0
+                flg=random.randint(0,10)%60==0 and ri!=None
                 for gun in self.guns:
                     if n>=self.soldier:
                         break
                     n+=1
                     if gun.can:
                         um=random.randint(0,len(unit_list)-1)
-                        point=self.atacked_unit[um][0].center
+                        point=unit_list[um][0].center
                         """
                         if self.center[0]<point[0]:
                             x=point[0]+self.atacked_unit[um][0].width/2
@@ -366,6 +386,9 @@ class Unit(Actor):
                             y=point[1]-self.atacked_unit[um][0].height/2
                         bul=gun.fire(self.center,(x,y),self)
                         """
+                        if flg:
+                            ri.play()
+                            flg=False
                         bul=gun.fire(self.center,point,self)
                         if bul!=None:
                             bullets.append(bul)
@@ -374,11 +397,15 @@ class Unit(Actor):
             if self.fire_point!=(-1,-1):
                 bullets=[]
                 n=0
+                flg=random.randint(0,20)%60==0 and ri!=None
                 for gun in self.guns:
                     if n>=self.soldier:
                         break
                     n+=1
                     if gun.can:
+                        if flg:
+                            ri.play()
+                            flg=False
                         bul=gun.fire(self.center,self.fire_point,self)
                         if bul!=None:
                             bullets.append(bul)
@@ -402,7 +429,7 @@ class mosin_syo(Unit):
         super().__init__(pos,2,0,12,100,2,unit_type.infantry)
         self.name="モシン分隊"
         self.guns.append(DP28())
-        i=11
+        i=13
         while i>0:
             self.guns.append(Mosin_Nagant())
             i-=1
@@ -440,7 +467,7 @@ class Gun:
     def update(self):
         if not self.can:
             self.time+=1
-            if self.sou==self.sou_max:
+            if self.sou>=self.sou_max:
                 if self.sou_interval<self.time:
                     self.time=0
                     self.sou=0
@@ -448,7 +475,6 @@ class Gun:
                 self.time=0
                 self.can=True
     def fire(self,loc,pos,uni):
-        self.sou+=1
         speed=self.bullet_speed*TIME_SCL
         sya=sqrt((loc[0]-pos[0])**2+(loc[1]-pos[1])**2)
         tate_kaku=G*sya/speed**2
@@ -468,8 +494,8 @@ class Gun:
         speed_z=speed*sin(tate_seeta)
         speed=[speed_x,speed_y,speed_z]
         self.time=0
+        self.sou+=1
         self.can=False
-        print(pos,degrees(tate_seeta),sya)
         return Bullet(self.caliber,loc,self.height+1,speed,self.bullet,uni)
 class Mosin_Nagant(Gun):
     def __init__(self):
@@ -479,10 +505,10 @@ class DP28(Gun):
         super().__init__(7.62,0,5,9.7,800,FPS_SCL*1/10,840*random.gauss(1,0.1),0.3,bullet_type.ki_rifles,(47,10*FPS_SCL))
 class Kar98k(Gun):
     def __init__(self):
-        super().__init__(7.92,0,5,9.9,500,FPS_SCL*(12+random.gauss(0,4)),760*random.gauss(1,0.1),1.5,bullet_type.ki_rifles,(5,6*FPS_SCL))
+        super().__init__(7.92,0,5,9.9,500,FPS_SCL*(12+random.gauss(0,4)),760*random.gauss(1,0.1),1.5,bullet_type.rifles,(5,6*FPS_SCL))
 class MG34(Gun):
     def __init__(self):
-        super().__init__(7.92,0,5,9.9,700,FPS_SCL*60/800,755*random.gauss(1,0.1),0.3,bullet_type.rifles,(50,13*FPS_SCL))
+        super().__init__(7.92,0,5,9.9,700,FPS_SCL*60/800,755*random.gauss(1,0.1),0.3,bullet_type.ki_rifles,(50,13*FPS_SCL))
 class Bullet(Actor):
     def __init__(self,cal,pos,hei,speed,type:bullet_type,uni) -> None:
         if type==bullet_type.ki_rifles:
@@ -507,15 +533,24 @@ class Bullet(Actor):
         self.time+=1
         print(self.speed,self.center,self.z)
                             #sol,mora
-    def collide(self,obj):
+    def collide(self,obj,sta):
         ex=Rect(self.center,(self.past[0]-self.center[0],self.past[1]-self.center[1]))
         ex=rerect(ex)
         if obj.colliderect(ex):
             print("b",self.z)
             if self.z<obj.hei:
                 if obj.type==unit_type.infantry:
-                    if 7>=random.randint(1,10):
+                    #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
+                    if sta==2:
+                        a=1
+                    elif sta==5 or sta==6:
+                        a=7
+                    else:
+                        a=2
+                    if a>=random.randint(1,10):
                         if self.type==bullet_type.rifles: 
+                            return (1,3)
+                        elif self.type==bullet_type.ki_rifles:
                             return (1,5)
                         elif self.type==bullet_type.AP:
                             return (1,15)
@@ -523,14 +558,6 @@ class Bullet(Actor):
                             return (3,40)
                     else:
                         return (0,1)
-                elif obj.type==unit_type.artillery:
-                    if 7>=random.randint(1,10):
-                        if self.type==bullet_type.rifles: 
-                            return (1,5)
-                        elif self.type==bullet_type.AP:
-                            return (1,15)
-                        elif self.type==bullet_type.HE:
-                            return (3,40)
             else:
                 return (0,1)
     def set_pov(self,pov):
@@ -547,10 +574,16 @@ class Bullets:
         for bul in self.list:
             bul.update()
             pos=bul.center
-            if pos[0]<0 or pos[1]<0 or pos[1]>=self.map.date.shape[1] or pos[0]>=self.map.date.shape[0]:
+            if pos[0]<0 or pos[1]<0 or pos[1]>=899.5 or pos[0]>=899.5:
+                li=self.map.search(Rect((bul.center[0]-10,bul.center[1]-10),(bul.center[0]+20,bul.center[1]+20)))
+                if len(li)!=0:
+                    for obj in li:
+                        dameg=bul.collide(obj,self.map.date[int(obj.center[1]),int(obj.center[0])])
+                        if dameg!=None:
+                            print(dameg)
+                            obj.atacked(dameg,bul.unit)
                 self.list.remove(bul)
-                continue
-            if bul.time>=3:
+            elif bul.time>1:
                 pos=(int(round(pos[0])),int(round(pos[1])))
                 sta=self.map.date[pos[1],pos[0]]
                 #0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati

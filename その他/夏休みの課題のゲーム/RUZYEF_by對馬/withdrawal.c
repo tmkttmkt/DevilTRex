@@ -65,6 +65,11 @@ int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
             tot_y+=arry[i][1];
             
             //printf("(%d,%d)",tot_x,tot_y);
+            if(tot_x<0+10 || tot_y<0+10 || tot_x>=900-10 || tot_y>=900-10){
+                tot_x-=arry[i][0];
+                tot_y-=arry[i][1];
+                continue;
+            }
             if(tot_x-loc_x<-HABA/2 || tot_y-loc_y<-HABA/2 || tot_x-loc_x>HABA/2 || tot_y-loc_y>HABA/2){
                 tot_x-=arry[i][0];
                 tot_y-=arry[i][1];
@@ -78,7 +83,7 @@ int withdrawal_func(int * date,int y_lan,int loc_x,int loc_y,int *out,int n) {
             //0mu 1heiya 2kawa 3tetudou 4douro 5mori 6mati
             point_cost=1.0;
             if(*date==1)point_cost=1.0;
-            else if(*date==2)point_cost=20.0;
+            else if(*date==2)point_cost=50.0;
             else if(*date==3)point_cost=0.5;
             else if(*date==4)point_cost=0.5;
             else if(*date==5){

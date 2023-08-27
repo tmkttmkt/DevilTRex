@@ -296,18 +296,21 @@ class Maps:
                     self.map=None
                     self.state=None
                 else:
-                    if self.map.time_draw:
-                        if self.map.time.mouse_down(pos):
-                            return NOT_BACK
-                    if not self.map.vic_mode:
-                        obj=None
-                        for units in self.map.units_list:
-                            obj=units.mouse_down(pos,button)
-                            if obj!=None:
-                                if obj==CHANGE:
-                                    self.state=None
-                                else:
-                                    self.state=Unit_state(obj)
+                    if self.map.start_exm:
+                        self.map.start_exm=False
+                    else: 
+                        if self.map.time_draw:
+                            if self.map.time.mouse_down(pos):
+                                return NOT_BACK
+                        if not self.map.vic_mode:
+                            obj=None
+                            for units in self.map.units_list:
+                                obj=units.mouse_down(pos,button)
+                                if obj!=None:
+                                    if obj==CHANGE:
+                                        self.state=None
+                                    else:
+                                        self.state=Unit_state(obj)
 
         return NOT_BACK
     def key_down(self,key):
@@ -349,6 +352,7 @@ class Map:
         self.start_time=time
         self.vic_txt="殲滅せよ！"
         self.vic_draw=True
+        self.start_exm=True
     def search(self,rect:Rect):
         lis=[]
         for units in self.units_list:
@@ -371,11 +375,11 @@ class Map:
         source=pygame.image.load(os.path.join('images', name))
         source=source.convert()
         rect=self.draw_date.blit(source,[0,0], area=None, special_flags = 0)
-        for y in range(rect[1]):
-            for x in range(rect[0]):
+        for y in range(rect[3]):
+            for x in range(rect[2]):
                 self.date[y,x]=i=0
                 for set_color in self.color:
-                    if set_color==self.draw_date.get_at((x, y)):
+                    if set_color==self.draw_date.get_at((x,y)):
                         self.date[y,x]=i
                     i+=1
     def draw(self,pov,screen):
@@ -396,15 +400,16 @@ class Map:
                 txt="敗北"
             screen.draw.text(txt,(WIDTH/2-100,200),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=100)
             txt=self.time.time_text()+"\nかかった時間 \n"+self.time.past_time(self.start_time)+"\n残り部隊  "+str(len(self.units_list[0].list))
-            screen.draw.text(txt,(WIDTH/2-100,200+100),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
+            screen.draw.text(txt,(200,200+100),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
     def update(self,pov):
         if not self.vic_mode:
             speed=self.time.update()
+            ri=sounds.ri if speed==1 else None
             while speed>0:
                 self.bullets.update()
                 self.bullets.set_pov(pov)
                 for units in self.units_list:
-                    units.update(self.bullets.list)
+                    units.update(self.bullets.list,ri)
                     units.set_pov(pov)
                 speed-=1
             if self.vic_if():
@@ -500,8 +505,38 @@ class sityefk(Map):
         wide_rect=source.get_clip()
         super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
         self.setdate('test.png')  
+        self.set_unit()
+    def draw(self, pov, screen):
+        super().draw(pov, screen)
+        if self.start_exm:
+            screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
+            screen.draw.text("操作する部隊は青色です",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
     def load(self,time,unit_list):
         pass
+    def vic_if(self):
+        return 0==len(self.units_list[1].list)
+    def los_if(self):
+        return 0==len(self.units_list[0].list)
+    def set_unit(self):
+
+        gp=ger_ply(self)
+        gp.set_unit((675, 697),Kar98k_syo)
+        gp.set_unit((595, 731),Kar98k_syo)
+        gp.set_unit((645, 730),Kar98k_syo)
+        gp.set_unit((613, 699),Kar98k_syo)
+        gp.set_unit((545, 646),Kar98k_syo)
+        s=sov(self)
+        s.set_unit((8, 480),mosin_syo)
+        s.set_unit((296, 434),mosin_syo)
+        s.set_unit((361, 416),mosin_syo)
+        s.set_unit((518, 422),mosin_syo)
+        s.set_unit((605, 435),mosin_syo)
+        s.set_unit((649, 430),mosin_syo)
+        s.set_unit((785, 429),mosin_syo)
+        s.set_unit((577, 359),mosin_syo)
+        #プレイヤーは後ろ
+
+        self.units_list+=[gp,s]
 class beerui(Map):
     def __init__(self):
         super().__init__([900,900],[43,7,3,7,30])
@@ -522,6 +557,11 @@ class beerui(Map):
         self.daen([[100,100],[200,100],[150,-100],[150,200]],5)
         self.daen([[0,400],[100,800],[150,600],[-150,700]],5)
         self.set_unit()
+    def draw(self, pov, screen):
+        super().draw(pov, screen)
+        if self.start_exm:
+            screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
+            screen.draw.text("操作する部隊は赤色です",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
     def vic_if(self):
         return 0==len(self.units_list[1].list)
     def los_if(self):
@@ -553,6 +593,8 @@ def on_key_down(key):
     maps.key_down(key)
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
+        sounds.clic.play()
+        print(pos)
         if start.title_mode==title_mode.execution:
             if maps.mouse_down(pos,button)==BACK:
                 start.set_start()
