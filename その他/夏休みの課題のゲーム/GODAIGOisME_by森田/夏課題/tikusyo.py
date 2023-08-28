@@ -124,7 +124,6 @@ def update():
     red = random.randint(0, 255)
     blue = random.randint(0, 255)
     green = random.randint(0, 255)
-    
     if title == False:
         if gauge_mode == True:
             gauge_value += gauge_speed
@@ -187,8 +186,13 @@ def update():
         if gauge_mode == False and angle_mode == False:
             angle_ca = math.atan2(ca_ue.y - mouse_y2, mouse_x2 - ca_ue.x)
             ca_ue.angle = math.degrees(angle_ca) - 30
+            taiya.x = 200
     else:
         if title == True:
+            random_x = 0
+            random_x = random.randint(100, 500)
+            random_number = 0
+            random_number = random.randint(2,4)
             player_x = 110
             player_y = 500
             flg = True
@@ -216,6 +220,7 @@ def update():
             kiroku = 0
             kiroku2 = 0
             kiroku_value = 0
+            taiya.x = 210
 def Mappp():
     for y in range(10):
         for x in range(10):
@@ -229,14 +234,14 @@ def Mappp():
                 tree.draw()    
 def Kekka(flg):
     if flg == 1:
-        screen.draw.text("審議会の評価：すごい！",(140,380),fontname="in_game.ttf",color="red",fontsize=35)
-        screen.draw.text("名誉ラーメン人",(140,430),fontname="in_game.ttf",color=(red,blue,green),fontsize=35)
+        screen.draw.text("審議会の評価：すごい！",(160,400),fontname="in_game.ttf",color="red",fontsize=35)
+        screen.draw.text("名誉ラーメン人",(210,450),fontname="in_game.ttf",color=(red,blue,green),fontsize=35)
     if flg == 2:
         screen.draw.text("審議会の評価：凡庸！",(140,420),fontname="in_game.ttf",color="red",fontsize=45)
-        #print("2")
+        print("2")
     if flg == 3:
         screen.draw.text("審議会の評価：下手くそ！",(125,420),fontname="in_game.ttf",color="blue",fontsize=42)
-        #print("3")
+        print("3")
     if flg == 4:
         screen.draw.text("審議会の評価：IQ－100",(120,420),fontname="in_game.ttf",color="blue",fontsize=45)
         print("4")
@@ -391,14 +396,15 @@ def draw():
                                 Kekka(3)
                             else:
                                 Kekka(4)
-            screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = (red,blue,green),fontsize=60)
+            screen.draw.text("結果発表",(212,130),fontname="in_game.ttf",color = 'black',fontsize=60)
+            screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = 'red',fontsize=60)
             screen.draw.text("飛行距離" + str(font_value) + "m",(210,250),fontname="in_game.ttf",color="blue",fontsize=35)
             clock.tick(2)
             kiroku2 = men_kyori - kiroku
             if kiroku2 < 0:
                 kiroku2 *= -1
             screen.draw.text("麺との距離" + str(int(kiroku_value)) + "m",(210,330),fontname="in_game.ttf",color="red",fontsize=35)
-            Buttonkun2.__init__(280,520,"リトライ?",2)
+            Buttonkun2.__init__(260,520,"リトライ?",2)
             Buttonkun2.draw()
         
     
