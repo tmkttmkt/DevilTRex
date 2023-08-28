@@ -83,7 +83,7 @@ sora = Actor('sora.png',topleft=(0,0))
 zimen = Actor('jimen.png',topleft=(0,0))
 ramen = Actor("cupmen.png",topleft=(0,0))
 ca_ue = Actor('canon_une.png',topleft=(-570,-15))
-taiya = Actor('taiya.png',topleft=(-150,265))
+taiya = Actor('taiya.png',topleft=(-130,265))
 tree = Actor('tree.png',topleft=(0,0))
 water = Actor('water.png',topleft=(0,0))
 Buttonsan = []
@@ -100,6 +100,8 @@ font_value = 0
 kiroku = 0
 kiroku2 = 0
 kiroku_value = 0
+music.set_volume(0.5)
+music.play('metal')
 
 ramen.center = (random_x,600)
 #rect_x = 0
@@ -117,15 +119,16 @@ def on_key_down(key):
 def update():
     global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles
     global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
-    global player_speed_y2,target_x,target_y,angle3,flg,root2,angle_mode,gauge_value
+    global player_speed_y2,angle3,flg,root2,angle_mode,gauge_value,gauge_mode,max_gauge
     global font_value,kiroku,stage,kaiten,water_flg,kiroku2,kiroku_value,red,blue,green
     red = random.randint(0, 255)
     blue = random.randint(0, 255)
     green = random.randint(0, 255)
+    
     if title == False:
         if gauge_mode == True:
             gauge_value += gauge_speed
-            kyori += 2
+            kyori += 1
             if gauge_value >= max_gauge:
                 gauge_value = 0
                 kyori = 15
@@ -178,16 +181,41 @@ def update():
             if angle_mode == True and owari == True:
                 font_max = int(kiroku)
                 if font_value < font_max:
-                    font_value += 3
+                    font_value += 10
                 if kiroku_value < kiroku2:
                     kiroku_value += 10
-        else:
-            player_x = 110
-            player_y = 500
         if gauge_mode == False and angle_mode == False:
             angle_ca = math.atan2(ca_ue.y - mouse_y2, mouse_x2 - ca_ue.x)
             ca_ue.angle = math.degrees(angle_ca) - 30
-
+    else:
+        if title == True:
+            player_x = 110
+            player_y = 500
+            flg = True
+            angle_mode = False
+            water_flg = False
+            gauge_mode = True
+            max_angle = 100
+            gravity = 0.5
+            owari = False
+            hajime = False
+            tobu = False
+            root = 0
+            gauge_value = 19
+            max_gauge = 10
+            kyori = 50
+            kaiten = True
+            stage = 1
+            player_speed_x = 5
+            player_speed_y = 5
+            player_speed_x2 = 5
+            player_speed_y2 = 5
+            player_angle = 500
+            ca_ue.angle = 0
+            font_value = 0
+            kiroku = 0
+            kiroku2 = 0
+            kiroku_value = 0
 def Mappp():
     for y in range(10):
         for x in range(10):
@@ -200,16 +228,18 @@ def Mappp():
                 tree.topleft=(70*x,70*y)
                 tree.draw()    
 def Kekka(flg):
-    screen.draw.filled_rect(Rect((100, 100), (500, 500)), (255, 255, 255))
-    screen.draw.rect(Rect((100, 100), (500, 500)), (0, 0, 0))
     if flg == 1:
-        screen.draw.text("審議会の評価：すごい！",(210,350),fontname="in_game.ttf",color="red",fontsize=30)
+        screen.draw.text("審議会の評価：すごい！",(140,380),fontname="in_game.ttf",color="red",fontsize=35)
+        screen.draw.text("名誉ラーメン人",(140,430),fontname="in_game.ttf",color=(red,blue,green),fontsize=35)
     if flg == 2:
-        screen.draw.text("審議会の評価：凡庸！",(210,350),fontname="in_game.ttf",color="red",fontsize=30)
+        screen.draw.text("審議会の評価：凡庸！",(140,420),fontname="in_game.ttf",color="red",fontsize=45)
+        #print("2")
     if flg == 3:
-        screen.draw.text("審議会の評価：下手くそ！",(210,350),fontname="in_game.ttf",color="blue",fontsize=30)
+        screen.draw.text("審議会の評価：下手くそ！",(125,420),fontname="in_game.ttf",color="blue",fontsize=42)
+        #print("3")
     if flg == 4:
-        screen.draw.text("審議会の評価：IQ－100",(210,350),fontname="in_game.ttf",color="blue",fontsize=30)
+        screen.draw.text("審議会の評価：IQ－100",(120,420),fontname="in_game.ttf",color="blue",fontsize=45)
+        print("4")
 class Buttons:
     def __init__(self,rect_x,rect_y,moji,mode):
         self.rect_x = rect_x
@@ -221,8 +251,9 @@ class Buttons:
         #self.moji = moji
     def draw(self):
         screen.draw.filled_rect(Rect((self.rect_x-2, self.rect_y-2), (154, 54)),(0,0,0))
-        screen.draw.filled_rect(Rect((self.rect_x, self.rect_y),(150, 50)),(255,0,0))
-        screen.draw.text(self.moji,(self.rect_x,self.rect_y),fontname="title.ttf",color="black")
+        screen.draw.filled_rect(Rect((self.rect_x, self.rect_y),(150, 50)),(84,57,51))
+        screen.draw.text(self.moji,(self.rect_x + 24,self.rect_y + 12),fontname="title.ttf",color="black")
+        screen.draw.text(self.moji,(self.rect_x + 22,self.rect_y + 12),fontname="title.ttf",color="white")
     def on_mouse_down(self,pos,button):
         global title
         print("1")
@@ -232,6 +263,10 @@ class Buttons:
                 print("2")# and self.rect_y == pos[1]:
                 if title == True:
                     title = False
+        if self.mode == 2:
+            if (self.rect_x <= pos[0] <= self.rect_x + 150) and (self.rect_y <= pos[1] <= self.rect_y + 50):
+                if title == False:
+                    title = True
 class Mini_map():
     def __init__(self):
         self.minimap_width = WIDTH // 2
@@ -241,7 +276,9 @@ class Mini_map():
     def draw(self):
         screen.draw.filled_rect(Rect(0, 0, self.minimap_width, self.minimap_height // 2), "gray")
         screen.draw.rect(Rect(0, 0, self.minimap_width, self.minimap_height // 2), "black")
-    
+        screen.draw.rect(Rect(20, 10, self.minimap_width - 40, self.minimap_height // 3 + 10), "green")
+        screen.draw.rect(Rect(30, 20, self.minimap_width - 60, self.minimap_height // 4 + 5), "green")
+        screen.draw.rect(Rect(40, 30, self.minimap_width - 80, self.minimap_height // 5 - 10), "green")
    
         ramen_minimap_x = (ramen.x + (random_number - 1) * 600) / random_number
         ramen_minimap_x = ramen_minimap_x // 2
@@ -305,18 +342,21 @@ def draw():
     if title == True:
         screen.draw.text("インスタンス　ラーメン",(30,150),fontname="title.ttf",color="black",fontsize=60)
         screen.draw.text("インスタンス　ラーメン",(28,150),fontname="title.ttf",color="white",fontsize=60)
-        Buttonkun1.__init__(320,350,"スタート",1)
+        screen.draw.text("～湯を飛ばす　わびさびゲーム～",(38,230),fontname="title.ttf",color="black",fontsize=40)
+        screen.draw.text("～湯を飛ばす　わびさびゲーム～",(36,230),fontname="title.ttf",color="white",fontsize=40)
+        Buttonkun1.__init__(280,360,"スタート",1)
         Buttonkun1.draw()
-        Buttonkun2.__init__(250,250,"ルール",2)
-        Buttonkun2.draw()
-    #screen.draw.text("覚悟をみせろ",(30,HEIGHT//2),fontname="in_game.ttf",color = (red,blue,green),fontsize=30)
     if title == False:
         Mini_Mop.draw()
+        screen.draw.text("ミニマップ",(0,0),fontname="title.ttf",color="red",fontsize=30)
         water.rect = Rect((player_x - 120, player_y - 70), (250, 150))
         ramen.rect = Rect((random_x - 40,480), (150, 150))
         if stage == random_number:
             screen.draw.rect(ramen.rect, (255,0, 0, 100))
         screen.draw.rect(water.rect, (255, 0, 0, 100))
+        if title == False:
+            if gauge_mode == False and hajime == False:
+                screen.draw.text("狙いを定めてクリック",(200,100),fontname="in_game.ttf",color="red",fontsize=50)
         if angle_mode == False or stage == 1:
             men_kyori = random_x + ((random_number - 1) * 600)
             screen.draw.text("麺まであと"+ str(men_kyori) + "m",(400,0),fontname="in_game.ttf",color="blue",fontsize=30)
@@ -333,29 +373,33 @@ def draw():
             screen.draw.rect(Rect((500, 104.5), (50, 490)),(0,0,0))
             screen.draw.filled_rect(gauge_rect, (0, 255, 0))
             screen.draw.rect(gauge_rect, (0,0, 0))
-        
+            screen.draw.text("スペースキーで",(100,150),fontname="in_game.ttf",color="red",fontsize=50)
+            screen.draw.text("ゲージを止める",(100,210),fontname="in_game.ttf",color="red",fontsize=50)
         if angle_mode == True and owari == True:
             if water_flg == True:
-                clock.tick(2)
                 water.draw()
-                if water.rect.colliderect(ramen.rect) and stage == random_number:
-                    Kekka(1)
-                else:
-                    if kiroku2 >= 100 and kiroku2 <= 600:
-                        Kekka(2)
+                screen.draw.filled_rect(Rect((100, 100), (500, 500)), (255, 255, 255))
+                screen.draw.rect(Rect((100, 100), (500, 500)), (0, 0, 0))
+                if kiroku_value > kiroku2 and font_value > int(kiroku):
+                    if water.rect.colliderect(ramen.rect) and stage == random_number:
+                        Kekka(1)
                     else:
-                        if kiroku2 >= 600 and kiroku2 <= 1000:
-                            Kekka(3)
+                        if kiroku2 >= 100 and kiroku2 <= 600:
+                            Kekka(2)
                         else:
-                            if kiroku2 >= 1000:
+                            if kiroku2 >= 600 and kiroku2 <= 1000:
+                                Kekka(3)
+                            else:
                                 Kekka(4)
-            screen.draw.text("結果",(210,200),fontname="in_game.ttf",color="blue",fontsize=30)
-            screen.draw.text("結果" + str(font_value) + "m",(210,200),fontname="in_game.ttf",color="blue",fontsize=30)
+            screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = (red,blue,green),fontsize=60)
+            screen.draw.text("飛行距離" + str(font_value) + "m",(210,250),fontname="in_game.ttf",color="blue",fontsize=35)
             clock.tick(2)
             kiroku2 = men_kyori - kiroku
             if kiroku2 < 0:
                 kiroku2 *= -1
-            screen.draw.text("麺との距離" + str(int(kiroku_value)) + "m",(210,250),fontname="in_game.ttf",color="red",fontsize=30)
+            screen.draw.text("麺との距離" + str(int(kiroku_value)) + "m",(210,330),fontname="in_game.ttf",color="red",fontsize=35)
+            Buttonkun2.__init__(280,520,"リトライ?",2)
+            Buttonkun2.draw()
         
     
 def on_mouse_down(pos,button):
@@ -364,12 +408,13 @@ def on_mouse_down(pos,button):
         if gauge_mode == False:
             angle_mode = True
             hajime = True
+            sounds.sakebi.play()
     #if tobu == False and flg == 1:
     mouse_y = pos[1]
     mouse_x = pos[0]
         #flg = 0:
     Buttonkun1.on_mouse_down(pos,button)
-
+    Buttonkun2.on_mouse_down(pos,button)
 
 def on_mouse_move(pos):
     global mouse_x2,mouse_y2
