@@ -1,9 +1,11 @@
+
 import pgzrun
 import math
 import random
 import pygame
 import pgzero
 from pgzhelper import *
+
 
 TITLE = "インスタンス　ラーメン"
 
@@ -214,17 +216,19 @@ class Buttons:
         self.rect_y = rect_y
         self.moji = ""
         self.moji = moji
-        self.mode = 1
+        self.mode = mode
     #def update_string(self,moji):
         #self.moji = moji
     def draw(self):
-        screen.draw.filled_rect(Rect((self.rect_x, self.rect_y), (50, 50)),(255,0,0))
+        screen.draw.filled_rect(Rect((self.rect_x-2, self.rect_y-2), (154, 54)),(0,0,0))
+        screen.draw.filled_rect(Rect((self.rect_x, self.rect_y),(150, 50)),(255,0,0))
         screen.draw.text(self.moji,(self.rect_x,self.rect_y),fontname="title.ttf",color="black")
     def on_mouse_down(self,pos,button):
         global title
         print("1")
         if self.mode == 1:
-            if self.rect_x <= pos[0] <= self.rect_x + 50 and self.rect_y <= pos[1] <= self.rect_y + 50:
+            print("1.5")
+            if (self.rect_x <= pos[0] <= self.rect_x + 150) and (self.rect_y <= pos[1] <= self.rect_y + 50):
                 print("2")# and self.rect_y == pos[1]:
                 if title == True:
                     title = False
@@ -253,8 +257,9 @@ class Mini_map():
             screen.draw.filled_circle((player_minimap_x, player_minimap_y), 5, "blue")
 
 Mini_Mop = Mini_map()
-Buttonkun1 = Buttons(100,100,"Yeag",1)
+Buttonkun1 = Buttons(100,100,"スタート",1)
 Buttonkun2 = Buttons(100,100,"Yeag",2)
+
 
 def draw():
     global player_x,player_y,player_angle,angle_mode,kyori,men_kyori,kiroku2
@@ -292,17 +297,18 @@ def draw():
     ball.angle = angles
     ball.scale = 1.25
     ball.draw()
-    if title == True:
-        screen.draw.text("インスタンス　ラーメン",(30,150),fontname="title.ttf",color="black",fontsize=60)
-        Buttonkun1.__init__(500,500,"スタート",1)
-        Buttonkun1.draw()
-        Buttonkun2.__init__(250,250,"ルール",2)
-        Buttonkun2.draw()
     if stage == 1:
         ca_ue.scale = 0.35
         ca_ue.draw()
         taiya.scale = 0.35
         taiya.draw()
+    if title == True:
+        screen.draw.text("インスタンス　ラーメン",(30,150),fontname="title.ttf",color="black",fontsize=60)
+        screen.draw.text("インスタンス　ラーメン",(28,150),fontname="title.ttf",color="white",fontsize=60)
+        Buttonkun1.__init__(320,350,"スタート",1)
+        Buttonkun1.draw()
+        Buttonkun2.__init__(250,250,"ルール",2)
+        Buttonkun2.draw()
     #screen.draw.text("覚悟をみせろ",(30,HEIGHT//2),fontname="in_game.ttf",color = (red,blue,green),fontsize=30)
     if title == False:
         Mini_Mop.draw()
