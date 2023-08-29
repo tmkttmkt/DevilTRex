@@ -1,4 +1,3 @@
-
 import pgzrun
 import math
 import random
@@ -121,6 +120,7 @@ def update():
     global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
     global player_speed_y2,angle3,flg,root2,angle_mode,gauge_value,gauge_mode,max_gauge
     global font_value,kiroku,stage,kaiten,water_flg,kiroku2,kiroku_value,red,blue,green
+    global random_number,random_x
     red = random.randint(0, 255)
     blue = random.randint(0, 255)
     green = random.randint(0, 255)
@@ -188,11 +188,11 @@ def update():
             ca_ue.angle = math.degrees(angle_ca) - 30
             taiya.x = 200
     else:
-        if title == True:
-            random_x = 0
+        if title == True and owari == True:
             random_x = random.randint(100, 500)
-            random_number = 0
+            print(random_x)
             random_number = random.randint(2,4)
+            print(random_number)
             player_x = 110
             player_y = 500
             flg = True
@@ -221,6 +221,9 @@ def update():
             kiroku2 = 0
             kiroku_value = 0
             taiya.x = 210
+            water.rect = Rect((water.x, water.y), (500, 100))
+            ramen.rect = Rect((ramen.x, ramen.y), (40, 100))
+            ramen.center = (random_x,600)
 def Mappp():
     for y in range(10):
         for x in range(10):
@@ -392,10 +395,11 @@ def draw():
                         if kiroku2 >= 100 and kiroku2 <= 600:
                             Kekka(2)
                         else:
-                            if kiroku2 >= 600 and kiroku2 <= 1000:
+                            if kiroku2 >= 600 and kiroku2 <= 1000 and stage != random_number:
                                 Kekka(3)
                             else:
-                                Kekka(4)
+                                if stage != random_number:
+                                    Kekka(4)
             screen.draw.text("結果発表",(212,130),fontname="in_game.ttf",color = 'black',fontsize=60)
             screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = 'red',fontsize=60)
             screen.draw.text("飛行距離" + str(font_value) + "m",(210,250),fontname="in_game.ttf",color="blue",fontsize=35)
