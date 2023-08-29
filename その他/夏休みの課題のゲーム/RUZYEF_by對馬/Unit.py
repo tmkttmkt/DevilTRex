@@ -422,7 +422,7 @@ class test_syo(Unit):
             self.guns.append(Mosin_Nagant())
             i-=1
     def draw(self, screen):
-        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+2,self.height+2)),RED)
+        screen.draw.filled_rect(Rect((self.topleft[0]-2,self.topleft[1]-2), (self.width+4,self.height+4)),RED)
         super().draw(screen)
 class mosin_syo(Unit):
     def __init__(self, pos):
@@ -434,7 +434,7 @@ class mosin_syo(Unit):
             self.guns.append(Mosin_Nagant())
             i-=1
     def draw(self, screen):
-        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+2,self.height+2)),RED)
+        screen.draw.filled_rect(Rect((self.topleft[0]-2,self.topleft[1]-2), (self.width+4,self.height+4)),RED)
         super().draw(screen)
 class Kar98k_syo(Unit):
     def __init__(self, pos):
@@ -446,7 +446,7 @@ class Kar98k_syo(Unit):
             self.guns.append(Kar98k())
             i-=1
     def draw(self, screen):
-        screen.draw.filled_rect(Rect((self.topleft[0]-1,self.topleft[1]-1), (self.width+2,self.height+2)),BLUE)
+        screen.draw.filled_rect(Rect((self.topleft[0]-2,self.topleft[1]-2), (self.width+4,self.height+4)),BLUE)
         super().draw(screen)
 class Gun:
     def __init__(self,cal,explo,penet,wei,ran,inter,speed,hei,bul,sou):
