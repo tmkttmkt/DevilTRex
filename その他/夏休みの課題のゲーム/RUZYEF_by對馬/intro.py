@@ -148,9 +148,6 @@ class Start:
         self.start=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"START")
         self.conit=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"CONTINUATION")
         self.exp=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"EXPLANATION")
-        self.exo_txt ="\n"
-        self.exo_txt+="\n"
-        self.exo_txt+="\n"
         self.save=[]
         self.save_return=Buttan(GRAY,[60,60],[240,60],"return")
         self.save_num=0
@@ -178,7 +175,7 @@ class Start:
                 screen.draw.text("セーブデータが存在しません\nクリックでスタート画面に戻れます",(0,400),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=55)
         elif self.title_mode==title_mode.EXPLANATION:
             screen.fill(WHITE)
-            screen.draw.text(self.exo_txt,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=50)
+            screen.draw.text(EX_TXT,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=20)
     def mouse_down(self,pos):
         if self.title_mode==title_mode.START:
             if self.start.collidepoint(pos):
@@ -510,7 +507,7 @@ class sityefk(Map):
         super().draw(pov, screen)
         if self.start_exm:
             screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
-            screen.draw.text("操作する部隊は青色です",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
+            screen.draw.text("操作する部隊は青色です\n　クリックして始める",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
     def load(self,time,unit_list):
         pass
     def vic_if(self):
@@ -561,7 +558,7 @@ class beerui(Map):
         super().draw(pov, screen)
         if self.start_exm:
             screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
-            screen.draw.text("操作する部隊は赤色です",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
+            screen.draw.text("操作する部隊は赤色です\n　クリックして始める",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
     def vic_if(self):
         return 0==len(self.units_list[1].list)
     def los_if(self):

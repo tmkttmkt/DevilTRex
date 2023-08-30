@@ -52,7 +52,7 @@ public class time : MonoBehaviour
         else
         {
             timerText.text = "お前はすでに死んでいるはず";
-            rast.text = "ドロー\nGAMEOVERA";
+            rast.text = "ドロー\nGAMEOVER";
             // タイマーが0になった場合の処理
             // タイマーが0以下にならないようにする場合は、条件を変更してください
         }
