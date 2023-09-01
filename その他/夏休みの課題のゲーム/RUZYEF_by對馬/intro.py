@@ -148,6 +148,7 @@ class Start:
         self.start=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"START")
         self.conit=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"CONTINUATION")
         self.exp=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"EXPLANATION")
+        self.exp_list=[Actor("sxe_1",topleft=(530,123)),Actor("sxe_2",topleft=(620,123)),Actor("sxe_3",topleft=(517,500)),Actor("sxe_4",topleft=(517,819))]
         self.save=[]
         self.save_return=Buttan(GRAY,[60,60],[240,60],"return")
         self.save_num=0
@@ -175,7 +176,21 @@ class Start:
                 screen.draw.text("セーブデータが存在しません\nクリックでスタート画面に戻れます",(0,400),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=55)
         elif self.title_mode==title_mode.EXPLANATION:
             screen.fill(WHITE)
-            screen.draw.text(EX_TXT,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=20)
+            ft=30
+            n=0
+            for ob in self.exp_list:
+                ob.draw()
+            screen.draw.text(EX_TXT_1,(0,0),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=ft)
+            n+=5
+            screen.draw.text(EX_TXT_2,(0,ft*n),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=ft)
+            n+=4
+            screen.draw.text(EX_TXT_3,(0,ft*n),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=ft)
+            n+=5
+            screen.draw.text(EX_TXT_4,(0,ft*n),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=ft)
+            n+=5
+            screen.draw.text(EX_TXT_5,(0,ft*n),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=ft)
+            n+=4
+            screen.draw.text(EX_TXT_6,(0,ft*n),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=ft)
     def mouse_down(self,pos):
         if self.title_mode==title_mode.START:
             if self.start.collidepoint(pos):
@@ -311,13 +326,14 @@ class Maps:
 
         return NOT_BACK
     def key_down(self,key):
-        self.map.time.key_down(key)
-        if key==keys.ESCAPE:
-            self.return_mode=not self.return_mode
-        elif key==keys.SPACE:
-            self.map.vic_draw=not self.map.vic_draw
-        elif key==keys.T:
-            self.map.time_draw=not self.map.time_draw
+        if self.map!=None:
+            self.map.time.key_down(key)
+            if key==keys.ESCAPE:
+                self.return_mode=not self.return_mode
+            elif key==keys.SPACE:
+                self.map.vic_draw=not self.map.vic_draw
+            elif key==keys.T:
+                self.map.time_draw=not self.map.time_draw
     def draw(self,screen):
         if self.map==None:
             screen.fill((172,172,172))
@@ -501,7 +517,7 @@ class sityefk(Map):
         source=pygame.image.load(os.path.join('images', 'test.png'))
         wide_rect=source.get_clip()
         super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
-        self.setdate('test.png')  
+        self.setdate('test.png')
         self.set_unit()
     def draw(self, pov, screen):
         super().draw(pov, screen)
@@ -574,7 +590,7 @@ class beerui(Map):
         sp.set_unit((300,800),mosin_syo)
         sp.set_unit((570, 530),mosin_syo)
         sp.set_unit((65, 450),mosin_syo)
-        sp.set_unit((450, 450),Kar98k_syo)
+        sp.set_unit((65, 650),mosin_syo)
         #プレイヤーは後ろ
         self.units_list+=[sp,g]
 maps=Maps()
@@ -590,8 +606,8 @@ def on_key_down(key):
     maps.key_down(key)
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
+        #print(pos)
         sounds.clic.play()
-        print(pos)
         if start.title_mode==title_mode.execution:
             if maps.mouse_down(pos,button)==BACK:
                 start.set_start()
