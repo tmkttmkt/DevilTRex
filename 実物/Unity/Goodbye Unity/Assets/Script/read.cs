@@ -9,7 +9,7 @@ public class read : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StreamReader fail = new StreamReader("tekitou.txt", Encoding.GetEncoding("Shift_JIS"));
+        StreamReader fail = new StreamReader("test2.txt", Encoding.GetEncoding("Shift_JIS"));
         string te,key,val;
         while(true){
             te = fail.ReadLine();
