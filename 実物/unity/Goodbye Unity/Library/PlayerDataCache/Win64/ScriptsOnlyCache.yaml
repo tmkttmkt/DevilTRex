@@ -2,12 +2,28 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Item
-    - NewBehaviourScript
+    - anime
     - ata
     - came
+    - idou_mause
+    - read
+    - rokka
     - teki
+    - time
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Hello.unity:
     - Class: 1
@@ -30,37 +46,75 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
     - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9714}
+      Script: {instanceID: 9246}
     - Class: 114
-      Script: {instanceID: 9902}
+      Script: {instanceID: 9288}
     - Class: 114
-      Script: {instanceID: 9950}
+      Script: {instanceID: 9328}
     - Class: 114
-      Script: {instanceID: 10098}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 10590}
+      Script: {instanceID: 9340}
+    - Class: 114
+      Script: {instanceID: 9384}
+    - Class: 114
+      Script: {instanceID: 9386}
+    - Class: 114
+      Script: {instanceID: 9716}
+    - Class: 114
+      Script: {instanceID: 9782}
+    - Class: 114
+      Script: {instanceID: 9906}
+    - Class: 114
+      Script: {instanceID: 9954}
+    - Class: 114
+      Script: {instanceID: 9970}
+    - Class: 114
+      Script: {instanceID: 10104}
+    - Class: 114
+      Script: {instanceID: 10594}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 195
       Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -85,6 +139,12 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: d96e74199f3c2bb44c365203e6be8ae3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rokka
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -106,7 +166,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: kabe
+    className: anime
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -535,7 +595,7 @@ ScriptsOnlyBuild:
     className: AnalyticsTracker
   - hash:
       serializedVersion: 2
-      Hash: 6689d162cd110092c2408cff34c9b262
+      Hash: 87012adc37f81cdf1ed059308467ba68
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Item
@@ -557,6 +617,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 94c39cec10b4f26c9d8c292517187771
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: time
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -583,7 +649,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 53791af7ef27891ce7a278c9efdd48cd
+      Hash: 0f1dea1d5f5a0a7d9c358427ef2270cb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: teki
@@ -599,6 +665,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: came
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: read
   - hash:
       serializedVersion: 2
       Hash: 3f8d7b92a6be3c715e55d5cfa7cc8384
@@ -625,10 +697,10 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 5fea84184de5d321fb21fd8ff8ce9ca2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: NewBehaviourScript
+    className: idou_mause
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -719,12 +791,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: test
   - hash:
       serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744

@@ -61,7 +61,7 @@ public class time : MonoBehaviour
         else
         {
             timerText.text = "お前はすでに死んでいるはず";
-            rast.text = "ドロー\nGAMEOVERA";
+            rast.text = "ドロー\nGAMEOVER";
             // タイマーが0になった場合の処理
             // タイマーが0以下にならないようにする場合は、条件を変更してください
         }
@@ -69,7 +69,7 @@ public class time : MonoBehaviour
     public void set_eat()
     {
         eat_time = timerValue;
-        timerText.text = "RIPお前\nGAMEOVERA";
+        timerText.text = "RIPお前\nGAMEOVER";
         Tre_eat = true;
     }
     private void end_def()
