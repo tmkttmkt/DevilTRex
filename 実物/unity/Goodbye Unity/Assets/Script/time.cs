@@ -12,6 +12,8 @@ public class time : MonoBehaviour
     private float timerDuration; // タイマーの時間（秒）
     private float timerValue; // タイマーの現在の値
     private bool start = false;
+    private bool Tre_eat = false;
+    private float eat_time;
     private Text timerText; // タイマーを表示するテキストオブジェクト
     [SerializeField] Text rast;
 
@@ -30,24 +32,31 @@ public class time : MonoBehaviour
             start = true;
         }
         timerValue -= Time.deltaTime;
-        if (timerValue > 0f)
+        if (Tre_eat)
+        {
+            if (eat_time - timerValue > 5f)
+            {
+                ProcessStartInfo pInfo = new ProcessStartInfo();
+                pInfo.FileName = "tekitou.txt";
+                Process.Start(pInfo);
+                end_def();
+            }
+        }
+        else if (timerValue > 0f)
         {
              // 経過時間を減算
 
             // タイマーを表示するテキストを更新
             timerText.text = FormatTime(timerValue);
+
         }
         else if (timerValue < -10f)
         {
             ProcessStartInfo pInfo = new ProcessStartInfo();
-            pInfo.FileName = "notepad";
+            pInfo.FileName = "tekitou.txt";
             Process.Start(pInfo);
-            //exeじゃなくても閉じるため
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            end_def();
+
         }
         else
         {
@@ -57,7 +66,21 @@ public class time : MonoBehaviour
             // タイマーが0以下にならないようにする場合は、条件を変更してください
         }
     }
-
+    public void set_eat()
+    {
+        eat_time = timerValue;
+        timerText.text = "RIPお前\nGAMEOVERA";
+        Tre_eat = true;
+    }
+    private void end_def()
+    {
+        //exeじゃなくても閉じるため
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+    }
     private string FormatTime(float time)
     {
         int minutes = Mathf.FloorToInt(time / 60f);
