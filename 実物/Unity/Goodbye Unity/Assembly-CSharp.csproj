@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\came.cs" />
     <Compile Include="Assets\Script\idou_mause.cs" />
     <Compile Include="Assets\Script\Item.cs" />
+    <Compile Include="Assets\Script\kyor.cs" />
     <Compile Include="Assets\Script\read.cs" />
     <Compile Include="Assets\Script\rokka.cs" />
     <Compile Include="Assets\Script\teki.cs" />
