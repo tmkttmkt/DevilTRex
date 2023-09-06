@@ -553,12 +553,10 @@ def draw():
                                     Kekka(3)
                                     music_flg = 3
                                 else:
-                                    if kiroku >= 1001:
+                                    if kiroku2 >= 1001:
                                         Kekka(4)
                                         music_flg = 4
-                                    else:
-                                        Kekka(5)
-                                        music_flg = 5
+
                 screen.draw.text("結果発表",(212,130),fontname="in_game.ttf",color = 'black',fontsize=60)
                 screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = 'red',fontsize=60)
                 screen.draw.text("飛行距離" + str(font_value) + "m",(210,250),fontname="in_game.ttf",color="blue",fontsize=35)
