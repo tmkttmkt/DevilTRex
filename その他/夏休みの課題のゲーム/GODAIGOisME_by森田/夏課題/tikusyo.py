@@ -81,19 +81,26 @@ angles = max_angle
 
 
 gauge_mode = True
-
+ramdom_men = 2#random.randint(1,3)
 ball=Actor('yakan',(0,-1600))
 ball.scale = 0.5
 sora = Actor('sora.png',topleft=(0,0))
 zimen = Actor('jimen.png',topleft=(0,0))
-ramen = Actor("cupmen.png",topleft=(0,0))
 ca_ue = Actor('canon_une.png',topleft=(-570,-15))
 taiya = Actor('taiya.png',topleft=(-130,265))
 tree = Actor('tree.png',topleft=(0,0))
 water = Actor('water.png',topleft=(0,0))
 Buttonsan = []
-
-
+if ramdom_men == 1:
+    ramen = Actor("cupmen.png",topleft=(0,0))
+    ramen.scale = 0.25
+else:
+    if ramdom_men == 2:
+        ramen = Actor("soba.png",topleft=(0,0))
+        ramen.scale = 0.18
+    else:
+        ramen = Actor("kare-men.png",topleft=(0,0))
+        ramen.scale = 0.35
 water.rect = Rect((water.x, water.y), (500, 100))
 ramen.rect = Rect((ramen.x, ramen.y), (40, 100))
 random_x = random.randint(100, 500)
@@ -463,17 +470,14 @@ def draw():
         if stage == 2:
             Mappp()
             if random_number == 2:
-                ramen.scale = 0.25
                 ramen.draw()
         if stage == 3:
             Mappp()
             if random_number == 3:
-                ramen.scale = 0.25
                 ramen.draw()
         if stage == 4:
             Mappp()
             if random_number == 4:
-                ramen.scale = 0.25
                 ramen.draw()
     
         ball.x = player_x
