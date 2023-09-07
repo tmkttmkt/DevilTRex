@@ -556,6 +556,9 @@ def draw():
                                     if kiroku2 >= 1001:
                                         Kekka(4)
                                         music_flg = 4
+                                    else:
+                                        Kekka(5)
+                                        music_flg = 5
 
                 screen.draw.text("結果発表",(212,130),fontname="in_game.ttf",color = 'black',fontsize=60)
                 screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = 'red',fontsize=60)
