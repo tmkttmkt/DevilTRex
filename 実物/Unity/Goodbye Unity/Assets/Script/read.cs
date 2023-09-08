@@ -11,7 +11,9 @@ public class read : MonoBehaviour
     {
         StreamReader fail = new StreamReader("test2.txt", Encoding.GetEncoding("Shift_JIS"));
         string te,key,val;
-        while(true){
+        stetting["time"] = 20;
+        Debug.Log("F0");
+        while (true){
             te = fail.ReadLine();
             Debug.Log(te);
             if (te == null) break;
@@ -23,10 +25,20 @@ public class read : MonoBehaviour
         }
         //Debug.Log(stetting);
         fail.Close();
+
+        using (StreamWriter writer = new StreamWriter("dbg.txt", true))
+        {
+            writer.WriteLine(stetting["time"]);
+            writer.WriteLine("スタート実行");
+        }
+        stetting["time"] = 600;
+        Debug.Log("F0");
     }
     // Update is called once per frame
     void Update()
     {
+        //stetting["time"] = 20;
+        //Debug.Log("F0");
 
     }
 }

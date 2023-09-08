@@ -12,3 +12,4 @@ U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.vbproj.CoreCompileInputs.
 U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.exe
 U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.xml
 U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.pdb
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.vbprojAssemblyReference.cache

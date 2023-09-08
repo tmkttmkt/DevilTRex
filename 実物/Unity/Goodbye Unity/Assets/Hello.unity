@@ -13842,6 +13842,7 @@ GameObject:
   - component: {fileID: 340624823}
   - component: {fileID: 340624822}
   - component: {fileID: 340624821}
+  - component: {fileID: 340624824}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -13930,6 +13931,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &340624824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340624819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb80de80f4e09d40bfcacafa40dfde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &340961448
 GameObject:
   m_ObjectHideFlags: 0
@@ -43223,7 +43236,6 @@ GameObject:
   - component: {fileID: 982461387}
   - component: {fileID: 982461392}
   - component: {fileID: 982461393}
-  - component: {fileID: 982461394}
   m_Layer: 0
   m_Name: syuzinkou
   m_TagString: Untagged
@@ -43353,18 +43365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 1849166181}
---- !u!114 &982461394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982461386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bb80de80f4e09d40bfcacafa40dfde3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &985337377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: eed7f93b02876ba41a1413aa7b67951e,
@@ -84078,7 +84078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a165d53ca204f4e8c86e9696d5c537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  read_obj: {fileID: 982461394}
+  read_obj: {fileID: 340624824}
   rast: {fileID: 756806002}
 --- !u!1 &1915408884
 GameObject:
@@ -92559,8 +92559,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083005820}
   m_LocalRotation: {x: -0.5735764, y: -0, z: -0, w: 0.8191521}
-  m_LocalPosition: {x: 66.00269, y: 23.02, z: -38.76}
-  m_LocalScale: {x: 30, y: 20, z: 20}
+  m_LocalPosition: {x: 66.00269, y: 23.82, z: -38.47}
+  m_LocalScale: {x: 45, y: 30, z: 30}
   m_Children:
   - {fileID: 4783280}
   - {fileID: 1710997057}
