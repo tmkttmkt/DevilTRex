@@ -145,12 +145,12 @@ class Smol_Buttan(Buttan):
 class Start:
     def __init__(self):
         self.title_mode=title_mode.START
-        self.start=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"START")
-        self.conit=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"CONTINUATION")
-        self.exp=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"EXPLANATION")
+        self.start=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"始める   ")
+        self.conit=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"---------")
+        self.exp=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"説明   ")
         self.exp_list=[Actor("sxe_1",topleft=(530,123)),Actor("sxe_2",topleft=(620,123)),Actor("sxe_3",topleft=(517,500)),Actor("sxe_4",topleft=(517,819))]
         self.save=[]
-        self.save_return=Buttan(GRAY,[60,60],[240,60],"return")
+        self.save_return=Buttan(GRAY,[60,60],[240,60],"戻る  ")
         self.save_num=0
         self.load_num()
         self.load_all()
@@ -238,14 +238,14 @@ class Maps:
         self.mode=-1
         self.map=None
         self.pov=[0,0]
-        self.ret=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"return")
-        self.seve=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60]," seve ")
-        self.menu=Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60]," menu ")
+        self.ret=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"ゲームに戻る   ")
+        self.seve=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"------")
+        self.menu=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"メニュー  ")
         self.return_mode=False
         self.state=None
-        self.buttan_list=[Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2],[240,60],"beerui")
-                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+70],[240,60],"sityefk")
-                        ,Buttan((64,64,64),[WIDTH/2-120,HEIGHT/2+140],[240,60],"return")]
+        self.buttan_list=[Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"beerui")
+                        ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"sityefk")
+                        ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"戻る  ")]
     def update(self):
         if not self.return_mode:
             moto_pov=self.pov.copy()
@@ -289,7 +289,7 @@ class Maps:
         if self.map==None:
             for obj in self.buttan_list:
                 if obj.collidepoint(pos):
-                    if obj.txt=="return":
+                    if obj.txt=="戻る  ":
                         return  BACK
                     map_class=globals().get(re.sub(" ","",obj.txt))
                     self.map=map_class()
@@ -336,7 +336,7 @@ class Maps:
                 self.map.time_draw=not self.map.time_draw
     def draw(self,screen):
         if self.map==None:
-            screen.fill((172,172,172))
+            screen.fill((200,200,200))
             for obj in self.buttan_list:
                 obj.draw()
         else:
