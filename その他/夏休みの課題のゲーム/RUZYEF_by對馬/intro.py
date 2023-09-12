@@ -243,7 +243,8 @@ class Maps:
         self.menu=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"メニュー  ")
         self.return_mode=False
         self.state=None
-        self.buttan_list=[Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"beerui")
+        self.buttan_list=[Buttan(GRAY,[WIDTH/2-120,HEIGHT/2-70],[240,60],"heiankyou")
+                        ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"beerui")
                         ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"sityefk")
                         ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"戻る  ")]
     def update(self):
@@ -550,6 +551,44 @@ class sityefk(Map):
         #プレイヤーは後ろ
 
         self.units_list+=[gp,s]
+class heiankyou(Map):
+    def __init__(self):
+        source=pygame.image.load(os.path.join('images', 'heiankyou.png'))
+        wide_rect=source.get_clip()
+        super().__init__([wide_rect[2],wide_rect[3]],[43,7,3,7,30])
+        self.setdate('heiankyou.png')
+        self.set_unit()
+    def draw(self, pov, screen):
+        super().draw(pov, screen)
+        if self.start_exm:
+            screen.draw.filled_rect(Rect((200,200), (500,500)),WHITE)
+            screen.draw.text("操作する部隊は青色です\n　クリックして始める",(200,HEIGHT/2-25),fontname='genshingothic-bold.ttf',color=BLACK,fontsize=45)
+    def load(self,time,unit_list):
+        pass
+    def vic_if(self):
+        return 0==len(self.units_list[1].list)
+    def los_if(self):
+        return 0==len(self.units_list[0].list)
+    def set_unit(self):
+
+        gp=ger_ply(self)
+        gp.set_unit((679, 464),Kar98k_syo)
+        gp.set_unit((660, 560),Kar98k_syo)
+        gp.set_unit((617, 515),Kar98k_syo)
+        gp.set_unit((656, 298),Kar98k_syo)
+        gp.set_unit((616, 567),Kar98k_syo)
+        s=sov(self)
+        s.set_unit((119, 558),mosin_syo)
+        s.set_unit((148, 627),mosin_syo)
+        s.set_unit((271, 514),mosin_syo)
+        #s.set_unit((274, 616),mosin_syo)
+        #s.set_unit((233, 561),mosin_syo)
+        #s.set_unit((216, 459),mosin_syo)
+        #s.set_unit((191, 578),mosin_syo)
+        s.set_unit((216, 498),mosin_syo)
+        #プレイヤーは後ろ
+
+        self.units_list+=[gp,s]
 class beerui(Map):
     def __init__(self):
         super().__init__([900,900],[43,7,3,7,30])
@@ -606,7 +645,7 @@ def on_key_down(key):
     maps.key_down(key)
 def on_mouse_down(pos,button):
     if button==mouse.LEFT or button==mouse.RIGHT:
-        #print(pos)
+        print(pos)
         sounds.clic.play()
         if start.title_mode==title_mode.execution:
             if maps.mouse_down(pos,button)==BACK:
