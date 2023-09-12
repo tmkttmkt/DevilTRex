@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - ata
     - came
     - idou_mause
+    - kyor
     - read
     - rokka
     - teki
@@ -81,17 +82,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9716}
     - Class: 114
-      Script: {instanceID: 9782}
+      Script: {instanceID: 9728}
     - Class: 114
-      Script: {instanceID: 9906}
+      Script: {instanceID: 9784}
     - Class: 114
-      Script: {instanceID: 9954}
+      Script: {instanceID: 9908}
     - Class: 114
-      Script: {instanceID: 9970}
+      Script: {instanceID: 9956}
     - Class: 114
-      Script: {instanceID: 10104}
+      Script: {instanceID: 9972}
     - Class: 114
-      Script: {instanceID: 10594}
+      Script: {instanceID: 10106}
+    - Class: 114
+      Script: {instanceID: 10596}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -601,6 +604,12 @@ ScriptsOnlyBuild:
     className: Item
   - hash:
       serializedVersion: 2
+      Hash: 3ba9a5c1032b55c41dc7d44cdf40d239
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: kyor
+  - hash:
+      serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -812,4 +821,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Hello.unity
-  playerPath: "U:/tet/\u5B9F\u7269/unity/exe/Goodbye Unity.exe"
+  playerPath: "U:/tet/\u5B9F\u7269/exe/Goodbye Unity.exe"

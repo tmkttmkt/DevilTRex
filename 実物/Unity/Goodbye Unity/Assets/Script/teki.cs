@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using System.IO;
+using System.Text;
 public class teki : MonoBehaviour
 {
     [SerializeField]time rast;
@@ -12,6 +14,11 @@ public class teki : MonoBehaviour
     void Start()
     {
         nav = gameObject.GetComponent<NavMeshAgent>();
+
+        using (StreamWriter writer = new StreamWriter("dbg.txt", true))
+        {
+            writer.WriteLine("てきスタート");
+        }
     }
 
     // Update is called once per frame
