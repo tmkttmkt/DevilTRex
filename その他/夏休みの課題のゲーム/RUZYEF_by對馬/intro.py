@@ -154,6 +154,8 @@ class Start:
         self.save_num=0
         self.load_num()
         self.load_all()
+        music.set_volume(0.3)
+        music.play("-1")
     def set_start(self):
         self.title_mode=title_mode.START
         self.load_num()
@@ -243,6 +245,7 @@ class Maps:
         self.menu=Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+140],[240,60],"メニュー  ")
         self.return_mode=False
         self.state=None
+        self.kyok=0
         self.buttan_list=[Buttan(GRAY,[WIDTH/2-120,HEIGHT/2-70],[240,60],"heiankyou")
                         ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2],[240,60],"beerui")
                         ,Buttan(GRAY,[WIDTH/2-120,HEIGHT/2+70],[240,60],"sityefk")
@@ -264,6 +267,10 @@ class Maps:
                     self.pov[0] += 10
             if self.map!=None:
                 self.map.update((self.pov[0]-moto_pov[0],self.pov[1]-moto_pov[1]))
+            if self.map!=None:
+                if not music.is_playing(""):
+                    music.play_once(str(self.kyok%2))
+                    self.kyok+=1
     def time_load(self,txt):
         name_list=["年","月","日","時","分","秒"]
         lis=[]
@@ -294,16 +301,21 @@ class Maps:
                         return  BACK
                     map_class=globals().get(re.sub(" ","",obj.txt))
                     self.map=map_class()
+                    music.play_once(str(self.kyok%2))
+                    self.kyok+=1
                     break
         else:
             if self.return_mode:
                 if self.ret.collidepoint(pos):
                     self.return_mode=False
+                    music.unpause()
                 if self.seve.collidepoint(pos):
                     self.map.save()
                 if self.menu.collidepoint(pos):
                     self.return_mode=False
                     self.map=None
+                    music.unpause()
+                    music.play("-1")
             else:
                 if self.map.vic_mode:
                     self.map=None
@@ -331,6 +343,11 @@ class Maps:
             self.map.time.key_down(key)
             if key==keys.ESCAPE:
                 self.return_mode=not self.return_mode
+                if self.return_mode:
+                    music.pause()
+                else:
+                    music.unpause()
+
             elif key==keys.SPACE:
                 self.map.vic_draw=not self.map.vic_draw
             elif key==keys.T:
