@@ -1,0 +1,8 @@
+public class aitem
+{
+    public string name;
+    aitem(string nam)
+    {
+        name = nam;
+    }
+}
