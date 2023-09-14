@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class rokka : MonoBehaviour
 {
-    public GameObject[] rokas;
-    internal GameObject move_rok;
+    public rokaga[] rokas;
+    internal rokaga move_rok;
     // Start is called before the first frame update
     internal bool flg = false;
     internal float startTime, distance;
@@ -17,7 +17,7 @@ public class rokka : MonoBehaviour
         {
             if (!flg)
             {
-                foreach (GameObject roka in rokas)
+                foreach (rokaga roka in rokas)
                 {
                     float dis = Vector3.Distance(this.transform.position, roka.transform.position);
                     Debug.Log("距離 : " + dis + roka.name);
@@ -27,7 +27,7 @@ public class rokka : MonoBehaviour
                     GameObject hitObject = hit.collider.gameObject;
                     float hitdis = Vector3.Distance(this.transform.position, hitObject.transform.position);
                     Debug.Log("一番近いやつ : " + hitObject.name);
-                    if ((roka == hitObject && dis <= 10f) || (roka!=hitObject && dis<=hitdis &&  dis <= 10f))
+                    if ((roka.name == hitObject.name && dis <= 10f) || (roka.name != hitObject.name && dis<=hitdis &&  dis <= 10f))
                     {
                         Debug.Log("起動!");
                         flg = true;
@@ -41,6 +41,7 @@ public class rokka : MonoBehaviour
             else
             {
                 flg = false;
+                move_rok.set(true);
             }
         }
     }
