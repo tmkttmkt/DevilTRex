@@ -49,6 +49,8 @@ angle3 = 0
 hiku = 2.5
 mouse_x = 0
 mouse_y = 0
+m_y = 0
+m_x = 0
 mouse_x2 = 0
 mouse_y2= 0
 music_flg = 0
@@ -81,7 +83,7 @@ angles = max_angle
 
 
 gauge_mode = True
-ramdom_men = 2#random.randint(1,3)
+ramdom_men = random.randint(1,3)
 ball=Actor('yakan',(0,-1600))
 ball.scale = 0.5
 sora = Actor('sora.png',topleft=(0,0))
@@ -90,6 +92,8 @@ ca_ue = Actor('canon_une.png',topleft=(-570,-15))
 taiya = Actor('taiya.png',topleft=(-130,265))
 tree = Actor('tree.png',topleft=(0,0))
 water = Actor('water.png',topleft=(0,0))
+kasoru = Actor('ka-soru2')
+
 Buttonsan = []
 if ramdom_men == 1:
     ramen = Actor("cupmen.png",topleft=(0,0))
@@ -127,8 +131,6 @@ def on_key_down(key):
     global gauge_mode,title
     if key == keys.SPACE and gauge_mode == True:
         gauge_mode = False
-    
-        
 def update():
     global player_x,player_y,player_speed_y,player_speed_x,gravity,player_angle,angles
     global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
@@ -141,6 +143,8 @@ def update():
     d_red = random.randint(0, 110)
     d_blue = random.randint(0, 110)
     d_green = random.randint(0, 110)
+    kasoru.x = mouse_x2
+    kasoru.y = mouse_y2
     if title == False:
         if times != 0:
             times -= 1 
@@ -221,7 +225,7 @@ def Syokika():
     global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
     global player_speed_y2,angle3,flg,root2,angle_mode,gauge_value,gauge_mode,max_gauge
     global font_value,kiroku,stage,kaiten,water_flg,kiroku2,kiroku_value,red,blue,green
-    global random_number,random_x,re_flg,times
+    global random_number,random_x,re_flg,times,random_men
     music.stop()
     music.set_volume(0.125)
     music.play('wafuu')
@@ -242,6 +246,7 @@ def Syokika():
     random_x = random.randint(100, 500)
     print(random_x)
     random_number = random.randint(2,4)
+    ramdom_men = random.randint(1,3)
     print(random_number)
     player_x = 110
     player_y = 500
@@ -286,20 +291,6 @@ def Mappp():
             if map_data1[y][x] == 3:
                 tree.topleft=(70*x,70*y)
                 tree.draw()    
-def Kekka(flg):
-    my_flg = True
-    if flg == 1:
-        screen.draw.text("審議会の評価：すごい！",(160,400),fontname="in_game.ttf",color="red",fontsize=35)
-        screen.draw.text("名誉ラーメン人",(210,450),fontname="in_game.ttf",color=(red,blue,green),fontsize=35)
-    if flg == 2:
-        screen.draw.text("審議会の評価：凡庸！",(140,420),fontname="in_game.ttf",color="red",fontsize=45)
-    if flg == 3:
-        screen.draw.text("審議会の評価：下手くそ！",(120,420),fontname="in_game.ttf",color="blue",fontsize=42)
-    if flg == 4:
-        screen.draw.text("審議会の評価：悲しい",(160,400),fontname="in_game.ttf",color="blue",fontsize=35)
-        screen.draw.text("めそめそメソッド",(210,450),fontname="in_game.ttf",color=(d_red,d_blue,d_green),fontsize=35)
-    if flg == 5:
-        screen.draw.text("審議会の評価：惜しい！",(140,420),fontname="in_game.ttf",color="blue",fontsize=45)
 def on_music_end():
     if title == False:
         music.set_volume(0.25)
@@ -397,6 +388,31 @@ Buttonkun2 = Buttons(100,100,"Yeag",2)
 Buttonkun3 = Buttons(100,100,"遊び方",3)
 Buttonkun4 = Buttons(100,100,"タイトルへ",4)
 Buttonkun5 = Buttons(100,100,"終了する",5)
+
+def Kekka(flg):
+    my_flg = True
+    if flg == 1:
+        screen.draw.text("審議会の評価：すごい！",(160,400),fontname="in_game.ttf",color="red",fontsize=35)
+        screen.draw.text("名誉ラーメン人",(210,450),fontname="in_game.ttf",color=(red,blue,green),fontsize=35)
+        Buttonkun4.__init__(260,520,"タイトルへ",4)
+        Buttonkun4.draw()
+    if flg == 2:
+        screen.draw.text("審議会の評価：凡庸！",(140,420),fontname="in_game.ttf",color="red",fontsize=45)
+        Buttonkun4.__init__(260,520,"タイトルへ",4)
+        Buttonkun4.draw()
+    if flg == 3:
+        screen.draw.text("審議会の評価：下手くそ！",(120,420),fontname="in_game.ttf",color="blue",fontsize=42)
+        Buttonkun4.__init__(260,520,"タイトルへ",4)
+        Buttonkun4.draw()
+    if flg == 4:
+        screen.draw.text("審議会の評価：悲しい",(160,400),fontname="in_game.ttf",color="blue",fontsize=35)
+        screen.draw.text("めそめそメソッド",(210,450),fontname="in_game.ttf",color=(d_red,d_blue,d_green),fontsize=35)
+        Buttonkun4.__init__(260,520,"タイトルへ",4)
+        Buttonkun4.draw()
+    if flg == 5:
+        screen.draw.text("審議会の評価：惜しい！",(140,420),fontname="in_game.ttf",color="blue",fontsize=45)
+        Buttonkun4.__init__(260,520,"タイトルへ",4)
+        Buttonkun4.draw()
 
 class Setumei:
     def __init__(self):
@@ -507,13 +523,14 @@ def draw():
             Buttonkun5.__init__(480,560,"終了",5)
             Buttonkun5.draw()
         if title == False and times == 0:
+            music_flg = 0
             Mini_Mop.draw()
             screen.draw.text("ミニマップ",(0,0),fontname="title.ttf",color="red",fontsize=30)
             water.rect = Rect((player_x - 120, player_y - 70), (250, 150))
             ramen.rect = Rect((random_x - 40,480), (150, 150))
-            if stage == random_number:
-                screen.draw.rect(ramen.rect, (255,0, 0, 100))
-            screen.draw.rect(water.rect, (255, 0, 0, 100))
+            #if stage == random_number:
+                #screen.draw.rect(ramen.rect, (255,0, 0, 100))
+            #screen.draw.rect(water.rect, (255, 0, 0, 100)) Debugするときは消して
             if title == False:
                 if gauge_mode == False and hajime == False:
                     screen.draw.text("狙いを定めてクリック",(200,100),fontname="in_game.ttf",color="red",fontsize=50)
@@ -568,8 +585,6 @@ def draw():
                 if kiroku2 < 0:
                     kiroku2 *= -1
                 screen.draw.text("麺との距離" + str(int(kiroku_value)) + "m",(210,330),fontname="in_game.ttf",color="red",fontsize=35)
-                Buttonkun4.__init__(260,520,"タイトルへ",4)
-                Buttonkun4.draw()
                 #Buttonkun5.__init__(260,580,"リトライ？",5)
                 #Buttonkun5.draw()
         else:
@@ -584,7 +599,27 @@ def draw():
         ru_ru.draw()
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
-        
+    if music_flg == 1 and title == True:
+        screen.draw.text("字幕：お前はなかなか見込みがある",(30,470),fontname="title.ttf",color="black",fontsize=40)
+        screen.draw.text("字幕：お前はなかなか見込みがある",(28,470),fontname="title.ttf",color="red",fontsize=40)
+    else:
+        if music_flg == 2 and title == True:
+            screen.draw.text("字幕：結構悪くはないと思うよ",(30,470),fontname="title.ttf",color="black",fontsize=40)
+            screen.draw.text("字幕：結構悪くはないと思うよ",(28,470),fontname="title.ttf",color="red",fontsize=40)
+        else:
+            if music_flg == 3 and title == True:
+                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(30,470),fontname="title.ttf",color="black",fontsize=40)
+                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(28,470),fontname="title.ttf",color="red",fontsize=40)
+            else:
+                if music_flg == 4 and title == True:
+                    screen.draw.text("字幕：まるでやる気が感じられない",(30,470),fontname="title.ttf",color="black",fontsize=40)
+                    screen.draw.text("字幕：まるでやる気が感じられない",(30,470),fontname="title.ttf",color="red",fontsize=40)
+                else:
+                    if music_flg == 5 and title == True:
+                        screen.draw.text("字幕：あともうちょっと",(120,470),fontname="title.ttf",color="black",fontsize=40)
+                        screen.draw.text("字幕：あともうちょっと",(118,470),fontname="title.ttf",color="red",fontsize=40)
+    kasoru.scale = 0.125
+    kasoru.draw()
 def on_mouse_down(pos,button):
     global mouse_x, mouse_y,x2,y2,root,flg,hajime,angle_mode,title
     if title == False:
