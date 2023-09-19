@@ -27,13 +27,18 @@ public class rokka : MonoBehaviour
                     GameObject hitObject = hit.collider.gameObject;
                     float hitdis = Vector3.Distance(this.transform.position, hitObject.transform.position);
                     Debug.Log("一番近いやつ : " + hitObject.name);
+                    //ロッカーの名前があってて、距離が10float以内　もしくわ　ロッカーの名前があっていなくて、距離が10float以内で
                     if ((roka.name == hitObject.name && dis <= 10f) || (roka.name != hitObject.name && dis<=hitdis &&  dis <= 10f))
                     {
-                        Debug.Log("起動!");
-                        flg = true;
-                        move_rok = roka;
-                        startTime = Time.time;
-                        distance = Vector3.Distance(transform.position, move_rok.transform.position);
+                        float disY = Mathf.Abs(hitObject.transform.position.y - this.transform.position.y);
+                        if (disY <= 1F)
+                        {
+                            Debug.Log("起動!");
+                            flg = true;
+                            move_rok = roka;
+                            startTime = Time.time;
+                            distance = Vector3.Distance(transform.position, move_rok.transform.position);
+                        }
                     }
                     // 追加の処理を行います
                 }

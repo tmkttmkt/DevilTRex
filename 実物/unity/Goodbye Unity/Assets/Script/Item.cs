@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    [SerializeField] ata obj;
     // Start is called before the first frame update
     [SerializeField] GameObject item;
     void Start()
@@ -20,11 +21,6 @@ public class Item : MonoBehaviour
             flg_item = !flg_item;
             item.gameObject.SetActive(flg_item);
         }
-
-       
-
-
-
 
 
     }
