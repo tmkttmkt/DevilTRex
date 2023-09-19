@@ -1,4 +1,4 @@
-teki=76438235
-time=300
+teki=
+time=180
 speed=4
 ƒAƒCƒeƒ€‚Ì”=
