@@ -1,7 +1,17 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+public class Aitem
+{
+    public string name;
+    public string exem;
 
+    public Aitem(string nam, string exe)
+    {
+        name = nam;
+        exem = exe;
+    }
+}
 public class ata : MonoBehaviour
 {
     public float detectionDistance = 10f; // レイキャストの距離
@@ -24,24 +34,15 @@ public class ata : MonoBehaviour
                 GameObject hitObject = hit.collider.gameObject;
                 Debug.Log("Hit object: " + hitObject.name);//←アイテム取得した時に実行されるプログラム
 
-                MonoBehaviour script = hitObject.GetComponent<MonoBehaviour>();
+                key script = hitObject.GetComponent<key>();
                 if (script != null)
                 {
-                    //items.Add()
+                    Aitem ii= new Aitem(script.strname, script.exem);
+                    items.Add(ii);
                 }
             }
         }
 
     }
 }
-public class Aitem
-{
-    public string name;
-    public string exem;
 
-    Aitem(string nam,string exe)
-    {
-        name = nam;
-        exem = exe;
-    }
-}
