@@ -91,6 +91,8 @@ public class idou_mause : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
+        Debug.Log(tai.move_rok);
         //OnCollisionEnter
         if (other.gameObject.name == tai.move_rok.name && flg_rok)
         {

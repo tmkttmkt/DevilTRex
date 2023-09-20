@@ -31,7 +31,8 @@ public class rokka : MonoBehaviour
                     if ((roka.name == hitObject.name && dis <= 10f) || (roka.name != hitObject.name && dis<=hitdis &&  dis <= 10f))
                     {
                         float disY = Mathf.Abs(hitObject.transform.position.y - this.transform.position.y);
-                        if (disY <= 1F)
+                        Debug.Log(disY);
+                        if (disY <= 3F)
                         {
                             Debug.Log("起動!");
                             flg = true;
