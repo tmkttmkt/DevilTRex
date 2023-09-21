@@ -69,7 +69,7 @@ public class time : MonoBehaviour
     public void set_eat()
     {
         eat_time = timerValue;
-        timerText.text = "RIPお前\nGAMEOVER";
+        rast.text = "RIPお前\nGAMEOVER";
         Tre_eat = true;
     }
     private void end_def()
