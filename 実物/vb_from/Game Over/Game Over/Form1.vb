@@ -1,10 +1,10 @@
-﻿Imports System.Runtime.InteropServices
+﻿
 Public Class Form1
     Public count As Integer
     Private Declare Function GetCursorPos Lib "user32.dll" (ByRef lpPoint As Point) As Boolean
     Private Declare Function PtInRect Lib "user32.dll" (ByRef lprc As Rectangle, ByVal pt As Point) As Boolean
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        Button1.FlatAppearance.BorderColor = Color.Black
         Label1.BackColor = Color.Transparent
         PictureBox1.BackgroundImage = Image.FromFile("game.png")
         PictureBox1.Image = Image.FromFile("suna3.gif")
@@ -25,25 +25,22 @@ Public Class Form1
         End Try
     End Sub
 
+    Private Sub btnCustomButton_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
+        ' マウスがボタンに入ったときの枠線色を設定
+        Button1.FlatAppearance.BorderColor = Color.Red
+        Button1.FlatAppearance.BorderSize = 3
+    End Sub
+    Private Sub btnCustomButton_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        ' マウスがボタンから出たときの枠線色を設定
+        If Not Button1.ClientRectangle.Contains(Button1.PointToClient(MousePosition)) Then
+            Button1.FlatAppearance.BorderColor = Color.Black
+        End If
+    End Sub
+
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Dim cursorPos As New Point()
-        GetCursorPos(cursorPos)
 
         ' ボタンの位置とサイズを取得
-        Dim buttonRect As Rectangle = Button1.Bounds
-
-        ' マウスカーソルがボタンの上にあるかどうかをチェック
-        If PtInRect(buttonRect, cursorPos) Then
-            ' マウスカーソルがボタンの上にある場合、枠線を赤くする
-            Button1.FlatAppearance.BorderColor = Color.Red
-            isMouseOverButton = True
-        Else
-            ' マウスカーソルがボタンの上にない場合、元の枠線色に戻す
-            If isMouseOverButton Then
-                Button1.FlatAppearance.BorderColor = initialButtonBorderColor
-                isMouseOverButton = False
-            End If
-        End If
         count += 1
         If count >= 48 Then
             AxWindowsMediaPlayer1.Ctlcontrols.pause()
