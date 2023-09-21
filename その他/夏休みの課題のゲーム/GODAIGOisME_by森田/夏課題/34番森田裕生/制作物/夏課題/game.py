@@ -83,7 +83,7 @@ angles = max_angle
 
 
 gauge_mode = True
-ramdom_men = random.randint(1,3)
+ramdom_men = 2#random.randint(1,3)
 ball=Actor('yakan',(0,-1600))
 ball.scale = 0.5
 sora = Actor('sora.png',topleft=(0,0))
@@ -101,7 +101,7 @@ if ramdom_men == 1:
 else:
     if ramdom_men == 2:
         ramen = Actor("soba.png",topleft=(0,0))
-        ramen.scale = 0.18
+        ramen.scale = 0.14
     else:
         ramen = Actor("kare-men.png",topleft=(0,0))
         ramen.scale = 0.35
@@ -313,11 +313,8 @@ class Buttons:
         screen.draw.text(self.moji,(self.rect_x + 20,self.rect_y + 12),fontname="title.ttf",color="white")
     def on_mouse_down(self,pos,button):
         global title,setumei,re_flg
-        print("1")
         if self.mode == 1:
-            print("1.5")
             if (self.rect_x <= pos[0] <= self.rect_x + 150) and (self.rect_y <= pos[1] <= self.rect_y + 50):
-                print("2")# and self.rect_y == pos[1]:
                 sounds.button.play()
                 sounds.title.stop()
                 sounds.hagemasi.stop()
@@ -390,6 +387,7 @@ Buttonkun4 = Buttons(100,100,"タイトルへ",4)
 Buttonkun5 = Buttons(100,100,"終了する",5)
 
 def Kekka(flg):
+    global music_flg
     my_flg = True
     if flg == 1:
         screen.draw.text("審議会の評価：すごい！",(160,400),fontname="in_game.ttf",color="red",fontsize=35)
@@ -495,17 +493,13 @@ def draw():
             Mappp()
             if random_number == 4:
                 ramen.draw()
-    
+        ball.scale = 1.25
+        ball.draw()
         ball.x = player_x
         ball.y = player_y
         water.x = player_x
         water.y = player_y - 30
         ball.angle = angles
-        if (angle_mode == True or gauge_mode == True or title == True) and hajime == False:
-            ball.scare = 0.0125
-        else:
-            ball.scale = 1.25
-        ball.draw()
         if stage == 1:
             ca_ue.scale = 0.35
             ca_ue.draw()
@@ -528,9 +522,9 @@ def draw():
             screen.draw.text("ミニマップ",(0,0),fontname="title.ttf",color="red",fontsize=30)
             water.rect = Rect((player_x - 120, player_y - 70), (250, 150))
             ramen.rect = Rect((random_x - 40,480), (150, 150))
-            #if stage == random_number:
-                #screen.draw.rect(ramen.rect, (255,0, 0, 100))
-            #screen.draw.rect(water.rect, (255, 0, 0, 100)) Debugするときは消して
+            if stage == random_number:
+                screen.draw.rect(ramen.rect, (255,0, 0, 100))
+            screen.draw.rect(water.rect, (255, 0, 0, 100)) #Debugするときは消して
             if title == False:
                 if gauge_mode == False and hajime == False:
                     screen.draw.text("狙いを定めてクリック",(200,100),fontname="in_game.ttf",color="red",fontsize=50)
@@ -561,21 +555,23 @@ def draw():
                         if water.rect.colliderect(ramen.rect) and stage == random_number:
                             Kekka(1)
                             music_flg = 1
+                            print(music_flg)
+                        elif kiroku2 >= 100 and kiroku2 <= 599:
+                            Kekka(2)
+                            music_flg = 2
+                            print(music_flg)
+                        elif kiroku2 >= 600 and kiroku2 <= 1000:
+                            Kekka(3)
+                            music_flg = 3
+                            print(music_flg)
+                        elif kiroku2 >= 1001:
+                            Kekka(4)
+                            music_flg = 4
+                            print(music_flg)
                         else:
-                            if kiroku2 >= 100 and kiroku2 <= 599:
-                                Kekka(2)
-                                music_flg = 2
-                            else:
-                                if kiroku2 >= 600 and kiroku2 <= 1000:
-                                    Kekka(3)
-                                    music_flg = 3
-                                else:
-                                    if kiroku2 >= 1001:
-                                        Kekka(4)
-                                        music_flg = 4
-                                    else:
-                                        Kekka(5)
-                                        music_flg = 5
+                            Kekka(5)
+                            music_flg = 5
+                            print(music_flg)
 
                 screen.draw.text("結果発表",(212,130),fontname="in_game.ttf",color = 'black',fontsize=60)
                 screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = 'red',fontsize=60)
@@ -600,24 +596,24 @@ def draw():
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
     if music_flg == 1 and title == True:
-        screen.draw.text("字幕：お前はなかなか見込みがある",(30,470),fontname="title.ttf",color="black",fontsize=40)
-        screen.draw.text("字幕：お前はなかなか見込みがある",(28,470),fontname="title.ttf",color="red",fontsize=40)
+        screen.draw.text("字幕：お前はなかなか見込みがある",(30,610),fontname="title.ttf",color="black",fontsize=40)
+        screen.draw.text("字幕：お前はなかなか見込みがある",(28,610),fontname="title.ttf",color="red",fontsize=40)
     else:
         if music_flg == 2 and title == True:
-            screen.draw.text("字幕：結構悪くはないと思うよ",(30,470),fontname="title.ttf",color="black",fontsize=40)
-            screen.draw.text("字幕：結構悪くはないと思うよ",(28,470),fontname="title.ttf",color="red",fontsize=40)
+            screen.draw.text("字幕：結構悪くはないと思うよ",(30,610),fontname="title.ttf",color="black",fontsize=40)
+            screen.draw.text("字幕：結構悪くはないと思うよ",(28,610),fontname="title.ttf",color="red",fontsize=40)
         else:
             if music_flg == 3 and title == True:
-                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(30,470),fontname="title.ttf",color="black",fontsize=40)
-                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(28,470),fontname="title.ttf",color="red",fontsize=40)
+                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(30,610),fontname="title.ttf",color="black",fontsize=30)
+                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(28,610),fontname="title.ttf",color="red",fontsize=30)
             else:
                 if music_flg == 4 and title == True:
-                    screen.draw.text("字幕：まるでやる気が感じられない",(30,470),fontname="title.ttf",color="black",fontsize=40)
-                    screen.draw.text("字幕：まるでやる気が感じられない",(30,470),fontname="title.ttf",color="red",fontsize=40)
+                    screen.draw.text("字幕：まるでやる気が感じられない",(30,610),fontname="title.ttf",color="black",fontsize=40)
+                    screen.draw.text("字幕：まるでやる気が感じられない",(28,610),fontname="title.ttf",color="red",fontsize=40)
                 else:
                     if music_flg == 5 and title == True:
-                        screen.draw.text("字幕：あともうちょっと",(120,470),fontname="title.ttf",color="black",fontsize=40)
-                        screen.draw.text("字幕：あともうちょっと",(118,470),fontname="title.ttf",color="red",fontsize=40)
+                        screen.draw.text("字幕：あともうちょっと",(120,610),fontname="title.ttf",color="black",fontsize=40)
+                        screen.draw.text("字幕：あともうちょっと",(118,610),fontname="title.ttf",color="red",fontsize=40)
     kasoru.scale = 0.125
     kasoru.draw()
 def on_mouse_down(pos,button):
