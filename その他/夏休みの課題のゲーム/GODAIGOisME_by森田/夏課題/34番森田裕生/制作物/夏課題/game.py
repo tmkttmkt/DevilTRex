@@ -83,7 +83,7 @@ angles = max_angle
 
 
 gauge_mode = True
-ramdom_men = 2#random.randint(1,3)
+ramdom_men = random.randint(1,3)
 ball=Actor('yakan',(0,-1600))
 ball.scale = 0.5
 sora = Actor('sora.png',topleft=(0,0))
@@ -120,6 +120,7 @@ music.set_volume(0.25)
 setumei = False
 ramen.center = (random_x,600)
 re_flg = False
+my_flg = True
 #rect_x = 0
 #rect_y = 0
 #moji = ""
@@ -244,10 +245,10 @@ def Syokika():
                     if music_flg == 5:
                         sounds.osii.play()
     random_x = random.randint(100, 500)
-    print(random_x)
+    #print(random_x)
     random_number = random.randint(2,4)
     ramdom_men = random.randint(1,3)
-    print(random_number)
+    #print(random_number)
     player_x = 110
     player_y = 500
     times = 120
@@ -387,30 +388,44 @@ Buttonkun4 = Buttons(100,100,"タイトルへ",4)
 Buttonkun5 = Buttons(100,100,"終了する",5)
 
 def Kekka(flg):
-    global music_flg
-    my_flg = True
+    global music_flg,my_flg
     if flg == 1:
         screen.draw.text("審議会の評価：すごい！",(160,400),fontname="in_game.ttf",color="red",fontsize=35)
         screen.draw.text("名誉ラーメン人",(210,450),fontname="in_game.ttf",color=(red,blue,green),fontsize=35)
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
+        if my_flg == True:
+            sounds.iron.play()
+            my_flg = False
     if flg == 2:
         screen.draw.text("審議会の評価：凡庸！",(140,420),fontname="in_game.ttf",color="red",fontsize=45)
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
+        if my_flg == True:
+            sounds.iron.play()
+            my_flg = False
     if flg == 3:
         screen.draw.text("審議会の評価：下手くそ！",(120,420),fontname="in_game.ttf",color="blue",fontsize=42)
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
+        if my_flg == True:
+            sounds.iron.play()
+            my_flg = False
     if flg == 4:
         screen.draw.text("審議会の評価：悲しい",(160,400),fontname="in_game.ttf",color="blue",fontsize=35)
         screen.draw.text("めそめそメソッド",(210,450),fontname="in_game.ttf",color=(d_red,d_blue,d_green),fontsize=35)
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
+        if my_flg == True:
+            sounds.iron.play()
+            my_flg = False
     if flg == 5:
         screen.draw.text("審議会の評価：惜しい！",(140,420),fontname="in_game.ttf",color="blue",fontsize=45)
         Buttonkun4.__init__(260,520,"タイトルへ",4)
         Buttonkun4.draw()
+        if my_flg == True:
+            sounds.iron.play()
+            my_flg = False
 
 class Setumei:
     def __init__(self):
@@ -552,27 +567,29 @@ def draw():
                     screen.draw.filled_rect(Rect((100, 100), (500, 500)), (255, 255, 255))
                     screen.draw.rect(Rect((100, 100), (500, 500)), (0, 0, 0))
                     if kiroku_value > kiroku2 and font_value > int(kiroku):
-                        if water.rect.colliderect(ramen.rect) and stage == random_number:
+                        if water.rect.colliderect(ramen.rect) and stage == random_number or kiroku2 <= 99:
                             Kekka(1)
                             music_flg = 1
-                            print(music_flg)
+                            #print(music_flg)
                         elif kiroku2 >= 100 and kiroku2 <= 599:
                             Kekka(2)
                             music_flg = 2
-                            print(music_flg)
+                            #print(music_flg)
                         elif kiroku2 >= 600 and kiroku2 <= 1000:
                             Kekka(3)
                             music_flg = 3
-                            print(music_flg)
+                            #print(music_flg)
                         elif kiroku2 >= 1001:
                             Kekka(4)
                             music_flg = 4
-                            print(music_flg)
+                           # print(music_flg)
+                        elif kiroku2 <= 99:
+                            Kekka(5)
+                            music_flg = 5
+                            #print(music_flg)
                         else:
                             Kekka(5)
                             music_flg = 5
-                            print(music_flg)
-
                 screen.draw.text("結果発表",(212,130),fontname="in_game.ttf",color = 'black',fontsize=60)
                 screen.draw.text("結果発表",(210,130),fontname="in_game.ttf",color = 'red',fontsize=60)
                 screen.draw.text("飛行距離" + str(font_value) + "m",(210,250),fontname="in_game.ttf",color="blue",fontsize=35)
@@ -604,12 +621,12 @@ def draw():
             screen.draw.text("字幕：結構悪くはないと思うよ",(28,610),fontname="title.ttf",color="red",fontsize=40)
         else:
             if music_flg == 3 and title == True:
-                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(30,610),fontname="title.ttf",color="black",fontsize=30)
-                screen.draw.text("字幕：まあ、気にするな。そういう時もあるよ",(28,610),fontname="title.ttf",color="red",fontsize=30)
+                screen.draw.text("字幕：まあ、気にするな。そういう時もある",(30,610),fontname="title.ttf",color="black",fontsize=30)
+                screen.draw.text("字幕：まあ、気にするな。そういう時もある",(28,610),fontname="title.ttf",color="red",fontsize=30)
             else:
                 if music_flg == 4 and title == True:
-                    screen.draw.text("字幕：まるでやる気が感じられない",(30,610),fontname="title.ttf",color="black",fontsize=40)
-                    screen.draw.text("字幕：まるでやる気が感じられない",(28,610),fontname="title.ttf",color="red",fontsize=40)
+                    screen.draw.text("字幕：まるでやる気が感じられん",(30,610),fontname="title.ttf",color="black",fontsize=40)
+                    screen.draw.text("字幕：まるでやる気が感じられん",(28,610),fontname="title.ttf",color="red",fontsize=40)
                 else:
                     if music_flg == 5 and title == True:
                         screen.draw.text("字幕：あともうちょっと",(120,610),fontname="title.ttf",color="black",fontsize=40)
