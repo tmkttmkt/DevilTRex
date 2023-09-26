@@ -633,6 +633,7 @@ def draw():
                         screen.draw.text("字幕：あともうちょっと",(118,610),fontname="title.ttf",color="red",fontsize=40)
     kasoru.scale = 0.125
     kasoru.draw()
+    
 def on_mouse_down(pos,button):
     global mouse_x, mouse_y,x2,y2,root,flg,hajime,angle_mode,title
     if title == False:
