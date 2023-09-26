@@ -44,7 +44,7 @@ Partial Class Form1
         '
         Me.Button1.BackColor = System.Drawing.Color.Black
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Palace Script MT", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Red
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -63,7 +63,7 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(-5, -21)
         Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
         Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(810, 493)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(810, 502)
         Me.AxWindowsMediaPlayer1.TabIndex = 3
         '
         'Timer1
@@ -72,7 +72,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-5, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(-5, 1)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(810, 415)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
