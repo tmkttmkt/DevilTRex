@@ -27,5 +27,15 @@ public class anime : MonoBehaviour
 
             anim.SetBool("TE", false);
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+
+            anim.SetBool("rl", true);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+
+            anim.SetBool("rl", false);
+        }
     }
 }
