@@ -229,6 +229,10 @@ def update():
                     player_x += ((player_speed_x2 + kyori + 35) * math.cos(root2))
                     kiroku += ((player_speed_x2 + kyori + 35) * math.cos(root2))
                     player_y -= (kyori + player_speed_y2 + 10) * math.sin(root2)
+                elif ca_ue.angle >= 59 and ca_ue.angle <= 64:
+                    player_x += 2
+                    kiroku += 2
+                    player_y -= (kyori + player_speed_y2) * math.sin(root2)
                 else:
                     player_x += ((player_speed_x2 + kyori) * math.cos(root2))
                     kiroku += ((player_speed_x2 + kyori) * math.cos(root2))
