@@ -225,7 +225,7 @@ def update():
                 if flg == True:
                     root2 = math.atan2(player_y - mouse_y,mouse_x - player_x)
                     flg = False
-                if ca_ue.angle >= 67:
+                if ca_ue.angle >= 65:
                     player_x += ((player_speed_x2 + kyori + 35) * math.cos(root2))
                     kiroku += ((player_speed_x2 + kyori + 35) * math.cos(root2))
                     player_y -= (kyori + player_speed_y2 + 10) * math.sin(root2)
