@@ -262,7 +262,7 @@ def update():
             angle_ca = math.atan2(ca_ue.y - mouse_y2, mouse_x2 - ca_ue.x)
             ca_ue.angle = math.degrees(angle_ca) - 30
             ura.angle = math.degrees(angle_ca) - 30
-            #print(ca_ue.angle)
+            print(ca_ue.angle)
             taiya.x = 200
     else:
         if title == True and owari == True:
