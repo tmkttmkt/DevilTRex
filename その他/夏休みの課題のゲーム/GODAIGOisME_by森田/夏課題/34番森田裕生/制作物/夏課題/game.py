@@ -204,7 +204,6 @@ def update():
                 player_x += player_speed_x * mainasu
                 kiroku += player_speed_x * mainasu
                 player_y += player_speed_y
-        
                 player_speed_y += gravity
     
                 if player_y >= HEIGHT - 90:
@@ -226,12 +225,9 @@ def update():
                     root2 = math.atan2(player_y - mouse_y,mouse_x - player_x)
                     flg = False
                 if ca_ue.angle >= 65:
-                    player_x += ((player_speed_x2 + kyori + 35) * math.cos(root2))
-                    kiroku += ((player_speed_x2 + kyori + 35) * math.cos(root2))
-                    player_y -= (kyori + player_speed_y2 + 10) * math.sin(root2)
-                elif ca_ue.angle >= 59 and ca_ue.angle <= 64:
-                    player_x += 2
-                    kiroku += 2
+                    mainasu = -1
+                    player_x += (player_speed_x2 + kyori) * math.cos(root2)
+                    kiroku += (player_speed_x2 + kyori) * math.cos(root2)
                     player_y -= (kyori + player_speed_y2) * math.sin(root2)
                 else:
                     player_x += ((player_speed_x2 + kyori) * math.cos(root2))
@@ -262,7 +258,7 @@ def update():
             angle_ca = math.atan2(ca_ue.y - mouse_y2, mouse_x2 - ca_ue.x)
             ca_ue.angle = math.degrees(angle_ca) - 30
             ura.angle = math.degrees(angle_ca) - 30
-            print(ca_ue.angle)
+     #       print(ca_ue.angle)
             taiya.x = 200
     else:
         if title == True and owari == True:
@@ -278,7 +274,7 @@ def Syokika():
     global owari,hajime,hiku,root,tobu,kyori,player_speed_x2
     global player_speed_y2,angle3,flg,root2,angle_mode,gauge_value,gauge_mode,max_gauge
     global font_value,kiroku,stage,kaiten,water_flg,kiroku2,kiroku_value,red,blue,green
-    global random_number,random_x,re_flg,times,random_men,my_flg
+    global random_number,random_x,re_flg,times,random_men,my_flg,mainasu
     music.stop()
     music.set_volume(0.125)
     music.play('wafuu')
@@ -297,14 +293,15 @@ def Syokika():
                     if music_flg == 5:
                         sounds.osii.play()
     random_x = random.randint(100, 500)
-    print(random_x)
+    #print(random_x)
     random_number = random.randint(2,4)
     ramdom_men = random.randint(1,3)
-    print(random_number)
+    #print(random_number)
     player_x = 110
     player_y = 500
     times = 120
     flg = True
+    mainasu = 1
     angle_mode = False
     water_flg = False
     gauge_mode = True
@@ -575,7 +572,7 @@ def draw():
             manhattan.draw()
             screen.draw.text("アメリカ　マンハッタン",(372,40),fontname="in_game.ttf",color="black",fontsize=30)
             screen.draw.text("アメリカ　マンハッタン",(370,40),fontname="in_game.ttf",color="white",fontsize=30)
-        if stage == -4:
+        if stage <= -4:
             nihon.draw()
             screen.draw.text("東洋の島国　日本",(402,40),fontname="in_game.ttf",color="black",fontsize=30)
             screen.draw.text("東洋の島国　日本",(400,40),fontname="in_game.ttf",color="red",fontsize=30)
