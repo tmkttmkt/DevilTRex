@@ -16,14 +16,26 @@ public class time : MonoBehaviour
     private float eat_time;
     private Text timerText; // タイマーを表示するテキストオブジェクト
     [SerializeField] Text rast;
+    [SerializeField] Text left;
+    private string leftext;
+    private int n=10;
 
     private void Start()
     {
-
+        set_text("俺のそばに近寄るなぁああ!!");
     }
 
     private void Update()
     {
+        if (leftext.Length > 0)
+        {
+            n--;
+            if (n == 0) { 
+                n = 10;
+                left.text += leftext[0];
+                leftext=leftext.Substring(1);
+            }
+        }
         if (!start)
         {
             timerDuration = read_obj.stetting["time"];
@@ -65,6 +77,11 @@ public class time : MonoBehaviour
             // タイマーが0になった場合の処理
             // タイマーが0以下にならないようにする場合は、条件を変更してください
         }
+    }
+    public void set_text(string text)
+    {
+        leftext = text;
+        left.text = "";
     }
     public void set_eat()
     {
