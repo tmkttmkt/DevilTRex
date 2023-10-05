@@ -60,6 +60,7 @@ Partial Class How
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button1.Location = New System.Drawing.Point(599, 377)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(159, 35)
@@ -239,6 +240,7 @@ Partial Class How
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("AR板体H", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "How"
         Me.Text = "How"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
