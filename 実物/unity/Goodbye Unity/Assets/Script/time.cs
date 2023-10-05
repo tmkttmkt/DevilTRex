@@ -23,6 +23,7 @@ public class time : MonoBehaviour
     private void Start()
     {
         set_text("俺のそばに近寄るなぁああ!!");
+        set_goal("よまるんじゃなええええ");
     }
 
     private void Update()
@@ -88,6 +89,10 @@ public class time : MonoBehaviour
         eat_time = timerValue;
         rast.text = "RIPお前\nGAMEOVER";
         Tre_eat = true;
+    }
+    public void set_goal(string txt)
+    {
+        rast.text = txt;
     }
     private void end_def()
     {
