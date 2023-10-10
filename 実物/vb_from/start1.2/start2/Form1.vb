@@ -2,12 +2,16 @@
 Imports System.Drawing.Imaging
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label1.ForeColor = Color.Black
+        Label2.ForeColor = Color.Black
+        Label3.ForeColor = Color.Black
+        Label4.ForeColor = Color.Black
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
             PictureBox1.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif")
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
-        PictureBox2.Image = Image.FromFile("タイトル2.png")
+        PictureBox2.Image = Image.FromFile("タイトル2_transparent.png")
 
     End Sub
 

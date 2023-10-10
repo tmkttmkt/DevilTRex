@@ -1,9 +1,11 @@
 ﻿Imports System.IO
 Imports System.Text
 Public Class Settei
+    Dim count As Integer = 0
     Dim str As String = ""
     Dim ss() As String = {"1", "2", "3"}
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
         Label5.Text = "文字にカーソルを合わせると"
         Label6.Text = "説明文が出ます。"
         DomainUpDown1.Text = ss(0)
@@ -39,8 +41,7 @@ Public Class Settei
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Hide()
-        Form1.Show()
+        Timer1.Enabled = True
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Label1.MouseEnter
@@ -103,6 +104,19 @@ Public Class Settei
         If Not DomainUpDown2.ClientRectangle.Contains(DomainUpDown2.PointToClient(MousePosition)) Then
             Label5.Text = "文字にカーソルを合わせると"
             Label6.Text = "説明文が出ます。"
+        End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        count += 1
+        If count <= 5 Then
+            PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\光るティラノ.png")
+        ElseIf count >= 6 Then
+            count = 0
+            PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
+            Me.Hide()
+            Form1.Show()
+            Timer1.Enabled = False
         End If
     End Sub
 End Class
