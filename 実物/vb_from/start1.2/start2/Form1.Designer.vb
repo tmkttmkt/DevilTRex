@@ -35,6 +35,7 @@ Partial Class Form1
         '
         'PictureBox2
         '
+        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PictureBox2.Location = New System.Drawing.Point(447, 12)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(360, 101)
