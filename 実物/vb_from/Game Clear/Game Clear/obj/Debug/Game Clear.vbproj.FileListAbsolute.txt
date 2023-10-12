@@ -1,0 +1,18 @@
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.vbprojAssemblyReference.cache
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Interop.WMPLib.dll
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\AxInterop.WMPLib.dll
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.vbproj.ResolveComReference.cache
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game_Clear.Form1.resources
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game_Clear.Resources.resources
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.vbproj.GenerateResource.cache
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.vbproj.CoreCompileInputs.cache
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\bin\Debug\Game Clear.exe.config
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\bin\Debug\Game Clear.exe
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\bin\Debug\Game Clear.pdb
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\bin\Debug\Game Clear.xml
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\bin\Debug\Interop.WMPLib.dll
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\bin\Debug\AxInterop.WMPLib.dll
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.exe
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.xml
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game Clear.pdb
+U:\github\tet\実物\vb_from\Game Clear\Game Clear\obj\Debug\Game_Clear.Form2.resources
