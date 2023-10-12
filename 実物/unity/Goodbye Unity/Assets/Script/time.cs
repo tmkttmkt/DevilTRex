@@ -21,11 +21,13 @@ public class time : MonoBehaviour
     private string goal_text1;
     private string goal_text2;
     private string leftext;
-    private int n = 10, kierumade = 360;
+    private int n = 10, kierumade = 600;
 
     private void Start()
     {
         set_text("俺のそばに近寄るなぁああ!!");
+        set_goal("学校に行こう!!");
+        set_goal("借金を返そう!!");
     }
 
     private void Update()
