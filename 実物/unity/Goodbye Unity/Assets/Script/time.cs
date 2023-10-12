@@ -8,7 +8,7 @@ using System.Windows;
 
 public class time : MonoBehaviour
 {
-    [SerializeField]read read_obj;
+    [SerializeField] read read_obj;
     private float timerDuration; // タイマーの時間（秒）
     private float timerValue; // タイマーの現在の値
     private bool start = false;
@@ -18,12 +18,11 @@ public class time : MonoBehaviour
     [SerializeField] Text rast;
     [SerializeField] Text left;
     private string leftext;
-    private int n=10;
+    private int n = 10, kierumade = 360;
 
     private void Start()
     {
         set_text("俺のそばに近寄るなぁああ!!");
-        set_goal("よまるんじゃなええええ");
     }
 
     private void Update()
@@ -31,12 +30,28 @@ public class time : MonoBehaviour
         if (leftext.Length > 0)
         {
             n--;
-            if (n == 0) { 
+            if (n == 0)
+            {
                 n = 10;
                 left.text += leftext[0];
-                leftext=leftext.Substring(1);
+                leftext = leftext.Substring(1);
+                kierumade = 360;
             }
         }
+        else
+        {
+            UnityEngine.Debug.Log("SS");
+            kierumade -= 1;
+            if (kierumade == 0)
+            {
+                UnityEngine.Debug.Log("S");
+                left.text = "";
+                //set_text("");
+
+            }
+        }
+
+
         if (!start)
         {
             timerDuration = read_obj.stetting["time"];
@@ -57,7 +72,7 @@ public class time : MonoBehaviour
         }
         else if (timerValue > 0f)
         {
-             // 経過時間を減算
+            // 経過時間を減算
 
             // タイマーを表示するテキストを更新
             timerText.text = FormatTime(timerValue);
@@ -89,10 +104,6 @@ public class time : MonoBehaviour
         eat_time = timerValue;
         rast.text = "RIPお前\nGAMEOVER";
         Tre_eat = true;
-    }
-    public void set_goal(string txt)
-    {
-        rast.text = txt;
     }
     private void end_def()
     {
