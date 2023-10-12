@@ -43,7 +43,7 @@ public class teki : MonoBehaviour
         if (collision.gameObject.name == target.name)
         {
             Debug.Log("Hit");// ログを表示する
-            rast.set_eat();//;
+            rast.flg_eat();//;
         }
 
     }

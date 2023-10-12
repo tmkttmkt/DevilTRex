@@ -41,10 +41,13 @@ public class ata : MonoBehaviour
                 key script = hitObject.GetComponent<key>();
                 if (script != null)
                 {
-                    if (script.getflg())
+                    if (items.Count <= 3)
                     {
-                        Aitem ii = new Aitem(script.strname, script.exem);
-                        items.Add(ii);
+                        if (script.getflg())
+                        {
+                            Aitem ii = new Aitem(script.strname, script.exem);
+                            items.Add(ii);
+                        }
                     }
                 }
                 inkey scr = hitObject.GetComponent<inkey>();

@@ -16,7 +16,6 @@ public class read : MonoBehaviour
             {
                 string te, key, val;
                 stetting["time"] = 20;
-                Debug.Log("F0");
                 while (true)
                 {
                     te = fail.ReadLine();
@@ -25,8 +24,7 @@ public class read : MonoBehaviour
                     val = te.Remove(0, te.IndexOf("=") + 1);
                     key = te.Remove(te.IndexOf("="));
                     stetting[key] = int.Parse(val);
-                    Debug.Log(key);
-                    Debug.Log(val);
+                    Debug.Log(key+val);
                 }
                 //Debug.Log(stetting);
                 fail.Close();
