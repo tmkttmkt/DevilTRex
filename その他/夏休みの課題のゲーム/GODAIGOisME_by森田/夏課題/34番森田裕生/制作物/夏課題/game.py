@@ -100,6 +100,7 @@ sabaku = Actor('a_tisu.jpg',topleft=(0,0))
 ro_ma = Actor('ro-ma.jpg',topleft=(0,0))
 manhattan = Actor('manhattan.jpg',topleft=(0,0))
 nihon = Actor('ukiyoe',topleft=(0,0))
+ejiputo = Actor('ejiputo',topleft=(0,0))
 
 
 Buttonsan = []
@@ -230,8 +231,8 @@ def update():
                     kiroku += ((player_speed_x2 + kyori + 35) * math.cos(root2))
                     player_y -= (kyori + player_speed_y2 + 10) * math.sin(root2)
                 elif ca_ue.angle >= 59 and ca_ue.angle <= 64:
-                    player_x += 2
-                    kiroku += 2
+                    player_x += 0.1
+                    kiroku += 0.1
                     player_y -= (kyori + player_speed_y2) * math.sin(root2)
                 else:
                     player_x += ((player_speed_x2 + kyori) * math.cos(root2))
@@ -296,7 +297,7 @@ def Syokika():
                 else:
                     if music_flg == 5:
                         sounds.osii.play()
-    random_x = random.randint(100, 500)
+    random_x = random.randint(100, 400)
     print(random_x)
     random_number = random.randint(2,4)
     ramdom_men = random.randint(1,3)
@@ -579,6 +580,10 @@ def draw():
             nihon.draw()
             screen.draw.text("東洋の島国　日本",(402,40),fontname="in_game.ttf",color="black",fontsize=30)
             screen.draw.text("東洋の島国　日本",(400,40),fontname="in_game.ttf",color="red",fontsize=30)
+        if stage == -5:
+            ejiputo.draw()
+            screen.draw.text("エジプト　ピラミッド",(402,40),fontname="in_game.ttf",color="black",fontsize=30)
+            screen.draw.text("エジプト　ピラミッド",(400,40),fontname="in_game.ttf",color="red",fontsize=30)
         if hajime == True and owari == False:
             ball.scale = 1.25
             ball.draw()
