@@ -85,7 +85,7 @@ Partial Class Form1
         '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(12, 218)
+        Me.PictureBox2.Location = New System.Drawing.Point(-6, 0)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(963, 450)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -126,8 +126,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(956, 450)
-        Me.Controls.Add(Me.AxWindowsMediaPlayer4)
         Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.AxWindowsMediaPlayer4)
         Me.Controls.Add(Me.AxWindowsMediaPlayer3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.AxWindowsMediaPlayer2)

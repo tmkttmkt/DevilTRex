@@ -1,4 +1,4 @@
 teki=
-time=300
-speed=3
+time=30
+speed=2
 ƒAƒCƒeƒ€‚Ì”=

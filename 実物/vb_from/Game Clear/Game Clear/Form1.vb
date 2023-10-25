@@ -13,9 +13,15 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ' ボタンの位置とサイズを取得
         count += 1
-        Label1.Text = Str(count)
-        Label1.Visible = True
+        AxWindowsMediaPlayer4.Visible = False
+        Me.BackColor = Color.Black
         Select Case count
+            Case 1 To 29
+                Dim lbl As New Label
+                lbl.Size = New System.Drawing.Size(159, 23) 'set your size
+                lbl.Location = New System.Drawing.Point(300, 180) 'set your location
+                lbl.Text = "AIに作らせた没画像" 'set your name
+                Me.Controls.Add(lbl)
             Case 30 To 59
                 PictureBox1.Image = Image.FromFile("T0.png")
             Case 60 To 89
@@ -41,6 +47,7 @@
                 PictureBox1.Visible = False
                 AxWindowsMediaPlayer2.Visible = False
                 AxWindowsMediaPlayer3.Visible = False
+                AxWindowsMediaPlayer4.Visible = False
                 PictureBox2.Visible = True
                 Timer1.Stop()
                 PictureBox2.Image = Image.FromFile("main.jpg")
