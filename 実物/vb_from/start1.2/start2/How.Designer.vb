@@ -72,7 +72,7 @@ Partial Class How
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(16, 245)
+        Me.Label2.Location = New System.Drawing.Point(16, 288)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 30)
         Me.Label2.TabIndex = 2
@@ -82,7 +82,7 @@ Partial Class How
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(210, 79)
+        Me.Label3.Location = New System.Drawing.Point(210, 122)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 30)
         Me.Label3.TabIndex = 3
@@ -92,7 +92,7 @@ Partial Class How
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(193, 112)
+        Me.PictureBox1.Location = New System.Drawing.Point(193, 155)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -102,7 +102,7 @@ Partial Class How
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(193, 208)
+        Me.PictureBox2.Location = New System.Drawing.Point(193, 251)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -112,7 +112,7 @@ Partial Class How
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(97, 208)
+        Me.PictureBox3.Location = New System.Drawing.Point(97, 251)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -122,7 +122,7 @@ Partial Class How
         'PictureBox4
         '
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(288, 208)
+        Me.PictureBox4.Location = New System.Drawing.Point(288, 251)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -133,7 +133,7 @@ Partial Class How
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(210, 321)
+        Me.Label4.Location = New System.Drawing.Point(210, 364)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 30)
         Me.Label4.TabIndex = 8
@@ -143,7 +143,7 @@ Partial Class How
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(394, 245)
+        Me.Label5.Location = New System.Drawing.Point(394, 288)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(94, 30)
         Me.Label5.TabIndex = 9
@@ -152,7 +152,7 @@ Partial Class How
         'PictureBox5
         '
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(472, 79)
+        Me.PictureBox5.Location = New System.Drawing.Point(288, 155)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -162,12 +162,12 @@ Partial Class How
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(467, 182)
+        Me.Label6.Font = New System.Drawing.Font("Bradley Hand ITC", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(394, 199)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(71, 30)
+        Me.Label6.Size = New System.Drawing.Size(87, 34)
         Me.Label6.TabIndex = 11
-        Me.Label6.Text = "↑Item"
+        Me.Label6.Text = "←Item"
         '
         'Button2
         '
