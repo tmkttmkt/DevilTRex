@@ -28,3 +28,4 @@ U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.vbproj.CoreCompile
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.exe
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.xml
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.pdb
+U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.How3.resources

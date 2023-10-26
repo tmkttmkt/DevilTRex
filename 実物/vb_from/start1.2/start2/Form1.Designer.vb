@@ -150,12 +150,13 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.SystemColors.Control
         Me.Label7.Font = New System.Drawing.Font("SansSerif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.Label7.Location = New System.Drawing.Point(51, 413)
+        Me.Label7.Location = New System.Drawing.Point(36, 413)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(330, 28)
+        Me.Label7.Size = New System.Drawing.Size(324, 28)
         Me.Label7.TabIndex = 17
-        Me.Label7.Text = "@2023.Good_Natural_Person"
+        Me.Label7.Text = "©2023.Good_Natural_Person"
         '
         'Label8
         '

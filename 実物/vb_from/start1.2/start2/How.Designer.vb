@@ -51,6 +51,7 @@ Partial Class How
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Bradley Hand ITC", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(592, 100)
@@ -59,19 +60,21 @@ Partial Class How
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Button1.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button1.Location = New System.Drawing.Point(599, 377)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(159, 35)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Understood"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label2.Location = New System.Drawing.Point(16, 288)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 30)
@@ -82,6 +85,7 @@ Partial Class How
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(210, 122)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 30)
@@ -133,6 +137,7 @@ Partial Class How
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label4.Location = New System.Drawing.Point(210, 364)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 30)
@@ -143,6 +148,7 @@ Partial Class How
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label5.Location = New System.Drawing.Point(394, 288)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(94, 30)
@@ -163,6 +169,7 @@ Partial Class How
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Bradley Hand ITC", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label6.Location = New System.Drawing.Point(394, 199)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(87, 34)
@@ -171,13 +178,15 @@ Partial Class How
         '
         'Button2
         '
+        Me.Button2.BackColor = System.Drawing.SystemColors.ControlText
         Me.Button2.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button2.Location = New System.Drawing.Point(451, 377)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(132, 35)
         Me.Button2.TabIndex = 12
         Me.Button2.Text = "Back"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'PictureBox6
         '
@@ -211,6 +220,7 @@ Partial Class How
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Britannic Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label9.Location = New System.Drawing.Point(624, 248)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(74, 27)
@@ -221,6 +231,7 @@ Partial Class How
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -242,7 +253,7 @@ Partial Class How
         Me.Font = New System.Drawing.Font("AR板体H", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "How"
-        Me.Text = "How"
+        Me.Text = "How to play"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
