@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class How2
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,10 @@ Partial Class How2
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(How2))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -35,7 +37,9 @@ Partial Class How2
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -61,6 +65,7 @@ Partial Class How2
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Bradley Hand ITC", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(26, 18)
         Me.Label1.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label1.Name = "Label1"
@@ -73,30 +78,32 @@ Partial Class How2
         Me.Label2.AutoSize = True
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label2.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 86)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label2.Location = New System.Drawing.Point(12, 116)
         Me.Label2.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(504, 21)
+        Me.Label2.Size = New System.Drawing.Size(313, 42)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "このゲームは恐怖の殺人恐竜から逃げ切るゲームです。"
+        Me.Label2.Text = "このゲームは恐怖の殺人恐竜から" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "逃げ切るゲームです。"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("ARなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.Location = New System.Drawing.Point(16, 117)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label3.Location = New System.Drawing.Point(16, 158)
         Me.Label3.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(714, 21)
+        Me.Label3.Size = New System.Drawing.Size(406, 42)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "恐竜にはAIが搭載されており、血も涙もない機械らしく迫ってきます。"
+        Me.Label3.Text = "恐竜にはAIが搭載されており" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "血も涙もない機械らしく迫ってきます。"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 147)
+        Me.Label4.Location = New System.Drawing.Point(16, 200)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(470, 21)
         Me.Label4.TabIndex = 5
@@ -106,7 +113,8 @@ Partial Class How2
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 177)
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(16, 221)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(325, 21)
         Me.Label5.TabIndex = 6
@@ -114,29 +122,34 @@ Partial Class How2
         '
         'Button3
         '
+        Me.Button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button3.Location = New System.Drawing.Point(663, 385)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(125, 39)
         Me.Button3.TabIndex = 7
         Me.Button3.Text = "Next"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Button4
         '
+        Me.Button4.BackColor = System.Drawing.SystemColors.ControlText
         Me.Button4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button4.Location = New System.Drawing.Point(484, 385)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(132, 35)
         Me.Button4.TabIndex = 8
         Me.Button4.Text = "Back"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(16, 246)
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label6.Location = New System.Drawing.Point(16, 290)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(574, 21)
         Me.Label6.TabIndex = 9
@@ -146,7 +159,8 @@ Partial Class How2
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(16, 278)
+        Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label7.Location = New System.Drawing.Point(12, 311)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(368, 21)
         Me.Label7.TabIndex = 10
@@ -156,7 +170,8 @@ Partial Class How2
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label8.Location = New System.Drawing.Point(16, 310)
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label8.Location = New System.Drawing.Point(12, 332)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(420, 21)
         Me.Label8.TabIndex = 11
@@ -166,28 +181,33 @@ Partial Class How2
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("MS UI Gothic", 12.0!)
-        Me.Label9.Location = New System.Drawing.Point(32, 371)
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label9.Location = New System.Drawing.Point(32, 408)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(249, 16)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "※このゲームにはびっくり要素があります"
         '
-        'Label10
+        'PictureBox1
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("MS UI Gothic", 12.0!)
-        Me.Label10.Location = New System.Drawing.Point(49, 393)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(218, 16)
-        Me.Label10.TabIndex = 13
-        Me.Label10.Text = "心肺が心配な方はご注意ください"
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(461, 91)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(305, 151)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 13
+        Me.PictureBox1.TabStop = False
+        '
+        'Timer1
+        '
         '
         'How2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -203,9 +223,11 @@ Partial Class How2
         Me.Controls.Add(Me.Button1)
         Me.Font = New System.Drawing.Font("MS UI Gothic", 18.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.Name = "How2"
-        Me.Text = "How2"
+        Me.Text = "How to play"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -224,5 +246,6 @@ Partial Class How2
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Timer1 As Timer
 End Class

@@ -103,7 +103,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.Name = "Form1"
-        Me.Text = "ドンマイ"
+        Me.Text = "Game Over"
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

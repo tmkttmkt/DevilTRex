@@ -42,7 +42,7 @@ Public Class Form1
 
         ' ボタンの位置とサイズを取得
         count += 1
-        If count >= 48 Then
+        If count >= 49 Then
             AxWindowsMediaPlayer1.Ctlcontrols.pause()
             If count = 70 Then
                 Timer1.Stop()

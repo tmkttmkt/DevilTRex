@@ -5,10 +5,18 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
         Label1.Visible = False
+        Label1.BackColor = Color.FromArgb(150, 143, 139)
         Label2.Visible = False
+        Label2.BackColor = Color.FromArgb(150, 143, 139)
         Label3.Visible = False
+        Label3.BackColor = Color.FromArgb(150, 143, 139)
         Test.Visible = False
         Label4.Visible = False
+        Label4.BackColor = Color.FromArgb(150, 143, 139)
+        Label7.Visible = False
+        Label7.BackColor = Color.FromArgb(231, 231, 215)
+        Label8.Visible = False
+        Label8.BackColor = Color.FromArgb(150, 143, 139)
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
@@ -24,7 +32,8 @@ Public Class Form1
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
-        PictureBox2.BackColor = RGB(150, 143, 139)
+        PictureBox2.BackColor = Color.FromArgb(150, 143, 139)
+
         PictureBox2.Image = Image.FromFile("タイトル2_transparent.png")
 
     End Sub
@@ -105,11 +114,15 @@ Public Class Form1
             Label3.Visible = True
             Label4.Visible = True
             Label6.Visible = False
+            Label7.Visible = True
             Timer1.Enabled = False
+            Label8.Visible = True
         End If
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
         count = 266
     End Sub
+
+
 End Class
