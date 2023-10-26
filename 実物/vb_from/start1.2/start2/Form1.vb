@@ -1,16 +1,30 @@
 ﻿Imports System.IO
 Imports System.Drawing.Imaging
 Public Class Form1
+    Dim count As Integer
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PictureBox2.Visible = False
+        Label1.Visible = False
+        Label2.Visible = False
+        Label3.Visible = False
+        Test.Visible = False
+        Label4.Visible = False
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
         Label4.ForeColor = Color.Black
-        If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
-            PictureBox1.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif")
+        If File.Exists("R:\_R05課題研究(情報技術科)\２班\オープニング.gif") Then
+            PictureBox1.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\オープニング.gif")
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
+        If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
+            PictureBox4.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif")
+            Timer1.Enabled = True
+        Else
+            MessageBox.Show("画像ファイルが見つかりません。")
+        End If
+        PictureBox2.BackColor = RGB(150, 143, 139)
         PictureBox2.Image = Image.FromFile("タイトル2_transparent.png")
 
     End Sub
@@ -74,7 +88,28 @@ Public Class Form1
         End
     End Sub
 
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        count += 1
+        Test.Text = count
+        If count <= 265 Then
+            Label6.Visible = True
+        End If
+        If count >= 266 Then
+            PictureBox1.Visible = False
+            PictureBox4.Visible = True
+            PictureBox2.Visible = True
+            Label1.Visible = True
+            Label2.Visible = True
+            Label3.Visible = True
+            Label4.Visible = True
+            Label6.Visible = False
+            Timer1.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        count = 266
     End Sub
 End Class

@@ -9,6 +9,4 @@
         Me.Hide()
         How.Show()
     End Sub
-
-
 End Class

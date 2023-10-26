@@ -271,4 +271,5 @@ Partial Class How
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
 End Class
