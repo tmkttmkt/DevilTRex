@@ -225,6 +225,8 @@ Partial Class How2
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(7, 6, 7, 6)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "How2"
         Me.Text = "How to play"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

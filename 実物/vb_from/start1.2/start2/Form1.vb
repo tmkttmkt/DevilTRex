@@ -23,12 +23,12 @@ Public Class Form1
         Label4.ForeColor = Color.Black
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\オープニング.gif") Then
             PictureBox1.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\オープニング.gif")
+            Timer1.Enabled = True
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
             PictureBox4.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif")
-            Timer1.Enabled = True
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
@@ -105,7 +105,7 @@ Public Class Form1
         If count <= 265 Then
             Label6.Visible = True
         End If
-        If count >= 266 Then
+        If count >= 265 Then
             PictureBox1.Visible = False
             PictureBox4.Visible = True
             PictureBox2.Visible = True

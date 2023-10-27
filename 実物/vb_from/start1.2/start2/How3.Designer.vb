@@ -118,6 +118,8 @@ Partial Class How3
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "How3"
         Me.Text = "How to play"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

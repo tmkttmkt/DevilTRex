@@ -216,6 +216,8 @@ Partial Class Settei
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Settei"
         Me.Text = "Settei"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
