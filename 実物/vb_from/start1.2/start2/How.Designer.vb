@@ -37,9 +37,9 @@ Partial Class How
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -198,16 +198,6 @@ Partial Class How
         Me.PictureBox6.TabIndex = 13
         Me.PictureBox6.TabStop = False
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("AR板体H", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label7.Location = New System.Drawing.Point(666, 124)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 14)
-        Me.Label7.TabIndex = 14
-        Me.Label7.Text = "Enter"
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -227,15 +217,29 @@ Partial Class How
         Me.Label9.TabIndex = 16
         Me.Label9.Text = "↑Get!!"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label11.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label11.Location = New System.Drawing.Point(28, 88)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(519, 21)
+        Me.Label11.TabIndex = 17
+        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'How
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label6)
@@ -279,8 +283,8 @@ Partial Class How
     Friend WithEvents Label6 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents PictureBox6 As PictureBox
-    Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
 End Class

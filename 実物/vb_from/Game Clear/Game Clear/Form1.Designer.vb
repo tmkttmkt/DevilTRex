@@ -33,6 +33,7 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.AxWindowsMediaPlayer3 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.AxWindowsMediaPlayer4 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AxWindowsMediaPlayer2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,6 +121,17 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer4.Size = New System.Drawing.Size(643, 539)
         Me.AxWindowsMediaPlayer4.TabIndex = 7
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("MS UI Gothic", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Yellow
+        Me.Label4.Location = New System.Drawing.Point(478, 194)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(460, 37)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "AIに作らせた没画像集でした。"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -134,6 +146,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
+        Me.Controls.Add(Me.Label4)
         Me.Cursor = System.Windows.Forms.Cursors.No
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
@@ -158,4 +171,5 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents AxWindowsMediaPlayer3 As AxWMPLib.AxWindowsMediaPlayer
     Friend WithEvents AxWindowsMediaPlayer4 As AxWMPLib.AxWindowsMediaPlayer
+    Friend WithEvents Label4 As Label
 End Class
