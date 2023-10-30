@@ -30,6 +30,8 @@ public class Item : MonoBehaviour
             foreach (Aitem ai in obj.items)
             {
                 texts[n].text = ai.exem;
+                images[n].sprite= ai.image;
+                n++;
             }
 
             flg_item = !flg_item;
