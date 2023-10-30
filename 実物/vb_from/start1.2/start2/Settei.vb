@@ -7,7 +7,7 @@ Public Class Settei
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
         Label5.Text = "文字にカーソルを合わせると"
-        Label6.Text = "説明文が出ます。"
+        Label6.Text = "説明文が出ます。1234"
         DomainUpDown1.Text = ss(0)
         DomainUpDown1.Items.Add(ss(0))
         DomainUpDown1.Items.Add(ss(1))
@@ -22,26 +22,34 @@ Public Class Settei
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Using writer As New StreamWriter("test2.txt", False, Encoding.GetEncoding("Shift_JIS"))
             If File.Exists("test2.txt") Then
-                writer.WriteLine("teki=" + TextBox1.Text)
-                If DomainUpDown1.Text = ss(0) Then
-                    writer.WriteLine("time=" + "300")
-                ElseIf DomainUpDown1.Text = ss(1) Then
-                    writer.WriteLine("time=" + "180")
-                ElseIf DomainUpDown1.Text = ss(2) Then
-                    writer.WriteLine("time=" + "30")
+                If TextBox1.Text = "1" And DomainUpDown1.Text = ss(1) And DomainUpDown2.Text = ss(2) And TextBox4.Text = "4" Then
+                    writer.WriteLine("teki=" + "10")
+                    writer.WriteLine("time=" + "999")
+                    writer.WriteLine("speed=" + "40")
+                    Label5.Text = "隠しコマンドが入力されました。"
+                    Label6.Text = "書き込みに成功しました。"
+                Else
+                    writer.WriteLine("teki=" + TextBox1.Text)
+                    If DomainUpDown1.Text = ss(0) Then
+                        writer.WriteLine("time=" + "300")
+                    ElseIf DomainUpDown1.Text = ss(1) Then
+                        writer.WriteLine("time=" + "180")
+                    ElseIf DomainUpDown1.Text = ss(2) Then
+                        writer.WriteLine("time=" + "30")
+                    End If
+                    If DomainUpDown2.Text = ss(0) Then
+                        writer.WriteLine("speed=" + "4")
+                    ElseIf DomainUpDown2.Text = ss(1) Then
+                        writer.WriteLine("speed=" + "3")
+                    ElseIf DomainUpDown2.Text = ss(2) Then
+                        writer.WriteLine("speed=" + "2")
+                    End If
+                    writer.WriteLine("アイテムの数=" + TextBox4.Text)
+                    Label5.Text = "書き込みに成功しました。"
+                    Label6.Text = ""
                 End If
-                If DomainUpDown2.Text = ss(0) Then
-                    writer.WriteLine("speed=" + "4")
-                ElseIf DomainUpDown2.Text = ss(1) Then
-                    writer.WriteLine("speed=" + "3")
-                ElseIf DomainUpDown2.Text = ss(2) Then
-                    writer.WriteLine("speed=" + "2")
-                End If
-                writer.WriteLine("アイテムの数=" + TextBox4.Text)
-                Label5.Text = "書き込みに成功しました。"
-                Label6.Text = ""
             Else
-                Label5.Text = "申し訳ございません。"
+                    Label5.Text = "申し訳ございません。"
                 Label6.Text = "書き込みに失敗しました。"
             End If
 
@@ -123,7 +131,7 @@ Public Class Settei
             count = 0
             PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
             Label5.Text = "文字にカーソルを合わせると"
-            Label6.Text = "説明文が出ます。"
+            Label6.Text = "説明文が出ます1234。"
             Me.Hide()
             Form1.Show()
             Timer1.Enabled = False

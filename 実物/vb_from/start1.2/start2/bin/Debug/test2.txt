@@ -1,4 +1,3 @@
-teki=
-time=30
-speed=3
-ƒAƒCƒeƒ€‚Ì”=
+teki=10
+time=999
+speed=40

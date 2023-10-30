@@ -1,9 +1,12 @@
 ﻿Imports System.IO
 Imports System.Drawing.Imaging
+Imports System.ComponentModel
+
 Public Class Form1
     Dim count As Integer
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
+        Test.Visible = True
         Label1.Visible = False
         Label1.BackColor = Color.FromArgb(150, 143, 139)
         Label2.Visible = False
@@ -17,6 +20,11 @@ Public Class Form1
         Label7.BackColor = Color.FromArgb(231, 231, 215)
         Label8.Visible = False
         Label8.BackColor = Color.FromArgb(150, 143, 139)
+        Label9.Visible = False
+        Label10.Visible = False
+        Label10.BackColor = Color.FromArgb(150, 143, 139)
+        Label11.Visible = False
+        Label11.BackColor = Color.FromArgb(150, 143, 139)
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
@@ -101,7 +109,7 @@ Public Class Form1
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         count += 1
-        Test.Text = count
+        Label9.Text = count
         If count <= 265 Then
             Label6.Visible = True
         End If
@@ -117,12 +125,12 @@ Public Class Form1
             Label7.Visible = True
             Timer1.Enabled = False
             Label8.Visible = True
+            Label10.Visible = False
+            Label11.Visible = False
         End If
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
         count = 266
     End Sub
-
-
 End Class
