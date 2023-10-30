@@ -5,11 +5,22 @@ public class Aitem
 {
     public string name;
     public string exem;
+    public Sprite image;
 
-    public Aitem(string nam, string exe)
+    public Aitem(string nam, string exe, Sprite ima)
     {
         name = nam;
         exem = exe;
+        image = ima;
+    }
+}
+public class kagi:Aitem
+{
+    public kagi(string nam, string exe,Sprite ima) : base(nam,exe,ima)
+    {
+        name = nam;
+        exem = exe;
+        image = ima;
     }
 }
 public class ata : MonoBehaviour
@@ -45,7 +56,7 @@ public class ata : MonoBehaviour
                     {
                         if (script.getflg())
                         {
-                            Aitem ii = new Aitem(script.strname, script.exem);
+                            Aitem ii = new Aitem(script.strname, script.exem,script.sp);
                             items.Add(ii);
                         }
                     }
