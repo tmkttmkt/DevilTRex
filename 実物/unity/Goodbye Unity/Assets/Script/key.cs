@@ -11,10 +11,7 @@ public class key : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite = Resources.Load<Sprite>("bag2");
-        image = this.GetComponent<Image>();
-        image.sprite = sprite;
-    https://uni.gas.mixh.jp/unity/canvas-text-image.html
+        sp = Resources.Load<Sprite>("kagida");
     }
 
     // Update is called once per frame

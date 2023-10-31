@@ -25,12 +25,13 @@ public class Item : MonoBehaviour
             for (n = 0; n < 3; n++)
             {
                 texts[n].text = "";
+                images[n].sprite = Resources.Load<Sprite>("teki");
             }
             n = 0;
             foreach (Aitem ai in obj.items)
             {
                 texts[n].text = ai.exem;
-                images[n].sprite= ai.image;
+                //images[n].sprite= ai.image;
                 n++;
             }
 
