@@ -111,7 +111,7 @@ Public Class Form1
         count += 1
         Label9.Text = count
         If count <= 265 Then
-            Label6.Visible = True
+            PictureBox3.Visible = True
         End If
         If count >= 265 Then
             PictureBox1.Visible = False
@@ -121,7 +121,7 @@ Public Class Form1
             Label2.Visible = True
             Label3.Visible = True
             Label4.Visible = True
-            Label6.Visible = False
+            PictureBox3.Visible = False
             Label7.Visible = True
             Timer1.Enabled = False
             Label8.Visible = True
@@ -130,7 +130,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-        count = 266
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+        count = 265
     End Sub
 End Class
