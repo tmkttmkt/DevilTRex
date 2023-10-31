@@ -35,9 +35,9 @@ public class story : MonoBehaviour
         yield return new WaitForSeconds(8.0f);
         ti.set_text("気づいたら知らない場所に飛ばされ\n\nていた、意味が分からない。・・・・");
         yield return new WaitForSeconds(8.0f);
-        ti.set_text("ほんとに何があったんだろう、築い\n\nたら手持ちもなくなっている。電話もできない。");
+        ti.set_text("ほんとに何があったんだろう、築い\n\nたら手持ちもなくなっている。\n\n電話もできない。");
         yield return new WaitForSeconds(8.0f);
-        ti.set_text("仕方がない、ここの建物がどこにあ\n\nるのかを知れるものでも探すか。おそらくこれは緊急事態だ");
+        ti.set_text("仕方がない、ここの建物がどこにあ\n\nるのかを知れるものでも探すか。\n\nおそらくこれは緊急事態だ");
         yield return new WaitForSeconds(8.0f);
         ti.set_text("どこかに地図のようなものはないだ\n\nろうか急がねば・・・・・・");
     }
