@@ -25,7 +25,7 @@ public class time : MonoBehaviour
 
     private void Start()
     {
-        set_text("俺のそばに近寄るなぁああ!!");
+// set_text("俺のそばに近寄るなぁああ!!");
         set_goal("学校に行こう!!");
         set_goal("借金を返そう!!");
     }
