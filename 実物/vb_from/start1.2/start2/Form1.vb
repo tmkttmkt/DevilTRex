@@ -45,9 +45,15 @@ Public Class Form1
         PictureBox2.Image = Image.FromFile("タイトル2_transparent.png")
 
     End Sub
-
+    Private Sub Colorsan()
+        Label1.ForeColor = Color.Black
+        Label2.ForeColor = Color.Black
+        Label3.ForeColor = Color.Black
+        Label4.ForeColor = Color.Black
+    End Sub
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         Me.Hide()
+        Colorsan()
         Settei.Show()
     End Sub
     'ラベルの色を変えるプログラム
@@ -89,6 +95,8 @@ Public Class Form1
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         Me.Hide()
+        Colorsan()
+        Label2.ForeColor = Color.Black
         How2.Show()
     End Sub
 
@@ -114,6 +122,7 @@ Public Class Form1
             PictureBox3.Visible = True
         End If
         If count >= 265 Then
+            Me.KeyPreview = True
             PictureBox1.Visible = False
             PictureBox4.Visible = True
             PictureBox2.Visible = True
