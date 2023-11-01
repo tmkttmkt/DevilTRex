@@ -125,6 +125,10 @@ public class time : MonoBehaviour
         }
         goal.text = goal_text1 + "\n" + goal_text2;
     }
+    public void set_goal_only(string text)
+    {
+        goal.text = text;
+    }
     public void set_goal(string text)
     {
         goal_text2 = goal_text1;
