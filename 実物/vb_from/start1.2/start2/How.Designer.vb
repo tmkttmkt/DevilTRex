@@ -40,12 +40,15 @@ Partial Class How
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -54,7 +57,7 @@ Partial Class How
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(592, 100)
+        Me.Label1.Size = New System.Drawing.Size(495, 53)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "How to play Devil /T/Rex ?"
         '
@@ -94,7 +97,7 @@ Partial Class How
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(193, 155)
         Me.PictureBox1.Name = "PictureBox1"
@@ -221,15 +224,36 @@ Partial Class How
         '
         Me.Label11.AutoSize = True
         Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label11.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(28, 88)
+        Me.Label11.Location = New System.Drawing.Point(16, 79)
         Me.Label11.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(519, 21)
+        Me.Label11.Size = New System.Drawing.Size(483, 38)
         Me.Label11.TabIndex = 17
-        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます"
+        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "マウスカーソルで視点移動ができます。"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("AR Brush5 Medium", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label7.Location = New System.Drawing.Point(41, 143)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(73, 90)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "↑"
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(505, 288)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(193, 75)
+        Me.PictureBox7.TabIndex = 19
+        Me.PictureBox7.TabStop = False
+        Me.PictureBox7.Visible = False
         '
         'How
         '
@@ -237,6 +261,7 @@ Partial Class How
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -254,6 +279,7 @@ Partial Class How
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("AR板体H", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -266,6 +292,7 @@ Partial Class How
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -289,4 +316,6 @@ Partial Class How
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PictureBox7 As PictureBox
 End Class

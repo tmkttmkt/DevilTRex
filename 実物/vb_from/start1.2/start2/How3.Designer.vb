@@ -32,7 +32,9 @@ Partial Class How3
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button4
@@ -90,7 +92,7 @@ Partial Class How3
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(527, 64)
         Me.Label3.TabIndex = 13
-        Me.Label3.Text = "←校舎内には鍵が配置されている。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  探索して探しましょう！"
+        Me.Label3.Text = "←校舎内には鍵が配置されている。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  希望をもって探しましょう！"
         '
         'Timer1
         '
@@ -98,11 +100,11 @@ Partial Class How3
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label6.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(79, 271)
+        Me.Label6.Location = New System.Drawing.Point(240, 258)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(638, 74)
+        Me.Label6.Size = New System.Drawing.Size(556, 64)
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "シェルターの鍵や、出口の鍵もあります。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "目を凝らして探しましょう！"
         '
@@ -117,12 +119,22 @@ Partial Class How3
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "鍵"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(40, 258)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(194, 85)
+        Me.PictureBox2.TabIndex = 16
+        Me.PictureBox2.TabStop = False
+        '
         'How3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
@@ -136,6 +148,7 @@ Partial Class How3
         Me.Name = "How3"
         Me.Text = "How to play"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -149,4 +162,5 @@ Partial Class How3
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label6 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
