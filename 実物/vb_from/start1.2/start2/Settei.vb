@@ -65,7 +65,7 @@ Public Class Settei
     End Sub
     Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Label1.MouseLeave
         If Not Label1.ClientRectangle.Contains(Label1.PointToClient(MousePosition)) Then
-            Label1.ForeColor = Color.Black
+            Label1.ForeColor = Color.White
         End If
     End Sub
     Private Sub Button2_MouseEnter(sender As Object, e As EventArgs) Handles Label2.MouseEnter
@@ -75,7 +75,7 @@ Public Class Settei
     End Sub
     Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Label2.MouseLeave
         If Not Label2.ClientRectangle.Contains(Label2.PointToClient(MousePosition)) Then
-            Label2.ForeColor = Color.Black
+            Label2.ForeColor = Color.White
             Label5.Text = "文字にカーソルを合わせると"
             Label6.Text = "説明文が出ます。"
         End If
@@ -87,7 +87,7 @@ Public Class Settei
     End Sub
     Private Sub Button3_MouseLeave(sender As Object, e As EventArgs) Handles Label3.MouseLeave
         If Not Label3.ClientRectangle.Contains(Label3.PointToClient(MousePosition)) Then
-            Label3.ForeColor = Color.Black
+            Label3.ForeColor = Color.White
             Label5.Text = "文字にカーソルを合わせると"
             Label6.Text = "説明文が出ます。"
         End If
@@ -97,7 +97,7 @@ Public Class Settei
     End Sub
     Private Sub Button4_MouseLeave(sender As Object, e As EventArgs) Handles Label4.MouseLeave
         If Not Label4.ClientRectangle.Contains(Label4.PointToClient(MousePosition)) Then
-            Label4.ForeColor = Color.Black
+            Label4.ForeColor = Color.White
         End If
     End Sub
 

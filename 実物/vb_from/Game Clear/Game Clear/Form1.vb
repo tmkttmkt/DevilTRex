@@ -1,9 +1,15 @@
-﻿Public Class Form1
+﻿Imports System.Media
+Public Class Form1
     Public count As Integer
     Private Declare Function GetCursorPos Lib "user32.dll" (ByRef lpPoint As Point) As Boolean
     Private Declare Function PtInRect Lib "user32.dll" (ByRef lprc As Rectangle, ByVal pt As Point) As Boolean
+    Private Sub PlayWavFile(ByVal filePath As String)
+        Dim player As New SoundPlayer(filePath)
+        player.Play()
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Timer1.Start()
+        PlayWavFile("課題研究 Edit 1 エクスポート 1.wav")
         AxWindowsMediaPlayer1.URL = "endrool2.mp4"
         AxWindowsMediaPlayer1.Ctlcontrols.play()
         AxWindowsMediaPlayer2.URL = "T5.mp4"

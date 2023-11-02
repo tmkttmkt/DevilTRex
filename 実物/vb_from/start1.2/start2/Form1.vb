@@ -40,7 +40,7 @@ Public Class Form1
         End If
         PictureBox2.BackColor = Color.FromArgb(150, 143, 139)
 
-        PictureBox2.Image = Image.FromFile("タイトル2_transparent.png")
+        PictureBox2.Image = Image.FromFile("タイトル2.png")
 
     End Sub
     Private Sub Colorsan()

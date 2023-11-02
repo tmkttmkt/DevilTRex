@@ -10,7 +10,7 @@ Public Class Form1
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Timer1.Start()
-        PlayWavFile("U:\github\tet\実物\音楽\課題研究 Edit 1 エクスポート 1.wav")
+        PlayWavFile("課題研究 Edit 1 エクスポート 1.wav")
         AxWindowsMediaPlayer1.URL = "endrool2.mp4"
         AxWindowsMediaPlayer1.Ctlcontrols.play()
         AxWindowsMediaPlayer2.URL = "T5.mp4"
