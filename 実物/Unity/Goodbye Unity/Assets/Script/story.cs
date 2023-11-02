@@ -52,6 +52,14 @@ public class story : MonoBehaviour
             StartCoroutine(key_ibent());
         }
     }
+    public void syeruta_flg()
+    {
+        if (iventID == 6)
+        {
+            iventID = 7;
+            StartCoroutine(key_ibent());
+        }
+    }
     IEnumerator start_ibent()
     {
         transform.position = new Vector3(67.74f, 21.38f, 80.149f);
@@ -109,6 +117,7 @@ public class story : MonoBehaviour
         ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行け\nば出口でもあるのだろうか・・・・・いそいで探索してみよう！");
         yield return new WaitForSeconds(8.0f);
         ti.set_goal_only("1階2階を探索してみよう");
+        iventID = 8;
     }
     IEnumerator denngonn_ibent()
     {

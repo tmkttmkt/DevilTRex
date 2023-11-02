@@ -59,7 +59,11 @@ public class ata : MonoBehaviour
                 inkey scr = hitObject.GetComponent<inkey>();
                 if (scr != null)
                 {
-                    if(st.iventID==6)scr.open();
+                    if (st.iventID == 6)
+                    {
+                        scr.open();
+                        st.syeruta_flg();
+                    }
                 }
             }
         }
