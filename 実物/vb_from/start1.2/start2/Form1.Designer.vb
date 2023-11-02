@@ -37,9 +37,8 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,28 +169,6 @@ Partial Class Form1
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Label9"
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Label10.Font = New System.Drawing.Font("Century", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(668, 379)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(44, 18)
-        Me.Label10.TabIndex = 20
-        Me.Label10.Text = "1234"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Label11.Font = New System.Drawing.Font("Century", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(640, 361)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(113, 18)
-        Me.Label11.TabIndex = 21
-        Me.Label11.Text = "Configで上から"
-        '
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Black
@@ -204,14 +181,24 @@ Partial Class Form1
         Me.PictureBox3.TabIndex = 22
         Me.PictureBox3.TabStop = False
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Label6.Font = New System.Drawing.Font("Century", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(611, 349)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(181, 34)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "End credits"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(799, 450)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -251,7 +238,6 @@ Partial Class Form1
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Label6 As Label
 End Class

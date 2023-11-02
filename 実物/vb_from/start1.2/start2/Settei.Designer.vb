@@ -59,7 +59,7 @@ Partial Class Settei
         '
         Me.TextBox1.Location = New System.Drawing.Point(326, 99)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 19)
+        Me.TextBox1.Size = New System.Drawing.Size(120, 19)
         Me.TextBox1.TabIndex = 1
         '
         'Button2
@@ -127,7 +127,7 @@ Partial Class Settei
         '
         Me.TextBox4.Location = New System.Drawing.Point(326, 277)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 19)
+        Me.TextBox4.Size = New System.Drawing.Size(120, 19)
         Me.TextBox4.TabIndex = 4
         '
         'DomainUpDown1
@@ -136,7 +136,6 @@ Partial Class Settei
         Me.DomainUpDown1.Name = "DomainUpDown1"
         Me.DomainUpDown1.Size = New System.Drawing.Size(120, 19)
         Me.DomainUpDown1.TabIndex = 11
-        Me.DomainUpDown1.Text = "キチガイ"
         '
         'DomainUpDown2
         '
@@ -144,7 +143,6 @@ Partial Class Settei
         Me.DomainUpDown2.Name = "DomainUpDown2"
         Me.DomainUpDown2.Size = New System.Drawing.Size(120, 19)
         Me.DomainUpDown2.TabIndex = 12
-        Me.DomainUpDown2.Text = "キチガイ"
         '
         'Label5
         '

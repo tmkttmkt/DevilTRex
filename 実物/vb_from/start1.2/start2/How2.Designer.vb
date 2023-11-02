@@ -39,6 +39,7 @@ Partial Class How2
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -201,12 +202,24 @@ Partial Class How2
         'Timer1
         '
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label10.Location = New System.Drawing.Point(480, 245)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(258, 21)
+        Me.Label10.TabIndex = 14
+        Me.Label10.Text = "班員の高塚の悪夢を再現！"
+        '
         'How2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -250,4 +263,5 @@ Partial Class How2
     Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label10 As Label
 End Class

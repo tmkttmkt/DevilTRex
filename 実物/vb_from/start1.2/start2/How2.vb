@@ -33,6 +33,9 @@
         End If
         If count = 70 Then
             Label9.Visible = True
+        End If
+        If count = 80 Then
+            Label10.Visible = True
             Timer1.Enabled = False
         End If
     End Sub
@@ -46,5 +49,6 @@
         Label7.Visible = False
         Label8.Visible = False
         Label9.Visible = False
+        Label10.Visible = False
     End Sub
 End Class

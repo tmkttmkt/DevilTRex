@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class How
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class How
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(How))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -43,6 +44,8 @@ Partial Class How
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -259,11 +262,28 @@ Partial Class How
         '
         'PictureBox8
         '
-        Me.PictureBox8.Location = New System.Drawing.Point(20, 134)
+        Me.PictureBox8.Location = New System.Drawing.Point(20, 122)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(177, 121)
+        Me.PictureBox8.Size = New System.Drawing.Size(177, 133)
         Me.PictureBox8.TabIndex = 20
         Me.PictureBox8.TabStop = False
+        '
+        'Timer1
+        '
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label12.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label12.Location = New System.Drawing.Point(1, 384)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(172, 38)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = "やじるしが動きます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'How
         '
@@ -271,6 +291,7 @@ Partial Class How
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
@@ -331,4 +352,6 @@ Partial Class How
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label12 As Label
 End Class

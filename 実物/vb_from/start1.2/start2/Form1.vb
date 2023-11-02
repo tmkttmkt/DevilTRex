@@ -21,10 +21,8 @@ Public Class Form1
         Label8.Visible = False
         Label8.BackColor = Color.FromArgb(150, 143, 139)
         Label9.Visible = False
-        Label10.Visible = False
-        Label10.BackColor = Color.FromArgb(150, 143, 139)
-        Label11.Visible = False
-        Label11.BackColor = Color.FromArgb(150, 143, 139)
+        Label6.Visible = False
+        Label6.BackColor = Color.FromArgb(150, 143, 139)
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
@@ -92,6 +90,14 @@ Public Class Form1
             Label4.ForeColor = Color.Black
         End If
     End Sub
+    Private Sub Button6_MouseEnter(sender As Object, e As EventArgs) Handles Label6.MouseEnter
+        Label6.ForeColor = Color.Red
+    End Sub
+    Private Sub Button6_MouseLeave(sender As Object, e As EventArgs) Handles Label6.MouseLeave
+        If Not Label6.ClientRectangle.Contains(Label6.PointToClient(MousePosition)) Then
+            Label6.ForeColor = Color.Black
+        End If
+    End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         Me.Hide()
@@ -134,12 +140,20 @@ Public Class Form1
             Label7.Visible = True
             Timer1.Enabled = False
             Label8.Visible = True
-            Label10.Visible = False
-            Label11.Visible = False
+            Label6.Visible = False
         End If
     End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
         count = 265
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        Try
+            Process.Start("Game Clear.exe")
+            Application.Exit()
+        Catch ex As Exception
+            MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
+        End Try
     End Sub
 End Class
