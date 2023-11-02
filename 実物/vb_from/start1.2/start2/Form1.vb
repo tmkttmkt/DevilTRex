@@ -1,9 +1,15 @@
 ﻿Imports System.IO
+Imports System.Media
 Imports System.Drawing.Imaging
 Imports System.ComponentModel
 
 Public Class Form1
     Dim count As Integer
+    Dim count2 As Integer
+    Private Sub PlayWavFile(ByVal filePath As String)
+        Dim player As New SoundPlayer(filePath)
+        player.Play()
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
         Test.Visible = True
@@ -20,7 +26,7 @@ Public Class Form1
         Label7.BackColor = Color.FromArgb(231, 231, 215)
         Label8.Visible = False
         Label8.BackColor = Color.FromArgb(150, 143, 139)
-        Label9.Visible = False
+        Label9.Visible = True
         Label6.Visible = False
         Label6.BackColor = Color.FromArgb(150, 143, 139)
         Label1.ForeColor = Color.Black
@@ -125,9 +131,14 @@ Public Class Form1
         count += 1
         Label9.Text = count
         If count <= 265 Then
+            'If count = 230 Then
+            'PlayWavFile("咆哮2.wav")
+            'End If
             PictureBox3.Visible = True
         End If
         If count >= 265 Then
+            PlayWavFile("ホーム画面の音楽.wav")
+            Timer2.Enabled = True
             Me.KeyPreview = True
             PictureBox1.Visible = False
             PictureBox4.Visible = True
@@ -155,5 +166,14 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
         End Try
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        count2 += 1
+        'Label9.Text = count2
+        If count2 = 400 Then
+            PlayWavFile("ホーム画面の音楽.wav")
+            count2 = 0
+        End If
     End Sub
 End Class

@@ -39,6 +39,7 @@ Partial Class Form1
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -240,4 +241,5 @@ Partial Class Form1
     Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents Timer2 As Timer
 End Class
