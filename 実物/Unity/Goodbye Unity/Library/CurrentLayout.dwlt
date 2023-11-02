@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 394}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 394}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -434,15 +434,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Script
   m_LastFoldersGridSize: 32
-  m_LastProjectPath: "C:\\Users\\c0324\\Documents\\GitHub\\tet\\\u5B9F\u7269\\Unity\\Goodbye
-    Unity"
+  m_LastProjectPath: "U:\\tet\\\u5B9F\u7269\\unity\\Goodbye Unity"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 962c0000
-    m_LastClickedID: 11414
-    m_ExpandedIDs: 000000007c29000000ca9a3b
+    m_SelectedIDs: 0c2f0000
+    m_LastClickedID: 12044
+    m_ExpandedIDs: 00000000fe2b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -470,7 +469,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c290000
+    m_ExpandedIDs: 00000000fe2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -495,24 +494,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6e290000
-    m_LastClickedInstanceID: 10606
+    m_SelectedInstanceIDs: 3c3b0000
+    m_LastClickedInstanceID: 15164
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300007e3a0000282a0000e62e0000eae403000000000098530c00b02d0000ca2f0000a0320000b2310000ea2a0000eae90300362e0000fc4b0000
+    m_ExpandedInstanceIDs: c62300007e3a0000282a0000e62e0000eae403000000000098530c00b02d0000ca2f0000a0320000b2310000ea2a0000eae90300362e0000fc4b0000f82a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Item
+      m_OriginalName: Item
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 9718
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -590,23 +589,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bab2feff
-      m_LastClickedID: -85318
-      m_ExpandedIDs: 8efbffff663400004e36000032390000de3b00008a3e0000e0400000884200000a44000092450000
+      m_SelectedIDs: 3c3b0000
+      m_LastClickedID: 15164
+      m_ExpandedIDs: a2f6ffff3c3b0000ce4800002a490000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: teki
-        m_OriginalName: teki
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -85318
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -652,9 +651,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 63.536415, y: 26.647907, z: -29.667841}
+    m_Target: {x: 357.09808, y: -52.56125, z: 255.90446}
     speed: 2
-    m_Value: {x: 63.536415, y: 26.647907, z: -29.667841}
+    m_Value: {x: 357.09808, y: -52.56125, z: 255.90446}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -683,13 +682,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.33110487, y: -0.012170026, z: 0.004248231, w: -0.943517}
+    m_Target: {x: -0.21539018, y: -0.20246784, z: 0.04568845, w: -0.9542269}
     speed: 2
-    m_Value: {x: -0.3311014, y: -0.0121698985, z: 0.0042481865, w: -0.94350713}
+    m_Value: {x: -0.21531896, y: -0.20389664, z: 0.046010964, w: -0.95391136}
   m_Size:
-    m_Target: 38.94402
+    m_Target: 562.0039
     speed: 2
-    m_Value: 40.77908
+    m_Value: 515.5999
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -820,29 +819,4 @@ MonoBehaviour:
     y: 636
     width: 1368
     height: 365
-  m_ViewDataDictionary: {fileID: 0}
---- !u!114 &21
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12059, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEditor:UnityEditor.Experimental.TerrainAPI:PaintTextureTool
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Failed to load
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 320
-    height: 550
   m_ViewDataDictionary: {fileID: 0}

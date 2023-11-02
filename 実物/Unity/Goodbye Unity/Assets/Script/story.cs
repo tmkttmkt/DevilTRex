@@ -9,7 +9,7 @@ public class story : MonoBehaviour
     private string serihu;
     private int dannraku; 
     private int serihubamenn;
-    private int iventID=0;
+    public int iventID=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class story : MonoBehaviour
         {
             if (collision.gameObject == start)
             {
-                Debug.Log("次の段階に!!");
+
                 iventID = 1;
                 StartCoroutine(start_ibent());
             }
@@ -38,10 +38,18 @@ public class story : MonoBehaviour
     }
     public void map_flg()
     {
-        if (iventID == 1)
+        if (iventID == 2)
         {
+            iventID = 3;
             StartCoroutine(map_ibent());
-            iventID = 2;
+        }
+    }
+    public void key_flg()
+    {
+        if (iventID == 4)
+        {
+            iventID = 5;
+            StartCoroutine(key_ibent());
         }
     }
     IEnumerator start_ibent()
@@ -58,6 +66,7 @@ public class story : MonoBehaviour
         ti.set_text("どこかに地図のようなものはないだ\nろうか急がねば・・・・・・");
         yield return new WaitForSeconds(8.0f);
         ti.set_goal_only("地図を探そう");
+        iventID = 2;
     }
     IEnumerator map_ibent()
     {
@@ -77,6 +86,8 @@ public class story : MonoBehaviour
         ti.set_text("おそらく何かの伝言かもしれない、\n期待はしないが参考にし\nて探索してみよう");
         yield return new WaitForSeconds(8.0f);
         ti.set_goal_only("鍵を探そう");
+
+        iventID = 4;
     }
     IEnumerator key_ibent()
     {
@@ -87,6 +98,7 @@ public class story : MonoBehaviour
         ti.set_text("開かない扉や箱とかって、どこかに\nあったっけ？");
         yield return new WaitForSeconds(8.0f);
         ti.set_goal_only("２階につながる階段へ向かおう");
+        iventID = 6;
     }
     IEnumerator syeruta_ibent()
     {
