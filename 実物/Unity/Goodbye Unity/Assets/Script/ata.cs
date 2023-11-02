@@ -53,16 +53,55 @@ public class ata : MonoBehaviour
                     {
                         Aitem ii = new Aitem(script.strname, script.exem,script.sp);
                         items.Add(ii);
+                        if (kensaku("mm", "hon")) st.key_flg();
                     }
                 }
                 inkey scr = hitObject.GetComponent<inkey>();
                 if (scr != null)
                 {
-                    scr.open();
+                    if(st.iventID==6)scr.open();
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.G))gousei();
 
+    }
+    void gousei()
+    {
+        List<String> it = new List<String>();
+
+        foreach(Aitem ai in items)
+        {
+            it.Add(ai.name);
+        }
+        bool moti_flg = it.Contains("mm");
+        bool hon_flg = it.Contains("hon");
+        if (moti_flg&& hon_flg)
+        {
+            Aitem a=null;
+            Aitem b = null;
+            foreach (Aitem ai in items)
+            {
+                if (ai.name == "mm") a = ai;
+                if (ai.name == "hon") b = ai;
+            }
+            if(a!=null)items.Remove(a);
+            if (b != null)items.Remove(b);
+            Aitem ii = new Aitem("kan","生きてます", Resources.Load<Sprite>("シェルターのカギ"));
+            items.Add(ii);
+        }
+    }
+    bool kensaku(string txt2, string txt1)
+    {
+        List<String> it = new List<String>();
+
+        foreach (Aitem ai in items)
+        {
+            it.Add(ai.name);
+        }
+        bool moti_flg = it.Contains(txt2);
+        bool hon_flg = it.Contains(txt1);
+        return moti_flg && hon_flg;
     }
 }
 
