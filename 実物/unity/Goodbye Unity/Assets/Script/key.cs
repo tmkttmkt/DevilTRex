@@ -11,7 +11,6 @@ public class key : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sp = Resources.Load<Sprite>("kagida");
     }
 
     // Update is called once per frame

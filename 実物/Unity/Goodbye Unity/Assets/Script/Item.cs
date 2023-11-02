@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
             foreach (Aitem ai in obj.items)
             {
                 texts[n].text = ai.exem;
-                //images[n].sprite= ai.image;
+                images[n].sprite= ai.sp;
                 n++;
             }
 
