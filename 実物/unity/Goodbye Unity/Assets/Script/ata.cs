@@ -17,6 +17,7 @@ public class Aitem
 public class ata : MonoBehaviour
 {
     [SerializeField] private GameObject map;
+    [SerializeField] private key nandakke;
     [SerializeField] private story st;
     public float detectionDistance = 10f; // レイキャストの距離
     public List<Aitem> items = new List<Aitem>();
@@ -49,6 +50,7 @@ public class ata : MonoBehaviour
                 key script = hitObject.GetComponent<key>();
                 if (script != null)
                 {
+                    if(script== nandakke)st.denngonn_flg();
                     if (script.getflg())
                     {
                         Aitem ii = new Aitem(script.strname, script.exem,script.sp);

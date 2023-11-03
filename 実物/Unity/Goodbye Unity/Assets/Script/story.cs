@@ -52,11 +52,20 @@ public class story : MonoBehaviour
             StartCoroutine(key_ibent());
         }
     }
+    
     public void syeruta_flg()
     {
         if (iventID == 6)
         {
             iventID = 7;
+            StartCoroutine(key_ibent());
+        }
+    }
+    public void denngonn_flg()
+    {
+        if (iventID == 8)
+        {
+            iventID = 9;
             StartCoroutine(key_ibent());
         }
     }
@@ -138,6 +147,7 @@ public class story : MonoBehaviour
         ti.set_text("鍵・・を見つけたらと書いてあった\nか、3Fと4Fはすでに探索し終わったか\nら、1F2Fに鍵がないか探してみよう、\n急ごう！");
         yield return new WaitForSeconds(8.0f);
         ti.set_goal_only("2階につながる階段に向かおう");
+        iventID = 10;
 
     }
     IEnumerator deguti_ibent()
