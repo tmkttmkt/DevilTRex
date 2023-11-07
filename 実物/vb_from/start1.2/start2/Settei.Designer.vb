@@ -39,6 +39,8 @@ Partial Class Settei
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,7 +80,7 @@ Partial Class Settei
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.SystemColors.GrayText
+        Me.Label1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label1.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.Label1.Location = New System.Drawing.Point(196, 87)
@@ -90,7 +92,7 @@ Partial Class Settei
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label2.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label2.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label2.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.Label2.Location = New System.Drawing.Point(189, 145)
@@ -102,7 +104,7 @@ Partial Class Settei
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label3.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label3.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label3.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.Label3.Location = New System.Drawing.Point(189, 206)
@@ -114,7 +116,7 @@ Partial Class Settei
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label4.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label4.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label4.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.Label4.Location = New System.Drawing.Point(229, 277)
@@ -193,12 +195,26 @@ Partial Class Settei
         'Timer1
         '
         '
+        'Timer2
+        '
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.Location = New System.Drawing.Point(74, 51)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(38, 12)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Label8"
+        '
         'Settei
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -239,4 +255,6 @@ Partial Class Settei
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents Label8 As Label
 End Class

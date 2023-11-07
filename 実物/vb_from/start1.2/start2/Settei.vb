@@ -1,10 +1,16 @@
 ﻿Imports System.IO
 Imports System.Text
+Imports System.Media
 Public Class Settei
     Dim count As Integer = 0
+    Dim count2 As Integer = 0
     Dim str As String = ""
     Dim ss() As String = {"1", "2", "3"}
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        My.Computer.Audio.Stop()
+        Timer2.Enabled = True
+        My.Computer.Audio.Play("何作ってるんだっけ.wav")
         PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
         Label5.Text = "文字にカーソルを合わせると"
         Label6.Text = "説明文が出ます。1234"
@@ -123,6 +129,7 @@ Public Class Settei
         End If
     End Sub
 
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         count += 1
         If count <= 5 Then
@@ -132,9 +139,19 @@ Public Class Settei
             PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
             Label5.Text = "文字にカーソルを合わせると"
             Label6.Text = "説明文が出ます1234。"
+            My.Computer.Audio.Stop()
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
             Me.Hide()
             Form1.Show()
             Timer1.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        Label8.Text = count2
+        count2 += 1
+        If count2 = 340 Then
+            My.Computer.Audio.Play("何作ってるんだっけ.wav")
         End If
     End Sub
 End Class

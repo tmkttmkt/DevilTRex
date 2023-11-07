@@ -6,10 +6,6 @@ Imports System.ComponentModel
 Public Class Form1
     Dim count As Integer
     Dim count2 As Integer
-    Private Sub PlayWavFile(ByVal filePath As String)
-        Dim player As New SoundPlayer(filePath)
-        player.Play()
-    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
         Test.Visible = True
@@ -58,7 +54,9 @@ Public Class Form1
         Label4.ForeColor = Color.Black
     End Sub
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
         Me.Hide()
+        My.Computer.Audio.Stop()
         Colorsan()
         Settei.Show()
     End Sub
@@ -109,6 +107,7 @@ Public Class Form1
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         Me.Hide()
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
         Colorsan()
         Label2.ForeColor = Color.Black
         How2.Show()
@@ -138,7 +137,7 @@ Public Class Form1
             PictureBox3.Visible = True
         End If
         If count >= 265 Then
-            PlayWavFile("ホーム画面の音楽.wav")
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
             AxWindowsMediaPlayer1.Visible = False
             Timer2.Enabled = True
             Me.KeyPreview = True
@@ -173,7 +172,7 @@ Public Class Form1
         count2 += 1
         'Label9.Text = count2
         If count2 = 400 Then
-            PlayWavFile("ホーム画面の音楽.wav")
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
             count2 = 0
         End If
     End Sub
@@ -181,7 +180,7 @@ Public Class Form1
         ' メディアの再生状態が変化したときのイベントハンドラ
 
         If AxWindowsMediaPlayer1.playState = WMPLib.WMPPlayState.wmppsMediaEnded Then
-            PlayWavFile("ホーム画面の音楽.wav")
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
             AxWindowsMediaPlayer1.Visible = True
             PictureBox3.Visible = False
             Timer2.Enabled = True
