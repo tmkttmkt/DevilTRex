@@ -6,10 +6,6 @@ Imports System.ComponentModel
 Public Class Form1
     Dim count As Integer
     Dim count2 As Integer
-    Private Sub PlayWavFile(ByVal filePath As String)
-        Dim player As New SoundPlayer(filePath)
-        player.Play()
-    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
         Test.Visible = True
@@ -26,18 +22,20 @@ Public Class Form1
         Label7.BackColor = Color.FromArgb(231, 231, 215)
         Label8.Visible = False
         Label8.BackColor = Color.FromArgb(150, 143, 139)
-        Label9.Visible = True
+        Label9.Visible = False
         Label6.Visible = False
         Label6.BackColor = Color.FromArgb(150, 143, 139)
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
         Label4.ForeColor = Color.Black
-        If File.Exists("R:\_R05課題研究(情報技術科)\２班\オープニング.gif") Then
-            PictureBox1.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\オープニング.gif")
+        If File.Exists("R:\_R05課題研究(情報技術科)\２班\最初.mp4") Then
+            AxWindowsMediaPlayer1.URL = "R:\_R05課題研究(情報技術科)\２班\最初.mp4"
+            AxWindowsMediaPlayer1.Ctlcontrols.play()
             Timer1.Enabled = True
+            PictureBox3.Visible = True
         Else
-            MessageBox.Show("画像ファイルが見つかりません。")
+            MessageBox.Show("動画ファイルが見つかりません。")
         End If
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
             PictureBox4.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif")
@@ -56,7 +54,9 @@ Public Class Form1
         Label4.ForeColor = Color.Black
     End Sub
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
         Me.Hide()
+        My.Computer.Audio.Stop()
         Colorsan()
         Settei.Show()
     End Sub
@@ -107,6 +107,7 @@ Public Class Form1
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         Me.Hide()
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
         Colorsan()
         Label2.ForeColor = Color.Black
         How2.Show()
@@ -128,7 +129,6 @@ Public Class Form1
 
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        count += 1
         Label9.Text = count
         If count <= 265 Then
             'If count = 230 Then
@@ -137,10 +137,10 @@ Public Class Form1
             PictureBox3.Visible = True
         End If
         If count >= 265 Then
-            PlayWavFile("ホーム画面の音楽.wav")
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
+            AxWindowsMediaPlayer1.Visible = False
             Timer2.Enabled = True
             Me.KeyPreview = True
-            PictureBox1.Visible = False
             PictureBox4.Visible = True
             PictureBox2.Visible = True
             Label1.Visible = True
@@ -172,8 +172,34 @@ Public Class Form1
         count2 += 1
         'Label9.Text = count2
         If count2 = 400 Then
-            PlayWavFile("ホーム画面の音楽.wav")
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
             count2 = 0
         End If
     End Sub
+    Private Sub mediaPlayer_PlayStateChange(sender As Object, e As AxWMPLib._WMPOCXEvents_PlayStateChangeEvent) Handles AxWindowsMediaPlayer1.PlayStateChange
+        ' メディアの再生状態が変化したときのイベントハンドラ
+
+        If AxWindowsMediaPlayer1.playState = WMPLib.WMPPlayState.wmppsMediaEnded Then
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
+            AxWindowsMediaPlayer1.Visible = True
+            PictureBox3.Visible = False
+            Timer2.Enabled = True
+            Me.KeyPreview = True
+            PictureBox4.Visible = True
+            PictureBox2.Visible = True
+            Label1.Visible = True
+            Label2.Visible = True
+            Label3.Visible = True
+            Label4.Visible = True
+            PictureBox3.Visible = False
+            Label7.Visible = True
+            Timer1.Enabled = False
+            Label8.Visible = True
+            Label6.Visible = False
+
+            AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        End If
+    End Sub
+
+
 End Class

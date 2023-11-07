@@ -29,3 +29,8 @@ U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.exe
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.xml
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.pdb
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.How3.resources
+U:\github\tet\実物\vb_from\start1.2\start2\bin\Debug\Interop.WMPLib.dll
+U:\github\tet\実物\vb_from\start1.2\start2\bin\Debug\AxInterop.WMPLib.dll
+U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\Interop.WMPLib.dll
+U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\AxInterop.WMPLib.dll
+U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.vbproj.ResolveComReference.cache
