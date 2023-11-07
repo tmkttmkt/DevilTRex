@@ -46,6 +46,8 @@ Partial Class How
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label13 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -285,12 +287,26 @@ Partial Class How
         Me.Label12.Text = "やじるしが動きます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'Timer2
+        '
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label13.Location = New System.Drawing.Point(462, 155)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(47, 12)
+        Me.Label13.TabIndex = 22
+        Me.Label13.Text = "Label13"
+        '
         'How
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.Label11)
@@ -354,4 +370,6 @@ Partial Class How
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label12 As Label
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents Label13 As Label
 End Class

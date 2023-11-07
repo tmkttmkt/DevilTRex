@@ -2,6 +2,7 @@
     Dim count As Integer
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Hide()
+        My.Computer.Audio.Stop()
         How.Show()
     End Sub
 
