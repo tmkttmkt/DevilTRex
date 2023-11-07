@@ -2,6 +2,7 @@
 Public Class How
     Dim flg As Integer
     Dim flg2 As Boolean = True
+    Dim count As Integer
     Dim im As Integer = 0
     Dim gazou(10) As Image
 
@@ -93,6 +94,8 @@ Public Class How
     End Sub
 
     Private Sub How_Load(sender As Object, e As EventArgs) Handles Me.Load
+        My.Computer.Audio.Stop()
+        My.Computer.Audio.Play("何作ってるんだっけ2.wav")
         Me.KeyPreview = True
         Timer1.Enabled = True
         gazou(0) = Image.FromFile("W.png")
@@ -117,6 +120,13 @@ Public Class How
         If im = 2 Then
             im = 0
             flg2 = True
+        End If
+    End Sub
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        count += 1
+        Label13.Text = count
+        If count = 340 Then
+            My.Computer.Audio.Play("何作ってるんだっけ2.wav")
         End If
     End Sub
 End Class
