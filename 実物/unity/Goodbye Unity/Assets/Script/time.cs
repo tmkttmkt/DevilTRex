@@ -37,7 +37,7 @@ public class time : MonoBehaviour
             n--;
             if (n == 0)
             {
-                n = 10;
+                n = 5;
                 left.text += leftext[0];
                 leftext = leftext.Substring(1);
                 kierumade = 360;

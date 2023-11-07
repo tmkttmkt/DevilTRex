@@ -19,6 +19,7 @@ public class ata : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private key nandakke;
     [SerializeField] private story st;
+    [SerializeField] private time ti;
     public float detectionDistance = 10f; // レイキャストの距離
     public List<Aitem> items = new List<Aitem>();
 
@@ -53,8 +54,9 @@ public class ata : MonoBehaviour
                     if(script== nandakke)st.denngonn_flg();
                     if (script.getflg())
                     {
-                        Aitem ii = new Aitem(script.strname, script.exem,script.sp);
+                        Aitem ii = new Aitem(script.ID, script.exem,script.sp);
                         items.Add(ii);
+                        ti.set_text(script.strname + "を手に入れた");
                         if (kensaku("mm", "hon")) st.key_flg();
                     }
                 }

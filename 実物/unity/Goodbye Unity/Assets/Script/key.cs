@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class key : MonoBehaviour
 {
-    public string strname;
+    public string ID;
     public string exem;
+    public string strname;
     [SerializeField] public Sprite sp;
     private bool flg = true;
     // Start is called before the first frame update
