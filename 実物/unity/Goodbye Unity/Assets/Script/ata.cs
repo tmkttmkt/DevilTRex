@@ -20,6 +20,8 @@ public class ata : MonoBehaviour
     [SerializeField] private key nandakke;
     [SerializeField] private story st;
     [SerializeField] private time ti;
+    [SerializeField] private Item it;
+    
     public float detectionDistance = 10f; // レイキャストの距離
     public List<Aitem> items = new List<Aitem>();
 
@@ -71,7 +73,11 @@ public class ata : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.G))gousei();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            gousei();
+            it.gousei_flg();
+        }
 
     }
     void gousei()
@@ -97,6 +103,7 @@ public class ata : MonoBehaviour
             if (b != null)items.Remove(b);
             Aitem ii = new Aitem("kan","生きてます", Resources.Load<Sprite>("シェルターのカギ"));
             items.Add(ii);
+            ti.set_text("鍵を手に入れた");
         }
     }
     bool kensaku(string txt2, string txt1)
