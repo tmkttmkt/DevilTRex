@@ -18,14 +18,18 @@ public class ata : MonoBehaviour
 {
     [SerializeField] private GameObject map;
     [SerializeField] private key nandakke;
-    [SerializeField] private story st;
-    [SerializeField] private time ti;
-    [SerializeField] private Item it;
-    
     public float detectionDistance = 10f; // レイキャストの距離
     public List<Aitem> items = new List<Aitem>();
 
-
+    private story st;
+    private time ti;
+    private Item it;
+    private void Start()
+    {
+        it = FindObjectOfType<Item>();
+        ti = FindObjectOfType<time>();
+        st = FindObjectOfType<story>();
+    }
 
     void Update()
     {
