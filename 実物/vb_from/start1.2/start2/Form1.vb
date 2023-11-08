@@ -6,6 +6,7 @@ Imports System.ComponentModel
 Public Class Form1
     Dim count As Integer
     Dim count2 As Integer
+    Dim count3 As Integer
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
         Test.Visible = True
@@ -114,12 +115,8 @@ Public Class Form1
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        Try
-            Process.Start("Goodbye Unity.exe")
-            Application.Exit()
-        Catch ex As Exception
-            MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
-        End Try
+        Timer3.Enabled = True
+        My.Computer.Audio.Play("sakebi.wav")
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
@@ -129,7 +126,7 @@ Public Class Form1
 
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Label9.Text = count
+        'Label9.Text = count
         If count <= 265 Then
             'If count = 230 Then
             'PlayWavFile("咆哮2.wav")
@@ -201,5 +198,16 @@ Public Class Form1
         End If
     End Sub
 
-
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+        count3 += 1
+        Label9.Text = count3
+        If count3 = 30 Then
+            Try
+                Process.Start("Goodbye Unity.exe")
+                Application.Exit()
+            Catch ex As Exception
+                MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
+            End Try
+        End If
+    End Sub
 End Class

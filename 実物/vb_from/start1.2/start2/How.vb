@@ -78,6 +78,8 @@ Public Class How
         flg = 0
         flg2 = True
         PictureBox7.Visible = False
+        My.Computer.Audio.Stop()
+        My.Computer.Audio.Play("ホーム画面の音楽.wav")
         Form1.Show()
     End Sub
 
@@ -90,10 +92,13 @@ Public Class How
         flg = 0
         flg2 = True
         PictureBox7.Visible = False
+        My.Computer.Audio.Stop()
+        My.Computer.Audio.Play("ホーム画面の音楽.wav")
         How3.Show()
     End Sub
 
     Private Sub How_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Label13.Visible = False
         My.Computer.Audio.Stop()
         My.Computer.Audio.Play("何作ってるんだっけ2.wav")
         Me.KeyPreview = True
