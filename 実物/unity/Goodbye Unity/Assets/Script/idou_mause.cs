@@ -5,6 +5,7 @@ using UnityEngine;
 public class idou_mause : MonoBehaviour
 {
     public rokka tai;
+    [SerializeField] private read read_obj;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,15 @@ public class idou_mause : MonoBehaviour
     // Update is called once per frame
     float speed = 10.0f;
     public bool flg_rok = true;
+    private bool start = true;
 
     void Update()
     {
+        if (start)
+        {
+            speed=read_obj.stetting["speed"];
+            start = false;
+        }
         if (Input.GetKey(KeyCode.Escape))
         {
 //exeじゃなくても閉じるため
