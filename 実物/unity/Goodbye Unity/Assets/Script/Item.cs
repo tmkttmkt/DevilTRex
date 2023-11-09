@@ -57,7 +57,5 @@ public class Item : MonoBehaviour
             n++;
         }
 
-        flg_item = !flg_item;
-        item.gameObject.SetActive(flg_item);
     }
 }

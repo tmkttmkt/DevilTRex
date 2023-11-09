@@ -18,14 +18,18 @@ public class ata : MonoBehaviour
 {
     [SerializeField] private GameObject map;
     [SerializeField] private key nandakke;
-    [SerializeField] private story st;
-    [SerializeField] private time ti;
-    [SerializeField] private Item it;
-    
     public float detectionDistance = 10f; // レイキャストの距離
     public List<Aitem> items = new List<Aitem>();
 
-
+    private story st;
+    private time ti;
+    private Item it;
+    private void Start()
+    {
+        it = FindObjectOfType<Item>();
+        ti = FindObjectOfType<time>();
+        st = FindObjectOfType<story>();
+    }
 
     void Update()
     {
@@ -44,7 +48,6 @@ public class ata : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject == map)
             {
-                Debug.Log("ここのろ地図");
                 st.map_flg();
             }
             if (Input.GetKeyDown(KeyCode.Return))//アイテム取得ボタン押したとき※Returnはエンターキーを示す
@@ -87,16 +90,19 @@ public class ata : MonoBehaviour
         foreach(Aitem ai in items)
         {
             it.Add(ai.name);
+            Debug.Log(ai.name);
         }
-        bool moti_flg = it.Contains("mm");
+        bool moti_flg = it.Contains("mo");
         bool hon_flg = it.Contains("hon");
+        Debug.Log(moti_flg);
+        Debug.Log(hon_flg);
         if (moti_flg&& hon_flg)
         {
-            Aitem a=null;
+            Aitem a = null;
             Aitem b = null;
             foreach (Aitem ai in items)
             {
-                if (ai.name == "mm") a = ai;
+                if (ai.name == "mo") a = ai;
                 if (ai.name == "hon") b = ai;
             }
             if(a!=null)items.Remove(a);
