@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -44,8 +44,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 683, y: 494}
-  m_MaxSize: {x: 14004, y: 14044}
+  m_MinSize: {x: 681, y: 344}
+  m_MaxSize: {x: 12006, y: 8044}
   vertical: 0
   controlID: 60
 --- !u!114 &3
@@ -92,9 +92,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     width: 402
     height: 598
+=======
+    width: 402
+    height: 597
+>>>>>>> parent of 0f894dd (11/9)
   m_MinSize: {x: 202, y: 222}
   m_MaxSize: {x: 4002, y: 4022}
 =======
@@ -124,6 +129,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 598
     width: 1368
 <<<<<<< Updated upstream
@@ -134,11 +140,19 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 272}
   m_MaxSize: {x: 10002, y: 10022}
   m_ActualView: {fileID: 15}
+=======
+    y: 597
+    width: 1319
+    height: 350
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 20}
+>>>>>>> parent of 0f894dd (11/9)
   m_Panes:
   - {fileID: 15}
   - {fileID: 20}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,7 +175,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -227,8 +241,8 @@ MonoBehaviour:
     y: 0
     width: 1368
     height: 947
-  m_MinSize: {x: 406, y: 494}
-  m_MaxSize: {x: 10002, y: 14044}
+  m_MinSize: {x: 406, y: 344}
+  m_MaxSize: {x: 8006, y: 8044}
   vertical: 1
   controlID: 61
 --- !u!114 &10
@@ -271,6 +285,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     x: 402
     y: 0
@@ -282,6 +297,12 @@ MonoBehaviour:
     width: 1097
     height: 563
 >>>>>>> Stashed changes
+=======
+    x: 402
+    y: 0
+    width: 917
+    height: 597
+>>>>>>> parent of 0f894dd (11/9)
   m_MinSize: {x: 204, y: 222}
   m_MaxSize: {x: 4004, y: 4022}
   m_ActualView: {fileID: 18}
@@ -452,12 +473,17 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: 32
+<<<<<<< HEAD
   m_LastProjectPath: "C:\\Users\\c0324\\Documents\\GitHub\\tet\\\u5B9F\u7269\\Unity\\Goodbye
     Unity"
+=======
+  m_LastProjectPath: "U:\\tet\\\u5B9F\u7269\\unity\\Goodbye Unity"
+>>>>>>> parent of 0f894dd (11/9)
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_SelectedIDs: 222c0000
     m_LastClickedID: 11298
@@ -467,6 +493,11 @@ MonoBehaviour:
     m_LastClickedID: 10620
     m_ExpandedIDs: 000000007c29000000ca9a3b
 >>>>>>> Stashed changes
+=======
+    m_SelectedIDs: 982c0000
+    m_LastClickedID: 11416
+    m_ExpandedIDs: 000000007c29000000ca9a3b
+>>>>>>> parent of 0f894dd (11/9)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -494,7 +525,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000222c0000
+=======
+    m_ExpandedIDs: 000000007c290000
+>>>>>>> parent of 0f894dd (11/9)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -519,8 +554,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+=======
+    m_SelectedInstanceIDs: 7a371700
+    m_LastClickedInstanceID: 1521530
+>>>>>>> parent of 0f894dd (11/9)
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300007e3a0000282a0000e62e0000eae403000000000098530c00b02d0000ca2f0000a0320000b2310000ea2a0000eae90300362e0000fc4b0000f82a0000
     m_RenameOverlay:
@@ -608,6 +648,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     width: 402
     height: 579
@@ -629,20 +670,31 @@ MonoBehaviour:
       m_LastClickedID: 0
       m_ExpandedIDs: ecb9ffffb4c2ffff8efbffff2036000026370000003e0000663f00008e42000010440000
 >>>>>>> Stashed changes
+=======
+    width: 402
+    height: 578
+  m_ViewDataDictionary: {fileID: 0}
+  m_SceneHierarchy:
+    m_TreeViewState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 4a470000
+      m_LastClickedID: 18250
+      m_ExpandedIDs: 62e9ffff8efbffff0035000014360000303700007c3f00002644000058450000
+>>>>>>> parent of 0f894dd (11/9)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: New Sprite
+        m_OriginalName: New Sprite
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -90346
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -673,6 +725,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     x: 402
     y: 73
@@ -684,6 +737,12 @@ MonoBehaviour:
     width: 1095
     height: 544
 >>>>>>> Stashed changes
+=======
+    x: 402
+    y: 73
+    width: 915
+    height: 578
+>>>>>>> parent of 0f894dd (11/9)
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: 0be6e3e9cb4165c4984476dc2e7dae95
@@ -695,6 +754,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Target: {x: 39.39311, y: 22.574112, z: 65.91282}
     speed: 2
@@ -704,6 +764,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 83.19457, y: 26.604229, z: 22.570618}
 >>>>>>> Stashed changes
+=======
+    m_Target: {x: 484.7, y: 251.25, z: 5.35}
+    speed: 2
+    m_Value: {x: 484.69998, y: 251.24998, z: 5.350001}
+>>>>>>> parent of 0f894dd (11/9)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -732,6 +797,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Target: {x: 0.08153011, y: 0.8286048, z: 0.12523946, w: -0.5395453}
     speed: 2
@@ -749,6 +815,15 @@ MonoBehaviour:
     speed: 2
     m_Value: 23.99002
 >>>>>>> Stashed changes
+=======
+    m_Target: {x: 0.11226301, y: -0.0011960304, z: 0.00013473818, w: 0.99367887}
+    speed: 2
+    m_Value: {x: 0.11375236, y: -0.004176341, z: 0.00047779072, w: 0.9935003}
+  m_Size:
+    m_Target: 660.5433
+    speed: 2
+    m_Value: 691.66833
+>>>>>>> parent of 0f894dd (11/9)
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -794,7 +869,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 0f894dd (11/9)
     x: 402
     y: 73
     width: 915
@@ -817,7 +895,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 0f894dd (11/9)
     m_HBaseRangeMin: -457.5
     m_HBaseRangeMax: 457.5
     m_VBaseRangeMin: -280.5
@@ -845,24 +926,33 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 0f894dd (11/9)
       width: 915
       height: 561
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 457.5, y: 280.5}
+<<<<<<< HEAD
 =======
       width: 1095
       height: 527
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 547.5, y: 263.5}
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 0f894dd (11/9)
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 0f894dd (11/9)
       x: -457.5
       y: -280.5
       width: 915
@@ -877,11 +967,15 @@ MonoBehaviour:
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_LastWindowPixelSize: {x: 915, y: 578}
 =======
   m_LastWindowPixelSize: {x: 1095, y: 544}
 >>>>>>> Stashed changes
+=======
+  m_LastWindowPixelSize: {x: 915, y: 578}
+>>>>>>> parent of 0f894dd (11/9)
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
