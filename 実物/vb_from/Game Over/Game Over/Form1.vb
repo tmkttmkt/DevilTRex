@@ -15,29 +15,24 @@ Public Class Form1
         PictureBox1.Image = Image.FromFile("suna3.gif")
         PictureBox2.Image = Image.FromFile("Game_Over_Button.png")
         Label1.BackColor = Color.Transparent
-        Timer1.Start()
-        AxWindowsMediaPlayer1.URL = "terano3.mp4"
+        AxWindowsMediaPlayer1.URL = "R:\_R05課題研究(情報技術科)\２班\terano.mp4"
         AxWindowsMediaPlayer1.Ctlcontrols.play()
     End Sub
 
 
+    Private Sub mediaPlayer_PlayStateChange(sender As Object, e As AxWMPLib._WMPOCXEvents_PlayStateChangeEvent) Handles AxWindowsMediaPlayer1.PlayStateChange
+        ' メディアの再生状態が変化したときのイベントハンドラ
 
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        ' ボタンの位置とサイズを取得
-        count += 1
-        If count >= 49 Then
-            AxWindowsMediaPlayer1.Ctlcontrols.pause()
-            If count = 70 Then
-                Timer2.Enabled = True
-                PlayWavFile("suna.wav")
-                Timer1.Stop()
-                PictureBox2.Visible = True
-                PictureBox1.Visible = True
-                Label1.Visible = True
-            End If
+        If AxWindowsMediaPlayer1.playState = WMPLib.WMPPlayState.wmppsMediaEnded Then
+            AxWindowsMediaPlayer1.Ctlcontrols.stop()
+            Timer1.Enabled = True
+            PlayWavFile("suna.wav")
+            PictureBox2.Visible = True
+            PictureBox1.Visible = True
+            Label1.Visible = True
         End If
     End Sub
+
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Try
