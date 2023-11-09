@@ -5,10 +5,12 @@ using UnityEngine;
 public class idou_mause : MonoBehaviour
 {
     public rokka tai;
-    [SerializeField] private read read_obj;
+    private read read_obj;
+    public bool mini_flg=false; 
     // Start is called before the first frame update
     void Start()
     {
+        read_obj = FindObjectOfType<read>();
         //Debug.Log("aaaa");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -52,47 +54,49 @@ public class idou_mause : MonoBehaviour
         }
 
         // Wキー（前方移動）
-
-        if (!Cursor.visible)
+        if (!mini_flg)
         {
-            //マウス移動
-            float mouseX = Input.GetAxis("Mouse X");
-            transform.Rotate(Vector3.up, mouseX * 500f * Time.deltaTime);
-
-        }
-        if (!Cursor.visible && !tai.flg)
-        {
-            flg_rok = true;
-            if (Input.GetKey(KeyCode.W))
+            if (!Cursor.visible)
             {
-                transform.position += speed * transform.forward * Time.deltaTime;
-            }
+                //マウス移動
+                float mouseX = Input.GetAxis("Mouse X");
+                transform.Rotate(Vector3.up, mouseX * 500f * Time.deltaTime);
 
-            // Sキー（後方移動）
-            if (Input.GetKey(KeyCode.S))
+            }
+            if (!Cursor.visible && !tai.flg)
             {
-                transform.position -= speed * transform.forward * Time.deltaTime;
-            }
+                flg_rok = true;
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.position += speed * transform.forward * Time.deltaTime;
+                }
 
-            // Dキー（右移動）
-            if (Input.GetKey(KeyCode.D))
+                // Sキー（後方移動）
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.position -= speed * transform.forward * Time.deltaTime * 0.5f;
+                }
+
+                // Dキー（右移動）
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.position += speed * transform.right * Time.deltaTime * 0.8f;
+                }
+
+                // Aキー（左移動）
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.position -= speed * transform.right * Time.deltaTime * 0.8f;
+                }
+
+            }
+            else if (tai.flg && flg_rok)
             {
-                transform.position += speed * transform.right * Time.deltaTime;
+                float interpolatedValue = (Time.time - tai.startTime) / tai.distance;
+                //球面線形移動
+                transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
+
             }
-
-            // Aキー（左移動）
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.position -= speed * transform.right * Time.deltaTime;
-            }
-
-        }
-        else if(tai.flg && flg_rok)
-        {
-            float interpolatedValue = (Time.time - tai.startTime) / tai.distance;
-            //球面線形移動
-            transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
-
         }
 
     }

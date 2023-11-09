@@ -27,15 +27,18 @@ public class teki : MonoBehaviour
     {
         if (target != null)
         {
-// musi.isPlaying;
-            //musi.Play();
             float dis = Vector3.Distance(this.transform.position, target.transform.position);
             RaycastHit hit;
             Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out hit);
             GameObject hitObject = hit.collider.gameObject;
             //Debug.Log("距離 : " + dis +"__"+ hitObject);
-            if (target.name == hitObject.name && dis <= 30f) {
-                if (!target.tai.flg) nav.SetDestination(target.transform.position);
+            if (target.name == hitObject.name && dis <= 60f) {
+                musi.Play();
+                if (!target.tai.flg)
+                {
+                    nav.ResetPath();
+                    nav.SetDestination(target.transform.position);
+                }
             }
         }
         else Debug.Log("ngo");
