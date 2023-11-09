@@ -2,6 +2,7 @@
 Imports System.Media
 Imports System.Drawing.Imaging
 Imports System.ComponentModel
+Imports System.Drawing
 
 Public Class Form1
     Dim count As Integer
@@ -44,7 +45,6 @@ Public Class Form1
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
         PictureBox2.BackColor = Color.FromArgb(150, 143, 139)
-
         PictureBox2.Image = Image.FromFile("タイトル2.png")
 
     End Sub
@@ -115,7 +115,10 @@ Public Class Form1
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        PictureBox1.Visible = True
         Timer3.Enabled = True
+        AxWindowsMediaPlayer2.URL = "shutter1.mp3"
+        AxWindowsMediaPlayer2.Ctlcontrols.play()
         My.Computer.Audio.Play("sakebi.wav")
     End Sub
 
@@ -201,7 +204,7 @@ Public Class Form1
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         count3 += 1
         Label9.Text = count3
-        If count3 = 30 Then
+        If count3 = 43 Then
             Try
                 Process.Start("Goodbye Unity.exe")
                 Application.Exit()
@@ -210,4 +213,5 @@ Public Class Form1
             End Try
         End If
     End Sub
+
 End Class
