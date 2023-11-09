@@ -8,7 +8,7 @@ using System.Windows;
 
 public class time : MonoBehaviour
 {
-    private read read_obj;
+    [SerializeField] read read_obj;
     private float timerDuration; // タイマーの時間（秒）
     private float timerValue; // タイマーの現在の値
     private bool start = false;
@@ -21,11 +21,10 @@ public class time : MonoBehaviour
     private string goal_text1;
     private string goal_text2;
     private string leftext;
-    private int n = 5, kierumade = 600;
+    private int n = 10, kierumade = 600;
 
     private void Start()
     {
-        read_obj = FindObjectOfType<read>();
 // set_text("俺のそばに近寄るなぁああ!!");
         set_goal("学校に行こう!!");
         set_goal("借金を返そう!!");
@@ -71,12 +70,7 @@ public class time : MonoBehaviour
                 ProcessStartInfo pInfo = new ProcessStartInfo();
                 pInfo.FileName = "tekitou.txt";
                 Process.Start(pInfo);
-                //exeじゃなくても閉じるため
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+                end_def();
             }
         }
         else if (timerValue > 0f)

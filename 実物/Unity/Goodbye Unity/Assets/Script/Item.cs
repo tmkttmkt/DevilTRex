@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    private ata obj;
+    [SerializeField] ata obj;
     // Start is called before the first frame update
     [SerializeField] GameObject item;
     [SerializeField] Text[] texts = new Text[3];
     [SerializeField] Image[] images = new Image[3];
     void Start()
     {
-        obj = FindObjectOfType<ata>();
         item.gameObject.SetActive(flg_item);
     }
 
