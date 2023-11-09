@@ -62,7 +62,7 @@ public class ata : MonoBehaviour
                         Aitem ii = new Aitem(script.ID, script.exem,script.sp);
                         items.Add(ii);
                         ti.set_text(script.strname + "を手に入れた");
-                        if (kensaku("mo", "hon")) st.key_flg();
+                        if (kensaku("mm", "hon")) st.key_flg();
                     }
                 }
                 inkey scr = hitObject.GetComponent<inkey>();

@@ -1,5 +1,4 @@
 ﻿Imports System.Media
-Imports System.IO
 Public Class Form1
     Public count As Integer
     Private Declare Function GetCursorPos Lib "user32.dll" (ByRef lpPoint As Point) As Boolean
@@ -71,11 +70,6 @@ Public Class Form1
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        Try
-            Process.Start("start2.exe")
-            Application.Exit()
-        Catch ex As Exception
-            MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
-        End Try
+        Application.Exit()
     End Sub
 End Class

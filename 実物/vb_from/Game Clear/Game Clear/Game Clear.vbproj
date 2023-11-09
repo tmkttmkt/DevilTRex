@@ -76,7 +76,6 @@
     <Compile Include="Class1.vb" />
     <Compile Include="..\..\エンドロール\Form1.vb">
       <Link>Form1.vb</Link>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="..\..\エンドロール\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
