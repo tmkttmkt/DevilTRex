@@ -48,7 +48,6 @@ public class ata : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject == map)
             {
-                Debug.Log("ここのろ地図");
                 st.map_flg();
             }
             if (Input.GetKeyDown(KeyCode.Return))//アイテム取得ボタン押したとき※Returnはエンターキーを示す
@@ -91,16 +90,19 @@ public class ata : MonoBehaviour
         foreach(Aitem ai in items)
         {
             it.Add(ai.name);
+            Debug.Log(ai.name);
         }
-        bool moti_flg = it.Contains("mm");
+        bool moti_flg = it.Contains("mo");
         bool hon_flg = it.Contains("hon");
+        Debug.Log(moti_flg);
+        Debug.Log(hon_flg);
         if (moti_flg&& hon_flg)
         {
-            Aitem a=null;
+            Aitem a = null;
             Aitem b = null;
             foreach (Aitem ai in items)
             {
-                if (ai.name == "mm") a = ai;
+                if (ai.name == "mo") a = ai;
                 if (ai.name == "hon") b = ai;
             }
             if(a!=null)items.Remove(a);
