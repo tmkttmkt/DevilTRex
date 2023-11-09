@@ -51,9 +51,6 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(810, 502)
         Me.AxWindowsMediaPlayer1.TabIndex = 3
         '
-        'Timer1
-        '
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
@@ -101,6 +98,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"
         Me.Text = "Game Over"
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
