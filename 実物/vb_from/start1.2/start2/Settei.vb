@@ -10,6 +10,7 @@ Public Class Settei
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         My.Computer.Audio.Stop()
         Timer2.Enabled = True
+        Label8.Visible = False
         My.Computer.Audio.Play("何作ってるんだっけ.wav")
         PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
         Label5.Text = "文字にカーソルを合わせると"
@@ -31,7 +32,7 @@ Public Class Settei
                 If TextBox1.Text = "1" And DomainUpDown1.Text = ss(1) And DomainUpDown2.Text = ss(2) And TextBox4.Text = "4" Then
                     writer.WriteLine("teki=" + "10")
                     writer.WriteLine("time=" + "999")
-                    writer.WriteLine("speed=" + "40")
+                    writer.WriteLine("speed=" + "5")
                     Label5.Text = "隠しコマンドが入力されました。"
                     Label6.Text = "書き込みに成功しました。"
                 Else

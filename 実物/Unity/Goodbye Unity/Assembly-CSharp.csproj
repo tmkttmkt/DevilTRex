@@ -71,6 +71,7 @@
     <Compile Include="Assets\Script\Item.cs" />
     <Compile Include="Assets\Script\key.cs" />
     <Compile Include="Assets\Script\kyor.cs" />
+    <Compile Include="Assets\Script\musi.cs" />
     <Compile Include="Assets\Script\read.cs" />
     <Compile Include="Assets\Script\rokaga.cs" />
     <Compile Include="Assets\Script\rokka.cs" />
