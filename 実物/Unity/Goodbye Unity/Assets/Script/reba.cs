@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class reba : MonoBehaviour
 {
+    public bool flg = false;
     // Start is called before the first frame update
     void Start()
     {
-       public bool flg = false;
+       
     }
 
     // Update is called once per frame
