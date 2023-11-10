@@ -37,6 +37,10 @@ public class teki : MonoBehaviour
             if (target.name == hitObject.name && dis <= 30f) {
                 if (!target.tai.flg) nav.SetDestination(target.transform.position);
             }
+            else
+            {
+
+            }
         }
         else Debug.Log("ngo");
     }

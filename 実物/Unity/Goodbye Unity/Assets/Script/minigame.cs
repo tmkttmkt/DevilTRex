@@ -29,6 +29,8 @@ public class minigame : MonoBehaviour
         // プレイヤーオブジェクトが存在しない場合はプレイヤーは近くにいないと判定
         if (player == null)
         {
+            //ちなみにtagは使ってないから多分一生このif文起動しない。変数に入れたオブジェで判定してる。
+            //これで黄色出せるんだー
             Debug.LogWarning("プレイヤーオブジェクトが見つかりませんでした。");
             return false;
         }

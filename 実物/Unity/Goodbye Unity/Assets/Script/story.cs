@@ -5,6 +5,7 @@ using UnityEngine;
 public class story : MonoBehaviour
 {
     [SerializeField] private GameObject start;
+    [SerializeField] private GameObject start_kabe;
     [SerializeField] private time ti;
     private string serihu;
     private int dannraku; 
@@ -33,6 +34,9 @@ public class story : MonoBehaviour
 
                 iventID = 1;
                 StartCoroutine(start_ibent());
+                start_kabe.SetActive(true);
+
+
             }
         }
     }
