@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class inkey : MonoBehaviour
 {
-    Vector3 targetPosition = new Vector3(28, 19, -46);
+    [SerializeField] Vector3 startPosition = new Vector3(28, 19, -46);
+    [SerializeField] Vector3 iventPosition = new Vector3(24, 19, -46);
+    Vector3 targetPosition;
     // Start is called before the first frame update
     void Start()
     {
-
+        targetPosition = startPosition;
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class inkey : MonoBehaviour
     }
     public void open()
     {
-        targetPosition = new Vector3(24, 19, -46);
+        targetPosition = iventPosition;
         Debug.Log("aa");
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class idou_mause : MonoBehaviour
 {
     public rokka tai;
-    [SerializeField] private read read_obj;
+    private read read_obj;
     // Start is called before the first frame update
     void Start()
     {
+        read_obj = FindObjectOfType<read>();
         //Debug.Log("aaaa");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
