@@ -21,6 +21,8 @@ public class ata : MonoBehaviour
     public float detectionDistance = 10f; // レイキャストの距離
     public List<Aitem> items = new List<Aitem>();
 
+
+
     private story st;
     private time ti;
     private Item it;

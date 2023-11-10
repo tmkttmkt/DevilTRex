@@ -73,7 +73,6 @@ public class idou_mause : MonoBehaviour
             {
                 transform.position -= speed * transform.forward * Time.deltaTime;
             }
-
             // Dキー（右移動）
             if (Input.GetKey(KeyCode.D))
             {
