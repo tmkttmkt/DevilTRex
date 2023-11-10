@@ -1,0 +1,3 @@
+teki=10
+time=999
+speed=5
