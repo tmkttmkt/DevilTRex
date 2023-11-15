@@ -11,6 +11,9 @@ public class teki : MonoBehaviour
     public NavMeshAgent nav;
     [SerializeField]idou_mause target;
     public AudioSource musi;
+    [SerializeField] Vector3[] vectors;
+    int num = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +42,16 @@ public class teki : MonoBehaviour
             }
             else
             {
-
+                Debug.Log(nav.SetDestination(vectors[num]));
+                if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
+                {
+                    num++;
+                    if (num == 4) num = 0;
+                }
             }
         }
         else Debug.Log("ngo");
+        //Debug.Log(nav.destination);
     }
     void OnCollisionEnter(Collision collision)
     {

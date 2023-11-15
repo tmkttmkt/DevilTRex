@@ -15,6 +15,12 @@ public class minigame : MonoBehaviour
     public GameObject Mini_gamen;
     public GameObject Canvas2;
     public GameObject osutoko;
+
+    public Random random;
+    private void Start()
+    {
+        osutoko.transform.localPosition = new Vector3(Random.Range(-392f,382f), 90, 0);
+    }
     void Update()
     {
         // プレイヤーの近くにいるかどうかを検出
@@ -23,13 +29,11 @@ public class minigame : MonoBehaviour
         // エンターキーが押されたら白い画面を表示
         if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I))
         {
-            FlashWhiteScreen();
             Canvas2.SetActive(true);
 
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-
             osutoko.transform.localPosition = new Vector3(-392, 90, 0);
         }
     }
@@ -49,9 +53,4 @@ public class minigame : MonoBehaviour
         // "Player"タグを持つオブジェクトを検索
     }
 
-    void FlashWhiteScreen()
-    {
-        // 白い画面を表示
-        Canvas2.SetActive(true);
-    }
 }
