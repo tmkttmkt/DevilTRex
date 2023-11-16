@@ -201,7 +201,7 @@ Partial Class Settei
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label8.Location = New System.Drawing.Point(74, 51)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(38, 12)

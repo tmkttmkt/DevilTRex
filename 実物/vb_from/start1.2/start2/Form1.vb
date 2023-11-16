@@ -8,8 +8,10 @@ Public Class Form1
     Dim count As Integer
     Dim count2 As Integer
     Dim count3 As Integer
+    Dim start_flg As Integer = 0
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox2.Visible = False
+        PictureBox3.Visible = True
         Test.Visible = True
         Label1.Visible = False
         Label1.BackColor = Color.FromArgb(150, 143, 139)
@@ -56,8 +58,11 @@ Public Class Form1
     End Sub
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         AxWindowsMediaPlayer1.Ctlcontrols.stop()
-        Me.Hide()
         My.Computer.Audio.Stop()
+        Timer2.Stop()
+        count2 = 0
+        Me.Hide()
+        'My.Computer.Audio.Stop()
         Colorsan()
         Settei.Show()
     End Sub
@@ -108,7 +113,9 @@ Public Class Form1
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         Me.Hide()
-        AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        count = 0
+        My.Computer.Audio.Stop()
+        Timer2.Stop()
         Colorsan()
         Label2.ForeColor = Color.Black
         How2.Show()
@@ -123,41 +130,16 @@ Public Class Form1
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        End
+        Application.Exit()
     End Sub
 
 
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        'Label9.Text = count
-        If count <= 265 Then
-            'If count = 230 Then
-            'PlayWavFile("咆哮2.wav")
-            'End If
-            PictureBox3.Visible = True
-        End If
-        If count >= 265 Then
-            My.Computer.Audio.Play("ホーム画面の音楽.wav")
-            AxWindowsMediaPlayer1.Visible = False
-            Timer2.Enabled = True
-            Me.KeyPreview = True
-            PictureBox4.Visible = True
-            PictureBox2.Visible = True
-            Label1.Visible = True
-            Label2.Visible = True
-            Label3.Visible = True
-            Label4.Visible = True
-            PictureBox3.Visible = False
-            Label7.Visible = True
-            Timer1.Enabled = False
-            Label8.Visible = True
-            Label6.Visible = False
-        End If
-    End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-        count = 265
+        Kaisi()
     End Sub
+
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
         Try
@@ -180,27 +162,30 @@ Public Class Form1
         ' メディアの再生状態が変化したときのイベントハンドラ
 
         If AxWindowsMediaPlayer1.playState = WMPLib.WMPPlayState.wmppsMediaEnded Then
-            My.Computer.Audio.Play("ホーム画面の音楽.wav")
-            AxWindowsMediaPlayer1.Visible = True
+            Kaisi()
             PictureBox3.Visible = False
-            Timer2.Enabled = True
-            Me.KeyPreview = True
-            PictureBox4.Visible = True
-            PictureBox2.Visible = True
-            Label1.Visible = True
-            Label2.Visible = True
-            Label3.Visible = True
-            Label4.Visible = True
-            PictureBox3.Visible = False
-            Label7.Visible = True
-            Timer1.Enabled = False
-            Label8.Visible = True
-            Label6.Visible = False
-
             AxWindowsMediaPlayer1.Ctlcontrols.stop()
         End If
     End Sub
-
+    Private Sub Kaisi()
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        My.Computer.Audio.Play("ホーム画面の音楽.wav")
+        AxWindowsMediaPlayer1.Visible = False
+        start_flg = 1
+        Timer2.Enabled = True
+        Me.KeyPreview = True
+        PictureBox4.Visible = True
+        PictureBox2.Visible = True
+        Label1.Visible = True
+        Label2.Visible = True
+        Label3.Visible = True
+        Label4.Visible = True
+        PictureBox3.Visible = False
+        Label7.Visible = True
+        Timer1.Enabled = False
+        Label8.Visible = True
+        Label6.Visible = False
+    End Sub
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         count3 += 1
         Label9.Text = count3
@@ -214,4 +199,11 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        If start_flg >= 1 Then
+            My.Computer.Audio.Play("ホーム画面の音楽.wav")
+            count2 = 0
+            Kaisi()
+        End If
+    End Sub
 End Class

@@ -78,8 +78,8 @@ Public Class How
         flg = 0
         flg2 = True
         PictureBox7.Visible = False
-        My.Computer.Audio.Stop()
-        My.Computer.Audio.Play("ホーム画面の音楽.wav")
+        Timer2.Stop()
+        count = 0
         Form1.Show()
     End Sub
 
@@ -93,7 +93,8 @@ Public Class How
         flg2 = True
         PictureBox7.Visible = False
         My.Computer.Audio.Stop()
-        My.Computer.Audio.Play("ホーム画面の音楽.wav")
+        Timer2.Stop()
+        count = 0
         How3.Show()
     End Sub
 

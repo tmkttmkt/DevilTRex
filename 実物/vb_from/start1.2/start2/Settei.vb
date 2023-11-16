@@ -9,6 +9,8 @@ Public Class Settei
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         My.Computer.Audio.Stop()
+        Timer1.Enabled = False
+        Timer2.Interval = 1000
         Timer2.Enabled = True
         Label8.Visible = False
         My.Computer.Audio.Play("何作ってるんだっけ.wav")
@@ -27,14 +29,27 @@ Public Class Settei
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Using writer As New StreamWriter("test2.txt", False, Encoding.GetEncoding("Shift_JIS"))
-            If File.Exists("test2.txt") Then
-                If TextBox1.Text = "1" And DomainUpDown1.Text = ss(1) And DomainUpDown2.Text = ss(2) And TextBox4.Text = "4" Then
-                    writer.WriteLine("teki=" + "10")
-                    writer.WriteLine("time=" + "999")
-                    writer.WriteLine("speed=" + "5")
+        Using writer As New StreamWriter("output.txt", False, Encoding.GetEncoding("Shift_JIS"))
+            If File.Exists("output.txt") Then
+                If TextBox4.Text = "4" Then
+                    writer.WriteLine("teki=" + TextBox1.Text)
+                    If DomainUpDown1.Text = ss(0) Then
+                        writer.WriteLine("time=" + "300")
+                    ElseIf DomainUpDown1.Text = ss(1) Then
+                        writer.WriteLine("time=" + "180")
+                    ElseIf DomainUpDown1.Text = ss(2) Then
+                        writer.WriteLine("time=" + "30")
+                    End If
+                    If DomainUpDown2.Text = ss(0) Then
+                        writer.WriteLine("speed=" + "4")
+                    ElseIf DomainUpDown2.Text = ss(1) Then
+                        writer.WriteLine("speed=" + "3")
+                    ElseIf DomainUpDown2.Text = ss(2) Then
+                        writer.WriteLine("speed=" + "2")
+                    End If
+                    writer.WriteLine("mu=" + "4")
                     Label5.Text = "隠しコマンドが入力されました。"
-                    Label6.Text = "書き込みに成功しました。"
+                    Label6.Text = "ティラノサウルスの蹂躙が始まる…"
                 Else
                     writer.WriteLine("teki=" + TextBox1.Text)
                     If DomainUpDown1.Text = ss(0) Then
@@ -51,12 +66,12 @@ Public Class Settei
                     ElseIf DomainUpDown2.Text = ss(2) Then
                         writer.WriteLine("speed=" + "2")
                     End If
-                    writer.WriteLine("アイテムの数=" + TextBox4.Text)
+                    writer.WriteLine("mu=" + TextBox4.Text)
                     Label5.Text = "書き込みに成功しました。"
                     Label6.Text = ""
                 End If
             Else
-                    Label5.Text = "申し訳ございません。"
+                Label5.Text = "申し訳ございません。"
                 Label6.Text = "書き込みに失敗しました。"
             End If
 
@@ -65,6 +80,7 @@ Public Class Settei
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Timer1.Enabled = True
+        My.Computer.Audio.Play("hikaru.wav")
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Label1.MouseEnter
@@ -133,26 +149,32 @@ Public Class Settei
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         count += 1
-        If count <= 5 Then
+        If count <= 15 Then
             PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\光るティラノ.png")
-        ElseIf count >= 6 Then
-            count = 0
+        ElseIf count >= 16 Then
             PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
             Label5.Text = "文字にカーソルを合わせると"
             Label6.Text = "説明文が出ます1234。"
             My.Computer.Audio.Stop()
-            My.Computer.Audio.Play("ホーム画面の音楽.wav")
             Me.Hide()
             Form1.Show()
             Timer1.Enabled = False
+            count2 = 0
+            Timer2.Stop()
         End If
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        Label8.Text = count2
         count2 += 1
-        If count2 = 340 Then
+        If count2 >= 34 Then
+            My.Computer.Audio.Stop()
             My.Computer.Audio.Play("何作ってるんだっけ.wav")
+            count2 = 0
         End If
+    End Sub
+
+    Private Sub Settei_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        My.Computer.Audio.Play("何作ってるんだっけ.wav")
+        count2 = 0
     End Sub
 End Class
