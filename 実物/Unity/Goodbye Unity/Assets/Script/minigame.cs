@@ -61,19 +61,17 @@ public class minigame : MonoBehaviour
         }
         if (start_flg)//スタートフラグ
         {
-            if(nanbonme == 2 && tugi_flg == true)
+            if(nanbonme == 2)
             {
-                tugi_flg = false;
                 move_gage.transform.localPosition = new Vector3(-392, 13, 0);
             }
-            if (nanbonme == 3 && tugi_flg == true)
+            if (nanbonme == 3)
             {
-                tugi_flg = false;
                 move_gage.transform.localPosition = new Vector3(-392, -60, 0);
             }
             if (Input.GetKeyDown(KeyCode.G))
             {
-                if (move_gage.transform.localPosition.x + 20 > osutoko1.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko1.transform.localPosition.x)
+                if (move_gage.transform.localPosition.x + 20 < osutoko1.transform.localPosition.x && move_gage.transform.localPosition.x - 20 > osutoko1.transform.localPosition.x)
                 {
                     tugi_flg = true;
                     nanbonme += 1;
@@ -116,18 +114,18 @@ public class minigame : MonoBehaviour
                     naame.text = "下手くそ!";
                 }
             }
-          if (ugoku_flg)
-                {
-                    move_gage.transform.localPosition += new Vector3(kakeru * 10, 0, 0);
-                    if (move_gage.transform.localPosition.x <= -382)
-                    {
-                        kakeru = 1;
-                    }
-                    if (move_gage.transform.localPosition.x >= 382)
-                    {
-                        kakeru = -1;
-                    }
-                }
+   
+              
+             move_gage.transform.localPosition += new Vector3(kakeru * 10, 0, 0);
+             if (move_gage.transform.localPosition.x <= -382)
+             {
+               kakeru = 1;
+           }
+              if (move_gage.transform.localPosition.x >= 382)
+               {
+                  kakeru = -1;
+             }
+ 
             
         }
     }
