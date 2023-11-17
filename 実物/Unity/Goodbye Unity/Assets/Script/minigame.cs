@@ -25,6 +25,7 @@ public class minigame : MonoBehaviour
     public GameObject osutoko2;
     public GameObject osutoko3;
     public GameObject move_gage;
+    RectTransform gage_rect;
 
     public Random random;
     private void Start()
@@ -32,6 +33,7 @@ public class minigame : MonoBehaviour
         osutoko1.transform.localPosition = new Vector3(Random.Range(-392f,381f), 90, 0);
         osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
         osutoko3.transform.localPosition = new Vector3(Random.Range(-392f, 381f), -60, 0);
+        gage_rect = move_gage.GetComponent<RectTransform>();//ムーブゲージのレクとトランスフォームが入ってる
     }
     void Update()
     {
@@ -41,7 +43,7 @@ public class minigame : MonoBehaviour
         if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && saido == false)
         {
             saido = true;
-            naame.text = "黒いところで止めろ!";
+            naame.text = "Gキーで黒いところに止めろ!";
             //ugoku_flg = true;
             move_gage.transform.localPosition = new Vector3(-392, 90, 0);
             osutoko1.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 90, 0);
@@ -73,7 +75,7 @@ public class minigame : MonoBehaviour
                 tugi_flg = true;
                 if (nanbonme == 1)
                 {
-                    if (move_gage.transform.localPosition.x + 20 > osutoko1.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko1.transform.localPosition.x && nanbonme == 1 && tugi_flg == true)
+                    if (move_gage.transform.localPosition.x + 20 > gage_rect.sizeDelta.x && move_gage.transform.localPosition.x - 20 < osutoko1.transform.localPosition.x && nanbonme == 1 && tugi_flg == true)
                     {
                         tugi_flg = false;
                         nanbonme = 2;
@@ -165,12 +167,12 @@ public class minigame : MonoBehaviour
         if (clear >= 2)
         {
             naame.text = "おめでとう";
-            Invoke("Owari", 3.5f);
+            Invoke("Owari", 1f);
         }
         else
         {
             naame.text = "やり直してこい！";
-            Invoke("Owari", 3.5f);
+            Invoke("Owari", 1f);
         }
     }
     void Owari()
