@@ -11,6 +11,7 @@ public class minigame : MonoBehaviour
     public bool start_flg = false;
     public bool ugoku_flg = true;
     public bool tugi_flg = false;
+    public bool saido = false;
     public int clear = 0;
     public float detectionRadius = 5f; // プレイヤーを検出する半径
     public Color flashColor = Color.white; // 白い画面の色
@@ -37,22 +38,24 @@ public class minigame : MonoBehaviour
         // プレイヤーの近くにいるかどうかを検出
         isPlayerNear = IsPlayerNear();
         // エンターキーが押されたら白い画面を表示
-        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I))
+        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && saido == false)
         {
+            saido = true;
             naame.text = "黒いところで止めろ!";
-            ugoku_flg = true;
+            //ugoku_flg = true;
+            move_gage.transform.localPosition = new Vector3(-392, 90, 0);
             osutoko1.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 90, 0);
             osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
             osutoko3.transform.localPosition = new Vector3(Random.Range(-392f, 381f), -60, 0);
             kakeru = 1;
             clear = 0;
-            start_flg = !start_flg;
+            start_flg = true;
             Canvas2.SetActive(start_flg);
         }
         else if (Input.GetKeyDown(KeyCode.I))
         {
-            start_flg = false;
-            Canvas2.SetActive(start_flg);
+            naame.text = "もうやめるのか？";
+            Invoke("Owari", 3.5f);
 
         }
         if (Input.GetKeyDown(KeyCode.P))
@@ -61,66 +64,94 @@ public class minigame : MonoBehaviour
         }
         if (start_flg)//スタートフラグ
         {
-            if(nanbonme == 2)
+            if (nanbonme != 4)
             {
-                move_gage.transform.localPosition = new Vector3(-392, 13, 0);
-            }
-            if (nanbonme == 3)
-            {
-                move_gage.transform.localPosition = new Vector3(-392, -60, 0);
+                move_gage.transform.localPosition += new Vector3(kakeru * 10, 0, 0);
             }
             if (Input.GetKeyDown(KeyCode.G))
             {
-                if (move_gage.transform.localPosition.x + 20 < osutoko1.transform.localPosition.x && move_gage.transform.localPosition.x - 20 > osutoko1.transform.localPosition.x)
+                tugi_flg = true;
+                if (nanbonme == 1)
                 {
-                    tugi_flg = true;
-                    nanbonme += 1;
-                    ugoku_flg = !ugoku_flg;
-                    clear += 1;
-                    naame.text = "いいね！";
+                    if (move_gage.transform.localPosition.x + 20 > osutoko1.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko1.transform.localPosition.x && nanbonme == 1 && tugi_flg == true)
+                    {
+                        tugi_flg = false;
+                        nanbonme = 2;
+                        move_gage.transform.localPosition = new Vector3(-392, 13, 0);
+                        ugoku_flg = !ugoku_flg;
+                        clear += 1;
+                        naame.text = "いいね！";
+                        naame.text += "あと" + (2 - clear) + "回！";
+                        Debug.Log("a");
+                    }
+                    else if (tugi_flg == true)
+                    {
+                        tugi_flg = false;
+                        nanbonme = 2;
+                        move_gage.transform.localPosition = new Vector3(-392, 13, 0);
+                        ugoku_flg = !ugoku_flg;
+                        naame.text = "下手くそ!";
+                        Debug.Log("a");
+                    }
                 }
-                else
+                if (nanbonme == 2)
                 {
-                    tugi_flg = true;
-                    nanbonme += 1;
-                    ugoku_flg = !ugoku_flg;
-                    naame.text = "下手くそ!";
+                    if (move_gage.transform.localPosition.x + 20 > osutoko2.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko2.transform.localPosition.x && nanbonme == 2 && tugi_flg == true)//2本目
+                    {
+                        tugi_flg = false;
+                        nanbonme = 3;
+                        move_gage.transform.localPosition = new Vector3(-392, -60, 0);
+                        ugoku_flg = !ugoku_flg;
+                        clear += 1;
+                        if(2 - clear == 0)
+                        {
+                            naame.text = "完璧だぜブラザー";
+                        }
+                        else
+                        {
+                            naame.text = "いいね！";
+                            naame.text += "あと" + (2 - clear) + "回！";
+                        }
+                        Debug.Log("b");
+                    }
+                    else if (tugi_flg == true)
+                    {
+                        tugi_flg = false;
+                        nanbonme = 3;
+                        move_gage.transform.localPosition = new Vector3(-392, -60, 0);
+                        ugoku_flg = !ugoku_flg;
+                        naame.text = "下手くそ!";
+                        Debug.Log("b");
+                    }
                 }
-
-                if (move_gage.transform.localPosition.x + 20 > osutoko2.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko2.transform.localPosition.x && nanbonme == 2)//2本目
+                if (nanbonme == 3)
                 {
-                    tugi_flg = true;
-                    ugoku_flg = !ugoku_flg;
-                    clear += 1;
-                    naame.text = "いいね！";
+                    if (move_gage.transform.localPosition.x + 20 > osutoko3.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko3.transform.localPosition.x && nanbonme == 3 && tugi_flg == true)//3本目
+                    {
+                        tugi_flg = false;
+                        nanbonme = 4;
+                        clear += 1;
+                        Hantei();
+                        Debug.Log("c");
+                    }
+                    else if (tugi_flg == true)
+                    {
+                        nanbonme = 4;
+                        start_flg = false;
+                        tugi_flg = false;
+                        Hantei();
+                        Debug.Log("c");
+                    }
+                    
                 }
-                else
-                {
-                    tugi_flg = true;
-                    ugoku_flg = !ugoku_flg;
-                    naame.text = "下手くそ!";
-                }
-                if (move_gage.transform.localPosition.x + 20 > osutoko3.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko3.transform.localPosition.x && nanbonme == 2)//2本目
-                {
-                    tugi_flg = true;
-                    ugoku_flg = !ugoku_flg;
-                    clear += 1;
-                    naame.text = "いいね！";
-                }
-                else
-                {
-                    tugi_flg = true;
-                    ugoku_flg = !ugoku_flg;
-                    naame.text = "下手くそ!";
-                }
+                Debug.Log(nanbonme);
+                Debug.Log(start_flg);
             }
-   
-              
-             move_gage.transform.localPosition += new Vector3(kakeru * 10, 0, 0);
-             if (move_gage.transform.localPosition.x <= -382)
+
+            if (move_gage.transform.localPosition.x <= -382)
              {
                kakeru = 1;
-           }
+            }
               if (move_gage.transform.localPosition.x >= 382)
                {
                   kakeru = -1;
@@ -128,6 +159,29 @@ public class minigame : MonoBehaviour
  
             
         }
+    }
+    void Hantei()
+    {
+        if (clear >= 2)
+        {
+            naame.text = "おめでとう";
+            Invoke("Owari", 3.5f);
+        }
+        else
+        {
+            naame.text = "やり直してこい！";
+            Invoke("Owari", 3.5f);
+        }
+    }
+    void Owari()
+    {
+        saido = false;
+        kakeru = -1;
+        nanbonme = 1;
+        tugi_flg = false;
+        clear = 0;
+        start_flg = false;
+        Canvas2.SetActive(start_flg);
     }
 
     bool IsPlayerNear()
