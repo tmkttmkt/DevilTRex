@@ -1,4 +1,4 @@
-teki=1
-time=180
-speed=2
+teki=
+time=300
+speed=4
 mu=4

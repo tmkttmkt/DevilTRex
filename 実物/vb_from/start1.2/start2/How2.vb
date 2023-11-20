@@ -50,5 +50,6 @@
         Label8.Visible = False
         Label9.Visible = False
         Label10.Visible = False
+        PictureBox1.Image = Image.FromFile("ゲーム画面.png")
     End Sub
 End Class
