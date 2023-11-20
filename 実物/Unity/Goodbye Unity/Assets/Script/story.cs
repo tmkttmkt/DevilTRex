@@ -7,6 +7,7 @@ public class story : MonoBehaviour
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject start_kabe;
     [SerializeField] private time ti;
+    private musi mus;
     private string serihu;
     private int dannraku; 
     private int serihubamenn;
@@ -14,6 +15,7 @@ public class story : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mus = FindObjectOfType<musi>();
         ti.set_goal("学校に入ろう");
         ti.set_text("すごく学校に入りたい");
     }
@@ -75,6 +77,7 @@ public class story : MonoBehaviour
     }
     IEnumerator start_ibent()
     {
+        mus.kihon_flg();
         transform.position = new Vector3(67.74f, 21.38f, 80.149f);
         ti.set_text("いったい何があったんだ、青木は?\n佐々木は？みんなどこ行ったんだ！");
         yield return new WaitForSeconds(4.0f);
