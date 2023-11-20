@@ -50,7 +50,7 @@ Public Class Settei
                     writer.WriteLine("mu=" + "4")
                     Label5.Text = "「どうして君はこうなんだ？」"
                     Label6.Text = "ティラノサウルスの蹂躙が始まる…"
-                    PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\光るティラノ.png")
+                    PictureBox1.Image = Image.FromFile("光るティラノ.png")
                 Else
                     writer.WriteLine("teki=" + TextBox1.Text)
                     If DomainUpDown1.Text = ss(0) Then
@@ -155,9 +155,9 @@ Public Class Settei
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         count += 1
         If count <= 15 Then
-            PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\光るティラノ.png")
+            PictureBox1.Image = Image.FromFile("光るティラノ.png")
         ElseIf count >= 16 Then
-            PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
+            PictureBox1.Image = Image.FromFile("設定画面.png")
             Label5.Text = "文字にカーソルを合わせると"
             Label6.Text = "説明文が出ます。"
             My.Computer.Audio.Stop()
