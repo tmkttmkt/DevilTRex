@@ -10,7 +10,7 @@ public class teki : MonoBehaviour
     [SerializeField]time rast;
     public NavMeshAgent nav;
     [SerializeField]idou_mause target;
-    public AudioSource musi;
+    public AudioSource mus;
     [SerializeField] Vector3[] vectors;
     int num = 0;
 
@@ -18,6 +18,7 @@ public class teki : MonoBehaviour
     void Start()
     {
         nav = gameObject.GetComponent<NavMeshAgent>();
+        mus = gameObject.GetComponent<AudioSource>();
 
         using (StreamWriter writer = new StreamWriter("dbg.txt", true))
         {
@@ -30,19 +31,21 @@ public class teki : MonoBehaviour
     {
         if (target != null)
         {
-// musi.isPlaying;
-            //musi.Play();
             float dis = Vector3.Distance(this.transform.position, target.transform.position);
             RaycastHit hit;
             Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out hit);
             GameObject hitObject = hit.collider.gameObject;
             //Debug.Log("距離 : " + dis +"__"+ hitObject);
             if (target.name == hitObject.name && dis <= 30f) {
-                if (!target.tai.flg) nav.SetDestination(target.transform.position);
+                if (!target.tai.flg) {
+                    nav.SetDestination(target.transform.position);
+                    mus.Play();
+                }
+
             }
             else
             {
-                Debug.Log(nav.SetDestination(vectors[num]));
+                //Debug.Log(nav.SetDestination(vectors[num]));
                 if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
                 {
                     num++;
