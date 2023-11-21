@@ -48,7 +48,7 @@ Public Class Settei
                         writer.WriteLine("speed=" + "2")
                     End If
                     writer.WriteLine("mu=" + "4")
-                    Label5.Text = "「どうして君はこうなんだ？」"
+                    Label5.Text = "「どうして君はこうなんだ…」"
                     Label6.Text = "ティラノサウルスの蹂躙が始まる…"
                     PictureBox1.Image = Image.FromFile("光るティラノ.png")
                 Else
