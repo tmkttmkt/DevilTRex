@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\PBR_Grass_Textures\Scripts\CameraFreeflight.cs" />
     <Compile Include="Assets\Script\ata.cs" />
+    <Compile Include="Assets\Script\botton.cs" />
     <Compile Include="Assets\Script\idou_mause.cs" />
     <Compile Include="Assets\Script\inkey.cs" />
     <Compile Include="Assets\Script\Item.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Script\kyoryu_ani.cs" />
     <Compile Include="Assets\Script\minigame.cs" />
     <Compile Include="Assets\Script\musi.cs" />
+    <Compile Include="Assets\Script\pasward.cs" />
     <Compile Include="Assets\Script\read.cs" />
     <Compile Include="Assets\Script\reba.cs" />
     <Compile Include="Assets\Script\rokaga.cs" />
@@ -81,25 +83,25 @@
     <Compile Include="Assets\Script\time.cs" />
     <Compile Include="Assets\Script\tyesuto.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity2019_16f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -285,13 +287,13 @@
       <HintPath>C:/Program Files/Unity2019_16f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>U:/github/tet/実物/Unity/Goodbye Unity/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/c0324/Documents/GitHub/tet/実物/Unity/Goodbye Unity/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity2019_16f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

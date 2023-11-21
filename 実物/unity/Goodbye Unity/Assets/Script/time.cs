@@ -18,6 +18,7 @@ public class time : MonoBehaviour
     [SerializeField] Text rast;
     [SerializeField] Text left;
     [SerializeField] Text goal;
+    [SerializeField] AudioSource moziutu;
     private string goal_text1;
     private string goal_text2;
     private string leftext;
@@ -38,6 +39,7 @@ public class time : MonoBehaviour
             if (n == 0)
             {
                 n = 5;
+                moziutu.Play();
                 left.text += leftext[0];
                 leftext = leftext.Substring(1);
                 kierumade = 360;

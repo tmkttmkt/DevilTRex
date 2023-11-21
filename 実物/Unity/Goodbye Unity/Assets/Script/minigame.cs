@@ -25,11 +25,13 @@ public class minigame : MonoBehaviour
     public GameObject osutoko2;
     public GameObject osutoko3;
     public GameObject move_gage;
+    ata a;
     RectTransform gage_rect;
 
     public Random random;
     private void Start()
     {
+        a = FindObjectOfType<ata>();
         osutoko1.transform.localPosition = new Vector3(Random.Range(-392f,381f), 90, 0);
         osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
         osutoko3.transform.localPosition = new Vector3(Random.Range(-392f, 381f), -60, 0);
@@ -54,7 +56,7 @@ public class minigame : MonoBehaviour
             start_flg = true;
             Canvas2.SetActive(start_flg);
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        else if (Input.GetKeyDown(KeyCode.I) && nanbonme < 4)
         {
             naame.text = "もうやめるのか？";
             Invoke("Owari", 3.5f);
@@ -75,7 +77,7 @@ public class minigame : MonoBehaviour
                 tugi_flg = true;
                 if (nanbonme == 1)
                 {
-                    if (move_gage.transform.localPosition.x + 20 > gage_rect.sizeDelta.x && move_gage.transform.localPosition.x - 20 < osutoko1.transform.localPosition.x && nanbonme == 1 && tugi_flg == true)
+                    if (move_gage.transform.localPosition.x - 10 <= osutoko1.transform.localPosition.x + 15 && osutoko1.transform.localPosition.x - 15 <= move_gage.transform.localPosition.x + 10 && nanbonme == 1 && tugi_flg == true)
                     {
                         tugi_flg = false;
                         nanbonme = 2;
@@ -98,7 +100,7 @@ public class minigame : MonoBehaviour
                 }
                 if (nanbonme == 2)
                 {
-                    if (move_gage.transform.localPosition.x + 20 > osutoko2.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko2.transform.localPosition.x && nanbonme == 2 && tugi_flg == true)//2本目
+                    if (move_gage.transform.localPosition.x - 10 <= osutoko2.transform.localPosition.x + 15 && osutoko2.transform.localPosition.x - 15 <= move_gage.transform.localPosition.x + 10 && nanbonme == 2 && tugi_flg == true)//2本目
                     {
                         tugi_flg = false;
                         nanbonme = 3;
@@ -128,7 +130,7 @@ public class minigame : MonoBehaviour
                 }
                 if (nanbonme == 3)
                 {
-                    if (move_gage.transform.localPosition.x + 20 > osutoko3.transform.localPosition.x && move_gage.transform.localPosition.x - 20 < osutoko3.transform.localPosition.x && nanbonme == 3 && tugi_flg == true)//3本目
+                    if (move_gage.transform.localPosition.x - 10 <= osutoko3.transform.localPosition.x + 15 && osutoko3.transform.localPosition.x - 15 <= move_gage.transform.localPosition.x + 10 && nanbonme == 3 && tugi_flg == true)//3本目
                     {
                         tugi_flg = false;
                         nanbonme = 4;
@@ -199,6 +201,10 @@ public class minigame : MonoBehaviour
         }
         return false;
         // "Player"タグを持つオブジェクトを検索
+    }
+    void aitem_add()
+    {
+        a.add_list(new Aitem("","", Resources.Load<Sprite>("シェルターのカギ")));
     }
 
 }

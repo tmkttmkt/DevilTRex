@@ -126,5 +126,9 @@ public class ata : MonoBehaviour
         bool hon_flg = it.Contains(txt1);
         return moti_flg && hon_flg;
     }
+    public void add_list(Aitem a)
+    {
+        items.Add(a);
+    }
 }
 

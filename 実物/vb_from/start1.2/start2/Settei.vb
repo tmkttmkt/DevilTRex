@@ -48,8 +48,9 @@ Public Class Settei
                         writer.WriteLine("speed=" + "2")
                     End If
                     writer.WriteLine("mu=" + "4")
-                    Label5.Text = "隠しコマンドが入力されました。"
+                    Label5.Text = "「どうして君はこうなんだ…」"
                     Label6.Text = "ティラノサウルスの蹂躙が始まる…"
+                    PictureBox1.Image = Image.FromFile("光るティラノ.png")
                 Else
                     writer.WriteLine("teki=" + TextBox1.Text)
                     If DomainUpDown1.Text = ss(0) Then
@@ -117,10 +118,14 @@ Public Class Settei
     End Sub
     Private Sub Button4_MouseEnter(sender As Object, e As EventArgs) Handles Label4.MouseEnter
         Label4.ForeColor = Color.Red
+        Label5.Text = "特に意味はなさそうだ。"
+        Label6.Text = "～三の次の数示唆なり。～"
     End Sub
     Private Sub Button4_MouseLeave(sender As Object, e As EventArgs) Handles Label4.MouseLeave
         If Not Label4.ClientRectangle.Contains(Label4.PointToClient(MousePosition)) Then
             Label4.ForeColor = Color.White
+            Label5.Text = "文字にカーソルを合わせると"
+            Label6.Text = "説明文が出ます。"
         End If
     End Sub
 
@@ -150,13 +155,15 @@ Public Class Settei
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         count += 1
         If count <= 15 Then
-            PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\光るティラノ.png")
+            PictureBox1.Image = Image.FromFile("光るティラノ.png")
         ElseIf count >= 16 Then
-            PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
+            PictureBox1.Image = Image.FromFile("設定画面.png")
             Label5.Text = "文字にカーソルを合わせると"
-            Label6.Text = "説明文が出ます1234。"
+            Label6.Text = "説明文が出ます。"
             My.Computer.Audio.Stop()
             Me.Hide()
+            Timer1.Stop()
+            count = 0
             Form1.Show()
             Timer1.Enabled = False
             count2 = 0
