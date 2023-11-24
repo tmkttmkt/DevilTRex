@@ -18,7 +18,7 @@ public class botton : MonoBehaviour
     {
         
     }
-    void onClick()
+    public void onClick()
     {
         Debug.Log("afshfgyauiufdafdyadwatfwdtfwtfatrdftwadfu7tf");
         suuzi += 1;

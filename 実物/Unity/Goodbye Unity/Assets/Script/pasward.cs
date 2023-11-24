@@ -1,13 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pasward : MonoBehaviour
 {
+   
+   
     [SerializeField] GameObject pass1;
     public GameObject plyerrr;
     float detectionRadius = 5f;
     bool pass_flg=false;
+    public Text t1;
+    public Text t2;
+    public Text t3;
+    public Text t4;
+    public Text t5;
+    public int suuzi1 = 0;
+    public int suuzi2 = 0;
+    public int suuzi3 = 0;
+    public int suuzi4 = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +54,65 @@ public class pasward : MonoBehaviour
             return false;
             // "Player"タグを持つオブジェクトを検索
         }
-    
+    /*public void onClick()
+    {
+        Debug.Log("afshfgyauiufdafdyadwatfwdtfwtfatrdftwadfu7tf");
+        suuzi1 += 1;
+        if (suuzi1 == 10)
+        {
+            suuzi1 = 0;
+        }
+        t1.text = t1.ToString();
+    }
+    public void onClick2()
+    {
+        Debug.Log("afshfgyauiufdafdyadwatfwdtfwtfatrdftwadfu7tf");
+        suuzi2 += 1;
+        if (suuzi2 == 10)
+        {
+            suuzi2 = 0;
+        }
+        t2.text = t2.ToString();
+    }
+    public void onClick3()
+    {
+        Debug.Log("afshfgyauiufdafdyadwatfwdtfwtfatrdftwadfu7tf");
+        suuzi3 += 1;
+        if (suuzi3 == 10)
+        {
+            suuzi3 = 0;
+        }
+        t3.text = t3.ToString();
+    }
+    public void onClick4()
+    {
+        Debug.Log("afshfgyauiufdafdyadwatfwdtfwtfatrdftwadfu7tf");
+        suuzi4 += 1;
+        if (suuzi4 == 10)
+        {
+            suuzi4 = 0;
+        }
+        t4.text = t4.ToString();
+    }*/
+    public void reset()
+    {
+        t4.text = "0";
+        t3.text = "0";
+        t2.text = "0";
+        t1.text = "0";
+    }
+    public void kettei()
+    {
+
+        if (t1.text == "0" && t2.text == "0" && t3.text == "0" && t4.text == "0" )
+        {
+            Debug.Log("OK");
+        }
+        else
+        {
+            Debug.Log("NO");
+        }
+        
+    }
+
 }
