@@ -16,7 +16,7 @@ Public Class Settei
         My.Computer.Audio.Play("何作ってるんだっけ.wav")
         PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
         Label5.Text = "文字にカーソルを合わせると"
-        Label6.Text = "説明文が出ます。1234"
+        Label6.Text = "説明文が出ます。"
         DomainUpDown1.Text = ss(0)
         DomainUpDown1.Items.Add(ss(0))
         DomainUpDown1.Items.Add(ss(1))
@@ -49,7 +49,7 @@ Public Class Settei
                     End If
                     writer.WriteLine("mu=" + "4")
                     Label5.Text = "「どうして君はこうなんだ…」"
-                    Label6.Text = "ティラノサウルスの蹂躙が始まる…"
+                    Label6.Text = "ティラノサウルスの蹂躙が始まる！"
                     PictureBox1.Image = Image.FromFile("光るティラノ.png")
                 Else
                     writer.WriteLine("teki=" + TextBox1.Text)
