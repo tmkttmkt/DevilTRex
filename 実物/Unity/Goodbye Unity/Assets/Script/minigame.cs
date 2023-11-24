@@ -170,6 +170,7 @@ public class minigame : MonoBehaviour
         {
             naame.text = "おめでとう";
             Invoke("Owari", 1f);
+            Invoke("aitem_add", 2f);
         }
         else
         {
@@ -204,7 +205,7 @@ public class minigame : MonoBehaviour
     }
     void aitem_add()
     {
-        a.add_list(new Aitem("","", Resources.Load<Sprite>("シェルターのカギ")));
+        a.add_list(new Aitem("最後のカギ","お前はすでに脱出に成功している", Resources.Load<Sprite>("シェルターのカギ")));
     }
 
 }

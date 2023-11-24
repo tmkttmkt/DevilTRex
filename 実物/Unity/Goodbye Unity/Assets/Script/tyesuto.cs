@@ -12,10 +12,12 @@ public class tyesuto : MonoBehaviour
     public GameObject plyerrr;
     public bool flg=true;
     float detectionRadius=5f;
+    ata a;
     // Start is called before the first frame update
     void Start()
     {
-        
+        a = FindObjectOfType<ata>();
+
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class tyesuto : MonoBehaviour
                 flg =false;
                 futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
                 futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
+                a.add_list(new Aitem("最後のカギh", "お前はすでに脱出に成功している\nhhhhh", Resources.Load<Sprite>("teki")));
             }
         }
         bool IsPlayerNear()
