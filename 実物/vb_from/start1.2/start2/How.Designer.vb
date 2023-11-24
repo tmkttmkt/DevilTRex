@@ -45,7 +45,6 @@ Partial Class How
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Label13 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -233,12 +232,12 @@ Partial Class How
         Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label11.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(16, 79)
+        Me.Label11.Location = New System.Drawing.Point(17, 62)
         Me.Label11.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(483, 38)
+        Me.Label11.Size = New System.Drawing.Size(483, 57)
         Me.Label11.TabIndex = 17
-        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "マウスカーソルで視点移動ができます。"
+        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "マウスカーソルで視点移動ができます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WASDで動かしてみましょう！"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label7
@@ -273,20 +272,6 @@ Partial Class How
         'Timer1
         '
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label12.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label12.Location = New System.Drawing.Point(1, 384)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(172, 38)
-        Me.Label12.TabIndex = 21
-        Me.Label12.Text = "やじるしが動きます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
         'Timer2
         '
         '
@@ -307,7 +292,6 @@ Partial Class How
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
@@ -369,7 +353,6 @@ Partial Class How
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label12 As Label
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Label13 As Label
 End Class
