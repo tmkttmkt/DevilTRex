@@ -33,6 +33,7 @@ Partial Class How3
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -102,7 +103,7 @@ Partial Class How3
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(240, 258)
+        Me.Label6.Location = New System.Drawing.Point(240, 244)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(556, 64)
         Me.Label6.TabIndex = 14
@@ -122,11 +123,22 @@ Partial Class How3
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(40, 258)
+        Me.PictureBox2.Location = New System.Drawing.Point(40, 244)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(194, 85)
         Me.PictureBox2.TabIndex = 16
         Me.PictureBox2.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label4.Location = New System.Drawing.Point(12, 344)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(718, 29)
+        Me.Label4.TabIndex = 17
+        Me.Label4.Text = "ミニゲームをしたり暗号を解いて、鍵を手に入れましょう！"
         '
         'How3
         '
@@ -134,6 +146,7 @@ Partial Class How3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label6)
@@ -163,4 +176,5 @@ Partial Class How3
     Friend WithEvents Label6 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label4 As Label
 End Class
