@@ -10,7 +10,7 @@ public class pasward : MonoBehaviour
     [SerializeField] GameObject pass1;
     public GameObject plyerrr;
     float detectionRadius = 5f;
-    bool pass_flg=false;
+    bool pass_flg=false, isPlayerNear;
     public Text t1;
     public Text t2;
     public Text t3;
@@ -29,15 +29,26 @@ public class pasward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (IsPlayerNear() && Input.GetKeyDown(KeyCode.G))
+        isPlayerNear = IsPlayerNear();
+        // エンターキーが押されたら白い画面を表示
+        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && !pass_flg)
         {
+
+            t5.text = "Gキーで黒いところに止めろ!";
             pass_flg = true;
-            pass1.SetActive(pass_flg);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-           
+            pass1.SetActive(pass_flg);
         }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            t5.text = "もうやめるのか？";
+            Invoke("Owari", 3.5f);
+
+        }
+
+
+
   
     }
         bool IsPlayerNear()
@@ -94,6 +105,13 @@ public class pasward : MonoBehaviour
         }
         t4.text = t4.ToString();
     }*/
+    public void Owari()
+    {
+        pass_flg = false;
+        pass1.SetActive(pass_flg);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void reset()
     {
         t4.text = "0";
@@ -103,7 +121,6 @@ public class pasward : MonoBehaviour
     }
     public void kettei()
     {
-
         if (t1.text == "0" && t2.text == "0" && t3.text == "0" && t4.text == "0" )
         {
             Debug.Log("OK");
