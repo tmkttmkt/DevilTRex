@@ -141,7 +141,7 @@ public class ata : MonoBehaviour
             if (a != null) items.Remove(a);
             if (b != null) items.Remove(b);
             if (c != null) items.Remove(c);
-            Aitem ii = new Aitem("ras_kan", "最後に生きてます", Resources.Load<Sprite>("シェルターのカギ"));
+            Aitem ii = new Aitem("ras_kan", "最後に生きてます", Resources.Load<Sprite>("出口の鍵"));
             items.Add(ii);
             ti.set_text("鍵を手に入れた");
         }

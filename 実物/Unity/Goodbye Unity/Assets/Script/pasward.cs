@@ -20,10 +20,12 @@ public class pasward : MonoBehaviour
     public int suuzi2 = 0;
     public int suuzi3 = 0;
     public int suuzi4 = 0;
+    ata a;
     // Start is called before the first frame update
     void Start()
     {
-        
+        a = FindObjectOfType<ata>();
+
     }
 
     // Update is called once per frame
@@ -129,7 +131,7 @@ public class pasward : MonoBehaviour
         {
             Debug.Log("NO");
         }
-        
+        a.add_list(new Aitem("key", "お前はすでに脱出に成功している", Resources.Load<Sprite>("出口の本体")));
     }
 
 }
