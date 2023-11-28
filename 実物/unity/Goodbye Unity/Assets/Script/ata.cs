@@ -80,24 +80,29 @@ public class ata : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            gousei();
+            syeru_key_gousei();
+            saisyu_key_gousei();
             it.gousei_flg();
         }
 
     }
-    void gousei()
+    List<String>  mozilis()
     {
         List<String> it = new List<String>();
-
-        foreach(Aitem ai in items)
+        foreach (Aitem ai in items)
         {
             it.Add(ai.name);
             Debug.Log(ai.name);
         }
+        return it;
+    }
+    void syeru_key_gousei()
+    {
+        List<String> it = mozilis();
+
+
         bool moti_flg = it.Contains("mo");
         bool hon_flg = it.Contains("hon");
-        Debug.Log(moti_flg);
-        Debug.Log(hon_flg);
         if (moti_flg&& hon_flg)
         {
             Aitem a = null;
@@ -114,6 +119,33 @@ public class ata : MonoBehaviour
             ti.set_text("鍵を手に入れた");
         }
     }
+    void saisyu_key_gousei()
+    {
+        List<String> it = mozilis();
+
+
+        bool key_flg = it.Contains("key");
+        bool aron_flg = it.Contains("aron");
+        bool motit_flg = it.Contains("motit");
+        if (aron_flg && key_flg &&　motit_flg)
+        {
+            Aitem a = null;
+            Aitem b = null;
+            Aitem c = null;
+            foreach (Aitem ai in items)
+            {
+                if (ai.name == "key") a = ai;
+                if (ai.name == "aron") b = ai;
+                if (ai.name == "motit") c = ai;
+            }
+            if (a != null) items.Remove(a);
+            if (b != null) items.Remove(b);
+            if (c != null) items.Remove(c);
+            Aitem ii = new Aitem("ras_kan", "最後に生きてます", Resources.Load<Sprite>("出口の鍵"));
+            items.Add(ii);
+            ti.set_text("鍵を手に入れた");
+        }
+    }
     bool kensaku(string txt2, string txt1)
     {
         List<String> it = new List<String>();
@@ -125,6 +157,19 @@ public class ata : MonoBehaviour
         bool moti_flg = it.Contains(txt2);
         bool hon_flg = it.Contains(txt1);
         return moti_flg && hon_flg;
+    }
+    bool kensaku(string txt2, string txt1, string txt3)
+    {
+        List<String> it = new List<String>();
+
+        foreach (Aitem ai in items)
+        {
+            it.Add(ai.name);
+        }
+        bool flg1 = it.Contains(txt2);
+        bool flg2 = it.Contains(txt1);
+        bool flg3 = it.Contains(txt3);
+        return flg2 && flg1 & flg3;
     }
     public void add_list(Aitem a)
     {
