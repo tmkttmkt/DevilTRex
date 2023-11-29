@@ -30,7 +30,7 @@ public class tyesuto : MonoBehaviour
                 flg =false;
                 futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
                 futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
-                a.add_list(new Aitem("最後のカギh", "お前はすでに脱出に成功している\nhhhhh", Resources.Load<Sprite>("teki")));
+                a.add_list(new Aitem("aron", "東京電機大学指定校推薦よっしゃーーー！\nhhhhh", Resources.Load<Sprite>("アボンアルファ")));
             }
         }
         bool IsPlayerNear()
