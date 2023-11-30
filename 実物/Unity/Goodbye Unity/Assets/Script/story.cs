@@ -139,7 +139,7 @@ public class story : MonoBehaviour
     {
         ti.set_text("なんだろう何かの紙切れがある。\n！？これは、この字は、青木、佐々木の字？!");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("これは、青木、佐々木、の伝言!?\nなんて書いてあるんだろう・・・・\n「ごめん高橋・・俺らは思えをとん\nでもない目に巻き込ませてしまったかも\nしれない・・・・");
+        ti.set_text("これは、青木、佐々木、の伝言!?\nなんて書いてあるんだろう・・・・\n「ごめん高橋・・俺らはお前をとん\nでもない目に巻き込ませてしまったかも\nしれない・・・・");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("これはうわさを信じなかった俺ら\nの責任だ。実はこの屋敷には。過去に\n実在した、巨大生物の幽霊がうろ追って\nいるという噂があった");
         yield return new WaitForSeconds(4.0f);
