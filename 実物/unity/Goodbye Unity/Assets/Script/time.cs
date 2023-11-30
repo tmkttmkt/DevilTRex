@@ -67,7 +67,7 @@ public class time : MonoBehaviour
         timerValue -= Time.deltaTime;
         if (Tre_eat)
         {
-            if (eat_time - timerValue > 5f)
+            if (eat_time - timerValue > 2f)
             {
                 ProcessStartInfo pInfo = new ProcessStartInfo();
                 pInfo.FileName = "tekitou.txt";

@@ -105,7 +105,7 @@ public class story : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         ti.set_text("カギ・・・・・それらしきものでも\n探してみるか？・・・\nまるで俺の立場を知っているかのような文章だ・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("なんだろう、落書きかとも思ったがそのようには見えない。");
+        ti.set_text("なんだろう、落書きかとも思ったが\nそのようには見えない。");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("おそらく何かの伝言かもしれない、\n期待はしないが参考にし\nて探索してみよう");
         yield return new WaitForSeconds(4.0f);

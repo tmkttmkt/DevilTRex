@@ -64,16 +64,18 @@ public class ata : MonoBehaviour
                         Aitem ii = new Aitem(script.ID, script.exem,script.sp);
                         items.Add(ii);
                         ti.set_text(script.strname + "を手に入れた");
-                        if (kensaku("mm", "hon")) st.key_flg();
+                        if (kensaku("mo", "hon")) st.key_flg();
                     }
                 }
                 inkey scr = hitObject.GetComponent<inkey>();
                 if (scr != null)
                 {
-                    if (st.iventID == 6)
+                    List<String> it = mozilis();
+                    if(it.Contains("kan"))
                     {
                         scr.open();
                         st.syeruta_flg();
+                        del_list("kan");
                     }
                 }
             }
@@ -174,6 +176,16 @@ public class ata : MonoBehaviour
     public void add_list(Aitem a)
     {
         items.Add(a);
+    }
+    public void del_list(string nam)
+    {
+        Aitem a = null;
+        foreach (Aitem ai in items)
+        {
+            if (ai.name == nam) a = ai;
+        }
+        if (a != null) items.Remove(a);
+
     }
 }
 
