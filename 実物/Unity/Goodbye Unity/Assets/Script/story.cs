@@ -64,7 +64,7 @@ public class story : MonoBehaviour
         if (iventID == 6)
         {
             iventID = 7;
-            StartCoroutine(key_ibent());
+            StartCoroutine(syeruta_ibent());
         }
     }
     public void denngonn_flg()
@@ -72,7 +72,7 @@ public class story : MonoBehaviour
         if (iventID == 8)
         {
             iventID = 9;
-            StartCoroutine(key_ibent());
+            StartCoroutine(denngonn_ibent());
         }
     }
     IEnumerator start_ibent()
@@ -105,7 +105,7 @@ public class story : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         ti.set_text("カギ・・・・・それらしきものでも\n探してみるか？・・・\nまるで俺の立場を知っているかのような文章だ・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("なんだろう、落書きかとも思ったがそのようには見えない。");
+        ti.set_text("なんだろう、落書きかとも思ったが\nそのようには見えない。");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("おそらく何かの伝言かもしれない、\n期待はしないが参考にし\nて探索してみよう");
         yield return new WaitForSeconds(4.0f);
@@ -115,29 +115,31 @@ public class story : MonoBehaviour
     }
     IEnumerator key_ibent()
     {
-        ti.set_text("あれ・・・３つカギを見つけたが、\nこの３つの鍵、それぞれく\nぼみがある。");
+        ti.set_text("この、二つのパーツ、もしかして、\n同じ鍵のパーツなんだろうか？");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("あ！３つのカギを組み合わせること\nができた。でも、組み合わせ\nたらなんか、鍵みたいな形になったな？");
+        ti.set_text("上手く組み合わせれば、新しいアイ\nテムが作れるかもしれない");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("開かない扉や箱とかって、どこかに\nあったっけ？");
+        ti.set_text("二つのアイテムをくっつけてみよう\nかな？、そしたら、何かの手掛かりが\n見つかるかもしれない");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("２階につながる階段へ向かおう");
         iventID = 6;
     }
     IEnumerator syeruta_ibent()
     {
-        ti.set_text("よく見たら、このシェルター、今\n持っている鍵がはまりそうな鍵\n穴がある、ちょっとはめてみよう");
+        ti.set_text("あ！、シェルターらしきかべが\nさっき合成させた、鍵を使ったら\n開いたぞ！");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("あ！シェルターが開いた！、なぜ\nだ？さっき、鍵を差し込んだから\nかな？、奥はどうなっているんだろう・・・");
+        ti.set_text("あれは、シェルターの鍵だったのか\nずいぶん変わったもんだ・・・\nとりあえずシェルターの奥は\nどうなっているんだろう・・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行け\nば出口でもあるのだろうか・・・・・いそいで探索してみよう！");
+        ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行け\nば出口でもあるのだろうか\n・・・・・いそいで探索してみよう！");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("1階2階を探索してみよう");
         iventID = 8;
     }
     IEnumerator denngonn_ibent()
     {
-        ti.set_text("「これは、青木、佐々木、の伝言\n！？ごめん高橋・・俺らは思えをとん\nでもない目に巻き込ませてしまったかも\nしれない・・・・");
+        ti.set_text("なんだろう何かの紙切れがある。\n！？これは、この字は、青木、佐々木の字？!");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("これは、青木、佐々木、の伝言!?\nなんて書いてあるんだろう・・・・\n「ごめん高橋・・俺らはお前をとん\nでもない目に巻き込ませてしまったかも\nしれない・・・・");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("これはうわさを信じなかった俺ら\nの責任だ。実はこの屋敷には。過去に\n実在した、巨大生物の幽霊がうろ追って\nいるという噂があった");
         yield return new WaitForSeconds(4.0f);
@@ -147,19 +149,19 @@ public class story : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         ti.set_text("もしお前が生きていたら、ここに\n書いた文章をよく目に刻んでくれ。出口\nは1階にある");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("そして、この屋敷には３つ出口の\nカギを開けるためのカギがあるみたい\nなんだ。それを見つけたら急いで出口に\n迎え、そしたら・・・・・・」");
+        ti.set_text("そして、この屋敷にはうわさが正\nしければ必ずカギを開けるためのカギがある\nはずなんだ。それを見つけたら急いで出口に\n迎え、そしたら・・・・・・」");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("文章はここで切れている。なるほ\nど、俺があの時に止めていれば。くそ！\n伝言が書かれた紙には佐々木と、青木の\nものと思われる血がついている");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("鍵・・を見つけたらと書いてあった\nか、3Fと4Fはすでに探索し終わったか\nら、1F2Fに鍵がないか探してみよう、\n急ごう！");
+        ti.set_text("鍵・・を見つけたらと書いてあった\nうわさが正しければ必ずあるはず。。か\n・・とにかく急ごう！、深く考えている\n暇はない・・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_goal_only("2階につながる階段に向かおう");
+        ti.set_goal_only("鍵を探そう");
         iventID = 10;
 
     }
     IEnumerator deguti_ibent()
     {
-        ti.set_text("よし！これで３つだ！ここから、急いで脱出しよう、脱出しよう！！！！！！！！！！");
+        ti.set_text("あ！！、鍵を手に入れることが\nできた、おそらくこれは出口の鍵脱出しよう\n、脱出しよう！！！！！！！！！！");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("脱出しよう");
     }

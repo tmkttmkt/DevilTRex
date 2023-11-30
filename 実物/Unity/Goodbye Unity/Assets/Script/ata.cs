@@ -64,16 +64,18 @@ public class ata : MonoBehaviour
                         Aitem ii = new Aitem(script.ID, script.exem,script.sp);
                         items.Add(ii);
                         ti.set_text(script.strname + "を手に入れた");
-                        if (kensaku("mm", "hon")) st.key_flg();
+                        if (kensaku("mo", "hon")) st.key_flg();
                     }
                 }
                 inkey scr = hitObject.GetComponent<inkey>();
                 if (scr != null)
                 {
-                    if (st.iventID == 6)
+                    List<String> it = mozilis();
+                    if(it.Contains("kan"))
                     {
                         scr.open();
                         st.syeruta_flg();
+                        del_list("kan");
                     }
                 }
             }
@@ -114,7 +116,7 @@ public class ata : MonoBehaviour
             }
             if(a!=null)items.Remove(a);
             if (b != null)items.Remove(b);
-            Aitem ii = new Aitem("kan","生きてます", Resources.Load<Sprite>("シェルターのカギ"));
+            Aitem ii = new Aitem("kan","この鍵を使えばシェルターを開けることができそうだ", Resources.Load<Sprite>("シェルターのカギ"));
             items.Add(ii);
             ti.set_text("鍵を手に入れた");
         }
@@ -141,7 +143,7 @@ public class ata : MonoBehaviour
             if (a != null) items.Remove(a);
             if (b != null) items.Remove(b);
             if (c != null) items.Remove(c);
-            Aitem ii = new Aitem("ras_kan", "最後に生きてます", Resources.Load<Sprite>("出口の鍵"));
+            Aitem ii = new Aitem("ras_kan", "この鍵を持って、急いで出口に向かおう", Resources.Load<Sprite>("出口の鍵"));
             items.Add(ii);
             ti.set_text("鍵を手に入れた");
         }
@@ -174,6 +176,16 @@ public class ata : MonoBehaviour
     public void add_list(Aitem a)
     {
         items.Add(a);
+    }
+    public void del_list(string nam)
+    {
+        Aitem a = null;
+        foreach (Aitem ai in items)
+        {
+            if (ai.name == nam) a = ai;
+        }
+        if (a != null) items.Remove(a);
+
     }
 }
 
