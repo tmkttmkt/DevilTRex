@@ -47,6 +47,7 @@ Partial Class How
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,7 +96,7 @@ Partial Class How
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(210, 122)
+        Me.Label3.Location = New System.Drawing.Point(207, 122)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 30)
         Me.Label3.TabIndex = 3
@@ -200,7 +201,7 @@ Partial Class How
         'PictureBox6
         '
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(578, 79)
+        Me.PictureBox6.Location = New System.Drawing.Point(565, 67)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(172, 163)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -220,11 +221,11 @@ Partial Class How
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Britannic Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label9.Location = New System.Drawing.Point(624, 248)
+        Me.Label9.Location = New System.Drawing.Point(594, 233)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(74, 27)
+        Me.Label9.Size = New System.Drawing.Size(121, 27)
         Me.Label9.TabIndex = 16
-        Me.Label9.Text = "↑Get!!"
+        Me.Label9.Text = "↑Locker in"
         '
         'Label11
         '
@@ -232,12 +233,12 @@ Partial Class How
         Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label11.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(17, 62)
+        Me.Label11.Location = New System.Drawing.Point(17, 67)
         Me.Label11.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(483, 57)
+        Me.Label11.Size = New System.Drawing.Size(483, 38)
         Me.Label11.TabIndex = 17
-        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "マウスカーソルで視点移動ができます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WASDで動かしてみましょう！"
+        Me.Label11.Text = "WASDで移動します。エンターキーはロッカーにも入れます。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WASDで動かしてみましょう！"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label7
@@ -285,12 +286,24 @@ Partial Class How
         Me.Label13.TabIndex = 22
         Me.Label13.Text = "Label13"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("AR P行楷書体H", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label12.Location = New System.Drawing.Point(488, 15)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(192, 35)
+        Me.Label12.TabIndex = 23
+        Me.Label12.Text = "(基本操作)"
+        '
         'How
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.Label11)
@@ -355,4 +368,5 @@ Partial Class How
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
 End Class
