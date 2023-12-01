@@ -11,7 +11,8 @@ public class story : MonoBehaviour
     private string serihu;
     private int dannraku; 
     private int serihubamenn;
-    public int iventID=0;
+    private int iventID=0;
+    public int ID { get; }
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +34,6 @@ public class story : MonoBehaviour
         {
             if (collision.gameObject == start)
             {
-
-                iventID = 1;
                 StartCoroutine(start_ibent());
                 start_kabe.SetActive(true);
 
@@ -46,7 +45,6 @@ public class story : MonoBehaviour
     {
         if (iventID == 2)
         {
-            iventID = 3;
             StartCoroutine(map_ibent());
         }
     }
@@ -54,7 +52,6 @@ public class story : MonoBehaviour
     {
         if (iventID == 4)
         {
-            iventID = 5;
             StartCoroutine(key_ibent());
         }
     }
@@ -63,7 +60,6 @@ public class story : MonoBehaviour
     {
         if (iventID == 6)
         {
-            iventID = 7;
             StartCoroutine(syeruta_ibent());
         }
     }
@@ -71,12 +67,67 @@ public class story : MonoBehaviour
     {
         if (iventID == 8)
         {
-            iventID = 9;
             StartCoroutine(denngonn_ibent());
         }
     }
+    public void minigame_flg()
+    {
+        if (iventID == 10)
+        {
+            StartCoroutine(minigame_ibent(15));
+        }
+        if (iventID == 16)
+        {
+            StartCoroutine(minigame_ibent(18));
+        }
+        if (iventID == 17)
+        {
+            StartCoroutine(minigame_ibent(19));
+        }
+    }
+    public void reba_flg()
+    {
+        if (iventID==10) 
+        {
+            StartCoroutine(reba_ibent(16));
+        }
+        if (iventID == 15)
+        {
+            StartCoroutine(reba_ibent(18));
+        }
+    }
+    public void angou_flg()
+    {
+        if (iventID == 16)
+        {
+            StartCoroutine(angou_ibent(17));
+        }
+        if (iventID == 18)
+        {
+            StartCoroutine(angou_ibent(19));
+        }
+    }
+    /* スタート:0
+     * 入る.event:1
+     * 地図探す:2
+     * 地図見つけ.event:3
+     * 鍵探し:4
+     * 鍵合成.event:5
+     * 移動:6
+     * シェルター.event:7
+     * 探索:8
+     * 伝言.event:9
+     * 最後の鍵探し:10
+     * --------------------------------------------------------作った
+     * アボン.event11、最初の鍵パーツ.event12、最後の鍵パーツ.event14、
+     * アボンはあるが鍵がない:15、鍵は片方あるがアボンがない:16、鍵は両方あるがアボンがない:17
+     * 最後の鍵パーツ以外ある18、両方ある:19
+     * 最後の鍵.event:20
+     * 最後の鍵合成:21
+     */
     IEnumerator start_ibent()
     {
+        iventID = 1;
         mus.kihon_flg();
         transform.position = new Vector3(67.74f, 21.38f, 80.149f);
         ti.set_text("いったい何があったんだ、青木は?\n佐々木は？みんなどこ行ったんだ！");
@@ -94,7 +145,7 @@ public class story : MonoBehaviour
     }
     IEnumerator map_ibent()
     {
-
+        iventID = 3;
         ti.set_text("こんなところに、ハザードマップ\nが張られてある、おそらくこの\n建物は探索した感じ、学校のようだ");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("ただ学校の位置を地図で確かめた\n感じ、おそらく佐々木たちがいる\n場所とは違う所にいる・・");
@@ -115,6 +166,7 @@ public class story : MonoBehaviour
     }
     IEnumerator key_ibent()
     {
+        iventID = 5;
         ti.set_text("この、二つのパーツ、もしかして、\n同じ鍵のパーツなんだろうか？");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("上手く組み合わせれば、新しいアイ\nテムが作れるかもしれない");
@@ -126,6 +178,7 @@ public class story : MonoBehaviour
     }
     IEnumerator syeruta_ibent()
     {
+        iventID = 7;
         ti.set_text("あ！、シェルターらしきかべが\nさっき合成させた、鍵を使ったら\n開いたぞ！");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("あれは、シェルターの鍵だったのか\nずいぶん変わったもんだ・・・\nとりあえずシェルターの奥は\nどうなっているんだろう・・・");
@@ -137,6 +190,7 @@ public class story : MonoBehaviour
     }
     IEnumerator denngonn_ibent()
     {
+        iventID = 9;
         ti.set_text("なんだろう何かの紙切れがある。\n！？これは、この字は、青木、佐々木の字？!");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("これは、青木、佐々木、の伝言!?\nなんて書いてあるんだろう・・・・\n「ごめん高橋・・俺らはお前をとん\nでもない目に巻き込ませてしまったかも\nしれない・・・・");
@@ -157,6 +211,38 @@ public class story : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("鍵を探そう");
         iventID = 10;
+
+    }
+    IEnumerator minigame_ibent(int next)
+    {
+        iventID = 11;
+        ti.set_text("なんだろうタンヌなんだろう");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("なんだろう何かの紙切れがある");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("！？これは、この字は、青木、佐々木の字？!");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("なんだろう！？これは、青木、佐々木？!");
+        yield return new WaitForSeconds(2.0f);
+
+        iventID = next;
+    }
+    IEnumerator reba_ibent(int next)
+    {
+        iventID = 12;
+        ti.set_text("なんだろうタンヌなんだろう");
+        yield return new WaitForSeconds(2.0f);
+        iventID = next;
+        iventID = next;
+
+    }
+    IEnumerator angou_ibent(int next)
+    {
+        iventID = 14;
+        ti.set_text("なんだろうタンヌなんだろう");
+        yield return new WaitForSeconds(2.0f);
+        iventID = next;
+        iventID = next;
 
     }
     IEnumerator deguti_ibent()

@@ -26,12 +26,14 @@ public class minigame : MonoBehaviour
     public GameObject osutoko3;
     public GameObject move_gage;
     ata a;
+    story st;
     RectTransform gage_rect;
 
     public Random random;
     private void Start()
     {
         a = FindObjectOfType<ata>();
+        st = FindObjectOfType<story>();
         osutoko1.transform.localPosition = new Vector3(Random.Range(-392f,381f), 90, 0);
         osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
         osutoko3.transform.localPosition = new Vector3(Random.Range(-392f, 381f), -60, 0);
@@ -171,6 +173,7 @@ public class minigame : MonoBehaviour
             naame.text = "おめでとう";
             Invoke("Owari", 1f);
             Invoke("aitem_add", 2f);
+            aitem_add();
         }
         else
         {
