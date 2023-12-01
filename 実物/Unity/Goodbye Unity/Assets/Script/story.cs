@@ -107,6 +107,20 @@ public class story : MonoBehaviour
             StartCoroutine(angou_ibent(19));
         }
     }
+    public void saigousei_flg()
+    {
+        if (iventID == 19)
+        {
+            StartCoroutine(saigousei_ibent());
+        }
+    }
+    public void deguti_flg()
+    {
+        if (iventID == 21)
+        {
+            StartCoroutine(deguti_ibent());
+        }
+    }
     /* スタート:0
      * 入る.event:1
      * 地図探す:2
@@ -124,6 +138,7 @@ public class story : MonoBehaviour
      * 最後の鍵パーツ以外ある18、両方ある:19
      * 最後の鍵.event:20
      * 最後の鍵合成:21
+     * 出口.event:22
      */
     IEnumerator start_ibent()
     {
@@ -245,11 +260,20 @@ public class story : MonoBehaviour
         iventID = next;
 
     }
+    IEnumerator saigousei_ibent()
+    {
+        iventID = 20;
+        ti.set_text("なんだろうタンヌなんだろう");
+        yield return new WaitForSeconds(2.0f);
+        iventID = 21;
+
+    }
     IEnumerator deguti_ibent()
     {
+        iventID = 22;
         ti.set_text("あ！！、鍵を手に入れることが\nできた、おそらくこれは出口の鍵脱出しよう\n、脱出しよう！！！！！！！！！！");
         yield return new WaitForSeconds(4.0f);
-        ti.set_goal_only("脱出しよう");
+        ti.flg_fin();
     }
 
 

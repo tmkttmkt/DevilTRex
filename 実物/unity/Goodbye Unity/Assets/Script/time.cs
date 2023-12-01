@@ -153,5 +153,12 @@ public class time : MonoBehaviour
 
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+    public void flg_fin()
+    {
+        ProcessStartInfo pInfo = new ProcessStartInfo();
+        pInfo.FileName = "tekitou.txt";
+        Process.Start(pInfo);
+        end_def();
+    }
 }
 
