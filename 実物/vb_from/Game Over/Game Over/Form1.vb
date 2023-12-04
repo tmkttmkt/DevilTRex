@@ -1,4 +1,6 @@
 ﻿Imports System.Media
+Imports AxWMPLib
+
 Public Class Form1
     Public count As Integer
     Public count2 As Integer
@@ -10,34 +12,12 @@ Public Class Form1
         player.Play()
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Label1.BackColor = Color.Transparent
-        PictureBox1.BackgroundImage = Image.FromFile("game.png")
-        PictureBox1.Image = Image.FromFile("suna3.gif")
-        PictureBox2.Image = Image.FromFile("Game_Over_Button.png")
-        Label1.BackColor = Color.Transparent
-        Timer1.Start()
-        AxWindowsMediaPlayer1.URL = "terano3.mp4"
-        AxWindowsMediaPlayer1.Ctlcontrols.play()
+
     End Sub
 
 
 
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        ' ボタンの位置とサイズを取得
-        count += 1
-        If count >= 49 Then
-            AxWindowsMediaPlayer1.Ctlcontrols.pause()
-            If count = 70 Then
-                Timer2.Enabled = True
-                PlayWavFile("suna.wav")
-                Timer1.Stop()
-                PictureBox2.Visible = True
-                PictureBox1.Visible = True
-                Label1.Visible = True
-            End If
-        End If
-    End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         Try
@@ -54,5 +34,28 @@ Public Class Form1
             PlayWavFile("suna.wav")
             count2 = 0
         End If
+    End Sub
+
+    Private Sub AxWindowsMediaPlayer1_PlayStateChange(sender As Object, e As _WMPOCXEvents_PlayStateChangeEvent) Handles AxWindowsMediaPlayer1.PlayStateChange
+        If AxWindowsMediaPlayer1.playState = WMPLib.WMPPlayState.wmppsMediaEnded Then
+            Timer2.Enabled = True
+            PlayWavFile("suna.wav")
+            Timer1.Stop()
+            PictureBox2.Visible = True
+            PictureBox1.Visible = True
+            Label1.Visible = True
+        End If
+    End Sub
+
+    Private Sub AxWindowsMediaPlayer1_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        Label1.BackColor = Color.Transparent
+        Label3.Visible = False
+        PictureBox1.BackgroundImage = Image.FromFile("game.png")
+        PictureBox1.Image = Image.FromFile("suna3.gif")
+        PictureBox2.Image = Image.FromFile("Game_Over_Button.png")
+        Label1.BackColor = Color.Transparent
+        Timer1.Start()
+        AxWindowsMediaPlayer1.URL = "terano3.mp4"
+        AxWindowsMediaPlayer1.Ctlcontrols.play()
     End Sub
 End Class
