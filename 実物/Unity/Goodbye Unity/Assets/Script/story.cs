@@ -102,6 +102,10 @@ public class story : MonoBehaviour
         {
             StartCoroutine(angou_ibent(17));
         }
+        if (iventID == 10)
+        {
+            StartCoroutine(angou_ibent(16));
+        }
         if (iventID == 18)
         {
             StartCoroutine(angou_ibent(19));
@@ -245,18 +249,24 @@ public class story : MonoBehaviour
     IEnumerator reba_ibent(int next)
     {
         iventID = 12;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("あれ？、さっきまで空いていな\nかったはずの箱のふたが開いている！");
         yield return new WaitForSeconds(2.0f);
-        iventID = next;
+        ti.set_text("何の箱だろう、中身を見てみよ\nう・・・・これは超強力接着剤、アボ\nンアルファ！");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("そういえば、佐々木たちの伝言\n1Fから4Fにあるレバーを引くといいみ\nたいことも書かれてたな、もしかしてすべて\nの階にあるレバーを引いたから開いたのか");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("とりあえずこれで、新しいアイ\nテムも手に入った、このアボンアルフ\nァも活用すれば何かのアイテム同士合体でき\nるかもしれない・・・・・・・・・・・・");
+        yield return new WaitForSeconds(2.0f);
         iventID = next;
 
     }
     IEnumerator angou_ibent(int next)
     {
         iventID = 14;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("あ！、チェストのロックが解除\nされたぞ！中にはいったい何が入って\nいるのだろうか？");
         yield return new WaitForSeconds(2.0f);
-        iventID = next;
+        ti.set_text("針金？・・・何かの鍵？の差込\n口みたいだ、もしかしてまたこれで新\nしく鍵を作ることができるかもしれない");
+        yield return new WaitForSeconds(2.0f);
         iventID = next;
 
     }
