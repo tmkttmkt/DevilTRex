@@ -33,6 +33,7 @@ public class tyesuto : MonoBehaviour
                 futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
                 futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
                 a.add_list(new Aitem("aron", "東京電機大学指定校推薦よっしゃーーー！\nhhhhh", Resources.Load<Sprite>("アボンアルファ")));
+                a.del_list("dengon");
                 st.reba_flg();
             }
         }
