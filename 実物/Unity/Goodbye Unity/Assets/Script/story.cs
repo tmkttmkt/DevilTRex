@@ -235,15 +235,15 @@ public class story : MonoBehaviour
     IEnumerator minigame_ibent(int next)
     {
         iventID = 11;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("なんだろう、どうやらミニゲームが\n遊べる機会の下から、新しい\nアイテムが出てきたぞ");
         yield return new WaitForSeconds(2.0f);
-        ti.set_text("なんだろう何かの紙切れがある");
+        ti.set_text("いったいこれは何だろう、何かのパ\nーツに見えるな、後で使える\nかもしれない、念のため\n持っておこう");
         yield return new WaitForSeconds(2.0f);
-        ti.set_text("！？これは、この字は、青木、佐々木の字？!");
+        ti.set_text("でもなんだろう？画面に何かが表示\nされている、4けたの数字？\nもしかしたら何かのパスワ\nードの数値かもしれない");
         yield return new WaitForSeconds(2.0f);
-        ti.set_text("なんだろう！？これは、青木、佐々木？!");
+        ti.set_text("この数値も頭に入れながら探索して\nいこうかな、どんどん探索を\n進めていこう");
         yield return new WaitForSeconds(2.0f);
-
+        
         iventID = next;
     }
     IEnumerator reba_ibent(int next)
@@ -273,15 +273,18 @@ public class story : MonoBehaviour
     IEnumerator saigousei_ibent()
     {
         iventID = 20;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("おや？・・・・・お・・・・\n！！・・・・・・・・・・・・・・・・！");
         yield return new WaitForSeconds(2.0f);
+        ti.set_text("あ！！、鍵を手に入れること\nできた、おそらくこれは出口の鍵だ！！");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("これを使えば、出口の扉を開\nけれるかもしれない・・・・・早速向かおう");
         iventID = 21;
 
     }
     IEnumerator deguti_ibent()
     {
         iventID = 22;
-        ti.set_text("あ！！、鍵を手に入れることが\nできた、おそらくこれは出口の鍵脱出しよう\n、脱出しよう！！！！！！！！！！");
+        ti.set_text("よし！これで大丈夫だ！、帰れるぞ！");
         yield return new WaitForSeconds(4.0f);
         ti.flg_fin();
     }
