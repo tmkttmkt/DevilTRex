@@ -9,6 +9,7 @@ public class tyesuto : MonoBehaviour
     [SerializeField] reba reba3;
     [SerializeField] reba reba4;
     [SerializeField] GameObject futa;
+    story st;
     public GameObject plyerrr;
     public bool flg=true;
     float detectionRadius=5f;
@@ -16,6 +17,7 @@ public class tyesuto : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        st = FindObjectOfType<story>();
         a = FindObjectOfType<ata>();
 
     }
@@ -23,7 +25,7 @@ public class tyesuto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPlayerNear() && Input.GetKeyDown(KeyCode.G))
+        if (IsPlayerNear())
         {
             if(reba1.flg && reba2.flg && reba3.flg && reba4.flg && flg)
             {
@@ -31,6 +33,7 @@ public class tyesuto : MonoBehaviour
                 futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
                 futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
                 a.add_list(new Aitem("aron", "東京電機大学指定校推薦よっしゃーーー！\nhhhhh", Resources.Load<Sprite>("アボンアルファ")));
+                st.reba_flg();
             }
         }
         bool IsPlayerNear()

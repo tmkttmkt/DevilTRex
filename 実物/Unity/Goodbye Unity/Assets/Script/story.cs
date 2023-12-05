@@ -102,6 +102,10 @@ public class story : MonoBehaviour
         {
             StartCoroutine(angou_ibent(17));
         }
+        if (iventID == 10)
+        {
+            StartCoroutine(angou_ibent(16));
+        }
         if (iventID == 18)
         {
             StartCoroutine(angou_ibent(19));
@@ -231,47 +235,56 @@ public class story : MonoBehaviour
     IEnumerator minigame_ibent(int next)
     {
         iventID = 11;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("なんだろう、どうやらミニゲームが\n遊べる機会の下から、新しい\nアイテムが出てきたぞ");
         yield return new WaitForSeconds(2.0f);
-        ti.set_text("なんだろう何かの紙切れがある");
+        ti.set_text("いったいこれは何だろう、何かのパ\nーツに見えるな、後で使える\nかもしれない、念のため\n持っておこう");
         yield return new WaitForSeconds(2.0f);
-        ti.set_text("！？これは、この字は、青木、佐々木の字？!");
+        ti.set_text("でもなんだろう？画面に何かが表示\nされている、4けたの数字？\nもしかしたら何かのパスワ\nードの数値かもしれない");
         yield return new WaitForSeconds(2.0f);
-        ti.set_text("なんだろう！？これは、青木、佐々木？!");
+        ti.set_text("この数値も頭に入れながら探索して\nいこうかな、どんどん探索を\n進めていこう");
         yield return new WaitForSeconds(2.0f);
-
+        
         iventID = next;
     }
     IEnumerator reba_ibent(int next)
     {
         iventID = 12;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("あれ？、さっきまで空いていな\nかったはずの箱のふたが開いている！");
         yield return new WaitForSeconds(2.0f);
-        iventID = next;
+        ti.set_text("何の箱だろう、中身を見てみよ\nう・・・・これは超強力接着剤、アボ\nンアルファ！");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("そういえば、佐々木たちの伝言\n1Fから4Fにあるレバーを引くといいみ\nたいことも書かれてたな、もしかしてすべて\nの階にあるレバーを引いたから開いたのか");
+        yield return new WaitForSeconds(2.0f);
+        ti.set_text("とりあえずこれで、新しいアイ\nテムも手に入った、このアボンアルフ\nァも活用すれば何かのアイテム同士合体でき\nるかもしれない・・・・・・・・・・・・");
+        yield return new WaitForSeconds(2.0f);
         iventID = next;
 
     }
     IEnumerator angou_ibent(int next)
     {
         iventID = 14;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("あ！、チェストのロックが解除\nされたぞ！中にはいったい何が入って\nいるのだろうか？");
         yield return new WaitForSeconds(2.0f);
-        iventID = next;
+        ti.set_text("針金？・・・何かの鍵？の差込\n口みたいだ、もしかしてまたこれで新\nしく鍵を作ることができるかもしれない");
+        yield return new WaitForSeconds(2.0f);
         iventID = next;
 
     }
     IEnumerator saigousei_ibent()
     {
         iventID = 20;
-        ti.set_text("なんだろうタンヌなんだろう");
+        ti.set_text("おや？・・・・・お・・・・\n！！・・・・・・・・・・・・・・・・！");
         yield return new WaitForSeconds(2.0f);
+        ti.set_text("あ！！、鍵を手に入れること\nできた、おそらくこれは出口の鍵だ！！");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("これを使えば、出口の扉を開\nけれるかもしれない・・・・・早速向かおう");
         iventID = 21;
 
     }
     IEnumerator deguti_ibent()
     {
         iventID = 22;
-        ti.set_text("あ！！、鍵を手に入れることが\nできた、おそらくこれは出口の鍵脱出しよう\n、脱出しよう！！！！！！！！！！");
+        ti.set_text("よし！これで大丈夫だ！、帰れるぞ！");
         yield return new WaitForSeconds(4.0f);
         ti.flg_fin();
     }
