@@ -38,6 +38,7 @@ public class teki : MonoBehaviour
             //Debug.Log("距離 : " + dis +"__"+ hitObject);
             if (target.name == hitObject.name && dis <= 30f) {
                 if (!target.tai.flg) {
+                    Debug.Log("a1");
                     nav.SetDestination(target.transform.position);
                     mus.Play();
                 }
@@ -45,9 +46,12 @@ public class teki : MonoBehaviour
             }
             else
             {
+                Debug.Log("a2");
                 //Debug.Log(nav.SetDestination(vectors[num]));
+                nav.SetDestination(vectors[num]);
                 if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
                 {
+                    Debug.Log("a3");
                     num++;
                     if (num == 4) num = 0;
                 }
