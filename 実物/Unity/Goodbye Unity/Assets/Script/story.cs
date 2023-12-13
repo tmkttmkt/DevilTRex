@@ -50,10 +50,9 @@ public class story : MonoBehaviour
     }
     public void key_flg()
     {
-        if (iventID == 4)
-        {
+
             StartCoroutine(key_ibent());
-        }
+
     }
     
     public void syeruta_flg()
