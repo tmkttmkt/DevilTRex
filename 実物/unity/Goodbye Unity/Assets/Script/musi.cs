@@ -22,6 +22,7 @@ public class musi : MonoBehaviour
     }
     public void teki_flg()
     {
+        main.loop = false;
         main.pitch = 1;
         main.clip = tekida;
         main.Play();
@@ -29,7 +30,7 @@ public class musi : MonoBehaviour
     }
     public void soto_flg()
     {
-        Debug.Log("tyu");
+        main.loop = true;
         main.pitch = 1;
         main.clip = sotoda;
         main.Play();
@@ -37,6 +38,7 @@ public class musi : MonoBehaviour
     }
     public void kihon_flg()
     {
+        main.loop = true;
         main.pitch = -1;
         main.clip = kihonda;
         main.Play();

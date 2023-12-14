@@ -10,15 +10,16 @@ public class teki : MonoBehaviour
     [SerializeField]time rast;
     public NavMeshAgent nav;
     [SerializeField]idou_mause target;
-    public AudioSource mus;
+    public musi mus;
     [SerializeField] Vector3[] vectors;
     int num = 0;
+    bool mus_flg = true;
 
     // Start is called before the first frame update
     void Start()
     {
         nav = gameObject.GetComponent<NavMeshAgent>();
-        mus = gameObject.GetComponent<AudioSource>();
+        mus = FindObjectOfType<musi>();
 
         using (StreamWriter writer = new StreamWriter("dbg.txt", true))
         {
@@ -40,12 +41,19 @@ public class teki : MonoBehaviour
                 if (!target.tai.flg) {
                     Debug.Log("a1");
                     nav.SetDestination(target.transform.position);
-                    mus.Play();
+                    
+                }
+                if (mus_flg)
+                {
+                    mus.teki_flg();
+                    mus_flg = false;
                 }
 
             }
             else
             {
+                if(!mus_flg)mus.kihon_flg();
+                mus_flg = true;
                 Debug.Log("a2");
                 //Debug.Log(nav.SetDestination(vectors[num]));
                 nav.SetDestination(vectors[num]);
@@ -53,7 +61,7 @@ public class teki : MonoBehaviour
                 {
                     Debug.Log("a3");
                     num++;
-                    if (num == 4) num = 0;
+                    if (num == vectors.Length) num = 0;
                 }
             }
         }

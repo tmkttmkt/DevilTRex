@@ -6,12 +6,13 @@ public class idou_mause : MonoBehaviour
 {
     public rokka tai;
     private read read_obj;
+    bool vis_flg = false;
     // Start is called before the first frame update
     void Start()
     {
         read_obj = FindObjectOfType<read>();
         //Debug.Log("aaaa");
-        Cursor.visible = false;
+        Cursor.visible = vis_flg;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -38,30 +39,32 @@ public class idou_mause : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Cursor.visible)
+            if (vis_flg)
             {
                 //Debug.Log("kes");
-                Cursor.visible = false;
+                vis_flg =!vis_flg;
+                Cursor.visible = vis_flg;
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 //Debug.Log("hyouzi");
-                Cursor.visible = true;
+                vis_flg = !vis_flg;
+                Cursor.visible = vis_flg;
                 Cursor.lockState = CursorLockMode.None;
             }
         }
 
         // Wキー（前方移動）
 
-        if (!Cursor.visible)
+        if (!vis_flg)
         {
             //マウス移動
             float mouseX = Input.GetAxis("Mouse X");
             transform.Rotate(Vector3.up, mouseX * 500f * Time.deltaTime);
 
         }
-        if (!Cursor.visible && !tai.flg)
+        if (!vis_flg && !tai.flg)
         {
             flg_rok = true;
             if (Input.GetKey(KeyCode.W))
@@ -108,7 +111,7 @@ public class idou_mause : MonoBehaviour
         Debug.Log(other);
         Debug.Log(tai.move_rok);
         //OnCollisionEnter
-        if (tai!=null) {
+        if (tai!=null && other.gameObject!=null ) {
             if (other.gameObject.name == tai.move_rok.name && flg_rok)
             {
                 tai.move_rok.set(false);
