@@ -42,7 +42,7 @@ Public Class Form1
             MessageBox.Show("動画ファイルが見つかりません。")
         End If
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
-            PictureBox4.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif")
+            PictureBox4.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\シン・ティラノサウルス.gif")
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
