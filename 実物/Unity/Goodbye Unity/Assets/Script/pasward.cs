@@ -36,7 +36,7 @@ public class pasward : MonoBehaviour
         if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && !pass_flg)
         {
 
-            t5.text = "Gキーで黒いところに止めろ!";
+            t5.text = "10の4乗通り試すんだな";
             pass_flg = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -44,7 +44,7 @@ public class pasward : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.I))
         {
-            t5.text = "もうやめるのか？";
+            t5.text = "もうやめるのか？ここにたどり着くま\nでにどれだけの犠牲を払ったと思ってるのだby佐々木";
             Invoke("Owari", 3.5f);
 
         }
@@ -123,7 +123,7 @@ public class pasward : MonoBehaviour
     }
     public void kettei()
     {
-        if (t1.text == "0" && t2.text == "0" && t3.text == "0" && t4.text == "0" )
+        if (t1.text == "1" && t2.text == "9" && t3.text == "2" && t4.text == "8" )
         {
             Debug.Log("OK");
         }
@@ -131,7 +131,7 @@ public class pasward : MonoBehaviour
         {
             Debug.Log("NO");
         }
-        a.add_list(new Aitem("key", "お前はすでに脱出に成功している", Resources.Load<Sprite>("出口の本体")));
+        a.add_list(new Aitem("key", "出口の鍵の持ち手かもしれない", Resources.Load<Sprite>("出口の本体")));
     }
 
 }

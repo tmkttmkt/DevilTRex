@@ -11,7 +11,7 @@ public class story : MonoBehaviour
     private string serihu;
     private int dannraku; 
     private int serihubamenn;
-    private int iventID=0;
+    public int iventID=0;
     public int ID { get; }
     // Start is called before the first frame update
     void Start()
@@ -119,10 +119,8 @@ public class story : MonoBehaviour
     }
     public void deguti_flg()
     {
-        if (iventID == 21)
-        {
             StartCoroutine(deguti_ibent());
-        }
+    
     }
     /* スタート:0
      * 入る.event:1
@@ -277,6 +275,7 @@ public class story : MonoBehaviour
         ti.set_text("あ！！、鍵を手に入れること\nできた、おそらくこれは出口の鍵だ！！");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("これを使えば、出口の扉を開\nけれるかもしれない・・・・・早速向かおう");
+        ti.set_goal("脱出しよう");
         iventID = 21;
 
     }

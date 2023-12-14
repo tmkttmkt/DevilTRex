@@ -7,6 +7,7 @@ public class inkey : MonoBehaviour
     [SerializeField] Vector3 startPosition = new Vector3(28, 19, -46);
     [SerializeField] Vector3 iventPosition = new Vector3(24, 19, -46);
     Vector3 targetPosition;
+    public string name;
     // Start is called before the first frame update
     void Start()
     {
