@@ -105,9 +105,6 @@ Partial Class Form1
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "End"
         '
-        'Timer1
-        '
-        '
         'Test
         '
         Me.Test.AutoSize = True
@@ -210,6 +207,7 @@ Partial Class Form1
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(802, 450)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.Visible = False

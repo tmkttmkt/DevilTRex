@@ -14,25 +14,26 @@ Public Class Form1
         PictureBox3.Visible = True
         Test.Visible = True
         Label1.Visible = False
-        Label1.BackColor = Color.FromArgb(150, 143, 139)
+        Label1.BackColor = Color.FromArgb(75, 67, 67)
         Label2.Visible = False
-        Label2.BackColor = Color.FromArgb(150, 143, 139)
+        Label2.BackColor = Color.FromArgb(75, 67, 67)
         Label3.Visible = False
-        Label3.BackColor = Color.FromArgb(150, 143, 139)
+        Label3.BackColor = Color.FromArgb(75, 67, 67)
         Test.Visible = False
         Label4.Visible = False
-        Label4.BackColor = Color.FromArgb(150, 143, 139)
+        Label4.BackColor = Color.FromArgb(75, 67, 67)
         Label7.Visible = False
-        Label7.BackColor = Color.FromArgb(231, 231, 215)
+        Label7.BackColor = Color.FromArgb(227, 227, 203)
         Label8.Visible = False
-        Label8.BackColor = Color.FromArgb(150, 143, 139)
+        Label8.BackColor = Color.FromArgb(75, 67, 67)
         Label9.Visible = False
         Label6.Visible = False
-        Label6.BackColor = Color.FromArgb(150, 143, 139)
+        Label6.BackColor = Color.FromArgb(75, 67, 67)
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
         Label4.ForeColor = Color.Black
+        PictureBox1.Image = Image.FromFile("start.png")
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\最初.mp4") Then
             AxWindowsMediaPlayer1.URL = "R:\_R05課題研究(情報技術科)\２班\最初.mp4"
             AxWindowsMediaPlayer1.Ctlcontrols.play()
@@ -46,7 +47,7 @@ Public Class Form1
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
-        PictureBox2.BackColor = Color.FromArgb(150, 143, 139)
+        PictureBox2.BackColor = Color.FromArgb(75, 67, 67)
         PictureBox2.Image = Image.FromFile("タイトル2.png")
 
     End Sub
