@@ -140,13 +140,13 @@ public class minigame : MonoBehaviour
                         Hantei();
                         Debug.Log("c");
                     }
-                    else if (tugi_flg == true)
+                    else if (tugi_flg == true && move_gage.transform.localPosition.x - 10 > osutoko3.transform.localPosition.x + 15 && osutoko3.transform.localPosition.x - 15 > move_gage.transform.localPosition.x + 10)
                     {
                         nanbonme = 4;
                         start_flg = false;
                         tugi_flg = false;
                         Hantei();
-                        Debug.Log("c");
+                        Debug.Log("d");
                     }
                     
                 }
@@ -168,12 +168,12 @@ public class minigame : MonoBehaviour
     }
     void Hantei()
     {
+        Debug.Log("e");
         if (clear >= 2)
         {
             naame.text = "おめでとう";
             Invoke("Owari", 1f);
             Invoke("aitem_add", 2f);
-            aitem_add();
         }
         else
         {

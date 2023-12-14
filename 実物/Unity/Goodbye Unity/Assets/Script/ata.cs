@@ -19,7 +19,8 @@ public class ata : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private key nandakke;
     public float detectionDistance = 10f; // レイキャストの距離
-    public List<Aitem> items = new List<Aitem>();
+    [SerializeField] public List<Aitem> items = new List<Aitem>();
+    [SerializeField] int name = 110;
 
 
 
@@ -176,6 +177,7 @@ public class ata : MonoBehaviour
     public void add_list(Aitem a)
     {
         items.Add(a);
+        ti.set_text(a.name + "を手に入れた");
     }
     public void del_list(string nam)
     {
