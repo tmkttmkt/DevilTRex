@@ -12,7 +12,15 @@ Public Class Form1
         player.Play()
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        Label1.BackColor = Color.Transparent
+        Label3.Visible = False
+        PictureBox1.BackgroundImage = Image.FromFile("game.png")
+        PictureBox1.Image = Image.FromFile("suna3.gif")
+        PictureBox2.Image = Image.FromFile("Game_Over_Button.png")
+        Label1.BackColor = Color.Transparent
+        Timer1.Start()
+        AxWindowsMediaPlayer1.URL = "Game Over.mp4"
+        AxWindowsMediaPlayer1.Ctlcontrols.play()
     End Sub
 
 
@@ -48,14 +56,6 @@ Public Class Form1
     End Sub
 
     Private Sub AxWindowsMediaPlayer1_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        Label1.BackColor = Color.Transparent
-        Label3.Visible = False
-        PictureBox1.BackgroundImage = Image.FromFile("game.png")
-        PictureBox1.Image = Image.FromFile("suna3.gif")
-        PictureBox2.Image = Image.FromFile("Game_Over_Button.png")
-        Label1.BackColor = Color.Transparent
-        Timer1.Start()
-        AxWindowsMediaPlayer1.URL = "terano3.mp4"
-        AxWindowsMediaPlayer1.Ctlcontrols.play()
+
     End Sub
 End Class

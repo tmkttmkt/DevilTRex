@@ -6,6 +6,7 @@ Public Class Settei
     Dim count2 As Integer = 0
     Dim str As String = ""
     Dim ss() As String = {"1", "2", "3"}
+    Dim flg As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         My.Computer.Audio.Stop()
@@ -50,6 +51,8 @@ Public Class Settei
                     writer.WriteLine("mu=" + "4")
                     Label5.Text = "「どうして君はこうなんだ…」"
                     Label6.Text = "ティラノサウルスの蹂躙が始まる！"
+                    flg = 1
+                    My.Computer.Audio.Play("逃げ惑う人々.wav")
                     PictureBox1.Image = Image.FromFile("光るティラノ.png")
                 Else
                     writer.WriteLine("teki=" + TextBox1.Text)
@@ -81,7 +84,9 @@ Public Class Settei
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Timer1.Enabled = True
-        My.Computer.Audio.Play("hikaru.wav")
+        If flg = 0 Then
+            My.Computer.Audio.Play("hikaru.wav")
+        End If
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Label1.MouseEnter

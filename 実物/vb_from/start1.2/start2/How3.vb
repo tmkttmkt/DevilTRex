@@ -2,12 +2,12 @@
     Dim count As Integer
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Hide()
-        My.Computer.Audio.Stop()
         How.Show()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Me.Hide()
+        My.Computer.Audio.Play("ボタンの効果音.wav")
         How2.Show()
     End Sub
 
