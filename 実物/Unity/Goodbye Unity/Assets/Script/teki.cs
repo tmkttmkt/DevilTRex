@@ -8,8 +8,9 @@ using System.Text;
 public class teki : MonoBehaviour
 {
     [SerializeField]time rast;
-    public NavMeshAgent nav;
-    [SerializeField]idou_mause target;
+    NavMeshAgent nav;
+    ata target;
+    idou_mause player;
     public musi mus;
     [SerializeField] Vector3[] vectors;
     int num = 0;
@@ -19,7 +20,9 @@ public class teki : MonoBehaviour
     void Start()
     {
         nav = gameObject.GetComponent<NavMeshAgent>();
+        player= FindObjectOfType<idou_mause>();
         mus = FindObjectOfType<musi>();
+        target = FindObjectOfType<ata>();
 
         using (StreamWriter writer = new StreamWriter("dbg.txt", true))
         {
@@ -38,7 +41,7 @@ public class teki : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             //Debug.Log("距離 : " + dis +"__"+ hitObject);
             if (target.name == hitObject.name && dis <= 30f) {
-                if (!target.tai.flg) {
+                if (!player.tai.flg) {
                     Debug.Log("a1");
                     nav.SetDestination(target.transform.position);
                     
@@ -71,7 +74,7 @@ public class teki : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(collision.gameObject);
-        if (collision.gameObject.name == target.name)
+        if (collision.gameObject.name == player.name)
         {
             Debug.Log("Hit");// ログを表示する
             rast.flg_eat();//;

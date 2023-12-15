@@ -25,6 +25,8 @@ public class minigame : MonoBehaviour
     public GameObject osutoko2;
     public GameObject osutoko3;
     public GameObject move_gage;
+    public GameObject obg;
+    public GameObject obg2;
     ata a;
     story st;
     RectTransform gage_rect;
@@ -44,7 +46,7 @@ public class minigame : MonoBehaviour
         // プレイヤーの近くにいるかどうかを検出
         isPlayerNear = IsPlayerNear();
         // エンターキーが押されたら白い画面を表示
-        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && saido == false)
+        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && saido == false && st.iventID>=8)
         {
             saido = true;
             naame.text = "Gキーで黒いところに止めろ!";
@@ -174,6 +176,8 @@ public class minigame : MonoBehaviour
             naame.text = "おめでとう";
             Invoke("Owari", 1f);
             Invoke("aitem_add", 2f);
+            obg.SetActive(true);
+            obg2.SetActive(false);
         }
         else
         {

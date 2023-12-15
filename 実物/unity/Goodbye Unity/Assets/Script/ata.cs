@@ -71,12 +71,26 @@ public class ata : MonoBehaviour
                 inkey scr = hitObject.GetComponent<inkey>();
                 if (scr != null)
                 {
-                    List<String> it = mozilis();
-                    if(it.Contains("kan"))
+                    if (scr.name == "kan")
                     {
-                        scr.open();
-                        st.syeruta_flg();
-                        del_list("kan");
+                        List<String> it = mozilis();
+                        if (it.Contains("kan"))
+                        {
+                            scr.open();
+                            st.syeruta_flg();
+                            del_list("kan");
+                        }
+                    }
+                    else if (scr.name == "ras")
+                    {
+                        List<String> it = mozilis();
+                        if (it.Contains("ras_kan"))
+                        {
+                            scr.open();
+                            st.deguti_flg();
+                            del_list("ras_kan");
+                        }
+
                     }
                 }
             }
@@ -146,6 +160,7 @@ public class ata : MonoBehaviour
             if (c != null) items.Remove(c);
             Aitem ii = new Aitem("ras_kan", "この鍵を持って、急いで出口に向かおう", Resources.Load<Sprite>("出口の鍵"));
             items.Add(ii);
+            st.saigousei_flg();
             ti.set_text("鍵を手に入れた");
         }
     }

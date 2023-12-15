@@ -98,7 +98,7 @@ public class idou_mause : MonoBehaviour
 
         }
         if (Input.GetKeyDown(KeyCode.R)){
-            if (transform.eulerAngles.x >= 170 || transform.eulerAngles.z >= 170)
+            if (transform.eulerAngles.x >= 80 || transform.eulerAngles.z >= 80)
             {
                 transform.eulerAngles = new Vector3(0f, transform.rotation.y, 0f);
                 transform.position += new Vector3(0, 0.1f, 0);
