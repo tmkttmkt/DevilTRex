@@ -93,7 +93,7 @@ public class time : MonoBehaviour
     public void flg_eat()
     {
         ProcessStartInfo pInfo = new ProcessStartInfo();
-        pInfo.FileName = "Game Clear.exe";
+        pInfo.FileName = "Game Over.exe";
         Process.Start(pInfo);
         end_def();
     }
@@ -150,7 +150,7 @@ public class time : MonoBehaviour
     public void flg_win()
     {
         ProcessStartInfo pInfo = new ProcessStartInfo();
-        pInfo.FileName = "Game Over.exe";
+        pInfo.FileName = "Game Clear.exe";
         Process.Start(pInfo);
         end_def();
     }
