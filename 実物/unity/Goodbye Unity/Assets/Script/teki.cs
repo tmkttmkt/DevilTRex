@@ -57,7 +57,7 @@ public class teki : MonoBehaviour
             {
                 if(!mus_flg)mus.kihon_flg();
                 mus_flg = true;
-                Debug.Log("a2");
+                //Debug.Log("a2");
                 //Debug.Log(nav.SetDestination(vectors[num]));
                 nav.SetDestination(vectors[num]);
                 if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
