@@ -33,7 +33,7 @@ Public Class Form1
         Label2.ForeColor = Color.Black
         Label3.ForeColor = Color.Black
         Label4.ForeColor = Color.Black
-        PictureBox1.Image = Image.FromFile("start.png")
+        'PictureBox1.Image = Image.FromFile("start.png")
         If File.Exists("R:\_R05課題研究(情報技術科)\２班\最初.mp4") Then
             AxWindowsMediaPlayer1.URL = "R:\_R05課題研究(情報技術科)\２班\最初.mp4"
             AxWindowsMediaPlayer1.Ctlcontrols.play()

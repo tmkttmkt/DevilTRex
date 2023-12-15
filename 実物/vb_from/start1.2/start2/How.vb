@@ -100,7 +100,6 @@ Public Class How
 
     Private Sub How_Load(sender As Object, e As EventArgs) Handles Me.Load
         Label13.Visible = False
-        My.Computer.Audio.Stop()
         My.Computer.Audio.Play("何作ってるんだっけ2.wav")
         Me.KeyPreview = True
         Timer1.Enabled = True
@@ -134,5 +133,9 @@ Public Class How
         If count = 340 Then
             My.Computer.Audio.Play("何作ってるんだっけ2.wav")
         End If
+    End Sub
+
+    Private Sub How_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        My.Computer.Audio.Play("何作ってるんだっけ2.wav")
     End Sub
 End Class
