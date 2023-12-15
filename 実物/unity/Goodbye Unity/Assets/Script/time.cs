@@ -12,8 +12,6 @@ public class time : MonoBehaviour
     private float timerDuration; // タイマーの時間（秒）
     private float timerValue; // タイマーの現在の値
     private bool start = false;
-    private bool Tre_eat = false;
-    private float eat_time;
     private Text timerText; // タイマーを表示するテキストオブジェクト
     [SerializeField] Text rast;
     [SerializeField] Text left;
@@ -65,17 +63,8 @@ public class time : MonoBehaviour
             start = true;
         }
         timerValue -= Time.deltaTime;
-        if (Tre_eat)
-        {
-            if (eat_time - timerValue > 2f)
-            {
-                ProcessStartInfo pInfo = new ProcessStartInfo();
-                pInfo.FileName = "tekitou.txt";
-                Process.Start(pInfo);
-                end_def();
-            }
-        }
-        else if (timerValue > 0f)
+
+        if (timerValue > 0f)
         {
             // 経過時間を減算
 
@@ -85,10 +74,7 @@ public class time : MonoBehaviour
         }
         else if (timerValue < -10f)
         {
-            ProcessStartInfo pInfo = new ProcessStartInfo();
-            pInfo.FileName = "tekitou.txt";
-            Process.Start(pInfo);
-            end_def();
+            flg_fin();
 
         }
         else
@@ -106,9 +92,10 @@ public class time : MonoBehaviour
     }
     public void flg_eat()
     {
-        eat_time = timerValue;
-        rast.text = "RIPお前\nGAMEOVER";
-        Tre_eat = true;
+        ProcessStartInfo pInfo = new ProcessStartInfo();
+        pInfo.FileName = "Game Clear.exe";
+        Process.Start(pInfo);
+        end_def();
     }
     public void set_goal(string text, int num)
     {
@@ -156,7 +143,14 @@ public class time : MonoBehaviour
     public void flg_fin()
     {
         ProcessStartInfo pInfo = new ProcessStartInfo();
-        pInfo.FileName = "tekitou.txt";
+        pInfo.FileName = "hikiwake.exe";
+        Process.Start(pInfo);
+        end_def();
+    }
+    public void flg_win()
+    {
+        ProcessStartInfo pInfo = new ProcessStartInfo();
+        pInfo.FileName = "Game Over.exe";
         Process.Start(pInfo);
         end_def();
     }

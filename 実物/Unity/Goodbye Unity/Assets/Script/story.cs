@@ -284,7 +284,7 @@ public class story : MonoBehaviour
         iventID = 22;
         ti.set_text("よし！これで大丈夫だ！、帰れるぞ！");
         yield return new WaitForSeconds(4.0f);
-        ti.flg_fin();
+        ti.flg_win();
     }
 
 
