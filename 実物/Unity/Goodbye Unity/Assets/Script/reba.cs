@@ -17,7 +17,7 @@ public class reba : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPlayerNear() && Input.GetKeyDown(KeyCode.G))
+        if (IsPlayerNear() && Input.GetKeyDown(KeyCode.I))
         {
             flg = !flg;
 

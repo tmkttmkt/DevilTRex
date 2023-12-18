@@ -131,7 +131,7 @@ public class pasward : MonoBehaviour
         {
             Debug.Log("NO");
         }
-        a.add_list(new Aitem("key", "出口の鍵の持ち手かもしれない", Resources.Load<Sprite>("出口の本体")));
+        a.add_list(new Aitem("key", "出口の鍵の持ち手かもしれない", Resources.Load<Sprite>("出口の本体")), "出口の鍵の持ち手かもしれないもの");
     }
 
 }

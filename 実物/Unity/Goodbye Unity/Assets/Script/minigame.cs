@@ -212,7 +212,7 @@ public class minigame : MonoBehaviour
     }
     void aitem_add()
     {
-        a.add_list(new Aitem("motit","お前はすでに脱出に成功している", Resources.Load<Sprite>("出口の持ち手")));
+        a.add_list(new Aitem("motit","お前はすでに脱出に成功している", Resources.Load<Sprite>("出口の持ち手")),"持ち手");
     }
 
 }

@@ -32,7 +32,7 @@ public class tyesuto : MonoBehaviour
                 flg =false;
                 futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
                 futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
-                a.add_list(new Aitem("aron", "東京電機大学指定校推薦よっしゃーーー！\nhhhhh", Resources.Load<Sprite>("アボンアルファ")));
+                a.add_list(new Aitem("aron", "いつでも、どこでも、だれでも\nこれを使えば部品をくっつけれそうだ", Resources.Load<Sprite>("アボンアルファ")), "アボンアルファ");
                 a.del_list("dengon");
                 st.reba_flg();
             }

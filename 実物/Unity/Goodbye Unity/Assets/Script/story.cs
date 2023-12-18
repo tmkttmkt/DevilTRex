@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//一度全体のストーリー管理見直したほうがいいかもしれない
 public class story : MonoBehaviour
 {
     [SerializeField] private GameObject start;
@@ -223,6 +223,8 @@ public class story : MonoBehaviour
         ti.set_text("文章はここで切れている。なるほ\nど、俺があの時に止めていれば。くそ！\n伝言が書かれた紙には佐々木と、青木の\nものと思われる血がついている");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("鍵・・を見つけたらと書いてあった\nうわさが正しければ必ずあるはず。。か\n・・とにかく急ごう！、深く考えている\n暇はない・・・");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("Iキーでレバーをオンにできるよ\n下向きになったらオンなってるあかしだよ");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("鍵を探そう");
         iventID = 10;

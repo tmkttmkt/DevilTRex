@@ -20,7 +20,6 @@ public class ata : MonoBehaviour
     [SerializeField] private key nandakke;
     public float detectionDistance = 10f; // レイキャストの距離
     [SerializeField] public List<Aitem> items = new List<Aitem>();
-    [SerializeField] int name = 110;
 
 
 
@@ -189,10 +188,10 @@ public class ata : MonoBehaviour
         bool flg3 = it.Contains(txt3);
         return flg2 && flg1 & flg3;
     }
-    public void add_list(Aitem a)
+    public void add_list(Aitem a,string txt)
     {
         items.Add(a);
-        ti.set_text(a.name + "を手に入れた");
+        ti.set_text(txt + "を手に入れた");
     }
     public void del_list(string nam)
     {

@@ -109,14 +109,13 @@ public class idou_mause : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        Debug.Log(tai.move_rok);
-        //OnCollisionEnter
+        //Debug.Log(other);
+        //Debug.Log(tai.move_rok);
         if (tai!=null && other.gameObject!=null ) {
             if (other.gameObject.name == tai.move_rok.name && flg_rok)
             {
                 tai.move_rok.set(false);
-                Debug.Log("wad");
+                //Debug.Log("wad");
                 flg_rok = false;
             }
         }

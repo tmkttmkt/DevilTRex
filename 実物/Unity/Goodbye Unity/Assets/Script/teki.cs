@@ -40,36 +40,36 @@ public class teki : MonoBehaviour
             Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out hit);
             GameObject hitObject = hit.collider.gameObject;
             //Debug.Log("距離 : " + dis +"__"+ hitObject);
-            if (target.name == hitObject.name && dis <= 30f) {
-                if (!player.tai.flg) {
-                    Debug.Log("a1");
-                    nav.SetDestination(target.transform.position);
-                    
-                }
-                if (mus_flg)
+            if (target.name == hitObject.name && dis <= 30f)
+            {
+                if (!player.tai.flg)
                 {
-                    mus.teki_flg();
-                    mus_flg = false;
+                    if (mus_flg)
+                    {
+                        mus.teki_flg();
+                        mus_flg = false;
+                    }
+                    //Debug.Log("a1");
+                    nav.SetDestination(target.transform.position);
+
                 }
+                else return;
+                return;
 
             }
-            else
+            if(!mus_flg)mus.kihon_flg();
+            mus_flg = true;
+            //Debug.Log("a2");
+            //Debug.Log(nav.SetDestination(vectors[num]));
+            nav.SetDestination(vectors[num]);
+            if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
             {
-                if(!mus_flg)mus.kihon_flg();
-                mus_flg = true;
-                //Debug.Log("a2");
-                //Debug.Log(nav.SetDestination(vectors[num]));
-                nav.SetDestination(vectors[num]);
-                if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
-                {
-                    Debug.Log("a3");
-                    num++;
-                    if (num == vectors.Length) num = 0;
-                }
+                //Debug.Log("a3");
+                num++;
+                if (num == vectors.Length) num = 0;
             }
         }
         else Debug.Log("ngo");
-        //Debug.Log(nav.destination);
     }
     void OnCollisionEnter(Collision collision)
     {

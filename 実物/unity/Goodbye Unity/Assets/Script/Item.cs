@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] ata obj;
+   ata at;
     // Start is called before the first frame update
     [SerializeField] GameObject item;
     [SerializeField] Text[] texts = new Text[3];
     [SerializeField] Image[] images = new Image[3];
+    [SerializeField] Image kar;
+    int m = 0;
+    int mo = 0;
+    float st;
     void Start()
     {
+        st = kar.rectTransform.sizeDelta.y;
+        at = FindObjectOfType<ata>();
         item.gameObject.SetActive(flg_item);
     }
 
@@ -19,29 +25,32 @@ public class Item : MonoBehaviour
     bool flg_item = false;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))//GetKeyDownで押したときに1回動作
+        if (mouse_chec()) hyouz();
+        //Debug.Log(mo.ToString() + "口");
+        kar.rectTransform.sizeDelta = new Vector2(10f, 240f / (at.items.Count <= 3 ? 1f : at.items.Count / 3f));
+        kar.rectTransform.position = new Vector3(kar.rectTransform.position.x, 456.4f - kar.rectTransform.sizeDelta.y / 2- (kar.rectTransform.sizeDelta.y*m/3), kar.rectTransform.position.z);
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            int n;
-            for (n = 0; n < 3; n++)
-            {
-                texts[n].text = "";
-                images[n].sprite = Resources.Load<Sprite>("teki");
-            }
-            n = 0;
-            foreach (Aitem ai in obj.items)
-            {
-                texts[n].text = ai.exem;
-                images[n].sprite= ai.sp;
-                n++;
-            }
-
+            at.add_list(new Aitem("key",mo.ToString()+"出口", Resources.Load<Sprite>("出口の本体")), mo.ToString() + "出口");
+            mo += 1;
+            gousei_flg();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            hyouz();
             flg_item = !flg_item;
             item.gameObject.SetActive(flg_item);
         }
 
 
+
     }
     public void gousei_flg()
+    {
+        hyouz();
+
+    }
+    void hyouz()
     {
         int n;
         for (n = 0; n < 3; n++)
@@ -49,13 +58,31 @@ public class Item : MonoBehaviour
             texts[n].text = "";
             images[n].sprite = Resources.Load<Sprite>("teki");
         }
-        n = 0;
-        foreach (Aitem ai in obj.items)
+        n = -1;
+        foreach (Aitem ai in at.items)
         {
-            texts[n].text = ai.exem;
-            images[n].sprite = ai.sp;
             n++;
+            if (n < m) continue;
+            if (n - m == 3) break;
+            texts[n-m].text = ai.exem;
+            images[n-m].sprite = ai.sp;
         }
 
+
+    }
+    bool mouse_chec()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            m--;
+            if (m == -1) m = 0;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            m++;
+            if (m > at.items.Count - 3) m--;
+        }
+        else return false;
+        return true;
     }
 }
