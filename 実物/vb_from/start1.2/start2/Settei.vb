@@ -15,7 +15,7 @@ Public Class Settei
         Timer2.Enabled = True
         Label8.Visible = False
         My.Computer.Audio.Play("何作ってるんだっけ.wav")
-        PictureBox1.Image = Image.FromFile("U:\github\tet\実物\画像\設定画面.png")
+        PictureBox1.Image = Image.FromFile("設定画面.png")
         Label5.Text = "文字にカーソルを合わせると"
         Label6.Text = "説明文が出ます。"
         DomainUpDown1.Text = ss(0)
@@ -30,24 +30,12 @@ Public Class Settei
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Using writer As New StreamWriter("output.txt", False, Encoding.GetEncoding("Shift_JIS"))
-            If File.Exists("output.txt") Then
+        Using writer As New StreamWriter("test2.txt", False, Encoding.GetEncoding("Shift_JIS"))
+            If File.Exists("test2.txt") Then
                 If TextBox4.Text = "4" Then
-                    writer.WriteLine("teki=" + TextBox1.Text)
-                    If DomainUpDown1.Text = ss(0) Then
-                        writer.WriteLine("time=" + "300")
-                    ElseIf DomainUpDown1.Text = ss(1) Then
-                        writer.WriteLine("time=" + "180")
-                    ElseIf DomainUpDown1.Text = ss(2) Then
-                        writer.WriteLine("time=" + "30")
-                    End If
-                    If DomainUpDown2.Text = ss(0) Then
-                        writer.WriteLine("speed=" + "4")
-                    ElseIf DomainUpDown2.Text = ss(1) Then
-                        writer.WriteLine("speed=" + "3")
-                    ElseIf DomainUpDown2.Text = ss(2) Then
-                        writer.WriteLine("speed=" + "2")
-                    End If
+                    writer.WriteLine("teki=" + DomainUpDown3.Text)
+                    writer.WriteLine("time=" + "5996")
+                    writer.WriteLine("speed=" + "-9")
                     writer.WriteLine("mu=" + "4")
                     Label5.Text = "「どうして君はこうなんだ…」"
                     Label6.Text = "ティラノサウルスの蹂躙が始まる！"
@@ -55,26 +43,33 @@ Public Class Settei
                     My.Computer.Audio.Play("逃げ惑う人々.wav")
                     PictureBox1.Image = Image.FromFile("光るティラノ.png")
                 Else
-                    writer.WriteLine("teki=" + TextBox1.Text)
+                    If DomainUpDown3.Text Then
+
+                    End If
+                    writer.WriteLine("teki=" + DomainUpDown3.Text)
                     If DomainUpDown1.Text = ss(0) Then
-                        writer.WriteLine("time=" + "300")
-                    ElseIf DomainUpDown1.Text = ss(1) Then
-                        writer.WriteLine("time=" + "180")
-                    ElseIf DomainUpDown1.Text = ss(2) Then
-                        writer.WriteLine("time=" + "30")
+                            writer.WriteLine("time=" + "1800")
+                        ElseIf DomainUpDown1.Text = ss(1) Then
+                            writer.WriteLine("time=" + "900")
+                        ElseIf DomainUpDown1.Text = ss(2) Then
+                            writer.WriteLine("time=" + "180")
+                        Else
+                            writer.WriteLine("time=" + "9999")
+                        End If
+                        If DomainUpDown2.Text = ss(0) Then
+                            writer.WriteLine("speed=" + "1")
+                        ElseIf DomainUpDown2.Text = ss(1) Then
+                            writer.WriteLine("speed=" + "4")
+                        ElseIf DomainUpDown2.Text = ss(2) Then
+                            writer.WriteLine("speed=" + "9")
+                        Else
+                            writer.WriteLine("speed=" + "6")
+                        End If
+                        writer.WriteLine("mu=" + TextBox4.Text)
+                        Label5.Text = "書き込みに成功しました。"
+                        Label6.Text = ""
                     End If
-                    If DomainUpDown2.Text = ss(0) Then
-                        writer.WriteLine("speed=" + "4")
-                    ElseIf DomainUpDown2.Text = ss(1) Then
-                        writer.WriteLine("speed=" + "3")
-                    ElseIf DomainUpDown2.Text = ss(2) Then
-                        writer.WriteLine("speed=" + "2")
-                    End If
-                    writer.WriteLine("mu=" + TextBox4.Text)
-                    Label5.Text = "書き込みに成功しました。"
-                    Label6.Text = ""
-                End If
-            Else
+                    Else
                 Label5.Text = "申し訳ございません。"
                 Label6.Text = "書き込みに失敗しました。"
             End If
@@ -111,7 +106,7 @@ Public Class Settei
     End Sub
     Private Sub Button3_MouseEnter(sender As Object, e As EventArgs) Handles Label3.MouseEnter
         Label3.ForeColor = Color.Red
-        Label5.Text = "ティラノのスピードを変更します。標準は２です。"
+        Label5.Text = "主人公のスピードを変更します。標準は２です。"
         Label6.Text = ""
     End Sub
     Private Sub Button3_MouseLeave(sender As Object, e As EventArgs) Handles Label3.MouseLeave
