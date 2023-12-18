@@ -25,7 +25,6 @@ Partial Class Settei
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settei))
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -41,6 +40,7 @@ Partial Class Settei
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.DomainUpDown3 = New System.Windows.Forms.DomainUpDown()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,13 +56,6 @@ Partial Class Settei
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "書き込み"
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(326, 99)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(120, 19)
-        Me.TextBox1.TabIndex = 1
         '
         'Button2
         '
@@ -97,9 +90,9 @@ Partial Class Settei
         Me.Label2.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.Label2.Location = New System.Drawing.Point(189, 145)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 32)
+        Me.Label2.Size = New System.Drawing.Size(73, 32)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "難易度"
+        Me.Label2.Text = "時間"
         '
         'Label3
         '
@@ -131,6 +124,7 @@ Partial Class Settei
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(120, 19)
         Me.TextBox4.TabIndex = 4
+        Me.TextBox4.Text = "1"
         '
         'DomainUpDown1
         '
@@ -138,6 +132,7 @@ Partial Class Settei
         Me.DomainUpDown1.Name = "DomainUpDown1"
         Me.DomainUpDown1.Size = New System.Drawing.Size(120, 19)
         Me.DomainUpDown1.TabIndex = 11
+        Me.DomainUpDown1.Text = "2"
         '
         'DomainUpDown2
         '
@@ -145,6 +140,7 @@ Partial Class Settei
         Me.DomainUpDown2.Name = "DomainUpDown2"
         Me.DomainUpDown2.Size = New System.Drawing.Size(120, 19)
         Me.DomainUpDown2.TabIndex = 12
+        Me.DomainUpDown2.Text = "2"
         '
         'Label5
         '
@@ -208,12 +204,21 @@ Partial Class Settei
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Label8"
         '
+        'DomainUpDown3
+        '
+        Me.DomainUpDown3.Location = New System.Drawing.Point(326, 87)
+        Me.DomainUpDown3.Name = "DomainUpDown3"
+        Me.DomainUpDown3.Size = New System.Drawing.Size(120, 19)
+        Me.DomainUpDown3.TabIndex = 18
+        Me.DomainUpDown3.Text = "2"
+        '
         'Settei
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DomainUpDown3)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -226,7 +231,6 @@ Partial Class Settei
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -241,7 +245,6 @@ Partial Class Settei
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
@@ -257,4 +260,5 @@ Partial Class Settei
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Label8 As Label
+    Friend WithEvents DomainUpDown3 As DomainUpDown
 End Class
