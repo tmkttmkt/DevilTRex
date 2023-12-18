@@ -97,13 +97,14 @@ public class idou_mause : MonoBehaviour
             transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
 
         }
+        /*
         if (Input.GetKeyDown(KeyCode.R)){
             if (transform.eulerAngles.x >= 80 || transform.eulerAngles.z >= 80)
             {
                 transform.eulerAngles = new Vector3(0f, transform.rotation.y, 0f);
                 transform.position += new Vector3(0, 0.1f, 0);
             }
-        }
+        }*/
 
     }
     void OnTriggerEnter(Collider other)

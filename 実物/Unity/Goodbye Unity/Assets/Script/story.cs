@@ -112,10 +112,9 @@ public class story : MonoBehaviour
     }
     public void saigousei_flg()
     {
-        if (iventID == 19)
-        {
+
             StartCoroutine(saigousei_ibent());
-        }
+        
     }
     public void deguti_flg()
     {
@@ -283,7 +282,7 @@ public class story : MonoBehaviour
     {
         iventID = 22;
         ti.set_text("よし！これで大丈夫だ！、帰れるぞ！");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.flg_win();
     }
 
