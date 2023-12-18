@@ -61,7 +61,7 @@ public class idou_mause : MonoBehaviour
         {
             //マウス移動
             float mouseX = Input.GetAxis("Mouse X");
-            transform.Rotate(Vector3.up, mouseX * 500f * Time.deltaTime);
+            transform.Rotate(Vector3.up, mouseX * 200f * Time.deltaTime);
 
         }
         if (!vis_flg && !tai.flg)
