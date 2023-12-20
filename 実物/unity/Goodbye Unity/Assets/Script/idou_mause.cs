@@ -88,6 +88,7 @@ public class idou_mause : MonoBehaviour
             {
                 transform.position -= speed * transform.right * Time.deltaTime;
             }
+            transform.Rotate(-transform.eulerAngles.x, 0, -transform.eulerAngles.z);
 
         }
         else if(tai.flg && flg_rok)
