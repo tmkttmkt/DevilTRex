@@ -20,6 +20,7 @@ public class teki : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rast= FindObjectOfType<time>();
         nav = gameObject.GetComponent<NavMeshAgent>();
         player= FindObjectOfType<idou_mause>();
         mus = FindObjectOfType<musi>();

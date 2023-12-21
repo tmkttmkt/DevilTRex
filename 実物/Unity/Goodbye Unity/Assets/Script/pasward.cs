@@ -20,10 +20,12 @@ public class pasward : MonoBehaviour
     public int suuzi2 = 0;
     public int suuzi3 = 0;
     public int suuzi4 = 0;
+    idou_mause pp;
     ata a;
     // Start is called before the first frame update
     void Start()
     {
+        pp = FindObjectOfType<idou_mause>();
         a = FindObjectOfType<ata>();
 
     }
@@ -35,7 +37,7 @@ public class pasward : MonoBehaviour
         // エンターキーが押されたら白い画面を表示
         if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && !pass_flg)
         {
-
+            pp.game_flg = true;
             t5.text = "10の4乗通り試すんだな";
             pass_flg = true;
             Cursor.visible = true;
@@ -112,6 +114,7 @@ public class pasward : MonoBehaviour
         pass_flg = false;
         pass1.SetActive(pass_flg);
         Cursor.visible = false;
+        pp.game_flg = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
     public void reset()

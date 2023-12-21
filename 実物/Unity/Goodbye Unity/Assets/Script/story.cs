@@ -17,6 +17,7 @@ public class story : MonoBehaviour
     void Start()
     {
         mus = FindObjectOfType<musi>();
+        ti = FindObjectOfType<time>();
         ti.set_goal("学校に入ろう");
         ti.set_text("すごく学校に入りたい");
     }
@@ -71,10 +72,6 @@ public class story : MonoBehaviour
     }
     public void minigame_flg()
     {
-        if (iventID == 10)
-        {
-            StartCoroutine(minigame_ibent(15));
-        }
         if (iventID == 16)
         {
             StartCoroutine(minigame_ibent(18));
@@ -83,6 +80,7 @@ public class story : MonoBehaviour
         {
             StartCoroutine(minigame_ibent(19));
         }
+        StartCoroutine(minigame_ibent(15));
     }
     public void reba_flg()
     {

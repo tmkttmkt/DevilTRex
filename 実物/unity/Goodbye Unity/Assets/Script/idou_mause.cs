@@ -5,11 +5,13 @@ using UnityEngine;
 public class idou_mause : MonoBehaviour
 {
     public rokka tai;
-    private read read_obj;
+    read read_obj;
+    public bool game_flg=false;
     bool vis_flg = false;
     // Start is called before the first frame update
     void Start()
     {
+        tai = FindObjectOfType<rokka>();
         read_obj = FindObjectOfType<read>();
         //Debug.Log("aaaa");
         Cursor.visible = vis_flg;
@@ -64,7 +66,7 @@ public class idou_mause : MonoBehaviour
             transform.Rotate(Vector3.up, mouseX * 200f * Time.deltaTime);
 
         }
-        if (!vis_flg && !tai.flg)
+        if (!vis_flg && !tai.flg && !game_flg)
         {
             flg_rok = true;
             if (Input.GetKey(KeyCode.W))
@@ -88,7 +90,6 @@ public class idou_mause : MonoBehaviour
             {
                 transform.position -= speed * transform.right * Time.deltaTime;
             }
-            transform.Rotate(-transform.eulerAngles.x, 0, -transform.eulerAngles.z);
 
         }
         else if(tai.flg && flg_rok)
@@ -121,5 +122,9 @@ public class idou_mause : MonoBehaviour
             }
         }
     }
+    void OnCollisionExit(Collision collision)
+    {
+        transform.Rotate(-transform.eulerAngles.x, 0, -transform.eulerAngles.z);
 
+    }
 }
