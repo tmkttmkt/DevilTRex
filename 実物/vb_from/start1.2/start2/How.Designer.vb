@@ -56,11 +56,17 @@ Partial Class How
         Me.Label17 = New System.Windows.Forms.Label()
         Me.PictureBox12 = New System.Windows.Forms.PictureBox()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +78,9 @@ Partial Class How
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -122,7 +131,6 @@ Partial Class How
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Location = New System.Drawing.Point(193, 155)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
@@ -278,9 +286,6 @@ Partial Class How
         Me.PictureBox8.TabIndex = 20
         Me.PictureBox8.TabStop = False
         '
-        'Timer1
-        '
-        '
         'Timer2
         '
         '
@@ -305,7 +310,7 @@ Partial Class How
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(192, 35)
         Me.Label12.TabIndex = 23
-        Me.Label12.Text = "(基本操作)"
+        Me.Label12.Text = "(基礎訓練)"
         '
         'PictureBox9
         '
@@ -379,7 +384,9 @@ Partial Class How
         '
         'PictureBox12
         '
-        Me.PictureBox12.Location = New System.Drawing.Point(11, 50)
+        Me.PictureBox12.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.PictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox12.Location = New System.Drawing.Point(9, 55)
         Me.PictureBox12.Name = "PictureBox12"
         Me.PictureBox12.Size = New System.Drawing.Size(80, 63)
         Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -388,15 +395,6 @@ Partial Class How
         '
         'Timer3
         '
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(319, 84)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(47, 12)
-        Me.Label18.TabIndex = 32
-        Me.Label18.Text = "Label18"
         '
         'Label19
         '
@@ -446,17 +444,101 @@ Partial Class How
         Me.Label22.Text = "目標："
         Me.Label22.Visible = False
         '
+        'PictureBox6
+        '
+        Me.PictureBox6.Location = New System.Drawing.Point(504, 179)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(212, 81)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 37
+        Me.PictureBox6.TabStop = False
+        Me.PictureBox6.Visible = False
+        '
+        'PictureBox13
+        '
+        Me.PictureBox13.Location = New System.Drawing.Point(5, 122)
+        Me.PictureBox13.Name = "PictureBox13"
+        Me.PictureBox13.Size = New System.Drawing.Size(104, 124)
+        Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox13.TabIndex = 38
+        Me.PictureBox13.TabStop = False
+        Me.PictureBox13.Visible = False
+        '
+        'PictureBox14
+        '
+        Me.PictureBox14.Location = New System.Drawing.Point(105, 155)
+        Me.PictureBox14.Name = "PictureBox14"
+        Me.PictureBox14.Size = New System.Drawing.Size(82, 78)
+        Me.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox14.TabIndex = 39
+        Me.PictureBox14.TabStop = False
+        Me.PictureBox14.Visible = False
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Adobe Devanagari", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label23.Location = New System.Drawing.Point(64, 358)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(87, 33)
+        Me.Label23.TabIndex = 40
+        Me.Label23.Text = "Label23"
+        Me.Label23.Visible = False
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Adobe Devanagari", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label24.Location = New System.Drawing.Point(315, 361)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(87, 33)
+        Me.Label24.TabIndex = 41
+        Me.Label24.Text = "Label24"
+        Me.Label24.Visible = False
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("HG創英角ｺﾞｼｯｸUB", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label25.Location = New System.Drawing.Point(120, 127)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(59, 16)
+        Me.Label25.TabIndex = 42
+        Me.Label25.Text = "↓お前"
+        Me.Label25.Visible = False
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label26.Font = New System.Drawing.Font("HG創英角ｺﾞｼｯｸUB", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label26.Location = New System.Drawing.Point(101, 72)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(219, 19)
+        Me.Label26.TabIndex = 43
+        Me.Label26.Text = "ああああああああああ"
+        '
         'How
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.Label25)
+        Me.Controls.Add(Me.Label24)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.PictureBox14)
+        Me.Controls.Add(Me.PictureBox13)
+        Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.PictureBox12)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label16)
@@ -503,6 +585,9 @@ Partial Class How
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -541,9 +626,15 @@ Partial Class How
     Friend WithEvents Label17 As Label
     Friend WithEvents PictureBox12 As PictureBox
     Friend WithEvents Timer3 As Timer
-    Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label22 As Label
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox13 As PictureBox
+    Friend WithEvents PictureBox14 As PictureBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label26 As Label
 End Class

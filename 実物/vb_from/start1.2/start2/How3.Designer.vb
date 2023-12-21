@@ -34,6 +34,7 @@ Partial Class How3
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -43,7 +44,7 @@ Partial Class How3
         Me.Button4.BackColor = System.Drawing.SystemColors.ControlText
         Me.Button4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button4.Location = New System.Drawing.Point(457, 387)
+        Me.Button4.Location = New System.Drawing.Point(354, 383)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(132, 35)
         Me.Button4.TabIndex = 10
@@ -53,13 +54,13 @@ Partial Class How3
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Font = New System.Drawing.Font("Bradley Hand ITC", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button3.Location = New System.Drawing.Point(636, 387)
+        Me.Button3.Location = New System.Drawing.Point(663, 383)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(125, 39)
         Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Next"
+        Me.Button3.Text = "チュートリアル"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'PictureBox1
@@ -140,12 +141,25 @@ Partial Class How3
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "ミニゲームをしたり暗号を解いて、鍵を手に入れましょう！"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Button1.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button1.Location = New System.Drawing.Point(513, 383)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(132, 35)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "Next"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'How3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label2)
@@ -177,4 +191,5 @@ Partial Class How3
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Button1 As Button
 End Class
