@@ -12,6 +12,7 @@ public class minigame : MonoBehaviour
     public bool ugoku_flg = true;
     public bool tugi_flg = false;
     public bool saido = false;
+    public bool get = false;
     public int clear = 0;
     public float detectionRadius = 5f; // プレイヤーを検出する半径
     public Color flashColor = Color.white; // 白い画面の色
@@ -27,6 +28,7 @@ public class minigame : MonoBehaviour
     public GameObject move_gage;
     public GameObject obg;
     public GameObject obg2;
+    public idou_mause pp;
     ata a;
     story st;
     RectTransform gage_rect;
@@ -34,6 +36,7 @@ public class minigame : MonoBehaviour
     public Random random;
     private void Start()
     {
+        pp= FindObjectOfType<idou_mause>();
         a = FindObjectOfType<ata>();
         st = FindObjectOfType<story>();
         osutoko1.transform.localPosition = new Vector3(Random.Range(-392f,381f), 90, 0);
@@ -46,29 +49,29 @@ public class minigame : MonoBehaviour
         // プレイヤーの近くにいるかどうかを検出
         isPlayerNear = IsPlayerNear();
         // エンターキーが押されたら白い画面を表示
-        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && saido == false && st.iventID>=8)
-        {
-            saido = true;
-            naame.text = "Gキーで黒いところに止めろ!";
-            //ugoku_flg = true;
-            move_gage.transform.localPosition = new Vector3(-392, 90, 0);
-            osutoko1.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 90, 0);
-            osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
-            osutoko3.transform.localPosition = new Vector3(Random.Range(-392f, 381f), -60, 0);
-            kakeru = 1;
-            clear = 0;
-            start_flg = true;
-            Canvas2.SetActive(start_flg);
-        }
-        else if (Input.GetKeyDown(KeyCode.I) && nanbonme < 4)
-        {
-            naame.text = "もうやめるのか？";
-            Invoke("Owari", 3.5f);
+        if (Input.GetKeyDown(KeyCode.I)) {
+            if (get) return;
+            else if (isPlayerNear&&!saido)
+            {
+                pp.game_flg = true;
+                saido = true;
+                naame.text = "Pキーで黒いところに止めろ!2回";
+                //ugoku_flg = true;
+                move_gage.transform.localPosition = new Vector3(-392, 90, 0);
+                osutoko1.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 90, 0);
+                osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
+                osutoko3.transform.localPosition = new Vector3(Random.Range(-392f, 381f), -60, 0);
+                kakeru = 1;
+                clear = 0;
+                start_flg = true;
+                Canvas2.SetActive(start_flg);
+            }
+            else if (nanbonme < 4)
+            {
+                naame.text = "もうやめるのか？";
+                Invoke("Owari", 3.5f);
 
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            osutoko1.transform.localPosition = new Vector3(-392, 90, 0);
+            }
         }
         if (start_flg)//スタートフラグ
         {
@@ -76,7 +79,7 @@ public class minigame : MonoBehaviour
             {
                 move_gage.transform.localPosition += new Vector3(kakeru * 10, 0, 0);
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 tugi_flg = true;
                 if (nanbonme == 1)
@@ -142,7 +145,7 @@ public class minigame : MonoBehaviour
                         Hantei();
                         Debug.Log("c");
                     }
-                    else if (tugi_flg == true && move_gage.transform.localPosition.x - 10 > osutoko3.transform.localPosition.x + 15 && osutoko3.transform.localPosition.x - 15 > move_gage.transform.localPosition.x + 10)
+                    else if (tugi_flg == true)
                     {
                         nanbonme = 4;
                         start_flg = false;
@@ -193,6 +196,7 @@ public class minigame : MonoBehaviour
         tugi_flg = false;
         clear = 0;
         start_flg = false;
+        pp.game_flg = false;
         Canvas2.SetActive(start_flg);
     }
 
@@ -212,7 +216,7 @@ public class minigame : MonoBehaviour
     }
     void aitem_add()
     {
-        a.add_list(new Aitem("motit","お前はすでに脱出に成功している", Resources.Load<Sprite>("出口の持ち手")));
+        a.add_list(new Aitem("motit","とても持ちやすそうな鍵だ", Resources.Load<Sprite>("出口の持ち手")),"持ち手");
     }
 
 }

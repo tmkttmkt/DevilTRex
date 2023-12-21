@@ -12,6 +12,7 @@ public class teki : MonoBehaviour
     ata target;
     idou_mause player;
     public musi mus;
+    bool rok_goal_flg=false;
     [SerializeField] Vector3[] vectors;
     int num = 0;
     bool mus_flg = true;
@@ -19,6 +20,7 @@ public class teki : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rast= FindObjectOfType<time>();
         nav = gameObject.GetComponent<NavMeshAgent>();
         player= FindObjectOfType<idou_mause>();
         mus = FindObjectOfType<musi>();
@@ -40,24 +42,27 @@ public class teki : MonoBehaviour
             Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out hit);
             GameObject hitObject = hit.collider.gameObject;
             //Debug.Log("距離 : " + dis +"__"+ hitObject);
-            if (target.name == hitObject.name && dis <= 30f) {
-                if (!player.tai.flg) {
-                    Debug.Log("a1");
-                    nav.SetDestination(target.transform.position);
-                    
-                }
+            if (target.name == hitObject.name && dis <= 30f && (!player.tai.flg || player.flg_rok))
+            {
                 if (mus_flg)
                 {
                     mus.teki_flg();
                     mus_flg = false;
                 }
+                Debug.Log("a1");
+                nav.SetDestination(target.transform.position);
+            }
+            else if (player.tai.flg && !rok_goal_flg)
+            {
+                if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
+                {
+                    rok_goal_flg = true;
+                }
 
             }
-            else
-            {
-                if(!mus_flg)mus.kihon_flg();
+            else { 
+                if (!mus_flg) mus.kihon_flg();
                 mus_flg = true;
-                //Debug.Log("a2");
                 //Debug.Log(nav.SetDestination(vectors[num]));
                 nav.SetDestination(vectors[num]);
                 if (!nav.pathPending && nav.remainingDistance <= nav.stoppingDistance)
@@ -66,10 +71,15 @@ public class teki : MonoBehaviour
                     num++;
                     if (num == vectors.Length) num = 0;
                 }
+                else
+                {
+                    Debug.Log("a2");
+
+                }
+                rok_goal_flg = false;
             }
         }
-        else Debug.Log("ngo");
-        //Debug.Log(nav.destination);
+        else Debug.Log("a4");
     }
     void OnCollisionEnter(Collision collision)
     {
