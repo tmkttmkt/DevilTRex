@@ -185,10 +185,11 @@ Public Class How
     End Sub
 
     Private Sub How_Load(sender As Object, e As EventArgs) Handles Me.Load
+
         Label26.Text = ""
         Label13.Visible = False
         Timer3.Enabled = True
-        My.Computer.Audio.Play("何作ってるんだっけ2.wav")
+        My.Computer.Audio.Play("チュートリアル.wav")
         Me.KeyPreview = True
         Timer1.Enabled = True
         ok(0) = 0
@@ -237,11 +238,12 @@ Public Class How
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         count += 1
-        'Label13.Text = count
-        If count = 340 Then
-            My.Computer.Audio.Play("何作ってるんだっけ2.wav")
+        'Label24.Text = count
+        'Label24.Visible = True
+        If count = 420 Then
+            My.Computer.Audio.Play("チュートリアル.wav")
         End If
-        Label24.Text = flg2
+        'Label24.Text = flg2
         If hyouji = True Then
             PictureBox7.Visible = True
             PictureBox9.Visible = True
@@ -260,6 +262,7 @@ Public Class How
     End Sub
 
     Private Sub How_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        My.Computer.Audio.Stop()
         flg = False
         flg2 = False
         rokka = False
@@ -293,7 +296,7 @@ Public Class How
         Label26.Text = ""
         Label13.Visible = False
         Timer3.Enabled = True
-        My.Computer.Audio.Play("何作ってるんだっけ2.wav")
+        My.Computer.Audio.Play("チュートリアル.wav")
         Me.KeyPreview = True
         Timer1.Enabled = True
         ok(0) = 0
@@ -513,6 +516,8 @@ Public Class How
         ElseIf count2 = 28 Then
             Timer3.Stop()
             Timer2.Stop()
+            Timer1.Stop()
+            My.Computer.Audio.Stop()
             PictureBox6.Image = gazou(16)
             PictureBox1.Image = gazou(0)
             PictureBox3.Image = gazou(1)
@@ -526,5 +531,7 @@ Public Class How
 
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
+    End Sub
 End Class
