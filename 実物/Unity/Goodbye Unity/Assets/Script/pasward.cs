@@ -20,6 +20,7 @@ public class pasward : MonoBehaviour
     public int suuzi2 = 0;
     public int suuzi3 = 0;
     public int suuzi4 = 0;
+    public bool get = false;
     idou_mause pp;
     ata a;
     // Start is called before the first frame update
@@ -34,9 +35,10 @@ public class pasward : MonoBehaviour
     void Update()
     {
         isPlayerNear = IsPlayerNear();
-        // エンターキーが押されたら白い画面を表示
-        if (isPlayerNear == true && Input.GetKeyDown(KeyCode.I) && !pass_flg)
+
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.I) && !pass_flg)
         {
+            if (get) return;
             pp.game_flg = true;
             t5.text = "10の4乗通り試すんだな";
             pass_flg = true;
@@ -126,15 +128,18 @@ public class pasward : MonoBehaviour
     }
     public void kettei()
     {
-        if (t1.text == "1" && t2.text == "9" && t3.text == "2" && t4.text == "8" )
+        if (get) return;
+        else if (t1.text == "1" && t2.text == "9" && t3.text == "2" && t4.text == "8")
         {
             Debug.Log("OK");
+
+            get = true;
+            a.add_list(new Aitem("key", "出口の鍵の持ち手かもしれない", Resources.Load<Sprite>("出口の本体")), "出口の鍵の持ち手かもしれないもの");
         }
         else
         {
             Debug.Log("NO");
         }
-        a.add_list(new Aitem("key", "出口の鍵の持ち手かもしれない", Resources.Load<Sprite>("出口の本体")), "出口の鍵の持ち手かもしれないもの");
     }
 
 }

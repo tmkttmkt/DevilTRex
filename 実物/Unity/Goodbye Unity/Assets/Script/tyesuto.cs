@@ -11,7 +11,7 @@ public class tyesuto : MonoBehaviour
     [SerializeField] GameObject futa;
     story st;
     public GameObject plyerrr;
-    public bool flg=true;
+    public bool flg=true,get=false;
     float detectionRadius=5f;
     ata a;
     // Start is called before the first frame update
@@ -25,32 +25,33 @@ public class tyesuto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPlayerNear())
+        if (reba1.flg && reba2.flg && reba3.flg && reba4.flg && flg)
         {
-            if(reba1.flg && reba2.flg && reba3.flg && reba4.flg && flg)
-            {
-                flg =false;
-                futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
-                futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
+            flg = false;
+            futa.transform.position += new Vector3(2.5f, 0.0f, 0.0f);
+            futa.transform.eulerAngles += new Vector3(-50f, 0.0f, 0.0f);
+
+        }
+        if (IsPlayerNear()&&!flg&&!get)
+        {
+            get = true;
                 a.add_list(new Aitem("aron", "いつでも、どこでも、だれでも\nこれを使えば部品をくっつけれそうだ", Resources.Load<Sprite>("アボンアルファ")), "アボンアルファ");
                 a.del_list("dengon");
                 st.reba_flg();
-            }
-        }
-        bool IsPlayerNear()
-        {
-
-            // プレイヤーオブジェクトが存在しない場合はプレイヤーは近くにいないと判定
-            float disY = Mathf.Abs(plyerrr.transform.position.y - this.transform.position.y);
-            if (disY <= 3F)
-            {
-                // プレイヤーとの距離が検出半径以内かどうかを判定
-                float distanceToPlayer = Vector3.Distance(transform.position, plyerrr.transform.position);
-                return distanceToPlayer <= detectionRadius;
-            }
-            return false;
-            // "Player"タグを持つオブジェクトを検索
         }
     }
-    
+    bool IsPlayerNear()
+    {
+
+        // プレイヤーオブジェクトが存在しない場合はプレイヤーは近くにいないと判定
+        float disY = Mathf.Abs(plyerrr.transform.position.y - this.transform.position.y);
+        if (disY <= 3F)
+        {
+            // プレイヤーとの距離が検出半径以内かどうかを判定
+            float distanceToPlayer = Vector3.Distance(transform.position, plyerrr.transform.position);
+            return distanceToPlayer <= detectionRadius;
+        }
+        return false;
+        // "Player"タグを持つオブジェクトを検索
+    }
 }

@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
     float st;
     void Start()
     {
-        st = kar.rectTransform.sizeDelta.y;
+        st = kar.rectTransform.position.y + kar.rectTransform.sizeDelta.y / 2;
         at = FindObjectOfType<ata>();
         item.gameObject.SetActive(flg_item);
     }
@@ -28,7 +28,7 @@ public class Item : MonoBehaviour
         if (mouse_chec()) hyouz();
         //Debug.Log(mo.ToString() + "口");
         kar.rectTransform.sizeDelta = new Vector2(10f, 240f / (at.items.Count <= 3 ? 1f : at.items.Count / 3f));
-        kar.rectTransform.position = new Vector3(kar.rectTransform.position.x, 456.4f - kar.rectTransform.sizeDelta.y / 2- (kar.rectTransform.sizeDelta.y*m/3), kar.rectTransform.position.z);
+        kar.rectTransform.position = new Vector3(kar.rectTransform.position.x, st - kar.rectTransform.sizeDelta.y / 2- (kar.rectTransform.sizeDelta.y*m/3), kar.rectTransform.position.z);
         if (Input.GetKeyDown(KeyCode.L))
         {
             at.add_list(new Aitem("key",mo.ToString()+"出口", Resources.Load<Sprite>("出口の本体")), mo.ToString() + "出口");

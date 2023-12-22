@@ -163,6 +163,17 @@ public class ata : MonoBehaviour
             ti.set_text("鍵を手に入れた");
         }
     }
+    bool kensaku(string txt2)
+    {
+        List<String> it = new List<String>();
+
+        foreach (Aitem ai in items)
+        {
+            it.Add(ai.name);
+        }
+        bool moti_flg = it.Contains(txt2);
+        return moti_flg;
+    }
     bool kensaku(string txt2, string txt1)
     {
         List<String> it = new List<String>();
