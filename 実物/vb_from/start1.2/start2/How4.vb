@@ -169,6 +169,7 @@
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        count += 1
         If hyouji = True Then
             PictureBox10.Visible = True
             Label5.Visible = True
@@ -187,7 +188,11 @@
             PictureBox11.Visible = False
             Label6.Visible = False
         End If
-
+        If count >= 340 Then
+            My.Computer.Audio.Stop()
+            My.Computer.Audio.Play("何作ってるんだっけ2.wav")
+            count = 0
+        End If
     End Sub
     Private Sub BackHome()
         PictureBox1.Image = gazou(0)
@@ -205,6 +210,7 @@
         Label5.Text = "誰だよバラしたやつ"
         Label6.Text = "ありふれたやつ"
         Timer1.Stop()
+        My.Computer.Audio.Stop()
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Label12.Click
         Me.Hide()
@@ -236,5 +242,7 @@
         gousei = False
         gousei2 = True
         rokka_flg = False
+        My.Computer.Audio.Stop()
+        My.Computer.Audio.Play("何作ってるんだっけ2.wav")
     End Sub
 End Class

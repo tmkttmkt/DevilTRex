@@ -181,6 +181,8 @@ Public Class Settei
     End Sub
 
     Private Sub Settei_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        DomainUpDown1.Text = ss(1)
+        DomainUpDown2.Text = ss(1)
         My.Computer.Audio.Play("何作ってるんだっけ.wav")
         count2 = 0
     End Sub
