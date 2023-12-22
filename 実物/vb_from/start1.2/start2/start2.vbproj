@@ -98,6 +98,12 @@
     <Compile Include="How3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="How4.Designer.vb">
+      <DependentUpon>How4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="How4.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="How3.resx">
       <DependentUpon>How3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="How4.resx">
+      <DependentUpon>How4.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -347,7 +347,7 @@ Public Class How
             Label26.Text &= displayText(currentIndex) ' 現在の位置の文字を追加
             currentIndex += 1
         Else
-            Thread.Sleep(500)
+            Thread.Sleep(700)
             currentIndex = 0
             count2 += 1
             Label26.Text = ""
@@ -400,6 +400,8 @@ Public Class How
             End If
         ElseIf count2 = 6 Then
             E_flg = False
+            Label13.Visible = False
+            Label19.Visible = False
             displayText = "それがアイテム欄だ。いろいろできる。"
             Mojiyomi()
         ElseIf count2 = 7 Then
@@ -431,6 +433,8 @@ Public Class How
                 ' Thread.Sleep(500)
             End If
         ElseIf count2 = 10 Then
+            Label13.Visible = False
+            Label19.Visible = False
             displayText = "だいぶ頭が良くなってきたな。"
             Mojiyomi()
         ElseIf count2 = 11 Then
@@ -469,6 +473,8 @@ Public Class How
                 Label25.Visible = True
             End If
         ElseIf count2 = 17 Then
+            Label13.Visible = False
+            Label19.Visible = False
             rokka2 = True
             displayText = "惨めな人間だぜ。"
             Mojiyomi()
@@ -506,6 +512,7 @@ Public Class How
             Mojiyomi()
         ElseIf count2 = 28 Then
             Timer3.Stop()
+            Timer2.Stop()
             PictureBox6.Image = gazou(16)
             PictureBox1.Image = gazou(0)
             PictureBox3.Image = gazou(1)
