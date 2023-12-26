@@ -198,6 +198,7 @@ public class minigame : MonoBehaviour
         start_flg = false;
         pp.game_flg = false;
         Canvas2.SetActive(start_flg);
+        st.minigame_flg();
     }
 
     bool IsPlayerNear()

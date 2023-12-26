@@ -23,9 +23,11 @@ public class pasward : MonoBehaviour
     public bool get = false;
     idou_mause pp;
     ata a;
+    story st;
     // Start is called before the first frame update
     void Start()
     {
+        st= FindObjectOfType<st>();
         pp = FindObjectOfType<idou_mause>();
         a = FindObjectOfType<ata>();
 
@@ -134,6 +136,7 @@ public class pasward : MonoBehaviour
             Debug.Log("OK");
 
             get = true;
+            st.angou_flg();
             a.add_list(new Aitem("key", "出口の鍵の持ち手かもしれない", Resources.Load<Sprite>("出口の本体")), "出口の鍵の持ち手かもしれないもの");
         }
         else

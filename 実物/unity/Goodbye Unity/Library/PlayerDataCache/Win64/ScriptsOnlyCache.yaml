@@ -135,7 +135,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10616}
     - Class: 114
-      Script: {instanceID: 21608}
+      Script: {instanceID: 27268}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -930,4 +930,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Hello.unity
-  playerPath: "U:/tet/\u5B9F\u7269/unity/exe/Goodbye Unity.exe"
+  playerPath: "C:/tet/\u5B9F\u7269/Unity/exe/Goodbye Unity.exe"

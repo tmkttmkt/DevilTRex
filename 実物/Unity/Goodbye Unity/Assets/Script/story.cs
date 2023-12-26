@@ -80,7 +80,6 @@ public class story : MonoBehaviour
         {
             StartCoroutine(minigame_ibent(19));
         }
-        StartCoroutine(minigame_ibent(15));
     }
     public void reba_flg()
     {
@@ -141,7 +140,7 @@ public class story : MonoBehaviour
     IEnumerator start_ibent()
     {
         iventID = 1;
-        mus.kihon_flg();
+        mus.start_flg();
         transform.position = new Vector3(67.74f, 21.38f, 80.149f);
         ti.set_text("いったい何があったんだ、青木は?\n佐々木は？みんなどこ行ったんだ！");
         yield return new WaitForSeconds(4.0f);
@@ -194,10 +193,14 @@ public class story : MonoBehaviour
         iventID = 7;
         ti.set_text("あ！、シェルターらしきかべが\nさっき合成させた、鍵を使ったら\n開いたぞ！");
         yield return new WaitForSeconds(6.0f);
-        ti.set_text("あれは、シェルターの鍵だったのか\nずいぶん変わったもんだ・・・\nとりあえずシェルターの奥は\nどうなっているんだろう・・・");
-        yield return new WaitForSeconds(6.0f);
-        ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行け\nば出口でもあるのだろうか\n・・・・・いそいで探索してみよう！");
-        yield return new WaitForSeconds(6.0f);
+        ti.set_text("あれは、シェルターの鍵だったのか\nずいぶん変わったもんだ・・・");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("とりあえずシェルターの奥は\nどうなっているんだろう・・・");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行けば");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("出口でもあるのだろうか\n・・・・・いそいで探索してみよう！");
+        yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("1階2階を探索してみよう");
         iventID = 8;
     }

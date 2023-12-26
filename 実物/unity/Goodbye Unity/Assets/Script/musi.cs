@@ -9,6 +9,7 @@ public class musi : MonoBehaviour
     [SerializeField] AudioClip tekida;
     [SerializeField] AudioClip sotoda;
     int n = 0;
+    bool flg = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,14 @@ public class musi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (flg)
+        {
+            if (!main.isPlaying)
+            {
+                kihon();
+            }
 
+        }
     }
     public void teki_flg()
     {
@@ -36,11 +44,21 @@ public class musi : MonoBehaviour
         main.Play();
 
     }
-    public void kihon_flg()
+    public void kihon()
     {
         main.loop = true;
         main.pitch = -1;
         main.clip = kihonda;
         main.Play();
+        flg = false;
+
+    }
+    public void start_flg()
+    {
+        kihon();
+    }
+    public void kihon_flg()
+    {
+        flg = true;
     }
 }
