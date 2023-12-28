@@ -27,7 +27,7 @@ public class pasward : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        st= FindObjectOfType<st>();
+        st= FindObjectOfType<story>();
         pp = FindObjectOfType<idou_mause>();
         a = FindObjectOfType<ata>();
 
