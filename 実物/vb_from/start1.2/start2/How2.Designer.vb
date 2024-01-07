@@ -29,7 +29,6 @@ Partial Class How2
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -65,7 +64,7 @@ Partial Class How2
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Bradley Hand ITC", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(26, 18)
         Me.Label1.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
@@ -78,12 +77,12 @@ Partial Class How2
         '
         Me.Label2.AutoSize = True
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label2.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(12, 116)
+        Me.Label2.Location = New System.Drawing.Point(12, 101)
         Me.Label2.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(313, 42)
+        Me.Label2.Size = New System.Drawing.Size(303, 50)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "このゲームは恐怖の殺人恐竜から" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "逃げ切るゲームです。"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -91,40 +90,30 @@ Partial Class How2
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("ARなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(16, 158)
+        Me.Label3.Location = New System.Drawing.Point(12, 151)
         Me.Label3.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(406, 42)
+        Me.Label3.Size = New System.Drawing.Size(336, 50)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "恐竜にはAIが搭載されており" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "血も涙もない機械らしく迫ってきます。"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 200)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(470, 21)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "血生臭くなってしまった新座総合から逃げるためにも"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(16, 221)
+        Me.Label5.Location = New System.Drawing.Point(16, 201)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(325, 21)
+        Me.Label5.Size = New System.Drawing.Size(309, 25)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "手段を選ばずに逃げ切りましょう！"
         '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button3.Location = New System.Drawing.Point(663, 385)
         Me.Button3.Name = "Button3"
@@ -136,7 +125,7 @@ Partial Class How2
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button4.Location = New System.Drawing.Point(484, 385)
         Me.Button4.Name = "Button4"
@@ -148,33 +137,33 @@ Partial Class How2
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label6.Location = New System.Drawing.Point(16, 290)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(574, 21)
+        Me.Label6.Size = New System.Drawing.Size(553, 25)
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "恐竜に近づかれてしまうと、甘えびみたいに食われてしまいます。"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label7.Location = New System.Drawing.Point(12, 311)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(368, 21)
+        Me.Label7.Size = New System.Drawing.Size(344, 25)
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "ヤツの臭い口に放り込まれないためにも"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label8.Location = New System.Drawing.Point(12, 332)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(420, 21)
+        Me.Label8.Size = New System.Drawing.Size(398, 25)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "くれぐれも迂闊に近づかないようにしましょう！"
         '
@@ -185,7 +174,7 @@ Partial Class How2
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label9.Location = New System.Drawing.Point(32, 408)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(249, 16)
+        Me.Label9.Size = New System.Drawing.Size(248, 16)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "※このゲームにはびっくり要素があります"
         '
@@ -205,11 +194,11 @@ Partial Class How2
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label10.Location = New System.Drawing.Point(480, 245)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(258, 21)
+        Me.Label10.Size = New System.Drawing.Size(263, 25)
         Me.Label10.TabIndex = 14
         Me.Label10.Text = "班員の高塚の悪夢を再現！"
         '
@@ -228,7 +217,6 @@ Partial Class How2
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -253,7 +241,6 @@ Partial Class How2
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
