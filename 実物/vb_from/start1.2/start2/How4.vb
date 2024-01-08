@@ -8,7 +8,9 @@
     Dim gousei_flg As Boolean = False
     Dim hyouji As Boolean = False
     Dim gousei = False
+    Dim rokkas = False
     Dim gousei2 = True
+    Dim E_flg = False
     Dim rokka_flg = False
     Private Sub How4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         gazou(0) = Image.FromFile("W.png")
@@ -92,17 +94,19 @@
                 gousei = True
             End If
         End If
-        If e.KeyCode = Keys.E Then
+        If e.KeyCode = Keys.E And E_flg = False Then
             PictureBox5.Image = gazou(9)
             flg2 = True
+            E_flg = True
             If hyouji = False Then
                 hyouji = True
             Else
                 hyouji = False
             End If
         End If
-        If e.KeyCode = Keys.Space Then
+        If e.KeyCode = Keys.Space And rokkas = False Then
             PictureBox7.Image = gazou(19)
+            rokkas = True
             If rokka_flg = False Then
                 rokka_flg = True
                 PictureBox13.Image = gazou(20)
@@ -134,11 +138,13 @@
         End If
         If e.KeyCode = Keys.E Then
             PictureBox5.Image = gazou(4)
+            E_flg = False
         End If
         If e.KeyCode = Keys.G Then
             PictureBox6.Image = gazou(13)
         End If
         If e.KeyCode = Keys.Space Then
+            rokkas = False
             PictureBox7.Image = gazou(16)
         End If
     End Sub
@@ -232,6 +238,8 @@
 
     Private Sub How4_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         Me.KeyPreview = True
+        E_flg = False
+        rokkas = False
         Timer1.Enabled = True
         flg = False
         flg2 = False

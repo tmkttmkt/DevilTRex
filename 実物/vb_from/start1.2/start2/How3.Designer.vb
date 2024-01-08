@@ -42,7 +42,7 @@ Partial Class How3
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button4.Location = New System.Drawing.Point(354, 383)
         Me.Button4.Name = "Button4"
@@ -54,7 +54,7 @@ Partial Class How3
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button3.Font = New System.Drawing.Font("Bradley Hand ITC", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button3.Location = New System.Drawing.Point(663, 383)
         Me.Button3.Name = "Button3"
@@ -75,7 +75,7 @@ Partial Class How3
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Bradley Hand ITC", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(16, 9)
         Me.Label1.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
@@ -87,12 +87,12 @@ Partial Class How3
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("ARなごみＰＯＰ体B", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(1000, 126)
         Me.Label3.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(527, 64)
+        Me.Label3.Size = New System.Drawing.Size(482, 74)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "←校舎内には鍵が配置されている。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  希望をもって探しましょう！"
         '
@@ -102,13 +102,13 @@ Partial Class How3
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label6.Location = New System.Drawing.Point(240, 244)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(556, 64)
+        Me.Label6.Size = New System.Drawing.Size(536, 74)
         Me.Label6.TabIndex = 14
-        Me.Label6.Text = "シェルターの鍵や、出口の鍵もあります。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "目を凝らして探しましょう！"
+        Me.Label6.Text = "シェルターの鍵や、出口の鍵もあります！" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "気合入れて探しましょう！！"
         '
         'Label2
         '
@@ -133,18 +133,18 @@ Partial Class How3
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label4.Location = New System.Drawing.Point(12, 344)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(718, 29)
+        Me.Label4.Size = New System.Drawing.Size(748, 33)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "ミニゲームをしたり暗号を解いて、鍵を手に入れましょう！"
+        Me.Label4.Text = "ミニゲームをしたり暗号を解いて、鍵パーツを手に入れましょう！"
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button1.Location = New System.Drawing.Point(513, 383)
         Me.Button1.Name = "Button1"

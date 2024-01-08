@@ -14,11 +14,13 @@
     Private Sub How3_Load(sender As Object, e As EventArgs) Handles Me.Load
         Timer1.Enabled = True
         Label4.Enabled = False
+        Label3.Text = "僕は鍵だよ！
+基本的にばらばらになってるよ"
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         count += 1
-        If Label3.Left >= 324 Then
+        If Label3.Left >= 274 Then
             Label3.Left -= 50
         End If
         If count >= 20 Then
@@ -32,4 +34,5 @@
         Me.Hide()
         How4.Show()
     End Sub
+
 End Class

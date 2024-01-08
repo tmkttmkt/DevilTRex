@@ -67,6 +67,7 @@ Partial Class How
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,7 +86,7 @@ Partial Class How
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Bradley Hand ITC", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
@@ -96,7 +97,7 @@ Partial Class How
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button1.Location = New System.Drawing.Point(599, 377)
         Me.Button1.Name = "Button1"
@@ -109,22 +110,22 @@ Partial Class How
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label2.Location = New System.Drawing.Point(16, 288)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 30)
+        Me.Label2.Size = New System.Drawing.Size(81, 29)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Left→"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(207, 122)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 30)
+        Me.Label3.Size = New System.Drawing.Size(87, 29)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "↓Front"
         '
@@ -168,22 +169,22 @@ Partial Class How
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label4.Location = New System.Drawing.Point(210, 364)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 30)
+        Me.Label4.Size = New System.Drawing.Size(83, 29)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "↑Back"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label5.Location = New System.Drawing.Point(394, 288)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 30)
+        Me.Label5.Size = New System.Drawing.Size(99, 29)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "←Right"
         '
@@ -200,11 +201,11 @@ Partial Class How
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Bradley Hand ITC", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label6.Location = New System.Drawing.Point(301, 119)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(79, 34)
+        Me.Label6.Size = New System.Drawing.Size(86, 31)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "↓Item"
         Me.Label6.Visible = False
@@ -212,7 +213,7 @@ Partial Class How
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Button2.Font = New System.Drawing.Font("Bradley Hand ITC", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button2.Location = New System.Drawing.Point(451, 377)
         Me.Button2.Name = "Button2"
@@ -227,17 +228,17 @@ Partial Class How
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(610, 245)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(0, 12)
+        Me.Label8.Size = New System.Drawing.Size(0, 15)
         Me.Label8.TabIndex = 15
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Britannic Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label9.Location = New System.Drawing.Point(581, 228)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(156, 27)
+        Me.Label9.Size = New System.Drawing.Size(162, 29)
         Me.Label9.TabIndex = 16
         Me.Label9.Text = "↑Item get・use"
         Me.Label9.Visible = False
@@ -246,23 +247,23 @@ Partial Class How
         '
         Me.Label11.AutoSize = True
         Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label11.Font = New System.Drawing.Font("AR PなごみＰＯＰ体B", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label11.Location = New System.Drawing.Point(93, 50)
         Me.Label11.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(0, 19)
+        Me.Label11.Size = New System.Drawing.Size(0, 24)
         Me.Label11.TabIndex = 17
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("AR Brush5 Medium", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.Control
         Me.Label7.Location = New System.Drawing.Point(41, 143)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(73, 90)
+        Me.Label7.Size = New System.Drawing.Size(94, 108)
         Me.Label7.TabIndex = 18
         Me.Label7.Text = "↑"
         Me.Label7.Visible = False
@@ -285,6 +286,9 @@ Partial Class How
         Me.PictureBox8.TabIndex = 20
         Me.PictureBox8.TabStop = False
         '
+        'Timer1
+        '
+        '
         'Timer2
         '
         '
@@ -303,11 +307,11 @@ Partial Class How
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("AR P行楷書体H", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label12.Location = New System.Drawing.Point(488, 15)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(192, 35)
+        Me.Label12.Size = New System.Drawing.Size(187, 39)
         Me.Label12.TabIndex = 23
         Me.Label12.Text = "(基礎訓練)"
         '
@@ -346,17 +350,17 @@ Partial Class How
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(389, 119)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(0, 12)
+        Me.Label14.Size = New System.Drawing.Size(0, 15)
         Me.Label14.TabIndex = 27
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Bradley Hand ITC", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label15.Location = New System.Drawing.Point(395, 118)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 34)
+        Me.Label15.Size = New System.Drawing.Size(73, 31)
         Me.Label15.TabIndex = 28
         Me.Label15.Text = "↓mix"
         Me.Label15.Visible = False
@@ -367,7 +371,7 @@ Partial Class How
         Me.Label16.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label16.Location = New System.Drawing.Point(581, 287)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(77, 12)
+        Me.Label16.Size = New System.Drawing.Size(75, 15)
         Me.Label16.TabIndex = 29
         Me.Label16.Text = "カギの持ち手"
         '
@@ -377,7 +381,7 @@ Partial Class How
         Me.Label17.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label17.Location = New System.Drawing.Point(581, 313)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(89, 12)
+        Me.Label17.Size = New System.Drawing.Size(81, 15)
         Me.Label17.TabIndex = 30
         Me.Label17.Text = "カギの刺すとこ"
         '
@@ -476,11 +480,11 @@ Partial Class How
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Adobe Devanagari", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label23.Location = New System.Drawing.Point(64, 358)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(87, 33)
+        Me.Label23.Size = New System.Drawing.Size(106, 29)
         Me.Label23.TabIndex = 40
         Me.Label23.Text = "Label23"
         Me.Label23.Visible = False
@@ -488,11 +492,11 @@ Partial Class How
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Adobe Devanagari", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label24.Location = New System.Drawing.Point(315, 361)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(87, 33)
+        Me.Label24.Size = New System.Drawing.Size(106, 29)
         Me.Label24.TabIndex = 41
         Me.Label24.Text = "Label24"
         Me.Label24.Visible = False
@@ -504,7 +508,7 @@ Partial Class How
         Me.Label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label25.Location = New System.Drawing.Point(120, 127)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(59, 16)
+        Me.Label25.Size = New System.Drawing.Size(58, 16)
         Me.Label25.TabIndex = 42
         Me.Label25.Text = "↓お前"
         Me.Label25.Visible = False
@@ -521,12 +525,24 @@ Partial Class How
         Me.Label26.TabIndex = 43
         Me.Label26.Text = "ああああああああああ"
         '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label18.Location = New System.Drawing.Point(2, 122)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(127, 13)
+        Me.Label18.TabIndex = 44
+        Me.Label18.Text = "ティラノサウルス"
+        '
         'How
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(770, 424)
+        Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.Label24)
@@ -567,7 +583,7 @@ Partial Class How
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.PictureBox8)
-        Me.Font = New System.Drawing.Font("AR板体H", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -636,4 +652,5 @@ Partial Class How
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
     Friend WithEvents Label26 As Label
+    Friend WithEvents Label18 As Label
 End Class

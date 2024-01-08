@@ -308,4 +308,14 @@ Public Class Settei
             Label7.ForeColor = Color.Red
         End If
     End Sub
+
+    Private Sub Label11_MouseEnter(sender As Object, e As EventArgs) Handles Label11.MouseEnter
+        Label5.Text = "初めての方にオススメな"
+        Label6.Text = "制限時間などです。"
+    End Sub
+
+    Private Sub Label11_MouseLeave(sender As Object, e As EventArgs) Handles Label11.MouseLeave
+        Mouse_Leave(7, 1)
+        Label7.ForeColor = Color.Red
+    End Sub
 End Class
