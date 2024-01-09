@@ -80,7 +80,6 @@ public class story : MonoBehaviour
         {
             StartCoroutine(minigame_ibent(19));
         }
-        StartCoroutine(minigame_ibent(15));
     }
     public void reba_flg()
     {
@@ -141,16 +140,16 @@ public class story : MonoBehaviour
     IEnumerator start_ibent()
     {
         iventID = 1;
-        mus.kihon_flg();
+        mus.start_flg();
         transform.position = new Vector3(67.74f, 21.38f, 80.149f);
         ti.set_text("いったい何があったんだ、青木は?\n佐々木は？みんなどこ行ったんだ！");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("気づいたら知らない場所に飛ばされ\nていた、意味が分からない。・・・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("ほんとに何があったんだろう、築い\nたら手持ちもなくなっている。\n電話もできない。");
-        yield return new WaitForSeconds(4.0f);
+        ti.set_text("ほんとに何があったんだろう、気づい\nたら手持ちもなくなっている。\n電話もできない。");
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("仕方がない、ここの建物がどこにあ\nるのかを知れるものでも探すか。\nおそらくこれは緊急事態だ");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("どこかに地図のようなものはないだ\nろうか急がねば・・・・・・");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("地図を探そう");
@@ -160,19 +159,19 @@ public class story : MonoBehaviour
     {
         iventID = 3;
         ti.set_text("こんなところに、ハザードマップ\nが張られてある、おそらくこの\n建物は探索した感じ、学校のようだ");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("ただ学校の位置を地図で確かめた\n感じ、おそらく佐々木たちがいる\n場所とは違う所にいる・・");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("しかも巨大な音？足音？、変な音\nが聞こえる。誰かいるのだろうか、\nでも人間の足音のようには聞こえない");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("ん？何か文章が書かれてある、\nこの建物から出たければ。\nカギを見つけろ");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("カギ・・・・・それらしきものでも\n探してみるか？・・・\nまるで俺の立場を知っているかのような文章だ・・");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("なんだろう、落書きかとも思ったが\nそのようには見えない。");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("おそらく何かの伝言かもしれない、\n期待はしないが参考にし\nて探索してみよう");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_goal_only("鍵を探そう");
 
         iventID = 4;
@@ -185,7 +184,7 @@ public class story : MonoBehaviour
         ti.set_text("上手く組み合わせれば、新しいアイ\nテムが作れるかもしれない");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("二つのアイテムをくっつけてみよう\nかな？、そしたら、何かの手掛かりが\n見つかるかもしれない");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_goal_only("２階につながる階段へ向かおう");
         iventID = 6;
     }
@@ -193,10 +192,14 @@ public class story : MonoBehaviour
     {
         iventID = 7;
         ti.set_text("あ！、シェルターらしきかべが\nさっき合成させた、鍵を使ったら\n開いたぞ！");
+        yield return new WaitForSeconds(6.0f);
+        ti.set_text("あれは、シェルターの鍵だったのか\nずいぶん変わったもんだ・・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("あれは、シェルターの鍵だったのか\nずいぶん変わったもんだ・・・\nとりあえずシェルターの奥は\nどうなっているんだろう・・・");
+        ti.set_text("とりあえずシェルターの奥は\nどうなっているんだろう・・・");
         yield return new WaitForSeconds(4.0f);
-        ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行け\nば出口でもあるのだろうか\n・・・・・いそいで探索してみよう！");
+        ti.set_text("どうやら下の階につながっている\nみたいだ・・・・・この先に行けば");
+        yield return new WaitForSeconds(4.0f);
+        ti.set_text("出口でもあるのだろうか\n・・・・・いそいで探索してみよう！");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("1階2階を探索してみよう");
         iventID = 8;
@@ -207,21 +210,21 @@ public class story : MonoBehaviour
         ti.set_text("なんだろう何かの紙切れがある。\n！？これは、この字は、青木、佐々木の字？!");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("これは、青木、佐々木、の伝言!?\nなんて書いてあるんだろう・・・・\n「ごめん高橋・・俺らはお前をとん\nでもない目に巻き込ませてしまったかも\nしれない・・・・");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("これはうわさを信じなかった俺ら\nの責任だ。実はこの屋敷には。過去に\n実在した、巨大生物の幽霊がうろ追って\nいるという噂があった");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("それを俺らはうのみにしなかった\nただ二人より3人いたほうが心強いと\n思ってお前、高橋を誘いったんだ");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("しかもこの屋敷のうわさはもう一\nつあるんだ、それは建物に入った瞬間\nに。一緒にいた人とはぐれてしまうという噂だ、");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("もしお前が生きていたら、ここに\n書いた文章をよく目に刻んでくれ。出口\nは1階にある");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("そして、この屋敷にはうわさが正\nしければ必ずカギを開けるためのカギがある\nはずなんだ。それを見つけたら急いで出口に\n迎え、そしたら・・・・・・」");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("文章はここで切れている。なるほ\nど、俺があの時に止めていれば。くそ！\n伝言が書かれた紙には佐々木と、青木の\nものと思われる血がついている");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("鍵・・を見つけたらと書いてあった\nうわさが正しければ必ずあるはず。。か\n・・とにかく急ごう！、深く考えている\n暇はない・・・");
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("Iキーでレバーをオンにできるよ\n下向きになったらオンなってるあかしだよ");
         yield return new WaitForSeconds(4.0f);
         ti.set_goal_only("鍵を探そう");
@@ -232,13 +235,13 @@ public class story : MonoBehaviour
     {
         iventID = 11;
         ti.set_text("なんだろう、どうやらミニゲームが\n遊べる機会の下から、新しい\nアイテムが出てきたぞ");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("いったいこれは何だろう、何かのパ\nーツに見えるな、後で使える\nかもしれない、念のため\n持っておこう");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("でもなんだろう？画面に何かが表示\nされている、4けたの数字？\nもしかしたら何かのパスワ\nードの数値かもしれない");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("この数値も頭に入れながら探索して\nいこうかな、どんどん探索を\n進めていこう");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(6.0f);
         
         iventID = next;
     }
@@ -246,13 +249,13 @@ public class story : MonoBehaviour
     {
         iventID = 12;
         ti.set_text("あれ？、さっきまで空いていな\nかったはずの箱のふたが開いている！");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
         ti.set_text("何の箱だろう、中身を見てみよ\nう・・・・これは超強力接着剤、アボ\nンアルファ！");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("そういえば、佐々木たちの伝言\n1Fから4Fにあるレバーを引くといいみ\nたいことも書かれてたな、もしかしてすべて\nの階にあるレバーを引いたから開いたのか");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(8.0f);
         ti.set_text("とりあえずこれで、新しいアイ\nテムも手に入った、このアボンアルフ\nァも活用すれば何かのアイテム同士合体でき\nるかもしれない・・・・・・・・・・・・");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(8.0f);
         iventID = next;
 
     }
@@ -260,9 +263,9 @@ public class story : MonoBehaviour
     {
         iventID = 14;
         ti.set_text("あ！、チェストのロックが解除\nされたぞ！中にはいったい何が入って\nいるのだろうか？");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(6.0f);
         ti.set_text("針金？・・・何かの鍵？の差込\n口みたいだ、もしかしてまたこれで新\nしく鍵を作ることができるかもしれない");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(6.0f);
         iventID = next;
 
     }
@@ -270,7 +273,7 @@ public class story : MonoBehaviour
     {
         iventID = 20;
         ti.set_text("おや？・・・・・お・・・・\n！！・・・・・・・・・・・・・・・・！");
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
         ti.set_text("あ！！、鍵を手に入れること\nできた、おそらくこれは出口の鍵だ！！");
         yield return new WaitForSeconds(4.0f);
         ti.set_text("これを使えば、出口の扉を開\nけれるかもしれない・・・・・早速向かおう");

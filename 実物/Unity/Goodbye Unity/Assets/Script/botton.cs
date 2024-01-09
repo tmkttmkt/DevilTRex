@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class botton : MonoBehaviour
 {
     [SerializeField] Text text;
-    public int suuzi=0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +20,14 @@ public class botton : MonoBehaviour
     }
     public void onClick()
     {
-        Debug.Log("afshfgyauiufdafdyadwatfwdtfwtfatrdftwadfu7tf");
-        suuzi += 1;
-        if (suuzi == 10)
+        int suzi = int.Parse(text.text);
+
+        suzi += 1;
+        if (suzi == 10)
         {
-            suuzi = 0;
+            suzi = 0;
         }
-        text.text = suuzi.ToString();
+        text.text = suzi.ToString();
     }
 
 }

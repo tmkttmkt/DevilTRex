@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\idou_mause.cs" />
     <Compile Include="Assets\Script\inkey.cs" />
     <Compile Include="Assets\Script\Item.cs" />
+    <Compile Include="Assets\Script\kai_musi.cs" />
     <Compile Include="Assets\Script\key.cs" />
     <Compile Include="Assets\Script\kyoryu_ani.cs" />
     <Compile Include="Assets\Script\minigame.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Script\syuzink_ani.cs" />
     <Compile Include="Assets\Script\teki.cs" />
     <Compile Include="Assets\Script\time.cs" />
+    <Compile Include="Assets\Script\tokei.cs" />
     <Compile Include="Assets\Script\tyesuto.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>U:/tet/実物/unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

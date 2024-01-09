@@ -135,7 +135,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10616}
     - Class: 114
-      Script: {instanceID: 21684}
+      Script: {instanceID: 27268}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -629,7 +629,7 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: 6e506db200ca0bc98a30b2fa81e82834
+      Hash: 670fa0f0801813670f06d46c6b43ef3d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: pasward
@@ -641,7 +641,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 4d78fe94f5c8a82484a68f78eb9f18f0
+      Hash: d25f1d66e96e98c83a957493f24cb389
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: tyesuto
@@ -659,7 +659,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: a36174afd47b7d68e318604aaa07fcd6
+      Hash: 4ce15e99c635d2567873d27549d1f16f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: botton
@@ -677,7 +677,7 @@ ScriptsOnlyBuild:
     className: AnalyticsTracker
   - hash:
       serializedVersion: 2
-      Hash: dd03522f51acb03c14cec28ceec0d6ce
+      Hash: e9118f2862245d11ff6f95aa3106fa2c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Item
@@ -797,7 +797,7 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 5fea84184de5d321fb21fd8ff8ce9ca2
+      Hash: 87240e5ccb13b0a78049a56c9d2c61e5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: idou_mause
@@ -845,7 +845,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: dee68daf4f102acd971033f86df86a70
+      Hash: 2b4e1b33b760647c77438735e6ff0562
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: minigame
@@ -917,7 +917,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 1d2d367f2879fc9d2bb8a2aab00c1de6
+      Hash: 91bc3747f5b1c6f65e87ebbe3cbcfab8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ata
@@ -930,4 +930,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Hello.unity
-  playerPath: "U:/tet/\u5B9F\u7269/unity/exe/Goodbye Unity.exe"
+  playerPath: "C:/tet/\u5B9F\u7269/Unity/exe/Goodbye Unity.exe"

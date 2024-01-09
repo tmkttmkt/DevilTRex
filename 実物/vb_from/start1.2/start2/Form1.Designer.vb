@@ -99,7 +99,7 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.Label4.Font = New System.Drawing.Font("Century", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(485, 340)
+        Me.Label4.Location = New System.Drawing.Point(647, 340)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(120, 57)
         Me.Label4.TabIndex = 11
@@ -136,10 +136,10 @@ Partial Class Form1
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.SystemColors.Control
-        Me.Label7.Font = New System.Drawing.Font("SansSerif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
+        Me.Label7.Font = New System.Drawing.Font("ＭＳ Ｐゴシック", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(36, 413)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(324, 28)
+        Me.Label7.Size = New System.Drawing.Size(285, 24)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "©2023.Good_Natural_Person"
         '
@@ -150,7 +150,7 @@ Partial Class Form1
         Me.Label8.ForeColor = System.Drawing.Color.Red
         Me.Label8.Location = New System.Drawing.Point(475, 88)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(278, 25)
+        Me.Label8.Size = New System.Drawing.Size(274, 25)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "ーデビル・ティー・レックスー"
         '
@@ -179,12 +179,12 @@ Partial Class Form1
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Label6.Font = New System.Drawing.Font("Century", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(611, 349)
+        Me.Label6.Font = New System.Drawing.Font("Century", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(485, 340)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(181, 34)
+        Me.Label6.Size = New System.Drawing.Size(145, 57)
         Me.Label6.TabIndex = 23
-        Me.Label6.Text = "End credits"
+        Me.Label6.Text = "Main"
         '
         'Timer2
         '

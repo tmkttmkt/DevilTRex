@@ -41,6 +41,11 @@ Partial Class Settei
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DomainUpDown3 = New System.Windows.Forms.DomainUpDown()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -74,11 +79,11 @@ Partial Class Settei
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label1.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label1.Location = New System.Drawing.Point(196, 87)
+        Me.Label1.Location = New System.Drawing.Point(247, 84)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 32)
+        Me.Label1.Size = New System.Drawing.Size(93, 31)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "敵の数"
         '
@@ -86,11 +91,11 @@ Partial Class Settei
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label2.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label2.Location = New System.Drawing.Point(189, 145)
+        Me.Label2.Location = New System.Drawing.Point(259, 149)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 32)
+        Me.Label2.Size = New System.Drawing.Size(70, 31)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "時間"
         '
@@ -98,11 +103,11 @@ Partial Class Settei
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label3.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label3.Location = New System.Drawing.Point(189, 206)
+        Me.Label3.Location = New System.Drawing.Point(239, 219)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(104, 32)
+        Me.Label3.Size = New System.Drawing.Size(101, 31)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "スピード"
         '
@@ -110,37 +115,40 @@ Partial Class Settei
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Font = New System.Drawing.Font("Poplar Std", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.Label4.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label4.Location = New System.Drawing.Point(229, 277)
+        Me.Label4.Location = New System.Drawing.Point(277, 278)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 32)
+        Me.Label4.Size = New System.Drawing.Size(42, 31)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "無"
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(326, 277)
+        Me.TextBox4.Font = New System.Drawing.Font("ＭＳ ゴシック", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(368, 278)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(120, 19)
+        Me.TextBox4.Size = New System.Drawing.Size(120, 28)
         Me.TextBox4.TabIndex = 4
         Me.TextBox4.Text = "1"
         '
         'DomainUpDown1
         '
-        Me.DomainUpDown1.Location = New System.Drawing.Point(326, 158)
+        Me.DomainUpDown1.Font = New System.Drawing.Font("ＭＳ ゴシック", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.DomainUpDown1.Location = New System.Drawing.Point(368, 146)
         Me.DomainUpDown1.Name = "DomainUpDown1"
-        Me.DomainUpDown1.Size = New System.Drawing.Size(120, 19)
+        Me.DomainUpDown1.Size = New System.Drawing.Size(120, 28)
         Me.DomainUpDown1.TabIndex = 11
-        Me.DomainUpDown1.Text = "2"
+        Me.DomainUpDown1.Text = "30分"
         '
         'DomainUpDown2
         '
-        Me.DomainUpDown2.Location = New System.Drawing.Point(326, 219)
+        Me.DomainUpDown2.Font = New System.Drawing.Font("ＭＳ ゴシック", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.DomainUpDown2.Location = New System.Drawing.Point(368, 219)
         Me.DomainUpDown2.Name = "DomainUpDown2"
-        Me.DomainUpDown2.Size = New System.Drawing.Size(120, 19)
+        Me.DomainUpDown2.Size = New System.Drawing.Size(120, 26)
         Me.DomainUpDown2.TabIndex = 12
-        Me.DomainUpDown2.Text = "2"
+        Me.DomainUpDown2.Text = "凡庸"
         '
         'Label5
         '
@@ -206,11 +214,75 @@ Partial Class Settei
         '
         'DomainUpDown3
         '
-        Me.DomainUpDown3.Location = New System.Drawing.Point(326, 87)
+        Me.DomainUpDown3.Font = New System.Drawing.Font("ＭＳ ゴシック", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.DomainUpDown3.Location = New System.Drawing.Point(368, 87)
         Me.DomainUpDown3.Name = "DomainUpDown3"
-        Me.DomainUpDown3.Size = New System.Drawing.Size(120, 19)
+        Me.DomainUpDown3.Size = New System.Drawing.Size(120, 28)
         Me.DomainUpDown3.TabIndex = 18
-        Me.DomainUpDown3.Text = "2"
+        Me.DomainUpDown3.Text = "3"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label9.Font = New System.Drawing.Font("ＭＳ ゴシック", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label9.Location = New System.Drawing.Point(95, 153)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(100, 27)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "30分→"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label10.Location = New System.Drawing.Point(95, 225)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(98, 31)
+        Me.Label10.TabIndex = 20
+        Me.Label10.Text = "凡庸→"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label11.Font = New System.Drawing.Font("UD デジタル 教科書体 NK-B", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Red
+        Me.Label11.Location = New System.Drawing.Point(68, 77)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(156, 43)
+        Me.Label11.TabIndex = 21
+        Me.Label11.Text = "おすすめ"
+        Me.Label11.UseWaitCursor = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label12.Font = New System.Drawing.Font("ＭＳ ゴシック", 15.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label12.Location = New System.Drawing.Point(2, 176)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(114, 20)
+        Me.Label12.TabIndex = 23
+        Me.Label12.Text = "ここが２→"
+        Me.Label12.Visible = False
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label13.Font = New System.Drawing.Font("ＭＳ ゴシック", 15.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label13.Location = New System.Drawing.Point(2, 256)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(114, 20)
+        Me.Label13.TabIndex = 24
+        Me.Label13.Text = "ここが２→"
+        Me.Label13.Visible = False
         '
         'Settei
         '
@@ -218,6 +290,11 @@ Partial Class Settei
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.DomainUpDown3)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -261,4 +338,9 @@ Partial Class Settei
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Label8 As Label
     Friend WithEvents DomainUpDown3 As DomainUpDown
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
 End Class

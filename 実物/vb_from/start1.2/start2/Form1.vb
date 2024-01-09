@@ -9,7 +9,11 @@ Public Class Form1
     Dim count2 As Integer
     Dim count3 As Integer
     Dim start_flg As Integer = 0
+    Dim utf8 As System.Text.Encoding = System.Text.Encoding.UTF8
+    Dim bytes As Byte() = utf8.GetBytes("©2023.Good_Natural_Person")
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label7.Text = utf8.GetString(bytes)
         PictureBox2.Visible = False
         PictureBox3.Visible = True
         Test.Visible = True
@@ -144,7 +148,7 @@ Public Class Form1
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
         Try
-            Process.Start("Game Clear.exe")
+            Process.Start("マイプロジェクト（3）.exe")
             Application.Exit()
         Catch ex As Exception
             MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
@@ -185,7 +189,7 @@ Public Class Form1
         Label7.Visible = True
         Timer1.Enabled = False
         Label8.Visible = True
-        Label6.Visible = False
+        Label6.Visible = True
     End Sub
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         count3 += 1
@@ -207,4 +211,5 @@ Public Class Form1
             Kaisi()
         End If
     End Sub
+
 End Class

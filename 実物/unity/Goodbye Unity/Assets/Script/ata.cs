@@ -102,6 +102,7 @@ public class ata : MonoBehaviour
         }
 
     }
+    //持っているアイテムリストから文字列のリストにするための関数,->検索のために必要
     List<String>  mozilis()
     {
         List<String> it = new List<String>();
@@ -112,6 +113,7 @@ public class ata : MonoBehaviour
         }
         return it;
     }
+    //特定のアイテムを合成する、イベントみたいなやつ
     void syeru_key_gousei()
     {
         List<String> it = mozilis();
@@ -135,6 +137,7 @@ public class ata : MonoBehaviour
             ti.set_text("鍵を手に入れた");
         }
     }
+    //特定のアイテムを合成する、イベントみたいなやつ
     void saisyu_key_gousei()
     {
         List<String> it = mozilis();
@@ -163,6 +166,19 @@ public class ata : MonoBehaviour
             ti.set_text("鍵を手に入れた");
         }
     }
+    //アイテムがあるかの関数(引数が１つ)
+    bool kensaku(string txt2)
+    {
+        List<String> it = new List<String>();
+
+        foreach (Aitem ai in items)
+        {
+            it.Add(ai.name);
+        }
+        bool moti_flg = it.Contains(txt2);
+        return moti_flg;
+    }
+    //アイテムがあるかの関数(引数が２つ)
     bool kensaku(string txt2, string txt1)
     {
         List<String> it = new List<String>();
@@ -175,6 +191,7 @@ public class ata : MonoBehaviour
         bool hon_flg = it.Contains(txt1);
         return moti_flg && hon_flg;
     }
+    //アイテムがあるかの関数(引数が３つ)
     bool kensaku(string txt2, string txt1, string txt3)
     {
         List<String> it = new List<String>();

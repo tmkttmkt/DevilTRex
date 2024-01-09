@@ -50,9 +50,9 @@ public class minigame : MonoBehaviour
         isPlayerNear = IsPlayerNear();
         // エンターキーが押されたら白い画面を表示
         if (Input.GetKeyDown(KeyCode.I)) {
-            if (get) return;
-            else if (isPlayerNear&&!saido)
+            if (isPlayerNear&&!saido)
             {
+                if (get) return;
                 pp.game_flg = true;
                 saido = true;
                 naame.text = "Pキーで黒いところに止めろ!2回";
@@ -198,6 +198,7 @@ public class minigame : MonoBehaviour
         start_flg = false;
         pp.game_flg = false;
         Canvas2.SetActive(start_flg);
+        st.minigame_flg();
     }
 
     bool IsPlayerNear()
