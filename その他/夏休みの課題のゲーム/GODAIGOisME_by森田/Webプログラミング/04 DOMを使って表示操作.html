@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body { font-size:14pt; font-weight:plain; }
+h1 { color:white; padding:5px; font-size:24pt;background-color:red; }
+</style>
+<script>
+function clickNow(){
+var input1 = document.querySelector('#input1');
+var value = input1.value;
+var msg = document.querySelector('#msg');
+msg.textContent = ""+value+"さん、あなたは知りすぎた";
+title.textContent = "ピンチ！"
+}
+</script>
+
+</head>
+
+<body>
+<h1 id="title">HELLO!</h1>
+<p id="msg">あなたの名前は?</p>
+<input type="text" id="input1">
+<button onClick ="clickNow();">Button</button>
+</body>
+
+</html>

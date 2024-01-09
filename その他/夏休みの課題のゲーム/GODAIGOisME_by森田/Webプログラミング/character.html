@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>横スクロール</title>
+  <style>
+    .scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .scroll-item1 {
+      display: inline-block;
+      width: 500px; /* 任意の幅 */
+      height: 200px; /* 任意の高さ */
+      background-color: #ddd;
+      margin: 10px;
+      background-image:url(cat.png); 
+    }
+    .scroll-item2 {
+      display: inline-block;
+      width: 688px; /* 任意の幅 */
+      height: 344px; /* 任意の高さ */
+      background-color: #ddd;
+      margin: 10px;
+      background-image:url(ripuri.jpg); 
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="scroll-item1">1</div>
+    <div class="scroll-item2">2</div>
+    <div class="scroll-item2">3</div>
+<div class="scroll-item1">3</div>
+<div class="scroll-item1">3</div>
+<div class="scroll-item1">3</div>
+<div class="scroll-item1">3</div>
+    <!-- 必要な数のアイテムを追加 -->
+  </div>
+</body>
+</html>

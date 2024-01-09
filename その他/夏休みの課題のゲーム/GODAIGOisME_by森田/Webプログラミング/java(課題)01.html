@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body{font-size:16pt; font-weight:bold;}
+h1{color:white;padding:5px;font-size:24pt;background-color:blue;}
+.head{color:red;font-weight:bold;}
+.moji{color:black;font-weight:bold;}
+</style>
+<script>
+var zaiko = new Object();
+zaiko.kosuu = 0;
+zaiko.tanka = 125;
+zaiko.kingaku = 0;
+
+zaiko.aridaka = function(){
+zaiko.kingaku = zaiko.tanka * zaiko.kosuu;
+document.write('<p><span class="head">現在の在庫有高=</span>'+ zaiko.kingaku  +'</p>');<!-- コメントアウト -->
+}
+zaiko.tsuika = function(fuyasu_kosuu){
+zaiko.kosuu = zaiko.kosuu + fuyasu_kosuu;
+document.write('<p><span class="moji">現在の在庫個数=</span>'+ zaiko.kosuu  +'</p>');
+}
+zaiko.sakujo = function(herasu_kosuu){
+zaiko.kosuu = zaiko.kosuu - herasu_kosuu;
+document.write('<p><span class="moji">現在の在庫個数=</span>'+ zaiko.kosuu  +'</p>');
+}
+
+</script>
+</head>
+<body>
+<h1>(株)新座商事在庫管理</h1>
+<script>
+zaiko.aridaka();
+zaiko.tsuika(100);
+zaiko.aridaka();
+zaiko.sakujo(50);
+zaiko.aridaka();
+zaiko.tsuika(200);
+zaiko.aridaka();
+zaiko.sakujo(30);
+zaiko.aridaka();
+</script>
+</body>
+</html>

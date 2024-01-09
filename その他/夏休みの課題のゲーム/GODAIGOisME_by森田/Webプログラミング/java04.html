@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body{font-size:16pt; font-weight:bold;}
+h1{color:white;padding:5px;font-size:24pt;background-color:red;}
+.head{color:blue;font-weight:bold;}
+</style>
+<script>
+var zeikin = {};
+zeikin['tax'] = 10;
+zeikin['price'] = 0;
+zeikin['kingaku'] = function(){
+document.write('<p><span class="head">金額 : </span>'+ zeikin['price'] +'円</p>');
+}
+zeikin['zeikomi'] = function(){
+var n = zeikin['price'] * ( 100 ) / 8000;
+document.write('<p><span class="head">税込 : </span>'+ Math.floor(n) +'ドル</p>');
+}
+zeikin['zeinuki'] = function(){
+var n = zeikin['price'] / (( 100 + zeikin['tax']) / 100);
+document.write('<p><span class="head">税抜 : </span>'+ Math.floor(n) +'円</p>');
+}
+
+</script>
+</head>
+<body>
+<h1>HELLO!</h1>
+<script>
+zeikin['price'] = 12800;
+zeikin['kingaku']();
+zeikin['zeikomi']();
+zeikin['zeinuki']();
+
+</script>
+</body>
+</html>

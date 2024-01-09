@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ガイアのホームページ</title>
+<style>
+.line-left {
+    border-left: 20px solid pink;
+    padding-left: 5px;
+}
+.vertical-line {
+        border-right: 20px solid pink;
+	padding-right: 5px;
+    }
+body { font-size:14pt; font-weight:plain; }
+h1 { color:pink; padding:5px; font-size:24pt;background-color:black; }
+h2 { color:pink; padding:5px; font-size:24pt;background-color:black; }
+hr{color:pink;}
+moji{color:white;}
+hh{}
+oo{}
+</style>
+<script>
+function sampleimg1(){
+var katou = document.querySelector('#katou');
+katou.textContent = "なっ…なんで…………";
+var img = document.getElementById("image_file");
+img.src="nande.jpg";
+var img = document.getElementById("hh");
+var ing = document.getElementById("irasuto_file");
+ing.src="yokatta.jpg";
+var ing = document.getElementById("oo");
+hh.value="ガッ………ガイアッッッ";
+}
+function clickNow(){
+var r = document.querySelector('#red').value;
+var g = document.querySelector('#green').value;
+var b = document.querySelector('#blue').value;
+var mgg = document.querySelector('#mgg');
+mgg.style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
+
+}
+</script>
+
+</head>
+
+<body id='mgg'>
+<div class="line-left">
+<div class="vertical-line">
+<center>
+<h1 id="title">ガイアのホームページようこそ</h1>
+<hr>
+<font color="#FFC9D2">ガイアは、最強の実戦部隊ガイア隊の司令官兼、二重人格者である。<br>
+周囲に存在する物体を利用した、環境利用闘法のマスターでもある。<br>
+しかし序盤のシュールすぎるシーンから、立派なコラ画像になってしまった。<br>
+そのおかげか勇次郎に並ぶビックネームになっている。<br>
+<hr>
+RGBをいじれます<br>
+<input type="range" id="red" max="255"><br>
+<input type="range" id="green" max="255"><br>
+<input type="range" id="blue" max="255"><br>
+<button onclick="clickNow();">決定ッッ</button>
+<br>
+<br>
+<img src="動画、画像\gaia.jpg"width="500"height="600">
+<img src="nomura.jpg"width="600"height="600"><br>
+右がガイア、左が野村<br>
+<br>
+<table border="2">
+<tr>
+<td align="center">本名</td><td align="center">ガイア／野村</td><td align="center">使い分ける</td>
+</tr>
+<tr>
+<td align="center">二つ名</td><td align="center">ミスターウォーズ</td><td align="center">ガイア</td>
+</tr>
+<tr>
+<td align="center">必殺技</td><td align="center">環境利用闘法</td><td align="center">大地の雷</td>
+</tr>
+<tr>
+<td align="center">勝率</td><td align="center">１勝１敗</td><td align="center">２試合</td>
+</tr>
+</table>
+<br>
+<img src="動画、画像\original.gif"width="600"height="400"><br>
+↑声量兵器をぶちかますガイア。<br>
+<hr>
+<br>
+環境利用闘法のマスター。<br>
+かつて刃牙を苦しめたほどの実力を持つ。<br>
+実戦で経験を積んでいる他、アドレナリンを自由に操ったり<br>
+相手の殺意のある攻撃を見切ったりすることもできる。<br>
+さらには精神攻撃もえげつないほどできるので<br>
+並みのチャンピオンでは相手にならない。<br>
+<br>
+</font>
+<img src="baka.jpg"width="600"height="600"><br>
+<hr>
+<a href="加藤ホーム.html"><font  size="6"color="#FFC9D2">神心会ホームページへ戻る</a></font><br>
+<h2><p id="katou">１秒後に私は死ぬんだッッッ</p></h2>
+<center><p><input type="button" id="hh" onclick="sampleimg1()" value="勇次郎"></p></center>
+<img id="image_file"src="" width="500"><br>
+<br>
+<img id="irasuto_file"src="" width="500"><br>
+<br>
+<font color="#FFC9D2">
+<table border="2">
+<tr>
+<td align="center">所属校</td><td align="center">県立新座総合技術高等学校</td>
+</tr>
+<tr>
+<td align="center">学年</td><td align="left">３年</td>
+</tr>
+<tr>
+<td align="center">番号</td><td align="left">３４番</td>
+</tr>
+<tr>
+<td align="center">氏名</td><td align="left">森田裕生</td>
+</tr>
+</table>
+</font>
+</div>
+</body>
+</div>
+</html>

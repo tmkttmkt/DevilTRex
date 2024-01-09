@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>課題１</title>
+	<style>
+	body {font-size:16pt;font-weight:bold;}
+	h1 { color:white;padding:5px;font-size:24pt;
+	   background-color:red;}
+	</style>
+</head>
+<body>
+	<h1>1学期中間考査結果</h1>
+	<script>
+	
+	var avg1 = 0;
+	var avg2 = 0;
+	var avg3 = 0;
+	var avg4 = 0;
+	var avg5 = 0;
+	var y1 = 0;
+	var y2 = 0;
+	var y3 = 0;
+	var y4 = 0;
+	var data = [
+		['生徒氏名','国','数','英','理','社'],
+		['新座太郎',98,67,81,59,76],
+		['朝霞次郎',25,78,65,46,13],
+		['和光三郎',14,55,45,56,48],
+		['志木四郎',36,69,78,48,57],
+	];
+	document.write('<table border="2">');
+	for(var y = 0;y<5;y++){
+		document.write('<tr>');
+		for(var x = 0;x<6;x++){
+			if(y > 0 && x > 0){
+				y1 += data[y][x];
+			}
+			document.write( '<td align="center">' + data[y][x] + '</td>');
+			if(x == 1 && y > 0){
+				avg1 += data[y][x];
+			}
+			if(x == 2 && y > 0){
+				avg2 += data[y][x];
+			}
+			if(x == 3 && y > 0){
+				avg3 += data[y][x];
+			}
+			if(x == 4 && y > 0){
+				avg4 += data[y][x];
+			}
+			if(x == 5 && y > 0){
+				avg5 += data[y][x];
+			}
+		
+		}
+		y1 = y1 / 5;
+		y1 = Math.floor(y1);
+		if(y > 0){
+			document.write( '<td>'+  y1  + '</td>');
+		}
+		y1 = 0;
+		document.write('</tr>')
+	}
+	avg1 = avg1 / 4;
+	avg1 = Math.floor(avg1);
+	avg2 = avg2 / 4;
+	avg2 = Math.floor(avg2);
+	avg3 = avg3 / 4;
+	avg3 = Math.floor(avg3);
+	avg4 = avg4 / 4;
+	avg4 = Math.floor(avg4);
+	avg5 = avg5 / 4;
+	avg5 = Math.floor(avg5);
+	document.write('</table>');
+	document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + avg1 +"&nbsp;" + avg2 +"&nbsp;" + avg3 + "&nbsp;" + avg4 +"&nbsp;" + avg5);
+	</script>
+</body>
+</html>

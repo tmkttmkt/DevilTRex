@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body { font-size:14pt; font-weight:plain; }
+h1 { color:white; padding:5px; font-size:24pt;background-color:red; }
+</style>
+<script>
+function clickNow(){
+	var ck = document.querySelector('#check1');
+	var rA = document.querySelector('#radioA');
+	var rB = document.querySelector('#radioB');
+	var res = "";
+	if(ck.checked){
+		res = "あなたは大人ですね。";
+	} else {
+		res = "まだ子供ですね。";
+	}
+	if( rA.checked){
+		res += "女性ですね。";
+	} if( rB.checked) {
+		res += "男性ですね。";
+	}
+	var msg = document.querySelector("#msg");
+	msg.textContent = res;
+}
+function submit(){
+file.textContent = "ファイルを送信しました";
+}
+function reset(){
+msg.textContent = "あなたの名前は？"
+}
+</script>
+
+</head>
+
+<body>
+<h1 id="title">HELLO!</h1>
+<p id="msg">あなたの名前は？</p>
+<p>
+	<input type="checkbox" id="check1">
+	<label for="check1">成人</label>
+</p>
+<p>
+	<input type="radio"name="radio1" id="radioA">
+	<label for="radioA">女性</label><br>
+	<input type="radio"name="radio1" id="radioB">
+	<label for="radioB">男性</label>
+</p>
+<button onclick="clickNow();">Click</label>
+
+<p id="file">ファイルを添付する</p>
+<input type="file"name="file">
+
+<p>ファイルを送信する
+<input type="submit"id="submit"onClick = "submit();"><br>
+<input type="text"id="input1"><br>
+<input type="reset"value="リセット"onClick = "return clearFormAll();">
+<input type=reset value=reset>
+</p>
+
+
+</body>
+
+</html>

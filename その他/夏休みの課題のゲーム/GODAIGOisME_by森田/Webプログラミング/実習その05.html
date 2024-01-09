@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body{font-size:16pt; font-weight:bold;}
+h1{color:white;padding:5px;font-size:24pt;background-color:red;}
+.gu{color:red}
+.choki{color:blue}
+.pa{color:green}
+.zuru{color:red;font-size:30pt}
+</style>
+</head>
+<body>
+<h1>JANKEN BATTLE</h1>
+<script>
+var te="キングクリムゾン";
+document.write("あなたは"+ te + "<br>");
+switch(te){
+case "グー":
+	document.write('私は<span class="pa">パー</span>。私の勝ち！');
+	break;
+case "チョキ":
+	document.write('私は<span class="gu">グー</span>。私の勝ち！');
+	break;
+case "パー":
+	document.write('私は<span class="choki">チョキ</span>。私の勝ち！');
+	break;
+case "キングクリムゾン":
+	document.write('俺が<span class="gu">上!</span>。お前が<span class="gu">下だ！</span>');
+	break;
+
+default:
+	document.write('よくわからない。私の<span class="zuru">不戦勝！</span>');
+}
+</script>
+</body>
+</html>

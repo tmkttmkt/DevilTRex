@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+#msg { position:absolute; width:100px; height:100px; top:50px; left:150;}
+</style>
+<title>HELLO</title>
+<script>
+function doChange(){
+var x = document.querySelector('#x').value;
+var y = document.querySelector('#y').value;
+var msg = document.querySelector('#msg');
+msg.style.left = x + 'px';
+msg.style.top = y + 'px';
+}
+</script>
+</head>
+<body>
+<p id='msg' style="background-color:#ffaaaa;">位置変更</p>
+<p>
+<input type="range" id="x" min="10" max="500" value="150" onchange="doChange();"><br>
+<input type="range" id="y" min="50" max="500" value="50" onchange="doChange();"><br>
+</p>
+
+</body>
+</html>

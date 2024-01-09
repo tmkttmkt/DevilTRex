@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello!</title>
+	<script>
+	function clickNow(){
+		var nedan = 0;
+		var sel_ne = '<p>';
+		var buhin = document.querySelector('#mobile');
+		var opts = buhin.getElementsByTagName('option');
+		var sel_pc = '<p>';
+		for(var opt in opts){
+			if(opts[opt].selected){
+			nedan += parseInt(opts[opt].value);
+			sel_pc += opts[opt].text + ' ';
+			}
+		}
+		sel_ne += '合計金額は、' + nedan + '円です</p>';
+		sel_pc += '</p>';
+		var sakana = document.querySelector('#sakana');
+		sakana.innerHTML = sel_ne + sel_pc;
+	}
+	</script>
+</head>
+<body>
+	<p id="sakana">どれを買う？</p>
+	<p>
+	<select id="mobile" size="13" multiple>
+		<option value="2000">マザーボード 2000円</option>
+		<option value="1000">ディスプレイ 1000円</option>
+		<option value="3000">電源 3000円</option>
+		<option value="500">電源コード 500円</option>
+		<option value="1500">メモリ 1500円</option>
+		<option value="800">USBキーボード 800円</option>
+		<option value="1200">USBマウス 1200円</option>
+		<option value="4000">筐体 4000円</option>
+		<option value="12000">CPU 12000円</option>
+		<option value="4000">グラフィックボード 4000円</option>
+		<option value="1800">サウンドボード 1800円</option>
+		<option value="200000">ハードディスク 200000円</option>
+		<option value="3500">DVDドライブ 3500円</option>
+	</select>
+	</p>
+	<button onclick="clickNow();">Click</button>
+</body>
+</html>

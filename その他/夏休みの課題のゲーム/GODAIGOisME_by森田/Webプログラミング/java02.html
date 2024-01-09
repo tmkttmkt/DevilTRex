@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body{font-size:16pt; font-weight:bold;}
+h1{color:white;padding:5px;font-size:24pt;background-color:red;}
+.No{color:red;font-weight:bold;}
+</style>
+<script>
+var count=3;
+function writeMsg(msg){
+document.write('<p><span class="No">'+ count-- +'.</span>'+msg+'</p>');
+}
+</script>
+<body>
+<h1>HELLO!</h1>
+<script>
+writeMsg('おはようございます');
+writeMsg('こんにちは');
+writeMsg('こんばんは');
+</script>
+</body>
+</html>

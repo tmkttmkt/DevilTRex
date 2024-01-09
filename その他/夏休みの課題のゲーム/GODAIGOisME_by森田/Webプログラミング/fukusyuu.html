@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello!</title>
+	<style>
+	body{font-size:14pt; font-weight:plain;}
+	h1{ color:white; font-size:24pt; background-color:green;}
+	</style>
+	<script>
+		function clickNow(){
+			var roku = document.querySelector('#rokusai');
+			var juni = document.querySelector('#junisai');
+			var jugo = document.querySelector('#jugosai');
+			var juha = document.querySelector('#juhasai');
+			var goku = document.querySelector('#gokusai');
+			var roju = document.querySelector('#rojusai');
+			var res;
+			if(roku.checked){
+				res = "300円になります。";
+			}
+			if(juni.checked){
+				res = "500円になります。";
+			}
+			if(jugo.checked){
+				res = "700円になります。";
+			}
+			if(juha.checked){
+				res = "900円になります。";
+			}
+			if(goku.checked){
+				res = "1200円になります。";
+			}
+			if(roju.checked){
+				res = "700円になります。";
+			}
+			var msg = document.querySelector('#sakana');
+			msg.textContent = res;
+		}
+	</script>
+	</head>
+<body>
+<h1>料金計算</h1>
+	<p id="sakana">選択してください</p>
+	<p><input type="radio" name="kane",id="rokusai", value="400">0～6歳　幼児料金　300円<br>
+	<input type="radio" name="kane",id="junisai", value="500">7～12歳　小学生料金　500円<br>
+	<input type="radio" name="kane",id="jugosai", value="700">13～15歳　中学生料金　700円<br>
+	<input type="radio" name="kane",id="juhasai", value="900">16～18歳　高校生料金　900円<br>
+	<input type="radio" name="kane",id="gokusai", value="1200">19～59歳　大人料金　1200円<br>
+	<input type="radio" name="kane",id="rojusai", value="700">60～　老人料金　700円<br>
+	</p>
+	<button onClick="clickNow();">Click</button>
+</body>
+</html>

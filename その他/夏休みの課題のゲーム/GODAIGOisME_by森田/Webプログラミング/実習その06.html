@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+<style>
+body{font-size:16pt; font-weight:bold;}
+h1{color:white;padding:5px;font-size:24pt;background-color:red;}
+.gu{color:red;font-size:30pt}
+.ki{color:blue;font-size:30pt}
+</style>
+</head>
+<body>
+<h1>HELLO!</h1>
+<script>
+var data = {'国語':98,'数学':67,'英語':81,'理科':59,'社会':76}
+var total = 0;
+for(key in data){
+	total += data[key];
+	document.write('['+ key + ':' + data[key] + ']<br>');
+}
+document.write("<br>");
+document.write("合計は"+ total + "、平均は" + (total / 5));
+</script>
+</body>
+</html>

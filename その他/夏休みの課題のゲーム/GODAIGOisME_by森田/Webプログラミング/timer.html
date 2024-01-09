@@ -1,0 +1,34 @@
+<html>
+<head>
+	<script>
+	var num
+	var count
+	var timer
+	fun = 0
+	fun_count = 0
+	var can
+	count = 0
+	function init(){
+		timer = setInterval(up,100);
+	}
+	function update(){
+		num = document.querySelector('#num');
+		fun_count = document.querySelector('#can');
+		count += 1
+		if(count >= 60){
+			count = 0;
+			fun += 1
+		}
+		num.textContent = count;
+		fun_count.textContent = fun;
+	}
+	function up(){
+		update();
+	}
+	</script>
+</head>
+<body onload="init();">
+	<p id="num" tabIndex="0">0</p>
+	<br>
+	<p id="can" tabIndex="0">0</p>
+</body>
