@@ -3,13 +3,17 @@ Public Class Form1
     Dim Images(2) As Image
     Dim Label_flg As Boolean = False
     Dim Songen_flg As Boolean = False
+    Dim Start_flg As Boolean = False
     Dim Auto_flg As Boolean = False
     Dim sokudo As Integer = 100
     Dim v As Integer = 0
     Dim count2 As Integer = 0
     Dim count3 As Integer = 0
     Dim displayText As String = "エンターキーで会話を進められます。" ' 表示する文字列
-    Dim currentIndex As Integer = 0 '
+    Dim currentIndex As Integer = 0
+    Dim displayText2 As String = "スタートへ
+戻りますか？" ' 表示する文字列
+    Dim currentIndex2 As Integer = 0
     Dim ss() As String = {"(俺は制限時間以内に、
 学校から出ることはかなわなかった。)", "(あの後結局脱出するための鍵は
 何とか見つけられた。)", "(しかし腐敗していたのだ。)", "こんな短時間で！？", "そのような疑問が浮かぶが
@@ -38,21 +42,24 @@ Mr.高橋。", "さて、俺がここまで来たのは
 このガキャー！！", "うわー！
 こいつ死んでやがる！", "こうして高橋は
 人生の終わりを迎えた！", "BAD END! その１
-～高塚はマジ死～", "俺は人間だぞ！", "人間の調理なんかするかよ！", "じゃあ
+～高塚はマジ死～", "俺は人間だぞ！", "俺は人間だぞ！
+人間の調理なんかするかよ！", "じゃあ
 食い殺してやるよ！", "やってみろよ
-バァ～カ！！", "その時、ティラノサウルスのかぎ爪
-が高橋の脇腹を貫き、首に噛みついた！", "これはティラノ真拳の基本の型で
-これを用いて太古の地球を征服したのだ！", "ぎゃあぁぁぁぁ
-痛ってえぇぇぇぇぇ！", "ティラノなめんなァ！", "ティラノは高橋に
-とどめを刺し、高橋の断末魔がこだまする！", "ほわぁぁぁぁぁ！！！！"}
-    Dim ss2() As String = {"[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ナレーション]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", " ", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ティラノサウルス]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ナレーション]", "[高橋]", "[ナレーション]", "[ティラノサウルス]", "[ティラノサウルス]", "[ナレーション]", "[ナレーション]", "[高橋]", "[高橋]", "[ティラノサウルス]", "[高橋]", "[ナレーション]", "[ナレーション]", "[高橋]", "[ティラノサウルス]", "[ナレーション]", "[高橋]"}
+バァ～カ！！", "その時、ティラノサウルスのかぎ爪が高橋の脇腹を
+貫き首に噛みついた！", "これはティラノ真拳の基本の型でこれを用いて
+太古の地球を征服したのだ！", "ぎゃあぁぁぁぁ
+痛ってえぇぇぇぇぇ！", "ティラノなめんなァ！", "ティラノは高橋にとどめを刺し
+高橋の断末魔がこだまする！", "ほわぁぁぁぁぁ！！！！", ""}
+    Dim ss2() As String = {"[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ナレーション]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", " ", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ティラノサウルス]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ナレーション]", "[高橋]", "[ナレーション]", "[ティラノサウルス]", "[ティラノサウルス]", "[ナレーション]", "[ナレーション]", "[高橋]", "[高橋]", "[ティラノサウルス]", "[高橋]", "[ナレーション]", "[ナレーション]", "[高橋]", "[ティラノサウルス]", "[ナレーション]", "[高橋]", " "}
     '料理人は47まで
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Label13.Visible = False
         Label14.Visible = False
+        Label19.Text = ""
         'PictureBox1.Image = Image.FromFile("新聞.jpg")
         Images(0) = Image.FromFile("学校の中.png")
         Images(1) = Image.FromFile("black.png")
+        Images(2) = Image.FromFile("ティラノin学校.png")
         Timer1.Interval = 10
         Timer2.Interval = 100
         Timer1.Enabled = True
@@ -79,6 +86,17 @@ Mr.高橋。", "さて、俺がここまで来たのは
         End If
 
     End Sub
+    Private Sub Mojiyomi2()
+        If currentIndex2 < displayText2.Length Then
+            Thread.Sleep(100)
+            Label19.Text &= displayText2(currentIndex2) ' 現在の位置の文字を追加
+            currentIndex2 += 1
+        Else
+            Label20.Visible = True
+            Label21.Visible = True
+        End If
+
+    End Sub
     Private Sub Tugi()
         Label17.Visible = False
         Label1.Text = ""
@@ -91,18 +109,44 @@ Mr.高橋。", "さて、俺がここまで来たのは
         Serekuto()
     End Sub
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Enter And Label_flg = False And Auto_flg = False And Not count2 = 27 And Not count2 = 47 And Not count2 = 57 Then
+        If e.KeyCode = Keys.Enter And Label_flg = False And Auto_flg = False And Not count2 = 27 And Not count2 = 47 And count2 < 58 Then
             Tugi()
+        ElseIf count2 = 47 Then
+            Try
+                Process.Start("start2.exe")
+                Application.Exit()
+            Catch ex As Exception
+                MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
+            End Try
+        ElseIf count2 = 58 Then
+            Try
+                Process.Start("Game Over.exe")
+                Application.Exit()
+            Catch ex As Exception
+                MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
+            End Try
         End If
 
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Mojiyomi(sokudo)
         Label12.Text = count2
+        If Start_flg = True Then
+            Label19.Visible = True
+            Mojiyomi2()
+        Else
+            Label19.Visible = False
+            Label20.Visible = False
+            Label21.Visible = False
+            Label19.Text = ""
+            currentIndex2 = 0
+            Mojiyomi(sokudo)
+        End If
         Select Case count2
-            Case <= 4
+            Case 0
                 PictureBox1.Image = Images(0)
+            Case 5
+                PictureBox1.Image = Images(2)
             Case 27
                 Label11.ForeColor = Color.White
                 Label17.Visible = False
@@ -114,26 +158,16 @@ Mr.高橋。", "さて、俺がここまで来たのは
             Case 47
                 Label17.Visible = False
                 Auto_flg = False
+                Label11.ForeColor = Color.White
                 Label15.Visible = True
-                Thread.Sleep(800)
-                Try
-                    Process.Start("start2.exe")
-                    Application.Exit()
-                Catch ex As Exception
-                    MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
-                End Try
+            Case 52
+                PictureBox1.Image = Images(1)
             Case 57
                 Label17.Visible = False
                 Auto_flg = False
+                Label11.ForeColor = Color.White
                 Label15.Text = "高橋は死ぬ！"
                 Label15.Visible = True
-                Thread.Sleep(800)
-                Try
-                    Process.Start("Game Over.exe")
-                    Application.Exit()
-                Catch ex As Exception
-                    MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
-                End Try
         End Select
 
 
@@ -164,6 +198,7 @@ Mr.高橋。", "さて、俺がここまで来たのは
             Label8.Visible = False
             Label9.Visible = False
             Label10.Visible = False
+            Label18.ForeColor = Color.White
         End If
 
 
@@ -228,7 +263,7 @@ Mr.高橋。", "さて、俺がここまで来たのは
     End Sub
 
     Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-        If count2 = 27 Or count2 = 45 Then
+        If count2 = 27 Or count2 = 47 Or count2 = 57 Then
             Label11.ForeColor = Color.White
             Auto_flg = False
         Else
@@ -275,6 +310,23 @@ Mr.高橋。", "さて、俺がここまで来たのは
 
     End Sub
 
+    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
+        Start_flg = True
+        Label18.ForeColor = Color.Red
+    End Sub
 
+    Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
+        Start_flg = False
+        Label18.ForeColor = Color.White
+    End Sub
+
+    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
+        Try
+            Process.Start("start2.exe")
+            Application.Exit()
+        Catch ex As Exception
+            MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
+        End Try
+    End Sub
 End Class
 

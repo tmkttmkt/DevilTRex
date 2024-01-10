@@ -45,6 +45,10 @@ Partial Class Form1
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,7 +142,7 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.PictureBox3.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox3.Location = New System.Drawing.Point(-13, -1)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(551, 233)
         Me.PictureBox3.TabIndex = 9
@@ -263,7 +267,7 @@ Partial Class Form1
         Me.Label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label15.Font = New System.Drawing.Font("MS UI Gothic", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label15.Location = New System.Drawing.Point(182, 136)
+        Me.Label15.Location = New System.Drawing.Point(208, 136)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(471, 64)
         Me.Label15.TabIndex = 20
@@ -295,11 +299,65 @@ Partial Class Form1
         Me.Label17.Text = "Enter->"
         Me.Label17.Visible = False
         '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label18.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label18.Location = New System.Drawing.Point(-1, 1)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(135, 24)
+        Me.Label18.TabIndex = 23
+        Me.Label18.Text = "スタートへ"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label19.Font = New System.Drawing.Font("MS UI Gothic", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label19.Location = New System.Drawing.Point(271, 94)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(267, 64)
+        Me.Label19.TabIndex = 25
+        Me.Label19.Text = "Label１９"
+        Me.Label19.Visible = False
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label20.Font = New System.Drawing.Font("ＭＳ ゴシック", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label20.Location = New System.Drawing.Point(276, 222)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(126, 35)
+        Me.Label20.TabIndex = 26
+        Me.Label20.Text = "はい！"
+        Me.Label20.Visible = False
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label21.Font = New System.Drawing.Font("ＭＳ ゴシック", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label21.Location = New System.Drawing.Point(474, 222)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(126, 35)
+        Me.Label21.TabIndex = 27
+        Me.Label21.Text = "やだ！"
+        Me.Label21.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 426)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label10)
@@ -319,6 +377,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -352,4 +411,8 @@ Partial Class Form1
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
 End Class
