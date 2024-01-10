@@ -63,27 +63,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PBR_Grass_Textures\Scripts\CameraFreeflight.cs" />
-    <Compile Include="Assets\Script\ata.cs" />
-    <Compile Include="Assets\Script\botton.cs" />
-    <Compile Include="Assets\Script\idou_mause.cs" />
-    <Compile Include="Assets\Script\inkey.cs" />
-    <Compile Include="Assets\Script\Item.cs" />
-    <Compile Include="Assets\Script\kai_musi.cs" />
-    <Compile Include="Assets\Script\key.cs" />
-    <Compile Include="Assets\Script\kyoryu_ani.cs" />
-    <Compile Include="Assets\Script\minigame.cs" />
-    <Compile Include="Assets\Script\musi.cs" />
-    <Compile Include="Assets\Script\pasward.cs" />
-    <Compile Include="Assets\Script\read.cs" />
-    <Compile Include="Assets\Script\reba.cs" />
-    <Compile Include="Assets\Script\rokaga.cs" />
-    <Compile Include="Assets\Script\rokka.cs" />
-    <Compile Include="Assets\Script\story.cs" />
-    <Compile Include="Assets\Script\syuzink_ani.cs" />
-    <Compile Include="Assets\Script\teki.cs" />
-    <Compile Include="Assets\Script\time.cs" />
-    <Compile Include="Assets\Script\tokei.cs" />
-    <Compile Include="Assets\Script\tyesuto.cs" />
+    <Compile Include="Assets\Script\demo\nokori.cs" />
+    <Compile Include="Assets\Script\main\ata.cs" />
+    <Compile Include="Assets\Script\main\botton.cs" />
+    <Compile Include="Assets\Script\main\idou_mause.cs" />
+    <Compile Include="Assets\Script\main\inkey.cs" />
+    <Compile Include="Assets\Script\main\Item.cs" />
+    <Compile Include="Assets\Script\main\kai_musi.cs" />
+    <Compile Include="Assets\Script\main\key.cs" />
+    <Compile Include="Assets\Script\main\kyoryu_ani.cs" />
+    <Compile Include="Assets\Script\main\minigame.cs" />
+    <Compile Include="Assets\Script\main\musi.cs" />
+    <Compile Include="Assets\Script\main\pasward.cs" />
+    <Compile Include="Assets\Script\main\read.cs" />
+    <Compile Include="Assets\Script\main\reba.cs" />
+    <Compile Include="Assets\Script\main\rokaga.cs" />
+    <Compile Include="Assets\Script\main\rokka.cs" />
+    <Compile Include="Assets\Script\main\story.cs" />
+    <Compile Include="Assets\Script\main\syuzink_ani.cs" />
+    <Compile Include="Assets\Script\main\teki.cs" />
+    <Compile Include="Assets\Script\main\time.cs" />
+    <Compile Include="Assets\Script\main\tokei.cs" />
+    <Compile Include="Assets\Script\main\tyesuto.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>U:/tet/実物/unity/Goodbye Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
