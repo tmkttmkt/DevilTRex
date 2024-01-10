@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 1490acd69ccee2d4d8c6507a10811da9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainCamera: {instanceID: 0}
+  - kyara: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
