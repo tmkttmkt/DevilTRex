@@ -43,6 +43,8 @@ Partial Class Form1
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,11 +78,12 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(219, 90)
+        Me.Label2.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label2.Location = New System.Drawing.Point(171, 176)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 16)
+        Me.Label2.Size = New System.Drawing.Size(81, 24)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Label2"
         Me.Label2.Visible = False
@@ -88,11 +91,12 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.Location = New System.Drawing.Point(219, 48)
+        Me.Label3.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label3.Location = New System.Drawing.Point(171, 94)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(58, 16)
+        Me.Label3.Size = New System.Drawing.Size(81, 24)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Label3"
         Me.Label3.Visible = False
@@ -100,11 +104,12 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label4.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label4.Location = New System.Drawing.Point(219, 7)
+        Me.Label4.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label4.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label4.Location = New System.Drawing.Point(171, 18)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 16)
+        Me.Label4.Size = New System.Drawing.Size(81, 24)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Label4"
         Me.Label4.Visible = False
@@ -115,7 +120,7 @@ Partial Class Form1
         Me.Label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label5.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(728, 1)
+        Me.Label5.Location = New System.Drawing.Point(739, 1)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 24)
         Me.Label5.TabIndex = 6
@@ -126,16 +131,16 @@ Partial Class Form1
         Me.PictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PictureBox2.Location = New System.Drawing.Point(0, 297)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(808, 155)
+        Me.PictureBox2.Size = New System.Drawing.Size(808, 131)
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
         '
         'PictureBox3
         '
-        Me.PictureBox3.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.PictureBox3.Location = New System.Drawing.Point(84, -1)
+        Me.PictureBox3.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.PictureBox3.Location = New System.Drawing.Point(0, -1)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(425, 125)
+        Me.PictureBox3.Size = New System.Drawing.Size(551, 233)
         Me.PictureBox3.TabIndex = 9
         Me.PictureBox3.TabStop = False
         Me.PictureBox3.Visible = False
@@ -146,7 +151,7 @@ Partial Class Form1
         Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label6.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(620, 1)
+        Me.Label6.Location = New System.Drawing.Point(638, 1)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(73, 24)
         Me.Label6.TabIndex = 10
@@ -167,11 +172,12 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label8.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label8.Location = New System.Drawing.Point(95, 8)
+        Me.Label8.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label8.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.Location = New System.Drawing.Point(-1, 18)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 16)
+        Me.Label8.Size = New System.Drawing.Size(81, 24)
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "Label8"
         Me.Label8.Visible = False
@@ -179,11 +185,12 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label9.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label9.Location = New System.Drawing.Point(95, 48)
+        Me.Label9.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label9.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label9.Location = New System.Drawing.Point(-1, 94)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(58, 16)
+        Me.Label9.Size = New System.Drawing.Size(81, 24)
         Me.Label9.TabIndex = 13
         Me.Label9.Text = "Label9"
         Me.Label9.Visible = False
@@ -191,11 +198,12 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label10.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label10.Location = New System.Drawing.Point(95, 90)
+        Me.Label10.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label10.Font = New System.Drawing.Font("MS UI Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label10.Location = New System.Drawing.Point(-1, 176)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(67, 16)
+        Me.Label10.Size = New System.Drawing.Size(94, 24)
         Me.Label10.TabIndex = 14
         Me.Label10.Text = "Label10"
         Me.Label10.Visible = False
@@ -206,7 +214,7 @@ Partial Class Form1
         Me.Label11.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label11.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(527, 1)
+        Me.Label11.Location = New System.Drawing.Point(570, -1)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(62, 24)
         Me.Label11.TabIndex = 15
@@ -262,28 +270,55 @@ Partial Class Form1
         Me.Label15.Text = "BAD ENDです！"
         Me.Label15.Visible = False
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label16.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label16.Location = New System.Drawing.Point(1, 208)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(109, 24)
+        Me.Label16.TabIndex = 21
+        Me.Label16.Text = "マウスホイールで" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "過去のも見れます"
+        Me.Label16.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label17.Font = New System.Drawing.Font("ＭＳ ゴシック", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label17.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label17.Location = New System.Drawing.Point(674, 377)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(125, 29)
+        Me.Label17.TabIndex = 22
+        Me.Label17.Text = "Enter->"
+        Me.Label17.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label11)
+        Me.ClientSize = New System.Drawing.Size(800, 426)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -315,4 +350,6 @@ Partial Class Form1
     Friend WithEvents Label14 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
 End Class
