@@ -1,11 +1,11 @@
 ﻿Imports System.IO
-Imports System.Media
-Imports System.Drawing.Imaging
-Imports System.ComponentModel
-Imports System.Drawing
+Imports System.Text
+
 
 Public Class Form1
+    Dim hozon As String = ""
     Dim count As Integer
+    Dim filePath As String = "visual.txt"
     Dim count2 As Integer
     Dim count3 As Integer
     Dim start_flg As Integer = 0
@@ -13,6 +13,11 @@ Public Class Form1
     Dim bytes As Byte() = utf8.GetBytes("©2023.Good_Natural_Person")
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim fileContent As String = ReadTextFile(filePath)
+        hozon = fileContent
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Label7.Text = utf8.GetString(bytes)
         PictureBox2.Visible = False
         PictureBox3.Visible = True
@@ -55,6 +60,20 @@ Public Class Form1
         PictureBox2.Image = Image.FromFile("タイトル2.png")
 
     End Sub
+    Private Function ReadTextFile(filePath As String) As String
+        Dim content As String = ""
+
+        ' ファイルが存在するかを確認し、存在する場合は内容を読み込む
+        If File.Exists(filePath) Then
+            Using reader As New StreamReader(filePath)
+                content = reader.ReadToEnd()
+            End Using
+        Else
+            content = "ファイルが見つかりません"
+        End If
+
+        Return content
+    End Function
     Private Sub Colorsan()
         Label1.ForeColor = Color.Black
         Label2.ForeColor = Color.Black
@@ -127,14 +146,23 @@ Public Class Form1
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        PictureBox1.Visible = True
-        Timer3.Enabled = True
-        AxWindowsMediaPlayer2.URL = "shutter1.mp3"
-        AxWindowsMediaPlayer2.Ctlcontrols.play()
-        My.Computer.Audio.Play("sakebi.wav")
+        If hozon.Length > 0 Then
+            Dim form2 As New Form2(hozon)
+            form2.Show()
+            Me.Hide()
+        Else
+            PictureBox1.Visible = True
+            Timer3.Enabled = True
+            AxWindowsMediaPlayer2.URL = "shutter1.mp3"
+            AxWindowsMediaPlayer2.Ctlcontrols.play()
+            My.Computer.Audio.Play("sakebi.wav")
+        End If
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        Using writer As New StreamWriter(filePath, False)
+            writer.Write("")
+        End Using
         Application.Exit()
     End Sub
 

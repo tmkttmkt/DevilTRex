@@ -1,4 +1,6 @@
 ﻿Imports System.Media
+Imports System.IO
+Imports System.Text
 Public Class Form1
     Public count As Integer
     Private Declare Function GetCursorPos Lib "user32.dll" (ByRef lpPoint As Point) As Boolean
@@ -9,6 +11,13 @@ Public Class Form1
         player.Play()
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Using writer As New StreamWriter("visual.txt", False, Encoding.GetEncoding("Shift_JIS"))
+            If File.Exists("visual.txt") Then
+                writer.WriteLine("game_clear")
+            Else
+                MessageBox.Show("ファイルが見つかりません")
+            End If
+        End Using
         Timer1.Start()
         PlayWavFile("課題研究 Edit 1 エクスポート 1.wav")
         AxWindowsMediaPlayer1.URL = "endrool2.mp4"

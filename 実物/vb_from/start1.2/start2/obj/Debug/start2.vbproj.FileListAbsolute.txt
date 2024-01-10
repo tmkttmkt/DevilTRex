@@ -57,3 +57,4 @@ C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.vbproj.CoreCompile
 C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.exe
 C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.xml
 C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.pdb
+U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.Form2.resources

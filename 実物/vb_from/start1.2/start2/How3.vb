@@ -12,6 +12,9 @@
     End Sub
 
     Private Sub How3_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Timer1.Enabled = True
         Label4.Enabled = False
         Label3.Text = "僕は鍵だよ！

@@ -508,7 +508,7 @@ Partial Class How
         Me.Label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label25.Location = New System.Drawing.Point(120, 127)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(58, 16)
+        Me.Label25.Size = New System.Drawing.Size(59, 16)
         Me.Label25.TabIndex = 42
         Me.Label25.Text = "↓お前"
         Me.Label25.Visible = False
@@ -588,7 +588,7 @@ Partial Class How
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "How"
-        Me.Text = "How to play"
+        Me.Text = "チュートリアル"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
