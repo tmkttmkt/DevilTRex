@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Text
-Imports System.Media
 Public Class Settei
     Dim count As Integer = 0
     Dim count2 As Integer = 0
@@ -12,6 +11,9 @@ Public Class Settei
     Dim selects2 As Integer = 1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         My.Computer.Audio.Stop()
         Label12.Visible = False
         Label13.Visible = False

@@ -150,7 +150,7 @@ Partial Class Form1
         Me.Label8.ForeColor = System.Drawing.Color.Red
         Me.Label8.Location = New System.Drawing.Point(475, 88)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(274, 25)
+        Me.Label8.Size = New System.Drawing.Size(278, 25)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "ーデビル・ティー・レックスー"
         '

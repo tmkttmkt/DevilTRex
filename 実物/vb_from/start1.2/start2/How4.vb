@@ -13,6 +13,9 @@
     Dim E_flg = False
     Dim rokka_flg = False
     Private Sub How4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         gazou(0) = Image.FromFile("W.png")
         gazou(1) = Image.FromFile("A.png")
         gazou(2) = Image.FromFile("S.png")

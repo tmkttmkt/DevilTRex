@@ -1,5 +1,7 @@
 ﻿Imports System.Media
+Imports System.Text
 Imports AxWMPLib
+Imports System.IO
 
 Public Class Form1
     Public count As Integer
@@ -12,6 +14,9 @@ Public Class Form1
         player.Play()
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Label1.BackColor = Color.Transparent
         Label3.Visible = False
         PictureBox1.BackgroundImage = Image.FromFile("game.png")
@@ -28,6 +33,13 @@ Public Class Form1
 
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        Using writer As New StreamWriter("visual.txt", False, Encoding.GetEncoding("Shift_JIS"))
+            If File.Exists("visual.txt") Then
+                writer.WriteLine("game_over")
+            Else
+                MessageBox.Show("ファイルが見つかりません")
+            End If
+        End Using
         Try
             Process.Start("start2.exe")
             Application.Exit()

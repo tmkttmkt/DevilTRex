@@ -314,7 +314,7 @@ Partial Class Settei
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Settei"
-        Me.Text = "Settei"
+        Me.Text = "設定"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

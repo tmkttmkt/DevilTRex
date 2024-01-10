@@ -188,6 +188,9 @@ Public Class How
     End Sub
 
     Private Sub How_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         WASD(False)
         Label26.Text = ""
         Label13.Visible = False

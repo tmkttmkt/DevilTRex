@@ -1,4 +1,6 @@
 ﻿Imports System.Threading
+Imports System.IO
+Imports System.Text
 Public Class Form1
     Dim Images(2) As Image
     Dim Label_flg As Boolean = False
@@ -38,21 +40,31 @@ Mr.高橋。", "さて、俺がここまで来たのは
 あのクソ・T・Rex がァ！！", "(だが刃物では敵わない。
 この刃渡り15cmの鋭利な刃物で)", "(自ら命を
 絶ってやる！)", "少年は自ら頸動脈と頸静脈に
-ソレを突き刺した！", "アベシッ！！！", "高橋死んだ！", "誰がクソティーレックスだと！
+斬撃器を突き刺した！", "アベシッ！！！", "高橋死んだ！", "誰がクソティーレックスだと！
 このガキャー！！", "うわー！
 こいつ死んでやがる！", "こうして高橋は
 人生の終わりを迎えた！", "BAD END! その１
 ～高塚はマジ死～", "俺は人間だぞ！", "俺は人間だぞ！
 人間の調理なんかするかよ！", "じゃあ
 食い殺してやるよ！", "やってみろよ
-バァ～カ！！", "その時、ティラノサウルスのかぎ爪が高橋の脇腹を
-貫き首に噛みついた！", "これはティラノ真拳の基本の型でこれを用いて
+バァ～カ！！", "その時、ティラノサウルスのかぎ爪が高橋の
+脇腹を貫き首に噛みついた！", "これはティラノ真拳の基本の型でこれを用いて
 太古の地球を征服したのだ！", "ぎゃあぁぁぁぁ
 痛ってえぇぇぇぇぇ！", "ティラノなめんなァ！", "ティラノは高橋にとどめを刺し
 高橋の断末魔がこだまする！", "ほわぁぁぁぁぁ！！！！", ""}
     Dim ss2() As String = {"[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ナレーション]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[ティラノサウルス]", "[高橋]", " ", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ティラノサウルス]", "[高橋]", "[高橋]", "[高橋]", "[高橋]", "[ナレーション]", "[高橋]", "[ナレーション]", "[ティラノサウルス]", "[ティラノサウルス]", "[ナレーション]", "[ナレーション]", "[高橋]", "[高橋]", "[ティラノサウルス]", "[高橋]", "[ナレーション]", "[ナレーション]", "[高橋]", "[ティラノサウルス]", "[ナレーション]", "[高橋]", " "}
     '料理人は47まで
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Using writer As New StreamWriter("visual.txt", False, Encoding.GetEncoding("Shift_JIS"))
+            If File.Exists("visual.txt") Then
+                writer.WriteLine("time_up")
+            Else
+                MessageBox.Show("ファイルが見つかりません")
+            End If
+        End Using
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Label13.Visible = False
         Label14.Visible = False
         Label19.Text = ""
@@ -109,7 +121,7 @@ Mr.高橋。", "さて、俺がここまで来たのは
         Serekuto()
     End Sub
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Enter And Label_flg = False And Auto_flg = False And Not count2 = 27 And Not count2 = 47 And count2 < 58 Then
+        If e.KeyCode = Keys.Enter And Label_flg = False And Auto_flg = False And Not count2 = 27 And Not count2 = 47 And count2 < 57 Then
             Tugi()
         ElseIf count2 = 47 Then
             Try
@@ -118,7 +130,7 @@ Mr.高橋。", "さて、俺がここまで来たのは
             Catch ex As Exception
                 MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
             End Try
-        ElseIf count2 = 58 Then
+        ElseIf count2 = 57 Then
             Try
                 Process.Start("Game Over.exe")
                 Application.Exit()
@@ -327,6 +339,43 @@ Mr.高橋。", "さて、俺がここまで来たのは
         Catch ex As Exception
             MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
         End Try
+    End Sub
+
+    Private Sub Label20_MouseLeave(sender As Object, e As EventArgs) Handles Label20.MouseLeave
+        If Not Label20.ClientRectangle.Contains(Label20.PointToClient(MousePosition)) Then
+            Label20.ForeColor = Color.White
+        End If
+    End Sub
+
+    Private Sub Label20_MouseEnter(sender As Object, e As EventArgs) Handles Label20.MouseEnter
+        Label20.ForeColor = Color.Red
+    End Sub
+    Private Sub Label21_MouseLeave(sender As Object, e As EventArgs) Handles Label21.MouseLeave
+        If Not Label21.ClientRectangle.Contains(Label21.PointToClient(MousePosition)) Then
+            Label21.ForeColor = Color.White
+        End If
+    End Sub
+
+    Private Sub Label21_MouseEnter(sender As Object, e As EventArgs) Handles Label21.MouseEnter
+        Label21.ForeColor = Color.Red
+    End Sub
+    Private Sub Label13_MouseLeave(sender As Object, e As EventArgs) Handles Label13.MouseLeave
+        If Not Label13.ClientRectangle.Contains(Label13.PointToClient(MousePosition)) Then
+            Label13.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub Label14_MouseEnter(sender As Object, e As EventArgs) Handles Label14.MouseEnter
+        Label14.ForeColor = Color.Red
+    End Sub
+    Private Sub Label14_MouseLeave(sender As Object, e As EventArgs) Handles Label14.MouseLeave
+        If Not Label14.ClientRectangle.Contains(Label14.PointToClient(MousePosition)) Then
+            Label14.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub Label13_MouseEnter(sender As Object, e As EventArgs) Handles Label13.MouseEnter
+        Label13.ForeColor = Color.Red
     End Sub
 End Class
 
