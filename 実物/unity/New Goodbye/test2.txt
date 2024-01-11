@@ -1,0 +1,4 @@
+teki=10
+time=999
+speed=10
+mu=6
