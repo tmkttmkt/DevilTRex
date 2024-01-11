@@ -6,18 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/start.unity
-    guid: fd14e18c23258ff4d9a4ac2667f35b50
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/saisyo.unity
+    guid: 648b34bdfb2050646b442da245947646
   - enabled: 1
     path: Assets/Scenes/car.unity
     guid: 6622f00f3980421459c3a94e977a3676
   - enabled: 1
-    path: Assets/Scenes/saisyo.unity
-    guid: 648b34bdfb2050646b442da245947646
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/OVER.unity
     guid: 1b74371df49f2564f8871061e8761898
+  - enabled: 1
+    path: Assets/Scenes/save.unity
+    guid: 5841ca524f2cc4740aa25e2688e647cb
+  - enabled: 1
+    path: Assets/Scenes/Hello.unity
+    guid: 3ea051cb9f99b1941b9cdd841ddac86c
   m_configObjects: {}

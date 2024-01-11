@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -680,7 +680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -196.66}
+  m_AnchoredPosition: {x: -0, y: -171}
   m_SizeDelta: {x: 1555.1896, y: 393.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387606134
@@ -716,7 +716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4ECA\u304B\u3089\u59CB\u307E\u308B\u30EC\u30FC\u30B7\u30F3\u30B0\u30B2\u30FC\u30E0\u306E\u64CD\u4F5C\u8AAC\u660E\u3001\n\n\u300CA\u300D\u30AD\u30FC\u3067\u5DE6\u306B\u79FB\u52D5\u3000\u30EB\u30FC\u30EB\uFF1A\u4E00\u756A\u6700\u521D\u306B\u30B3\u30FC\u30B9\u3092\uFF13\u5468\u3057\u305F\u3089\u52DD\u3061\n\u300CD\u300D\u30AD\u30FC\u3067\u53F3\u79FB\u52D5\u3000\u3000\u3000\n\u300CW\u300D\u30AD\u30FC\u3067\u524D\u9032\n\u300C\uFF33\u300D\u30AD\u30FC\u3067\u884C\u9032\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000Q\u30AD\u30FC\u3067\u30B2\u30FC\u30E0\u30B9\u30BF\u30FC\u30C8\n"
+  m_Text: "\u4ECA\u304B\u3089\u59CB\u307E\u308B\u30EC\u30FC\u30B7\u30F3\u30B0\u30B2\u30FC\u30E0\u306E\u64CD\u4F5C\u8AAC\u660E\u3001\n\n\u300CA\u300D\u30AD\u30FC\u3067\u5DE6\u306B\u56DE\u8EE2\u3000\u30EB\u30FC\u30EB\uFF1A\u4E00\u756A\u6700\u521D\u306B\u30B3\u30FC\u30B9\u3092\uFF13\u5468\u3057\u305F\u3089\u52DD\u3061\n\u300CD\u300D\u30AD\u30FC\u3067\u53F3\u306B\u56DE\u8EE2\u3000\u3000\u3000\n\u300CW\u300D\u30AD\u30FC\u3067\u524D\u9032\n\u300C\uFF33\u300D\u30AD\u30FC\u3067\u884C\u9032\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000Q\u30AD\u30FC\u3067\u30B2\u30FC\u30E0\u30B9\u30BF\u30FC\u30C8\n\u30DE\u30A6\u30B9\u79FB\u52D5\u306F\u56DE\u8EE2\u306E\u5FAE\u8ABF\u6574"
 --- !u!222 &1387606135
 CanvasRenderer:
   m_ObjectHideFlags: 0
