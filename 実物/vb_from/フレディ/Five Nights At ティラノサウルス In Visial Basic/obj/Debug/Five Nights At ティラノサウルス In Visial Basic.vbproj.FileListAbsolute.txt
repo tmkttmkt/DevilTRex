@@ -10,3 +10,15 @@ U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウル�
 U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
 U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
 U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.AssemblyReference.cache
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb

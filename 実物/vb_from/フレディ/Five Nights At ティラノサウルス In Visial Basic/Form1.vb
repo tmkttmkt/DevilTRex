@@ -1,4 +1,5 @@
 ﻿Imports System.Threading
+Imports System.Random
 Imports System.Drawing
 Public Class Form1
     Dim Gamen_flg = False
@@ -6,9 +7,22 @@ Public Class Form1
     Dim Doutai_flg1 = False
     Dim Doutai_flg2 = False
     Dim Doutai_flg3 = False
+    Dim Doutai_flg5 = False
     Dim camera_flg1 = False
+    Dim xs() As Integer = {570, 664}
+    Dim ys() As Integer = {104, 216}
     Dim Kankaku As Integer = 100
     Dim denci As Integer = 100
+    Dim r As New Random()
+    Dim x As Integer = r.Next(xs(0), xs(1))
+    Dim y As Integer = r.Next(ys(0), ys(1))
+    Dim x_2 As Integer = r.Next(xs(0), xs(1))
+    Dim y_2 As Integer = r.Next(ys(0), ys(1))
+    Dim x_3 As Integer = r.Next(xs(0), xs(1))
+    Dim y_3 As Integer = r.Next(ys(0), ys(1))
+
+
+
     'Dim gage_value As Integer = 0
     Dim Images(5) As Image
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -34,11 +48,66 @@ Public Class Form1
         PictureBox5.Visible = False
         PictureBox6.Image = Images(3)
         PictureBox8.Image = Images(3)
+        Timer4.Enabled = True
     End Sub
     Private Sub Home()
         Label20.Visible = True
 
     End Sub
+    Private Function Aruku(Number As String, x As Integer, y As Integer) As Boolean
+        Dim Numbers As String = Number
+        Randomize()
+        Dim x2 As Integer = Controls("Label" & CStr(Numbers)).Location.X
+        Dim y2 As Integer = Controls("Label" & CStr(Numbers)).Location.Y
+        Dim raberu_x = Controls("Label" & CStr(Numbers)).Location.X
+        Dim raberu_y = Controls("Label" & CStr(Numbers)).Location.Y
+        Dim End_flg_x As Boolean = False
+        Dim End_flg_y As Boolean = False
+        If End_flg_x = False Then
+            If x2 < x Then
+                x2 += 1
+                Controls("Label" & CStr(Numbers)).Location = New Point(x2, raberu_y)
+                Threading.Thread.Sleep(100)
+                '   Application.DoEvents()
+            End If
+            If x2 > x Then
+                x2 -= 1
+                Controls("Label" & CStr(Numbers)).Location = New Point(x2, raberu_y)
+                Threading.Thread.Sleep(100)
+                '    Application.DoEvents()
+            End If
+            If x2 = x Then
+                End_flg_x = True
+            End If
+        End If
+        If End_flg_y = False Then
+            If y2 < y Then
+                y2 += 1
+                Controls("Label" & CStr(Numbers)).Location = New Point(raberu_x, y2)
+                Threading.Thread.Sleep(100)
+                '  Application.DoEvents()
+            End If
+            If y2 > y Then
+                y2 -= 1
+                Controls("Label" & CStr(Numbers)).Location = New Point(raberu_x, y2)
+                Threading.Thread.Sleep(100)
+                '  Application.DoEvents()
+            End If
+            If y2 = y Then
+                End_flg_y = True
+            End If
+        End If
+        If End_flg_x = True And End_flg_y = True Then
+            Return True
+            ' Make_random(1)
+        End If
+        Return False
+    End Function
+    Private Function Move_telirano(Number As String, x As Integer, y As Integer) As Boolean
+        Dim Numbers As String = Number
+        Aruku(Numbers, x, y)
+        Return Aruku(Numbers, x, y)
+    End Function
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         ' グラフィックスオブジェクトを取得
@@ -58,7 +127,7 @@ Public Class Form1
         ' 白い枠線の黒い四角形を描画
         If Gamen_flg = True Then
 
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Red, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds) ' 四角形を塗りつぶす
                     g.DrawRectangle(pen, rectangleBounds) ' 枠線を描画
@@ -67,10 +136,16 @@ Public Class Form1
             Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds2) ' 四角形を塗りつぶす
-                    g.DrawRectangle(pen, rectangleBounds2) ' 枠線を描画
+                    If Doutai_flg5 = True Then
+                        Using pen2 As New Pen(Color.Yellow, 2)
+                            g.DrawRectangle(pen2, rectangleBounds2)
+                        End Using
+                    Else
+                        g.DrawRectangle(pen, rectangleBounds2)
+                    End If ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Green, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds3)
                     If Doutai_flg3 = True Then
@@ -88,13 +163,13 @@ Public Class Form1
                     g.DrawRectangle(pen, rectangleBounds4) ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Purple, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds5) ' 四角形を塗りつぶす
                     g.DrawRectangle(pen, rectangleBounds5) ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Gold, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds6)
                     If Doutai_flg2 = True Then
@@ -106,19 +181,19 @@ Public Class Form1
                     End If ' 四角形を塗りつぶす ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Silver, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds7) ' 四角形を塗りつぶす
                     g.DrawRectangle(pen, rectangleBounds7) ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Pink, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds8) ' 四角形を塗りつぶす
                     g.DrawRectangle(pen, rectangleBounds8) ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Orange, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black)
                     ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds9)
@@ -191,15 +266,17 @@ Public Class Form1
 
 
     Private Sub Cam1_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        If camera_flg1 = False Then
-            'Label3.Visible = False
+        If camera_flg1 = False And PictureBox3.Visible = True Then
+            Label3.Visible = False
             camera_flg1 = True
             Camera_on(1)
             Label2.BackColor = Color.Yellow
+            PictureBox1.Visible = True
         Else
             Label3.Visible = True
             camera_flg1 = False
             Label2.BackColor = Color.White
+            PictureBox1.Visible = False
         End If
     End Sub
 
@@ -251,6 +328,7 @@ Public Class Form1
         Dim zanryo As Integer
         zanryo = Battery(1, Kankaku)
         Label19.Text = Str(zanryo) + "%"
+
     End Sub
 
     Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
@@ -298,5 +376,46 @@ Public Class Form1
         Dim jikan As Integer = 0
         jikan += 1
         Label21.Text = Str(jikan) + " AM"
+    End Sub
+
+    Private Function Make_random(i As Integer)
+        Dim r As New Random()
+        x = r.Next(xs(i - 1), xs(i))
+        y = r.Next(ys(i - 1), ys(i))
+        x_2 = r.Next(xs(i - 1), xs(i))
+        y_2 = r.Next(ys(i - 1), ys(i))
+        x_3 = r.Next(xs(i - 1), xs(i))
+        y_3 = r.Next(ys(i - 1), ys(i))
+    End Function
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        Label26.Visible = CStr(Move_telirano(22, x, y))
+        Label27.Visible = CStr(Move_telirano(25, x_3, y_3))
+        'Make_random(1) ' 新しいランダムな座標を生成
+        If Move_telirano(22, x, y) = True Or Move_telirano(25, x_3, y_3) = True Then
+            Make_random(1) ' もし移動できない場合は再度新しいランダムな座標を生成
+            Move_telirano(22, x, y)
+            Move_telirano(25, x_3, y_3)
+        End If
+
+        Dim Hikisu(3) As Boolean
+    End Sub
+
+    Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
+
+        Label21.Text = "Go"
+    End Sub
+
+    Private Sub Label30_Click(sender As Object, e As EventArgs) Handles Label30.Click
+        If Doutai_flg5 = True Then
+            Doutai_flg5 = False
+            Label4.Text = "動体検知機の結果を
+表示します。"
+        ElseIf Doutai_flg5 = False Then
+            Doutai_flg5 = True
+            Label4.Text = "動体探知機３
+に反応あり"
+            Label22.Visible = True
+
+        End If
     End Sub
 End Class
