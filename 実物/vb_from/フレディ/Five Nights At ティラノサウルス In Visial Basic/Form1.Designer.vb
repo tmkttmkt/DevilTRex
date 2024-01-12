@@ -62,10 +62,12 @@ Partial Class Form1
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -417,7 +419,7 @@ Partial Class Form1
         Me.Label22.BackColor = System.Drawing.Color.Black
         Me.Label22.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.Red
-        Me.Label22.Location = New System.Drawing.Point(629, 109)
+        Me.Label22.Location = New System.Drawing.Point(615, 163)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(18, 11)
         Me.Label22.TabIndex = 49
@@ -461,18 +463,6 @@ Partial Class Form1
         Me.Label24.TabIndex = 58
         Me.Label24.Text = "Mov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2"
         '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.BackColor = System.Drawing.Color.Black
-        Me.Label25.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.Red
-        Me.Label25.Location = New System.Drawing.Point(523, 143)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(18, 11)
-        Me.Label25.TabIndex = 59
-        Me.Label25.Text = "●"
-        '
         'Timer5
         '
         '
@@ -500,6 +490,42 @@ Partial Class Form1
         Me.Label27.TabIndex = 61
         Me.Label27.Text = "Label27"
         '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label28.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label28.Location = New System.Drawing.Point(510, 126)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(17, 48)
+        Me.Label28.TabIndex = 62
+        Me.Label28.Text = "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label29.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.White
+        Me.Label29.Location = New System.Drawing.Point(7, 345)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(115, 29)
+        Me.Label29.TabIndex = 63
+        Me.Label29.Text = "Label29"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label31.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.White
+        Me.Label31.Location = New System.Drawing.Point(12, 374)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(115, 29)
+        Me.Label31.TabIndex = 64
+        Me.Label31.Text = "Label31"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -508,9 +534,11 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label31)
+        Me.Controls.Add(Me.Label29)
+        Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Label26)
-        Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label30)
@@ -598,8 +626,10 @@ Partial Class Form1
     Friend WithEvents Timer4 As Timer
     Friend WithEvents Label30 As Label
     Public WithEvents Label24 As Label
-    Friend WithEvents Label25 As Label
     Friend WithEvents Timer5 As Timer
     Friend WithEvents Label26 As Label
     Friend WithEvents Label27 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label31 As Label
 End Class

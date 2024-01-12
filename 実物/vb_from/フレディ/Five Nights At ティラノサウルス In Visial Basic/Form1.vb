@@ -9,19 +9,18 @@ Public Class Form1
     Dim Doutai_flg3 = False
     Dim Doutai_flg5 = False
     Dim camera_flg1 = False
-    Dim T_Location As Integer = 2
-    Dim xs(3) As Integer
-    Dim ys(3) As Integer
-    Dim xs2() As Integer = {498}
-    Dim ys2() As Integer = {175}
+    Dim xs(5) As Integer
+    Dim ys(5) As Integer
+    Dim xs2(5) As Integer
+    Dim ys2(5) As Integer
     Dim Kankaku As Integer = 100
     Dim denci As Integer = 100
-    Dim r As New Random()
     Dim x_2 As Integer = 0
     Dim y_2 As Integer = 0
     Dim Tomare As Integer = 0
     Dim T_number As Integer = 22
     Dim root As Integer = 3
+    Dim Idou_flg = False
 
 
 
@@ -31,14 +30,27 @@ Public Class Form1
         ProgressBar1.Minimum = 0
         ProgressBar1.Maximum = 100
         ProgressBar1.Value = 0
-        xs(0) = 489
+        xs(0) = 501
         xs(1) = 523
         xs(2) = 570
         xs(3) = 664
+        xs(4) = 499
         ys(0) = 83
-        ys(1) = 143
+        ys(1) = 108
         ys(2) = 104
-        ys(3) = 216
+        ys(3) = 175
+        ys(4) = 175
+
+        xs2(0) = 500
+        xs2(1) = 522
+        xs2(2) = 571
+        xs2(3) = 662
+        xs2(4) = 494
+        ys2(0) = 81
+        ys2(1) = 105
+        ys2(2) = 103
+        ys2(3) = 173
+        ys2(4) = 173
         Gamens(False)
         'PictureBox2.Visible = True
         Label19.Text = "100%"
@@ -46,8 +58,8 @@ Public Class Form1
         Timer1.Interval = 1000
         Timer2.Interval = 2000
         Timer3.Interval = 60000
-        Timer5.Interval = 8000
-        Timer1.Enabled = True
+        Timer5.Interval = 3000
+        Timer1.Enabled = False
         Timer3.Enabled = True
         Images(0) = Image.FromFile("Desktop.jpg")
         Images(1) = Image.FromFile("学校13.gif")
@@ -59,14 +71,16 @@ Public Class Form1
         PictureBox5.Visible = False
         PictureBox6.Image = Images(3)
         PictureBox8.Image = Images(3)
+        Timer1.Enabled = True
         Timer5.Enabled = True
     End Sub
     Private Sub Home()
         Label20.Visible = True
 
     End Sub
-    Private Function Aruku(Number As String, x As Integer, y As Integer) As Boolean
+    Private Function Aruku(Number As String, x As Integer, y As Integer, tim As Integer) As Boolean
         If Tomare < Number Then
+            Dim tims As Integer = tim
             Dim Numbers As String = Number
             Randomize()
             Dim x2 As Integer = Controls("Label" & CStr(Numbers)).Location.X
@@ -76,6 +90,11 @@ Public Class Form1
             Dim End_flg_x As Boolean = False
             Dim End_flg_y As Boolean = False
             Timer5.Stop()
+
+                If Idou_flg = True Then
+                y = ys(root)
+                x = xs(root)
+            End If
             If End_flg_x = False Then
                 If x2 < x Then
                     x2 += 1
@@ -106,10 +125,12 @@ Public Class Form1
                     Threading.Thread.Sleep(100)
                     '  Application.DoEvents()
                 End If
-                If y2 = y Then
-                    End_flg_y = True
-                End If
             End If
+            If y2 = y Then
+                End_flg_y = True
+            End If
+
+
             If End_flg_x = True And End_flg_y = True Then
                 Return True
                 ' Make_random(1)
@@ -117,20 +138,27 @@ Public Class Form1
             Return False
         End If
     End Function
-    Private Function Move_telirano(Number As String, x As Integer, y As Integer) As Boolean
-        Dim Numbers As String = Number
-        '  Aruku(Numbers, x, y)
-        '    Return Aruku(Numbers, x, y)
-    End Function
+
+
     Private Sub Select_Rex(Number As String)
+        Randomize()
         Dim r As New Random()
         Dim bango As Integer = r.Next(1, 2)
         Dim Taiki As Integer = r.Next(1000, 5000)
-        Dim koudou As Integer = 3
-        x_2 = r.Next(xs(Number - 1), xs(Number))
-        y_2 = r.Next(ys(Number - 1), ys(Number))
+        Dim koudou As Integer = r.Next(1, 4)
+        Dim koudou2 As Integer = r.Next(1, 3)
+        If xs(Number - 1) <= xs(Number) Then
+            x_2 = r.Next(xs(Number - 1), xs(Number))
+            y_2 = r.Next(ys(Number - 1), ys(Number))
+        Else
+            x_2 = r.Next(xs(Number), xs(Number - 1))
+            y_2 = r.Next(ys(Number), ys(Number - 1))
+        End If
         Label26.Text = koudou
         Label27.Text = bango
+        If Idou_flg = True Then
+            koudou = 2
+        End If
         Select Case koudou
             Case 1
                 Timer5.Stop()
@@ -138,16 +166,46 @@ Public Class Form1
                 Timer5.Start()
             Case 2
                 Timer5.Stop()
-                    Timer4.Enabled = True
+                Timer4.Enabled = True
                 Timer4.Start()
             Case 3
-                Timer5.Stop()
-                root = 1
-                koudou = 2
-                Thread.Sleep(50)
-                Timer5.Start()
+                Select Case root
+                    Case 1
+                        Select Case koudou2
+                            Case 1
+                                Timer5.Stop()
+                                root = 3
+                                Thread.Sleep(50)
+                                Timer5.Start()
+                                Idou_flg = True
+                            Case 2
+                                Timer5.Stop()
+                                root = 5
+                                Thread.Sleep(50)
+                                Timer5.Start()
+                                Idou_flg = True
+                        End Select
+                    Case 3
+                        Select Case koudou2
+                            Case 1
+                                Timer5.Stop()
+                                root = 1
+                                Thread.Sleep(50)
+                                Timer5.Start()
+                                Idou_flg = True
+                            Case 2
+                                Timer5.Stop()
+                                root = 5
+                                Thread.Sleep(50)
+                                Timer5.Start()
+                                Idou_flg = True
+                        End Select
+
+                End Select
+
         End Select
     End Sub
+
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         ' グラフィックスオブジェクトを取得
@@ -161,7 +219,7 @@ Public Class Form1
         Dim rectangleBounds5 As New Rectangle(511, 252, 74, 98)
         Dim rectangleBounds6 As New Rectangle(707, 318, 41, 45)
         Dim rectangleBounds7 As New Rectangle(617, 252, 53, 31)
-        Dim rectangleBounds8 As New Rectangle(498, 134, 40, 68)
+        Dim rectangleBounds8 As New Rectangle(498, 175, 40, 68)
         Dim rectangleBounds9 As New Rectangle(498, 71, 53, 57)
 
         ' 白い枠線の黒い四角形を描画
@@ -276,6 +334,7 @@ Public Class Form1
         Label17.Visible = flg
         Label18.Visible = flg
         Label20.Visible = Not (flg)
+        Label28.Visible = flg
         If camera_flg1 = True Then
             Label3.Visible = False
         Else
@@ -421,7 +480,9 @@ Public Class Form1
 
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         '  Aruku()
-        If Aruku(T_number, x_2, y_2) = True Then
+        If Aruku(T_number, x_2, y_2, 5) = True Then
+            Label31.Text = Aruku(T_number, x_2, y_2, 5)
+            Idou_flg = False
             Tomare = T_number
             Label6.Text = "Start"
             Thread.Sleep(5000)
@@ -429,7 +490,7 @@ Public Class Form1
             Timer4.Stop()
             Tomare = 0
         Else
-            Aruku(T_number, x_2, y_2)
+            Aruku(T_number, x_2, y_2, 5)
         End If
     End Sub
 
@@ -452,11 +513,13 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Label24_Click(sender As Object, e As EventArgs) Handles Label24.Click
-
-    End Sub
 
     Private Sub Timer5_Tick(sender As Object, e As EventArgs) Handles Timer5.Tick
         Select_Rex(root)
     End Sub
+
+
+
+
+
 End Class
