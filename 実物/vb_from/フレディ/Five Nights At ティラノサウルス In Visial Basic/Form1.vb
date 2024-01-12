@@ -9,17 +9,19 @@ Public Class Form1
     Dim Doutai_flg3 = False
     Dim Doutai_flg5 = False
     Dim camera_flg1 = False
-    Dim xs() As Integer = {570, 664}
-    Dim ys() As Integer = {104, 216}
+    Dim T_Location As Integer = 2
+    Dim xs(3) As Integer
+    Dim ys(3) As Integer
+    Dim xs2() As Integer = {498}
+    Dim ys2() As Integer = {175}
     Dim Kankaku As Integer = 100
     Dim denci As Integer = 100
     Dim r As New Random()
-    Dim x As Integer = r.Next(xs(0), xs(1))
-    Dim y As Integer = r.Next(ys(0), ys(1))
-    Dim x_2 As Integer = r.Next(xs(0), xs(1))
-    Dim y_2 As Integer = r.Next(ys(0), ys(1))
-    Dim x_3 As Integer = r.Next(xs(0), xs(1))
-    Dim y_3 As Integer = r.Next(ys(0), ys(1))
+    Dim x_2 As Integer = 0
+    Dim y_2 As Integer = 0
+    Dim Tomare As Integer = 0
+    Dim T_number As Integer = 22
+    Dim root As Integer = 3
 
 
 
@@ -29,6 +31,14 @@ Public Class Form1
         ProgressBar1.Minimum = 0
         ProgressBar1.Maximum = 100
         ProgressBar1.Value = 0
+        xs(0) = 489
+        xs(1) = 523
+        xs(2) = 570
+        xs(3) = 664
+        ys(0) = 83
+        ys(1) = 143
+        ys(2) = 104
+        ys(3) = 216
         Gamens(False)
         'PictureBox2.Visible = True
         Label19.Text = "100%"
@@ -36,6 +46,7 @@ Public Class Form1
         Timer1.Interval = 1000
         Timer2.Interval = 2000
         Timer3.Interval = 60000
+        Timer5.Interval = 8000
         Timer1.Enabled = True
         Timer3.Enabled = True
         Images(0) = Image.FromFile("Desktop.jpg")
@@ -48,66 +59,95 @@ Public Class Form1
         PictureBox5.Visible = False
         PictureBox6.Image = Images(3)
         PictureBox8.Image = Images(3)
-        Timer4.Enabled = True
+        Timer5.Enabled = True
     End Sub
     Private Sub Home()
         Label20.Visible = True
 
     End Sub
     Private Function Aruku(Number As String, x As Integer, y As Integer) As Boolean
-        Dim Numbers As String = Number
-        Randomize()
-        Dim x2 As Integer = Controls("Label" & CStr(Numbers)).Location.X
-        Dim y2 As Integer = Controls("Label" & CStr(Numbers)).Location.Y
-        Dim raberu_x = Controls("Label" & CStr(Numbers)).Location.X
-        Dim raberu_y = Controls("Label" & CStr(Numbers)).Location.Y
-        Dim End_flg_x As Boolean = False
-        Dim End_flg_y As Boolean = False
-        If End_flg_x = False Then
-            If x2 < x Then
-                x2 += 1
-                Controls("Label" & CStr(Numbers)).Location = New Point(x2, raberu_y)
-                Threading.Thread.Sleep(100)
-                '   Application.DoEvents()
+        If Tomare < Number Then
+            Dim Numbers As String = Number
+            Randomize()
+            Dim x2 As Integer = Controls("Label" & CStr(Numbers)).Location.X
+            Dim y2 As Integer = Controls("Label" & CStr(Numbers)).Location.Y
+            Dim raberu_x = Controls("Label" & CStr(Numbers)).Location.X
+            Dim raberu_y = Controls("Label" & CStr(Numbers)).Location.Y
+            Dim End_flg_x As Boolean = False
+            Dim End_flg_y As Boolean = False
+            Timer5.Stop()
+            If End_flg_x = False Then
+                If x2 < x Then
+                    x2 += 1
+                    Controls("Label" & CStr(Numbers)).Location = New Point(x2, raberu_y)
+                    Threading.Thread.Sleep(100)
+                    '   Application.DoEvents()
+                End If
+                If x2 > x Then
+                    x2 -= 1
+                    Controls("Label" & CStr(Numbers)).Location = New Point(x2, raberu_y)
+                    Threading.Thread.Sleep(100)
+                    '    Application.DoEvents()
+                End If
+                If x2 = x Then
+                    End_flg_x = True
+                End If
             End If
-            If x2 > x Then
-                x2 -= 1
-                Controls("Label" & CStr(Numbers)).Location = New Point(x2, raberu_y)
-                Threading.Thread.Sleep(100)
-                '    Application.DoEvents()
+            If End_flg_y = False Then
+                If y2 < y Then
+                    y2 += 1
+                    Controls("Label" & CStr(Numbers)).Location = New Point(raberu_x, y2)
+                    Threading.Thread.Sleep(100)
+                    '  Application.DoEvents()
+                End If
+                If y2 > y Then
+                    y2 -= 1
+                    Controls("Label" & CStr(Numbers)).Location = New Point(raberu_x, y2)
+                    Threading.Thread.Sleep(100)
+                    '  Application.DoEvents()
+                End If
+                If y2 = y Then
+                    End_flg_y = True
+                End If
             End If
-            If x2 = x Then
-                End_flg_x = True
+            If End_flg_x = True And End_flg_y = True Then
+                Return True
+                ' Make_random(1)
             End If
+            Return False
         End If
-        If End_flg_y = False Then
-            If y2 < y Then
-                y2 += 1
-                Controls("Label" & CStr(Numbers)).Location = New Point(raberu_x, y2)
-                Threading.Thread.Sleep(100)
-                '  Application.DoEvents()
-            End If
-            If y2 > y Then
-                y2 -= 1
-                Controls("Label" & CStr(Numbers)).Location = New Point(raberu_x, y2)
-                Threading.Thread.Sleep(100)
-                '  Application.DoEvents()
-            End If
-            If y2 = y Then
-                End_flg_y = True
-            End If
-        End If
-        If End_flg_x = True And End_flg_y = True Then
-            Return True
-            ' Make_random(1)
-        End If
-        Return False
     End Function
     Private Function Move_telirano(Number As String, x As Integer, y As Integer) As Boolean
         Dim Numbers As String = Number
-        Aruku(Numbers, x, y)
-        Return Aruku(Numbers, x, y)
+        '  Aruku(Numbers, x, y)
+        '    Return Aruku(Numbers, x, y)
     End Function
+    Private Sub Select_Rex(Number As String)
+        Dim r As New Random()
+        Dim bango As Integer = r.Next(1, 2)
+        Dim Taiki As Integer = r.Next(1000, 5000)
+        Dim koudou As Integer = 3
+        x_2 = r.Next(xs(Number - 1), xs(Number))
+        y_2 = r.Next(ys(Number - 1), ys(Number))
+        Label26.Text = koudou
+        Label27.Text = bango
+        Select Case koudou
+            Case 1
+                Timer5.Stop()
+                Thread.Sleep(Taiki)
+                Timer5.Start()
+            Case 2
+                Timer5.Stop()
+                    Timer4.Enabled = True
+                Timer4.Start()
+            Case 3
+                Timer5.Stop()
+                root = 1
+                koudou = 2
+                Thread.Sleep(50)
+                Timer5.Start()
+        End Select
+    End Sub
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         ' グラフィックスオブジェクトを取得
@@ -133,7 +173,7 @@ Public Class Form1
                     g.DrawRectangle(pen, rectangleBounds) ' 枠線を描画
                 End Using
             End Using
-            Using pen As New Pen(Color.White, 2) ' 枠線の色と幅を指定
+            Using pen As New Pen(Color.Blue, 2) ' 枠線の色と幅を指定
                 Using brush As New SolidBrush(Color.Black) ' 塗りつぶしの色を指定
                     g.FillRectangle(brush, rectangleBounds2) ' 四角形を塗りつぶす
                     If Doutai_flg5 = True Then
@@ -378,26 +418,19 @@ Public Class Form1
         Label21.Text = Str(jikan) + " AM"
     End Sub
 
-    Private Function Make_random(i As Integer)
-        Dim r As New Random()
-        x = r.Next(xs(i - 1), xs(i))
-        y = r.Next(ys(i - 1), ys(i))
-        x_2 = r.Next(xs(i - 1), xs(i))
-        y_2 = r.Next(ys(i - 1), ys(i))
-        x_3 = r.Next(xs(i - 1), xs(i))
-        y_3 = r.Next(ys(i - 1), ys(i))
-    End Function
-    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
-        Label26.Visible = CStr(Move_telirano(22, x, y))
-        Label27.Visible = CStr(Move_telirano(25, x_3, y_3))
-        'Make_random(1) ' 新しいランダムな座標を生成
-        If Move_telirano(22, x, y) = True Or Move_telirano(25, x_3, y_3) = True Then
-            Make_random(1) ' もし移動できない場合は再度新しいランダムな座標を生成
-            Move_telirano(22, x, y)
-            Move_telirano(25, x_3, y_3)
-        End If
 
-        Dim Hikisu(3) As Boolean
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        '  Aruku()
+        If Aruku(T_number, x_2, y_2) = True Then
+            Tomare = T_number
+            Label6.Text = "Start"
+            Thread.Sleep(5000)
+            Timer5.Start()
+            Timer4.Stop()
+            Tomare = 0
+        Else
+            Aruku(T_number, x_2, y_2)
+        End If
     End Sub
 
     Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
@@ -417,5 +450,13 @@ Public Class Form1
             Label22.Visible = True
 
         End If
+    End Sub
+
+    Private Sub Label24_Click(sender As Object, e As EventArgs) Handles Label24.Click
+
+    End Sub
+
+    Private Sub Timer5_Tick(sender As Object, e As EventArgs) Handles Timer5.Tick
+        Select_Rex(root)
     End Sub
 End Class
