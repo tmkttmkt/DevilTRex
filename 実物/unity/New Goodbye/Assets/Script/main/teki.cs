@@ -83,7 +83,9 @@ public class teki : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.gameObject);
+        Debug.Log(collision.gameObject);
+        Debug.Log(player);
+
         if (collision.gameObject.name == player.name)
         {
             Debug.Log("Hit");// ログを表示する

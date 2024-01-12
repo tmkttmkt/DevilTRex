@@ -8,9 +8,12 @@ public class idou_mause : MonoBehaviour
     read read_obj;
     public bool game_flg=false;
     bool vis_flg = false;
+    Rigidbody rb;
+    public float msp = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         tai = FindObjectOfType<rokka>();
         read_obj = FindObjectOfType<read>();
         //Debug.Log("aaaa");
@@ -71,7 +74,9 @@ public class idou_mause : MonoBehaviour
             flg_rok = true;
             if (Input.GetKey(KeyCode.W))
             {
-                transform.position += speed * transform.forward * Time.deltaTime;
+                rb.AddForce(msp * ((transform.forward * speed*rb.mass* rb.drag*0.15f) - rb.velocity));
+                //rb.AddForce(transform.forward * Time.deltaTime*10000f);
+                //transform.position += speed * transform.forward * Time.deltaTime;
             }
 
             // Sキー（後方移動）
@@ -99,6 +104,7 @@ public class idou_mause : MonoBehaviour
             transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
 
         }
+        rb.AddForce(-transform.up*9.8f*200 * rb.mass);
         /*
         if (Input.GetKeyDown(KeyCode.R)){
             if (transform.eulerAngles.x >= 80 || transform.eulerAngles.z >= 80)

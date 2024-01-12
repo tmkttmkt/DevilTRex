@@ -6,9 +6,11 @@ using System.Text;
 public class read : MonoBehaviour
 {
     public Dictionary<string, int> stetting = new Dictionary<string, int>();
+    [SerializeField]public GameObject[] tekitati;
     // Start is called before the first frame update
     void Start()
     {
+        int n = 0;
         string pa = "test2.txt";
         if (File.Exists(pa))
         {
@@ -28,6 +30,10 @@ public class read : MonoBehaviour
                 }
                 //Debug.Log(stetting);
                 fail.Close();
+            }
+            while (n < stetting["teki"]) {
+                tekitati[n].SetActive(true);
+                n++;
             }
             using (StreamWriter writer = new StreamWriter("dbg.txt", true))
             {
