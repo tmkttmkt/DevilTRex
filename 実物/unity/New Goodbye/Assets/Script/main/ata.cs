@@ -67,6 +67,11 @@ public class ata : MonoBehaviour
                         if (kensaku("mo", "hon")) st.key_flg();
                     }
                 }
+                seykey scrs = hitObject.GetComponent<seykey>();
+                if (scrs != null)
+                {
+                    ti.set_text(scrs.sey);
+                }
                 inkey scr = hitObject.GetComponent<inkey>();
                 if (scr != null)
                 {

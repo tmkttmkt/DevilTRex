@@ -31,8 +31,8 @@ public class read : MonoBehaviour
                 //Debug.Log(stetting);
                 fail.Close();
             }
-            while (n < stetting["teki"]) {
-                tekitati[n].SetActive(true);
+            while (n < 10) {
+                if(n>= stetting["teki"]) tekitati[n].SetActive(false);
                 n++;
             }
             using (StreamWriter writer = new StreamWriter("dbg.txt", true))

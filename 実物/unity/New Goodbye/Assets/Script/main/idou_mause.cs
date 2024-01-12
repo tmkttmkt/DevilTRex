@@ -74,7 +74,7 @@ public class idou_mause : MonoBehaviour
             flg_rok = true;
             if (Input.GetKey(KeyCode.W))
             {
-                rb.AddForce(msp * ((transform.forward * speed*rb.mass* rb.drag*0.15f) - rb.velocity));
+                rb.AddForce(msp * ((transform.forward * speed*rb.mass* rb.drag*0.14f) - rb.velocity));
                 //rb.AddForce(transform.forward * Time.deltaTime*10000f);
                 //transform.position += speed * transform.forward * Time.deltaTime;
             }

@@ -23,6 +23,7 @@ public class teki : MonoBehaviour
         rast= FindObjectOfType<time>();
         nav = gameObject.GetComponent<NavMeshAgent>();
         player= FindObjectOfType<idou_mause>();
+        Debug.Log(player);
         mus = FindObjectOfType<musi>();
         target = FindObjectOfType<ata>();
 
@@ -83,8 +84,6 @@ public class teki : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
-        Debug.Log(player);
 
         if (collision.gameObject.name == player.name)
         {

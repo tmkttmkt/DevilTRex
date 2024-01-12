@@ -31,12 +31,14 @@ public class minigame : MonoBehaviour
     public idou_mause pp;
     ata a;
     story st;
+    musi ms;
     RectTransform gage_rect;
 
     private void Start()
     {
         pp= FindObjectOfType<idou_mause>();
         a = FindObjectOfType<ata>();
+        ms = FindObjectOfType<musi>();
         st = FindObjectOfType<story>();
         osutoko1.transform.localPosition = new Vector3(Random.Range(-392f,381f), 90, 0);
         osutoko2.transform.localPosition = new Vector3(Random.Range(-392f, 381f), 13, 0);
@@ -45,6 +47,10 @@ public class minigame : MonoBehaviour
     }
     void Update()
     {
+        if (start_flg)
+        {
+            ms.mini_flg();
+        }
         // プレイヤーの近くにいるかどうかを検出
         isPlayerNear = IsPlayerNear();
         // エンターキーが押されたら白い画面を表示
@@ -196,6 +202,7 @@ public class minigame : MonoBehaviour
         clear = 0;
         start_flg = false;
         pp.game_flg = false;
+        ms.kihon_flg();
         Canvas2.SetActive(start_flg);
         st.minigame_flg();
     }

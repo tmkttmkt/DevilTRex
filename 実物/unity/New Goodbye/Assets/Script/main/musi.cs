@@ -9,6 +9,7 @@ public class musi : MonoBehaviour
     [SerializeField] AudioClip tekida;
     [SerializeField] AudioClip sotoda;
     [SerializeField] AudioClip kowai;
+    [SerializeField] AudioClip mini;
     bool flg = false;
     bool oso_flg = false;
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class musi : MonoBehaviour
     {
         if (flg)
         {
-            if (main.clip=kowai)
+            if (main.clip==kowai || main.clip == mini)
             {
                 kihon();
             }
@@ -31,8 +32,11 @@ public class musi : MonoBehaviour
         }
         else if (oso_flg)
         {
+            Debug.Log("きた");
             if (!main.isPlaying)
             {
+                Debug.Log("みた");
+
                 kowai_flg();
             }
 
@@ -88,5 +92,16 @@ public class musi : MonoBehaviour
     public void kihon_flg()
     {
         flg = true;
+    }
+    public void mini_flg()
+    {
+        if (main.clip == kihonda)
+        {
+            main.volume = 0.3f;
+            main.loop = true;
+            main.pitch = 1;
+            main.clip = mini;
+            main.Play();
+        }
     }
 }
