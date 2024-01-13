@@ -9,12 +9,13 @@ public class StoryText
 }
 public class str_story : MonoBehaviour
 {
-    [SerializeField] public StoryText[] st;
     nokori nk;
+    suizyak cr_sui;
     // Start is called before the first frame update
     void Start()
     {
-        nk=FindObjectOfType<nokori>();
+        nk = FindObjectOfType<nokori>();
+        cr_sui = gameObject.GetComponent<suizyak>();
         StartCoroutine(start_ibent());
     }
 
@@ -25,11 +26,6 @@ public class str_story : MonoBehaviour
     }
     IEnumerator start_ibent()
     {
-        foreach (StoryText tex in st){
-            nk.set_text(tex.text);
-            nk.set_katari(tex.charcter);
-            yield return new WaitForSeconds(tex.time);
-        }
         nk.set_text("ほんとに何があったんだろう、気づい\nたら手持ちもなくなっている。\n電話もできない。");
 
         nk.set_katari("高橋");
@@ -50,18 +46,39 @@ public class str_story : MonoBehaviour
 
         nk.set_katari("ゼロ号");
         nk.set_text("私はこのゲームの守り神だ");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(3.0f);
 
         nk.set_katari("高橋");
         nk.set_text("え？髪...ああ紙か、まあお前ら\n2Dだしな、薄っぺらい存在だしな");
         yield return new WaitForSeconds(6.0f);
 
-        nk.set_katari("高橋");
-        nk.set_text("だれの人間性が薄っぺらいだって");
+        nk.set_katari("ゼロ号");
+        nk.set_text("だれの人間性が薄っぺらいだって\n泣いちゃうぞ？大のティラノが\n泣いちゃうぞ");
         yield return new WaitForSeconds(6.0f);
 
-        nk.set_katari("T-rex");
-        nk.set_text("どこかに地図のようなものはないだ\nろうか急がねば・・・・・・");
+        nk.set_katari("高橋");
+        nk.set_text("そんなことはどうでもいいんだよ\n二人の男の子がこのゲームの中\nのどこにいるのか教えてくれ、失敗作");
         yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("もう狂った教授の部下というわけ\nではないがただで教えるという\nわけにはいかない");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("こっちは暇で暇でしょうがないんだ\nこの二次元体だと腹も好かない\nから人を襲う気もないんだ");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("高橋");
+        nk.set_text("どうすればいいんだｗこっちには\n二人の命wwがかかってるんだw\n暴力だって辞さないぞ");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("ギャンブルッ...不合理に身を\nゆだねる狂気の沙汰ほど面白い");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("高橋");
+        nk.set_text("俺の特技はギャンブルと肉体言語\nなんだぜｗｗやってやろうじゃん");
+        yield return new WaitForSeconds(4.0f);
+        cr_sui.Active_flg();
     }
 }
