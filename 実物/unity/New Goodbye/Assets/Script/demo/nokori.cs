@@ -11,16 +11,15 @@ public class nokori : MonoBehaviour
     private float timerValue; // タイマーの現在の値
     private bool start = false;
     private Text timerText; // タイマーを表示するテキストオブジェクト
-    [SerializeField] Text rast;
     [SerializeField] Text left;
     [SerializeField] AudioSource moziutu;
-    private string goal_text1;
-    private string goal_text2;
-    private string leftext;
+    [SerializeField] Text katari;
+    private string leftext = "";
     private int n = 10, kierumade = 600;
     idou_mause pp;
     private void Start()
     {
+        moziutu = gameObject.GetComponent<AudioSource>();
         pp = FindObjectOfType<idou_mause>();
     }
 
@@ -75,7 +74,6 @@ public class nokori : MonoBehaviour
         else
         {
             timerText.text = "お前はすでに死んでいるはず";
-            rast.text = "ドロー\nGAMEOVER";
             // タイマーが0になった場合の処理
             // タイマーが0以下にならないようにする場合は、条件を変更してください
         }
@@ -84,6 +82,10 @@ public class nokori : MonoBehaviour
     {
         leftext = text;
         left.text = "";
+    }
+    public void set_katari(string text)
+    {
+        katari.text = "- -["+text+"]- - - - - - -  \r\n\r\n\r\n- - - - - - - - - - - ";
     }
     private void end_def()
     {
