@@ -1,0 +1,3 @@
+katanaman:samurai_sword
+chainsawman:iloveyou
+jaa:kirikorositeyaruyo

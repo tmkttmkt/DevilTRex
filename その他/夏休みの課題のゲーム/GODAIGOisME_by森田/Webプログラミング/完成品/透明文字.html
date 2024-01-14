@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .input-container {
+            position: relative;
+            width: 200px;
+        }
+
+        .hidden-label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #999; /* グレーなど、プレースホルダーとしての色を指定 */
+            pointer-events: none; /* イベントを無効化し、テキストがクリックされないようにする */
+            transition: 0.3s; /* アニメーションが必要な場合は追加 */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .input-field:focus + .hidden-label {
+            opacity: 0; /* 入力フィールドにフォーカスが当たると非表示にする */
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" class="input-field" id="myInput" name="myInput">
+        <label for="myInput" class="hidden-label">Your Placeholder Text</label>
+    </div>
+</body>
+</html>

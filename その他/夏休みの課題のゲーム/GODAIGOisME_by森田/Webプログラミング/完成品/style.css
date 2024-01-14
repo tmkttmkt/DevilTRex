@@ -1,0 +1,213 @@
+.common {
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+#square {
+      width: 300px;
+      height: 1200px;
+      position: fixed;
+      top: 0px;/* 画面下端から100pxの位置に配置 */
+      right: 0;
+      background-color: #0000FF;
+      transition: opacity 1s;
+      opacity: 0.5; 
+    }
+
+.lightgreen {
+    background-color: lightgreen;
+    width: 50%;
+}
+
+.whitesmoke {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.whiterect {
+    background-color: red;
+    width: 100%;
+    height: 150px;
+}
+#action-div {
+    display: flex;
+}
+.image-button {
+  background-image: url('btn.png');
+  width: 257px; 
+  height: 90px; 
+  border: none; 
+  cursor: pointer; 
+}
+#text {
+  display: none; 
+  top: 100px;
+  position: fixed;
+  right: 0;
+  color: white;
+  font-size: 24px;
+}
+#text2 {
+  display: none; 
+  top: 140px;
+  position: fixed;
+  right: 0;
+  color: white;
+  font-size: 24px;
+}
+.fadeButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0000FF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: opacity 1s ease-in-out;
+}
+#increaseOpacityButton{
+ position: fixed;
+background: none;
+ border: none;
+ padding: 0;
+ margin: 0;
+cursor: pointer;
+ font-size: 36px; 
+color: white;
+ top: 300px;
+ right: 10px;
+ width: 257px; 
+  height: 90px;
+pointer-events: auto;
+}
+#increaseOpacityButton2{
+ position: fixed;
+background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 36px; 
+ top: 425px;
+ right: 10px;
+ width: 257px; 
+  height: 90px;
+pointer-events: auto;
+}
+#increaseOpacityButton3{
+ position: fixed;
+background: none;
+border: none;
+padding: 0;
+margin: 0;
+cursor: pointer;
+color: white;
+font-size: 36px; 
+ top: 550px;
+ right: 10px;
+ width: 257px; 
+  height: 90px;
+pointer-events: auto;
+}
+#increaseOpacityButton4{
+ position: fixed;
+background: none;
+border: none;
+padding: 0;
+margin: 0;
+cursor: pointer;
+color: white;
+font-size: 36px; 
+ top: 675px;
+ right: 10px;
+ width: 257px; 
+  height: 90px;
+pointer-events: auto;
+}
+#fadeInText{
+  text-align: center;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 100px;
+}
+#subtitle{
+  display: flex;
+  justify-content: center;
+  top: 90px;
+  color: white;
+  font-size: 25px;
+}
+#gifBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity 2s;
+      object-fit: cover;
+      z-index: -1;
+}
+#contentContainer {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      text-align: center;
+}
+#texts {color: white;
+	font-family: "MS Gothic" ;
+	font-size: 48px;
+	position: absolute;left: 50%;transform: translate(-50%, -50%);
+}
+#honbun {color: white;
+	font-family: "MS Gothic" ;
+	font-size: 30px;
+	color:white;
+	text-align: center;
+}
+#changingText{
+	color: black;
+	display: none;
+	animation: blink 1s infinite; 
+}
+#changingText2{
+	color: black;
+	animation: blink 1s infinite; 
+}
+#hiddenText {
+      display: none;
+      font-size: 16px;
+    }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.video-container {
+  position: relative;
+  display: inline-block;
+}
+#haikei {
+      position: absolute;
+      width: 1200px;
+      height: 1300px;
+      position: absolute;
+      top: 950px;
+      left: 125px;
+      background-color: #0000FF;
+      opacity: 0.25; 
+    }

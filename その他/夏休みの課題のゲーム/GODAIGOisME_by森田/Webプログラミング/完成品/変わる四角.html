@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>サムライソードのファンサイト</title>
+  <style>
+    
+    hr { border: 5px solid #FFFF00;}
+    #fade-button {
+      background-image: url('btn.png'); 
+      background-color: blue;
+      color: white;
+      width: 257px; 
+      height: 90px;
+      border: none; 
+      position: fixed;
+      right: 0;
+      top: 0px;
+      cursor: pointer;
+    }
+.my_hr{
+      width: 2550px; 
+      height: 30px; 
+      background-color: white; 
+      position: relative;
+      top: -39px; 
+    }
+.diagonal-line {
+      width: 2550px;
+      height: 30px; 
+      background-color: white; 
+      transform: rotate(-5deg); 
+      position: relative;
+      top: -35px; 
+    }
+.diagonal-line2 {
+      width: 2550px;
+      height: 30px; 
+      background-color: white; 
+      transform: rotate(5deg); 
+      position: absolute;
+      top: 1125px; 
+    }
+.diagonal-line3 {
+      width: 2550px;
+      height: 30px; 
+      background-color: white; 
+      transform: rotate(-9deg); 
+      position: absolute;
+      top: 2025px; 
+    }
+
+  </style>
+</head>
+<body>
+  <body bgcolor="#000000">
+ <img id="gifBackground" src="kakoii.gif" alt="GIF Background">
+
+  <!-- コンテンツコンテナにテキストを追加 -->
+  <div id="contentContainer">
+  </div>
+  <div id="square"></div>
+<p id="fadeInText">サ ム ラ イ ソ ー ド<br>
+Fan Site</p>
+<p id="subtitle">さむらいそーど<br>
+ファンサイト</p>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br>
+<div class="my_hr"></div>
+<br><br><br>
+<p id="haikei">
+<br>
+<div id="youtube-video">
+<iframe style="position: absolute;top: 1300px;left: 50%;transform: translate(-50%, -50%); width: 50%; height: 50%;" src="https://www.youtube.com/embed/dFlDRhvM4L0?si=A6gXEW-FA2cbFahV&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br>
+<div class="diagonal-line2"></div>
+<p id="honbun">見た目だけはカッコイイ！<br>
+サムライソードのファンサイトです<br>
+<br>
+3巻でデンジたちを襲撃した<br>
+じいちゃんの仇を打つべく奮闘する若頭<br>
+<br>
+サムライソードが活躍する姿を<br>
+漫画やアニメでお楽しみ下さい！<br>
+<br><br><br><br>
+<small><strike>※アニメの最終回はサムライソードの。<br>
+すごい姿を見ることができます。</small></strike></p>
+<br>
+<div class="diagonal-line3"></div>
+</p>
+<p id="element"></p>
+<p id="text">じゃあ</p>
+<p id="text2">斬り殺してやるよ！</p>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <button id="fade-button" onclick="toggleOpacity()"></button>
+   <a href="Who_ALIEN..html"><button id="increaseOpacityButton">Who KATANA man</button></a>
+   <a href="keijiban.php"><button id="increaseOpacityButton2">KATANA man<br>
+bulletin board
+</button></a>
+   <a href="character.html"><button id="increaseOpacityButton3">'Char'acters</button></a>
+   <a href="login.php"><button id="increaseOpacityButton4">Back to Login</button></a>
+<p id="texts"></p>
+  <script>
+    function decreaseGifOpacity() {
+      const gifBackground = document.getElementById("gifBackground");
+      gifBackground.style.opacity = 0; // 透明度を0に設定
+    }
+    window.addEventListener("load", function() {
+      setTimeout(decreaseGifOpacity, 5000); // 5秒後に透明度を下げる<iframe style="position: absolute;top: 1300px;left: 50%;transform: translate(-50%, -50%); width: 50%; height: 50%;" src="https://www.youtube.com/embed/N4a8ZsE2X2U?si=VhVic_WSokPa-Pi2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    });
+function stopScroll() {
+  // 現在のスクロール位置を保存する
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+  // スクロールを無効化する
+  window.onscroll = function() {
+    window.scrollTo(scrollLeft, scrollTop);
+  };
+}
+
+// 一定時間後にスクロールを再開する関数
+function resumeScroll(time) {
+  setTimeout(function() {
+    window.onscroll = function() {};
+  }, time);
+}
+    let opacity = 0.1; 
+    let fadeButton = document.getElementById('fade-button');
+    const increaseOpacityButton = document.getElementById('increaseOpacityButton');
+    const increaseOpacityButton2 = document.getElementById('increaseOpacityButton2');
+    const increaseOpacityButton3 = document.getElementById('increaseOpacityButton3');
+    const increaseOpacityButton4 = document.getElementById('increaseOpacityButton4');
+    window.addEventListener("load", function() {
+      // ページ読み込み後、テキストの透明度を増加させるアニメーションを開始
+      const fadeInText = document.getElementById("fadeInText");
+      const subtitle = document.getElementById("subtitle");
+      fadeTextIn(fadeInText, 0);
+      fadeTextIn2(subtitle, 0);
+    });
+    let isFaded = false;
+        square.style.opacity = 0;
+	text.style.display = "none";
+	text2.style.display = "none";
+	increaseOpacityButton.style.opacity = 0;
+	increaseOpacityButton.disabled = true;
+	increaseOpacityButton2.style.opacity = 0;
+	increaseOpacityButton2.disabled = true;
+	increaseOpacityButton3.style.opacity = 0;
+	increaseOpacityButton3.disabled = true;
+	increaseOpacityButton4.style.opacity = 0;
+	increaseOpacityButton4.disabled = true;
+    function toggleOpacity() {
+      if (isFaded) {
+        square.style.opacity = 0;
+	text.style.display = "none";
+	text2.style.display = "none";
+	increaseOpacityButton.style.opacity = 0;
+	increaseOpacityButton.disabled = true;
+	increaseOpacityButton2.style.opacity = 0;
+	increaseOpacityButton2.disabled = true;
+	increaseOpacityButton3.style.opacity = 0;
+	increaseOpacityButton3.disabled = true;
+	increaseOpacityButton4.style.opacity = 0;
+	increaseOpacityButton4.disabled = true;
+      } else {
+	square.style.opacity = 0.5;
+	text.style.display = "block";
+	text2.style.display = "block";
+	increaseOpacityButton.style.opacity = 1;
+	increaseOpacityButton.disabled = false;
+	increaseOpacityButton2.style.opacity = 1;
+	increaseOpacityButton2.disabled = false;
+	increaseOpacityButton3.style.opacity = 1;
+	increaseOpacityButton3.disabled = false;
+	increaseOpacityButton4.style.opacity = 1;
+	increaseOpacityButton4.disabled = false;
+      }
+      isFaded = !isFaded;
+    }
+function fadeTextIn(element, opacity) {
+      const interval = setInterval(function() {
+        opacity += 0.05; // 透明度を0.05ずつ増加させる
+        element.style.opacity = opacity;
+
+        if (opacity >= 1) {
+          clearInterval(interval); // 透明度が1以上になったらインターバルをクリア
+        }
+      }, 100); // インターバルの間隔 (100ミリ秒ごとに透明度を変更)
+    }
+function fadeTextIn2(element, opacity) {
+      const interval = setInterval(function() {
+        opacity += 0.025; // 透明度を0.05ずつ増加させる
+        element.style.opacity = opacity;
+
+        if (opacity >= 1) {
+          clearInterval(interval); // 透明度が1以上になったらインターバルをクリア
+        }
+      }, 150); // インターバルの間隔 (100ミリ秒ごとに透明度を変更)
+    }
+document.addEventListener("DOMContentLoaded", function () {
+  const videoContainer = document.querySelector(".youtube-video");
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  overlay.innerHTML = "Click to Play";
+
+  videoContainer.appendChild(overlay);
+
+  videoContainer.addEventListener("mouseenter", function () {
+    overlay.style.display = "flex";
+  });
+
+  videoContainer.addEventListener("mouseleave", function () {
+    overlay.style.display = "none";
+  });
+
+  videoContainer.addEventListener("click", function () {
+    videoContainer.innerHTML = '<iframe style="position: absolute;top: 1300px;left: 50%;transform: translate(-50%, -50%); width: 50%; height: 50%;" src="https://www.youtube.com/embed/N4a8ZsE2X2U?si=VhVic_WSokPa-Pi2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+    // 例: videoContainer.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+  });
+});
+stopScroll();
+resumeScroll(7000); 
+  </script>
+</body>
+</html>
