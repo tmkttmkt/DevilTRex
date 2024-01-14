@@ -18,6 +18,7 @@ Public Class Form1
     Dim ys2(4) As Integer
     Dim Kankaku As Integer = 100
     Dim denci As Integer = 100
+    Dim heri1 As Integer = 0
     Dim x_2 As Integer = 0
     Dim y_2 As Integer = 0
     Dim Tomare As Integer = 0
@@ -44,10 +45,10 @@ Public Class Form1
     Dim T_joutai2 As Integer = 1
     Dim T_joutai3 As Integer = 1
     Dim T_owari = True
-    Dim r As New Random()
+    Dim r As New Random(7800)
     Dim r3 As New Random(7600)
     Dim r4 As New Random(7500)
-    Dim r5 As New Random(7500)
+    Dim r5 As New Random(7400)
     Dim donokurai As Integer = r5.Next(60000, 120000)
 
 
@@ -108,7 +109,7 @@ Public Class Form1
         Label21.Text = "0 AM"
         Timer1.Interval = 3000
         Timer2.Interval = 2000
-        Timer3.Interval = 60000
+        Timer3.Interval = 120000
         Timer4.Interval = 300
         Timer6.Interval = 300
         Timer7.Interval = 300
@@ -551,19 +552,26 @@ Public Class Form1
     Private Sub Camera_on(bango As Integer)
         camera_flg1 = True
         Label3.Visible = False
-        PictureBox1.Image = Images(bango)
     End Sub
 
 
 
     Private Sub Cam1_Click(sender As Object, e As EventArgs) Handles Label2.Click
         If camera_flg1 = False And PictureBox3.Visible = True Then
+            heri1 = 1
+            If T_location1 = 4 Or T_location2 = 4 Or dash_count3 = 2 Then
+                PictureBox1.Image = Images(2)
+            Else
+                PictureBox1.Image = Images(1)
+            End If
+
             Label3.Visible = False
             camera_flg1 = True
             Camera_on(1)
             Label2.BackColor = Color.Yellow
             PictureBox1.Visible = True
         Else
+            heri1 = 0
             Label3.Visible = True
             camera_flg1 = False
             Label2.BackColor = Color.White
@@ -612,13 +620,13 @@ Public Class Form1
         Dim heris As Integer = heri
         Dim Bai2 As Double = bai
         Await Task.Delay(Kankakus)
-        denci -= (1 * Bai2 + heris)
+        denci -= (1 * Bai2 + heris + heri1)
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Dim zanryo
         Dim heri As Integer
-        If Doutai_flg5 = True Then
+        If Doutai_flg5 = False Then
             heri = 0.125
         End If
         Battery(1, 5000, heri)
@@ -691,7 +699,7 @@ Public Class Form1
     End Sub
 
     Private Async Sub Label30_Click(sender As Object, e As EventArgs) Handles Label30.Click
-        If Doutai_flg5 = False And (T_location2 = 1 Or T_location1 = 1) Then
+        If Doutai_flg5 = False And (T_location2 = 1 Or T_location1 = 1 Or T_location3 = 1) Then
             If T_location1 = 1 Then
                 Await Task.Delay(10)
                 Label30.BackColor = Color.Yellow
@@ -713,10 +721,20 @@ Public Class Form1
 に反応あり"
                 Doutai_flg5 = True
             End If
+            If T_location3 = 1 Then
+                Await Task.Delay(10)
+                Label30.BackColor = Color.Yellow
+                Label34.Visible = True
+                Await Task.Delay(1000)
+                Label34.Visible = False
+                Label4.Text = "動体探知機３
+に反応あり"
+                Doutai_flg5 = True
+            End If
         End If
 
 
-        If Doutai_flg5 = False And T_location2 = Not (1) And T_location1 = Not (1) Then
+        If Doutai_flg5 = False And T_location2 = Not (1) And T_location1 = Not (1) And T_location3 = Not (1) Then
             Label30.BackColor = Color.Yellow
             Label4.Text = "動体探知機３
 に反応なし"
@@ -792,7 +810,7 @@ Public Class Form1
     End Sub
 
     Private Async Sub Label24_Click(sender As Object, e As EventArgs) Handles Label24.Click
-        If Doutai_flg5 = False And (T_location2 = 5 Or T_location1 = 5) Then
+        If Doutai_flg5 = False And (T_location2 = 5 Or T_location1 = 5 Or T_location3 = 5) Then
             If T_location1 = 5 Then
                 Await Task.Delay(10)
                 Label24.BackColor = Color.Yellow
@@ -805,6 +823,16 @@ Public Class Form1
                 Doutai_flg5 = True
             End If
             If T_location2 = 5 Then
+                Await Task.Delay(10)
+                Label24.BackColor = Color.Yellow
+                Label34.Visible = True
+                Await Task.Delay(1000)
+                Label34.Visible = False
+                Label7.Text = "動体探知機１
+に反応あり"
+                Doutai_flg5 = True
+            End If
+            If T_location3 = 5 Then
                 Await Task.Delay(10)
                 Label24.BackColor = Color.Yellow
                 Label34.Visible = True

@@ -460,9 +460,6 @@ Partial Class Form1
         Me.Label24.TabIndex = 58
         Me.Label24.Text = "Mov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2"
         '
-        'Timer5
-        '
-        '
         'Label26
         '
         Me.Label26.AutoSize = True
