@@ -177,6 +177,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (stripos($message, 'サムライソード') !== false && strpos($message, "\n") === false) {
         $comment = "$name\n$currentTime\n$message\n\n";
         kakikomi($comment);
+	echo "<script>" . "scrollTops()" . "</script>";
+	echo "<h4>". "<u>"."書き込みに成功しました！！<br><br>"."</u>"."</h4>"."<br>","<br>"."<br>","<br>"."<br>","<br>"."<br>";
     } else {
         echo "<script>" . "scrollTops()" . "</script>";
         echo "<h5>"."コメントには「サムライソード」という<br>文字が含まれている必要があります。<br>もしくは改行もしちゃだめです。<br>※これが" . "<u>"."ルール". "</u>" ."です。<br><br>"."</h5>" ."<br>","<br>"."<br>","<br>"."<br>","<br>"."<br>"."<br>","<br>","<br>";
