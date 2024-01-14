@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class StoryText
 {
     public string text;
@@ -11,18 +12,56 @@ public class str_story : MonoBehaviour
 {
     nokori nk;
     suizyak cr_sui;
+    bool iro_flg = false;
+    int n = 0;
     // Start is called before the first frame update
+    [SerializeField] Text text;
+    [SerializeField] GameObject gg1;
+    [SerializeField] GameObject gg2;
     void Start()
     {
         nk = FindObjectOfType<nokori>();
-        cr_sui = gameObject.GetComponent<suizyak>();
+        cr_sui = FindObjectOfType<suizyak>();
         StartCoroutine(start_ibent());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (iro_flg)
+        {
+            n++;
+            if (n == 6)
+            {
+                text.color = new Color(Random.value, Random.value, Random.value, 1.0f);
+                n = 0;
+            }
+        }
+    }
+    public void fin()
+    {
+        iro_flg = true;
+        gg1.SetActive(true);
+        gg2.SetActive(true);
+        StartCoroutine(fin_ibent());
+    }
+    IEnumerator fin_ibent()
+    {
+
+        nk.set_katari("高橋");
+        nk.set_text("かったので教えてくれ");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("教えるの面倒なので連れていくて");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("ほな");
+        yield return new WaitForSeconds(2.0f);
+
+        nk.flg_win();
+
     }
     IEnumerator start_ibent()
     {
@@ -79,6 +118,22 @@ public class str_story : MonoBehaviour
         nk.set_katari("高橋");
         nk.set_text("俺の特技はギャンブルと肉体言語\nなんだぜｗｗやってやろうじゃん");
         yield return new WaitForSeconds(4.0f);
+        //cr_sui.Active_flg();
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("ックックック、今回は神経衰弱で\n勝負しよう、数回で開けれたら君の勝ちだ");
+        yield return new WaitForSeconds(4.0f);
+
+        nk.set_katari("ゼロ号");
+        nk.set_text("私もヒントを出そう");
+        yield return new WaitForSeconds(3.0f);
+
         cr_sui.Active_flg();
+    }
+    IEnumerator restart_ibent()
+    {
+        nk.set_katari("ゼロ号");
+        nk.set_text("ックックック、今回は神経衰弱で\n勝負しよう、数回で開けれたら君の勝ちだ");
+        yield return new WaitForSeconds(4.0f);
     }
 }

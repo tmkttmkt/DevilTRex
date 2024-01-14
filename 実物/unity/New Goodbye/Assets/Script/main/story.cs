@@ -6,7 +6,7 @@ public class story : MonoBehaviour
 {
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject start_kabe;
-    [SerializeField] private time ti;
+    private time ti;
     private musi mus;
     private string serihu;
     private int dannraku; 
