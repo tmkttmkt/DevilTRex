@@ -50,7 +50,6 @@ Partial Class Form1
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -352,25 +351,12 @@ Partial Class Form1
         Me.Label21.Text = "やだ！"
         Me.Label21.Visible = False
         '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label22.Location = New System.Drawing.Point(640, 302)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(85, 12)
-        Me.Label22.TabIndex = 28
-        Me.Label22.Text = "ああああああああ"
-        Me.Label22.Visible = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 426)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label20)
@@ -433,5 +419,4 @@ Partial Class Form1
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents Label22 As Label
 End Class
