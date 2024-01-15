@@ -13,8 +13,9 @@ public class nokori : MonoBehaviour
     [SerializeField] AudioSource moziutu;
     [SerializeField] Text katari;
     [SerializeField] Image img;
-    private string leftext = "";
-    private int n = 10, kierumade = 600;
+    string leftext = "";
+    int n = 10;
+    float kierumade = 10;
     [SerializeField] Sprite taka;
     [SerializeField] Sprite zero;
     idou_mause pp;
@@ -35,7 +36,7 @@ public class nokori : MonoBehaviour
                 moziutu.Play();
                 left.text += leftext[0];
                 leftext = leftext.Substring(1);
-                kierumade = 360;
+                kierumade = 10f;
                 
             }
         }
@@ -58,6 +59,7 @@ public class nokori : MonoBehaviour
         {
             if (img.gameObject.activeSelf) img.gameObject.SetActive(false);
         }
+        kierumade -= Time.deltaTime; 
 
     }
     public void set_text(string text)

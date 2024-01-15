@@ -37,6 +37,10 @@ public class str_story : MonoBehaviour
                 n = 0;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            fin();
+        }
     }
     public void fin()
     {
@@ -49,15 +53,15 @@ public class str_story : MonoBehaviour
     {
 
         nk.set_katari("高橋");
-        nk.set_text("かったので教えてくれ");
+        nk.set_text("勝ったので教えてくれ");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("ゼロ号");
-        nk.set_text("教えるの面倒なので連れていくて");
+        nk.set_text("教えるの面倒なので連れていくで");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("ゼロ号");
-        nk.set_text("ほな");
+        nk.set_text("おらよっと");
         yield return new WaitForSeconds(2.0f);
 
         nk.flg_win();
@@ -92,23 +96,23 @@ public class str_story : MonoBehaviour
         yield return new WaitForSeconds(6.0f);
 
         nk.set_katari("ゼロ号");
-        nk.set_text("だれの人間性が薄っぺらいだって\n泣いちゃうぞ？大のティラノが\n泣いちゃうぞ");
+        nk.set_text("だれの人間性がぺらっぺらだって\n泣いちゃうぞ？大のティラノが\n泣いちゃうぞ");
         yield return new WaitForSeconds(6.0f);
 
         nk.set_katari("高橋");
-        nk.set_text("そんなことはどうでもいいんだよ\n二人の男の子がこのゲームの中\nのどこにいるのか教えてくれ、失敗作");
+        nk.set_text("飴あげるから泣くなよ\nそれより二人の男の子がこのゲームの中\nのどこにいるのか教えてくれ、失敗作");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("ゼロ号");
-        nk.set_text("もう狂った教授の部下というわけ\nではないがただで教えるという\nわけにはいかない");
+        nk.set_text("もう狂った教授の支配下というわけ\nではないが\n教えないね");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("ゼロ号");
-        nk.set_text("こっちは暇で暇でしょうがないんだ\nこの二次元体だと腹も好かない\nから人を襲う気もないんだ");
+        nk.set_text("こちとらは暇で暇でしょうがないんだ\nこの二次元体だと腹もすかない\nだから人を襲う気も起こらないんだ");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("高橋");
-        nk.set_text("どうすればいいんだｗこっちには\n二人の命wwがかかってるんだw\n暴力だって辞さないぞ");
+        nk.set_text("知ったことかよｗこっちには\n二人の命wwがかかってるんだw\n暴力だってww辞さないぞォ！");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("ゼロ号");
@@ -121,11 +125,11 @@ public class str_story : MonoBehaviour
         //cr_sui.Active_flg();
 
         nk.set_katari("ゼロ号");
-        nk.set_text("ックックック、今回は神経衰弱で\n勝負しよう、数回で開けれたら君の勝ちだ");
+        nk.set_text("ックックック、今回は神経衰弱(†Nerve Weakness And Dead†)で\n勝負しよう、数回で開けれたら君の勝ちだ");
         yield return new WaitForSeconds(4.0f);
 
         nk.set_katari("ゼロ号");
-        nk.set_text("私もヒントを出そう");
+        nk.set_text("せっかくだからな。\n興が冷めないようにヒントもやるよ");
         yield return new WaitForSeconds(3.0f);
 
         cr_sui.Active_flg();
@@ -133,7 +137,7 @@ public class str_story : MonoBehaviour
     IEnumerator restart_ibent()
     {
         nk.set_katari("ゼロ号");
-        nk.set_text("ックックック、今回は神経衰弱で\n勝負しよう、数回で開けれたら君の勝ちだ");
+        nk.set_text("ックックック、今回は神経衰弱(†Nerve Weakness And Dead†)で\n勝負しよう、数回で開けれたら君の勝ちだ");
         yield return new WaitForSeconds(4.0f);
     }
 }

@@ -51,7 +51,7 @@ public class syujinnkou: MonoBehaviour
             {
                 if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
                 {
-                    transform.position += (transform.forward / 7) * Time.deltaTime * 1000f;
+                    transform.position += (transform.forward / 7) * Time.deltaTime * 80f;
                     //rb.AddForce(msp * ((transform.forward * rb.mass * 200 * rb.drag) - rb.velocity));
                 }
                 //rb.AddForce(-transform.up * 9.8f * 30 * rb.mass);

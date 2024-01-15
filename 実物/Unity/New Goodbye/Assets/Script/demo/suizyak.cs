@@ -186,6 +186,14 @@ public class suizyak : MonoBehaviour
     {
         if (num == 1) StartCoroutine(flg1());
         if (num == 2) StartCoroutine(flg2());
+        if (num == 3) StartCoroutine(flg3());
+        if (num == 4) StartCoroutine(flg4());
+        if (num == 5) StartCoroutine(flg5());
+        if (num == 6) StartCoroutine(flg6());
+        if (num == 7) StartCoroutine(flg7());
+        if (num == 8) StartCoroutine(flg8());
+        if (num == 9) StartCoroutine(flg9());
+        if (num == 10) StartCoroutine(flg10());
         if (num == 11) StartCoroutine(flg11());
         if (num == 12) StartCoroutine(flg12());
         if (num == 13)StartCoroutine(flg13());
@@ -223,8 +231,10 @@ public class suizyak : MonoBehaviour
     IEnumerator flg4()
     {
         nk.set_katari("ゼロ号");
-        nk.set_text("いつになったらワイはこのゲーム\nから出られるんだろうか");
-        yield return new WaitForSeconds(3.0f);
+        nk.set_text("落ち着け…\n素数を数えて落ち着くんだ");
+        yield return new WaitForSeconds(4.0f);
+        nk.set_text("４！！！！！");
+        yield return new WaitForSeconds(8.0f);
 
     }
     IEnumerator flg5()

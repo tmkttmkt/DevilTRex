@@ -494,9 +494,12 @@ public class tatakai : MonoBehaviour
                 }           
              }
         if ((Input.anyKeyDown)&&((currentIndex<3&&st.storykaunnto==11)||(currentIndex<5&&st.storykaunnto==17)||(currentIndex<6&&st.storykaunnto==23)))
-        {
-             
-            char inputCharacter = Input.inputString[0]; // 入力された文字を取得
+            {
+                if (Input.inputString.Length == 0)
+                {
+                    return;
+                }
+                char inputCharacter = Input.inputString[0]; // 入力された文字を取得
 
             // 入力文字が目標の文字と一致するかをチェック
             if (inputCharacter == targetText[currentIndex])

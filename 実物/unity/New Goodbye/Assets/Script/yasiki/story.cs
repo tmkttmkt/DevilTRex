@@ -39,7 +39,7 @@ public class Story : MonoBehaviour
          tatakai=FindObjectOfType<tatakai>();
          gamekirikae=FindObjectOfType<gamekirikae>();
          sound=FindObjectOfType<sound>();
-         //storykaunnto=21;//テストプレイ用！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+         //storykaunnto=10;//テストプレイ用！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
          //sy.i=0;//テストプレイ用！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
          p=FindObjectOfType<pasCanvas>();
          

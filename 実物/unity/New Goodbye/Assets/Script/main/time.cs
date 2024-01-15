@@ -21,7 +21,8 @@ public class time : MonoBehaviour
     private string goal_text1;
     private string goal_text2;
     private string leftext;
-    private int n = 10, kierumade = 600;
+    private int n = 10;
+    float kierumade = 10f;
     idou_mause pp;
     private void Start()
     {
@@ -42,13 +43,13 @@ public class time : MonoBehaviour
                 moziutu.Play();
                 left.text += leftext[0];
                 leftext = leftext.Substring(1);
-                kierumade = 360;
+                kierumade = 10f;
             }
         }
         else
         {
             kierumade -= 1;
-            if (kierumade == 0)
+            if (kierumade >= 0)
             {
                 left.text = "";
                 //set_text("");
@@ -56,6 +57,7 @@ public class time : MonoBehaviour
             }
         }
 
+        kierumade -= Time.deltaTime;
 
         if (!start)
         {
