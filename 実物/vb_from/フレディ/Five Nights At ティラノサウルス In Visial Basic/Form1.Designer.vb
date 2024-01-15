@@ -51,65 +51,29 @@ Partial Class Form1
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Timer6 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Timer7 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Timer8 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox15 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox17 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox18 = New System.Windows.Forms.PictureBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -140,7 +104,7 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.White
         Me.Label2.Font = New System.Drawing.Font("ＭＳ ゴシック", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(615, 252)
+        Me.Label2.Location = New System.Drawing.Point(614, 252)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(32, 32)
         Me.Label2.TabIndex = 3
@@ -181,11 +145,11 @@ Partial Class Form1
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(629, 239)
+        Me.Label11.Location = New System.Drawing.Point(629, 230)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(17, 84)
+        Me.Label11.Size = New System.Drawing.Size(17, 72)
         Me.Label11.TabIndex = 24
-        Me.Label11.Text = "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label11.Text = "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃"
         '
         'Label12
         '
@@ -203,29 +167,29 @@ Partial Class Form1
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label13.Location = New System.Drawing.Point(572, 322)
+        Me.Label13.Location = New System.Drawing.Point(585, 322)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(53, 12)
+        Me.Label13.Size = New System.Drawing.Size(29, 12)
         Me.Label13.TabIndex = 26
-        Me.Label13.Text = "━━━━"
+        Me.Label13.Text = "━━"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label14.Location = New System.Drawing.Point(646, 323)
+        Me.Label14.Location = New System.Drawing.Point(681, 335)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(65, 12)
+        Me.Label14.Size = New System.Drawing.Size(29, 12)
         Me.Label14.TabIndex = 27
-        Me.Label14.Text = "━━━━━"
+        Me.Label14.Text = "━━"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label15.Location = New System.Drawing.Point(629, 331)
+        Me.Label15.Location = New System.Drawing.Point(629, 318)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(24, 24)
         Me.Label15.TabIndex = 28
@@ -268,11 +232,11 @@ Partial Class Form1
         '
         Me.Label19.AutoSize = True
         Me.Label19.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Font = New System.Drawing.Font("MS UI Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label19.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.White
-        Me.Label19.Location = New System.Drawing.Point(672, 8)
+        Me.Label19.Location = New System.Drawing.Point(690, 9)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(145, 37)
+        Me.Label19.Size = New System.Drawing.Size(115, 29)
         Me.Label19.TabIndex = 33
         Me.Label19.Text = "Label19"
         '
@@ -285,21 +249,21 @@ Partial Class Form1
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.BackColor = System.Drawing.Color.DarkOliveGreen
-        Me.Label20.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label20.Location = New System.Drawing.Point(240, 215)
+        Me.Label20.BackColor = System.Drawing.Color.Chartreuse
+        Me.Label20.Font = New System.Drawing.Font("ＭＳ ゴシック", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label20.Location = New System.Drawing.Point(59, 190)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(40, 24)
+        Me.Label20.Size = New System.Drawing.Size(53, 38)
         Me.Label20.TabIndex = 34
-        Me.Label20.Text = "Open " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Down "
+        Me.Label20.Text = "Open" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Down" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.SystemColors.ControlText
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.PictureBox2.Location = New System.Drawing.Point(-6, 0)
+        Me.PictureBox2.Location = New System.Drawing.Point(-10, 0)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(858, 451)
+        Me.PictureBox2.Size = New System.Drawing.Size(815, 451)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 35
         Me.PictureBox2.TabStop = False
@@ -391,12 +355,23 @@ Partial Class Form1
         Me.Label7.Size = New System.Drawing.Size(0, 15)
         Me.Label7.TabIndex = 43
         '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.PictureBox7.Location = New System.Drawing.Point(368, 239)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(137, 83)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 44
+        Me.PictureBox7.TabStop = False
+        Me.PictureBox7.Visible = False
+        '
         'PictureBox8
         '
         Me.PictureBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.PictureBox8.Location = New System.Drawing.Point(318, 248)
+        Me.PictureBox8.Location = New System.Drawing.Point(366, 231)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(142, 84)
+        Me.PictureBox8.Size = New System.Drawing.Size(141, 92)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox8.TabIndex = 45
         Me.PictureBox8.TabStop = False
@@ -405,20 +380,20 @@ Partial Class Form1
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.DarkGray
-        Me.Label10.Font = New System.Drawing.Font("ＭＳ ゴシック", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label10.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(337, 261)
+        Me.Label10.Location = New System.Drawing.Point(385, 245)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 38)
+        Me.Label10.Size = New System.Drawing.Size(110, 48)
         Me.Label10.TabIndex = 46
         Me.Label10.Text = "システム" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ボタン"
         '
         'ProgressBar1
         '
         Me.ProgressBar1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ProgressBar1.Location = New System.Drawing.Point(331, 303)
+        Me.ProgressBar1.Location = New System.Drawing.Point(379, 294)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(99, 20)
+        Me.ProgressBar1.Size = New System.Drawing.Size(120, 23)
         Me.ProgressBar1.TabIndex = 47
         '
         'Timer3
@@ -428,13 +403,38 @@ Partial Class Form1
         '
         Me.Label21.AutoSize = True
         Me.Label21.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label21.Font = New System.Drawing.Font("MS UI Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label21.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.White
-        Me.Label21.Location = New System.Drawing.Point(533, 8)
+        Me.Label21.Location = New System.Drawing.Point(569, 9)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(145, 37)
+        Me.Label21.Size = New System.Drawing.Size(115, 29)
         Me.Label21.TabIndex = 48
         Me.Label21.Text = "Label21"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Black
+        Me.Label22.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.Red
+        Me.Label22.Location = New System.Drawing.Point(629, 109)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(18, 11)
+        Me.Label22.TabIndex = 49
+        Me.Label22.Text = "●"
+        Me.Label22.Visible = False
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label23.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.White
+        Me.Label23.Location = New System.Drawing.Point(448, 8)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(115, 29)
+        Me.Label23.TabIndex = 50
+        Me.Label23.Text = "Label23"
         '
         'Timer4
         '
@@ -448,7 +448,7 @@ Partial Class Form1
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(32, 32)
         Me.Label30.TabIndex = 57
-        Me.Label30.Text = "Mov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1"
+        Me.Label30.Text = "Mov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "5"
         '
         'Label24
         '
@@ -460,6 +460,21 @@ Partial Class Form1
         Me.Label24.Size = New System.Drawing.Size(32, 32)
         Me.Label24.TabIndex = 58
         Me.Label24.Text = "Mov" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.BackColor = System.Drawing.Color.Black
+        Me.Label25.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.Red
+        Me.Label25.Location = New System.Drawing.Point(523, 143)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(18, 11)
+        Me.Label25.TabIndex = 59
+        Me.Label25.Text = "●"
+        '
+        'Timer5
+        '
         '
         'Label26
         '
@@ -485,307 +500,6 @@ Partial Class Form1
         Me.Label27.TabIndex = 61
         Me.Label27.Text = "Label27"
         '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label28.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label28.Location = New System.Drawing.Point(510, 126)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(17, 48)
-        Me.Label28.TabIndex = 62
-        Me.Label28.Text = "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label29.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label29.ForeColor = System.Drawing.Color.White
-        Me.Label29.Location = New System.Drawing.Point(7, 345)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(115, 29)
-        Me.Label29.TabIndex = 63
-        Me.Label29.Text = "Label29"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label31.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.White
-        Me.Label31.Location = New System.Drawing.Point(12, 374)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(115, 29)
-        Me.Label31.TabIndex = 64
-        Me.Label31.Text = "Label31"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.BackColor = System.Drawing.Color.Black
-        Me.Label25.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.Aqua
-        Me.Label25.Location = New System.Drawing.Point(635, 163)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(18, 11)
-        Me.Label25.TabIndex = 65
-        Me.Label25.Text = "●"
-        Me.Label25.Visible = False
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label32.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label32.Location = New System.Drawing.Point(523, 245)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(17, 24)
-        Me.Label32.TabIndex = 66
-        Me.Label32.Text = "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "┃" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Timer6
-        '
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.BackColor = System.Drawing.Color.Black
-        Me.Label34.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label34.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label34.Location = New System.Drawing.Point(635, 115)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(18, 11)
-        Me.Label34.TabIndex = 68
-        Me.Label34.Text = "●"
-        Me.Label34.Visible = False
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.BackColor = System.Drawing.Color.DarkOliveGreen
-        Me.Label35.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label35.Location = New System.Drawing.Point(433, 126)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(33, 24)
-        Me.Label35.TabIndex = 69
-        Me.Label35.Text = "Open" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Down" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.BackColor = System.Drawing.Color.DarkOliveGreen
-        Me.Label36.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label36.Location = New System.Drawing.Point(524, 215)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(40, 24)
-        Me.Label36.TabIndex = 70
-        Me.Label36.Text = "Open " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Down " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Timer7
-        '
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Black
-        Me.Label22.Font = New System.Drawing.Font("ＭＳ ゴシック", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.MediumSpringGreen
-        Me.Label22.Location = New System.Drawing.Point(510, 97)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(18, 11)
-        Me.Label22.TabIndex = 72
-        Me.Label22.Text = "●"
-        Me.Label22.Visible = False
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.Location = New System.Drawing.Point(2, 175)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(232, 289)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox9.TabIndex = 75
-        Me.PictureBox9.TabStop = False
-        '
-        'PictureBox10
-        '
-        Me.PictureBox10.Location = New System.Drawing.Point(346, 28)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(181, 95)
-        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox10.TabIndex = 76
-        Me.PictureBox10.TabStop = False
-        '
-        'PictureBox11
-        '
-        Me.PictureBox11.Location = New System.Drawing.Point(570, 178)
-        Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(237, 286)
-        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox11.TabIndex = 77
-        Me.PictureBox11.TabStop = False
-        '
-        'PictureBox12
-        '
-        Me.PictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox12.Location = New System.Drawing.Point(73, 195)
-        Me.PictureBox12.Name = "PictureBox12"
-        Me.PictureBox12.Size = New System.Drawing.Size(80, 44)
-        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox12.TabIndex = 78
-        Me.PictureBox12.TabStop = False
-        Me.PictureBox12.Visible = False
-        '
-        'PictureBox13
-        '
-        Me.PictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox13.Location = New System.Drawing.Point(654, 195)
-        Me.PictureBox13.Name = "PictureBox13"
-        Me.PictureBox13.Size = New System.Drawing.Size(80, 44)
-        Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox13.TabIndex = 79
-        Me.PictureBox13.TabStop = False
-        Me.PictureBox13.Visible = False
-        '
-        'PictureBox14
-        '
-        Me.PictureBox14.Location = New System.Drawing.Point(394, 35)
-        Me.PictureBox14.Name = "PictureBox14"
-        Me.PictureBox14.Size = New System.Drawing.Size(77, 28)
-        Me.PictureBox14.TabIndex = 80
-        Me.PictureBox14.TabStop = False
-        Me.PictureBox14.Visible = False
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.BackColor = System.Drawing.Color.DarkRed
-        Me.Label39.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label39.Location = New System.Drawing.Point(240, 239)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(40, 24)
-        Me.Label39.TabIndex = 81
-        Me.Label39.Text = "Shine" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "OnOFF"
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.BackColor = System.Drawing.Color.DarkRed
-        Me.Label40.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label40.Location = New System.Drawing.Point(464, 126)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(40, 24)
-        Me.Label40.TabIndex = 82
-        Me.Label40.Text = "Shine" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "OnOFF" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.BackColor = System.Drawing.Color.DarkRed
-        Me.Label41.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label41.Location = New System.Drawing.Point(524, 239)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(40, 24)
-        Me.Label41.TabIndex = 83
-        Me.Label41.Text = "Shine" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "OnOFF" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label23.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.White
-        Me.Label23.Location = New System.Drawing.Point(8, 8)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(115, 29)
-        Me.Label23.TabIndex = 84
-        Me.Label23.Text = "Label23"
-        Me.Label23.Visible = False
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.Location = New System.Drawing.Point(346, 163)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(88, 130)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox7.TabIndex = 85
-        Me.PictureBox7.TabStop = False
-        '
-        'PictureBox15
-        '
-        Me.PictureBox15.Location = New System.Drawing.Point(253, 97)
-        Me.PictureBox15.Name = "PictureBox15"
-        Me.PictureBox15.Size = New System.Drawing.Size(87, 112)
-        Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox15.TabIndex = 86
-        Me.PictureBox15.TabStop = False
-        '
-        'PictureBox16
-        '
-        Me.PictureBox16.Location = New System.Drawing.Point(268, 148)
-        Me.PictureBox16.Name = "PictureBox16"
-        Me.PictureBox16.Size = New System.Drawing.Size(82, 110)
-        Me.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox16.TabIndex = 87
-        Me.PictureBox16.TabStop = False
-        '
-        'PictureBox17
-        '
-        Me.PictureBox17.Location = New System.Drawing.Point(240, 271)
-        Me.PictureBox17.Name = "PictureBox17"
-        Me.PictureBox17.Size = New System.Drawing.Size(70, 84)
-        Me.PictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox17.TabIndex = 88
-        Me.PictureBox17.TabStop = False
-        '
-        'PictureBox18
-        '
-        Me.PictureBox18.Location = New System.Drawing.Point(434, 314)
-        Me.PictureBox18.Name = "PictureBox18"
-        Me.PictureBox18.Size = New System.Drawing.Size(26, 32)
-        Me.PictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox18.TabIndex = 89
-        Me.PictureBox18.TabStop = False
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.BackColor = System.Drawing.Color.Red
-        Me.Label33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label33.Font = New System.Drawing.Font("ＭＳ ゴシック", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label33.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label33.Location = New System.Drawing.Point(59, 122)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(122, 50)
-        Me.Label33.TabIndex = 90
-        Me.Label33.Text = "Exit"
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.BackColor = System.Drawing.Color.Red
-        Me.Label37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label37.Font = New System.Drawing.Font("ＭＳ ゴシック", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label37.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label37.Location = New System.Drawing.Point(629, 124)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(122, 50)
-        Me.Label37.TabIndex = 91
-        Me.Label37.Text = "Exit"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label38.Font = New System.Drawing.Font("MS UI Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label38.ForeColor = System.Drawing.Color.White
-        Me.Label38.Location = New System.Drawing.Point(642, 45)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(163, 29)
-        Me.Label38.TabIndex = 92
-        Me.Label38.Text = "┃■■■┃"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -794,40 +508,17 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Label38)
-        Me.Controls.Add(Me.Label37)
-        Me.Controls.Add(Me.Label33)
-        Me.Controls.Add(Me.PictureBox18)
-        Me.Controls.Add(Me.PictureBox17)
-        Me.Controls.Add(Me.PictureBox15)
-        Me.Controls.Add(Me.Label23)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Label41)
-        Me.Controls.Add(Me.Label40)
-        Me.Controls.Add(Me.Label39)
-        Me.Controls.Add(Me.Label36)
-        Me.Controls.Add(Me.Label35)
-        Me.Controls.Add(Me.Label20)
-        Me.Controls.Add(Me.PictureBox14)
-        Me.Controls.Add(Me.PictureBox13)
-        Me.Controls.Add(Me.PictureBox12)
-        Me.Controls.Add(Me.PictureBox11)
-        Me.Controls.Add(Me.PictureBox10)
-        Me.Controls.Add(Me.PictureBox9)
-        Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.Label34)
-        Me.Controls.Add(Me.Label25)
-        Me.Controls.Add(Me.Label32)
-        Me.Controls.Add(Me.Label31)
-        Me.Controls.Add(Me.Label29)
-        Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.Label24)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label30)
+        Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.PictureBox8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
@@ -836,6 +527,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label16)
@@ -849,10 +541,9 @@ Partial Class Form1
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox7)
-        Me.Controls.Add(Me.PictureBox16)
         Me.Controls.Add(Me.PictureBox2)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -862,18 +553,8 @@ Partial Class Form1
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -906,45 +587,19 @@ Partial Class Form1
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents Label10 As Label
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Timer3 As Timer
     Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
     Friend WithEvents Timer4 As Timer
     Friend WithEvents Label30 As Label
     Public WithEvents Label24 As Label
+    Friend WithEvents Label25 As Label
     Friend WithEvents Timer5 As Timer
     Friend WithEvents Label26 As Label
     Friend WithEvents Label27 As Label
-    Friend WithEvents Label28 As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label32 As Label
-    Friend WithEvents Timer6 As Timer
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label35 As Label
-    Friend WithEvents Label36 As Label
-    Friend WithEvents Timer7 As Timer
-    Friend WithEvents Label22 As Label
-    Friend WithEvents PictureBox9 As PictureBox
-    Friend WithEvents PictureBox10 As PictureBox
-    Friend WithEvents PictureBox11 As PictureBox
-    Friend WithEvents PictureBox12 As PictureBox
-    Friend WithEvents PictureBox13 As PictureBox
-    Friend WithEvents PictureBox14 As PictureBox
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Label40 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents Timer8 As Timer
-    Friend WithEvents Label23 As Label
-    Friend WithEvents PictureBox7 As PictureBox
-    Friend WithEvents PictureBox15 As PictureBox
-    Friend WithEvents PictureBox16 As PictureBox
-    Friend WithEvents PictureBox17 As PictureBox
-    Friend WithEvents PictureBox18 As PictureBox
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label38 As Label
 End Class

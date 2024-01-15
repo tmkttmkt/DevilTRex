@@ -9,6 +9,7 @@ public class cpu : MonoBehaviour
     private reesu re;
     private Movecar m;
     private float speed=1;
+    private float speed_tei = 0.2f;
     void Start()
     {
         re=FindAnyObjectByType<reesu>();
@@ -19,7 +20,7 @@ public class cpu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(re.start==1)transform.position-=(transform.forward/speed)* 40f * Time.deltaTime;
+        if(re.start==1)transform.position-=(transform.forward/speed)*speed_tei;
     }
     void OnTriggerEnter(Collider collision)//何かと当たったらはんのうする関数、当たり判定決めるのに扱う
     {
