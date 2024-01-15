@@ -51,11 +51,11 @@ public class syujinnkou: MonoBehaviour
             {
                 if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
                 {
-                    rb.AddForce(msp * ((transform.forward * rb.mass * 200 * rb.drag) - rb.velocity));
+                    transform.position += (transform.forward / 7) * Time.deltaTime * 1000f;
+                    //rb.AddForce(msp * ((transform.forward * rb.mass * 200 * rb.drag) - rb.velocity));
                 }
                 //rb.AddForce(-transform.up * 9.8f * 30 * rb.mass);
                 //Debug.Log(msp * ((transform.forward * rb.mass * 30 * rb.drag) - rb.velocity));
-                //transform.position+=(transform.forward/7 )* Time.deltaTime*1000f;
             }
             else
             {

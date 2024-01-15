@@ -6,11 +6,12 @@ public class seykey : MonoBehaviour
 {
     [SerializeField] public string sey = "İ’è‚³‚ê‚Ä‚¢‚È‚¢ƒZƒŠƒt";
     public GameObject plyerrr;
-    [SerializeField] public bool flg=false;
-    float detectionRadius=3f;
+    bool flg=true;
+    float detectionRadius=2f;
+    time ti;
     void start()
     {
-
+        
     }
     void Update()
     {
@@ -18,7 +19,9 @@ public class seykey : MonoBehaviour
         {
             if (IsPlayerNear())
             {
-
+                ti = FindObjectOfType<time>();
+                ti.set_text(sey);
+                flg = false;
             }
         }
     }

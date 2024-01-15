@@ -10,6 +10,7 @@ public class idou_mause : MonoBehaviour
     bool vis_flg = false;
     Rigidbody rb;
     public float msp = 1.0f;
+    int wn = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class idou_mause : MonoBehaviour
     float speed = 10.0f;
     public bool flg_rok = true;
     private bool start = true;
+    bool w_flg = false;
 
     void Update()
     {
@@ -71,15 +73,15 @@ public class idou_mause : MonoBehaviour
         }
         if (!vis_flg && !tai.flg && !game_flg)
         {
+            //transform.position+= transform.up * 0.1f*Time.deltaTime
             flg_rok = true;
             if (Input.GetKey(KeyCode.W))
             {
-                rb.AddForce(msp * ((transform.forward * speed*rb.mass* rb.drag*0.14f) - rb.velocity));
-                //rb.AddForce(transform.forward * Time.deltaTime*10000f);
-                //transform.position += speed * transform.forward * Time.deltaTime;
+                //rb.AddForce(msp * ((transform.forward * speed*rb.mass* rb.drag*0.14f) - rb.velocity));
+                //rb.AddForce(msp * ((transform.forward * speed*500f * Time.deltaTime) - rb.velocity));
+                transform.position += speed * transform.forward * Time.deltaTime;
             }
-
-            // Sキー（後方移動）
+                // Sキー（後方移動）
             if (Input.GetKey(KeyCode.S))
             {
                 transform.position -= speed * transform.forward * Time.deltaTime;
@@ -104,7 +106,7 @@ public class idou_mause : MonoBehaviour
             transform.position = Vector3.Slerp(transform.position, tai.move_rok.transform.position, interpolatedValue);
 
         }
-        rb.AddForce(-transform.up*9.8f*200 * rb.mass);
+        //rb.AddForce(-transform.up*9.8f*200 * rb.mass);
         /*
         if (Input.GetKeyDown(KeyCode.R)){
             if (transform.eulerAngles.x >= 80 || transform.eulerAngles.z >= 80)
