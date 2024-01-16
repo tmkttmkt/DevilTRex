@@ -31,6 +31,7 @@ Public Class Form2
         Images(0) = Image.FromFile("シルエットティラノ.png")
         Images(1) = Image.FromFile("光るシルエットティラノ.png")
         Label1.Text = ""
+        hozons = "game_clear"
         PictureBox1.Image = Images(0)
         Select Case hozons
             Case "game_clear"
@@ -42,6 +43,23 @@ Public Class Form2
                 ss2(1) = "ティラノサウルス"
                 ss(2) = "次はけちょんけちょんにしてやるからな
 覚悟しとけよ！"
+                ss2(2) = "ティラノサウルス"
+                ss(3) = "ガチであんま調子に乗んな
+この有象無象！"
+                ss2(3) = "ティラノサウルス"
+                ss(4) = "惨敗をスタンバイしておけよ！！"
+                ss2(4) = "ティラノサウルス"
+                ss(5) = "ぶっ殺してやる！"
+                ss2(5) = "ティラノサウルス"
+                Timer1.Enabled = True
+            Case "game_over"
+                ss(0) = "ぎゃはははァ！！"
+                ss2(0) = "ティラノサウルス"
+                displayText = ss(0)
+                Label2.Text = ss2(0)
+                ss(1) = "コテンパンにされてたな！"
+                ss2(1) = "ティラノサウルス"
+                ss(2) = "ドンマイドンマイ気にするなよ"
                 ss2(2) = "ティラノサウルス"
                 ss(3) = "ガチであんま調子に乗んな
 この有象無象！"
@@ -62,15 +80,10 @@ Public Class Form2
                     PictureBox1.Image = Images(1)
                 End If
             Case 5
-                If hozons = "game_clear" Then
-                    Try
-                        Process.Start("Goodbye Unity.exe")
-                        Application.Exit()
-                    Catch ex As Exception
-                        MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
-                    End Try
-                End If
-            Case 6
+                'PictureBox1.Visible = False
+                Label3.Visible = True
+                Label4.Visible = True
+                Label5.Visible = True
         End Select
         Mojiyomi(100)
     End Sub
@@ -88,6 +101,31 @@ Public Class Form2
             Label2.Text = ss2(count)
             'count2 = count
             'v = count2 - 3
+        End If
+    End Sub
+
+    Private Sub Label3_MouseEnter(sender As Object, e As EventArgs) Handles Label3.MouseEnter
+        Label3.ForeColor = Color.Red
+    End Sub
+    Private Sub Label3_MouseLeave(sender As Object, e As EventArgs) Handles Label3.MouseLeave
+        If Not Label3.ClientRectangle.Contains(Label3.PointToClient(MousePosition)) Then
+            Label3.ForeColor = Color.White
+        End If
+    End Sub
+    Private Sub Label4_MouseEnter(sender As Object, e As EventArgs) Handles Label4.MouseEnter
+        Label4.ForeColor = Color.Red
+    End Sub
+    Private Sub Label4_MouseLeave(sender As Object, e As EventArgs) Handles Label4.MouseLeave
+        If Not Label4.ClientRectangle.Contains(Label4.PointToClient(MousePosition)) Then
+            Label4.ForeColor = Color.White
+        End If
+    End Sub
+    Private Sub Label5_MouseEnter(sender As Object, e As EventArgs) Handles Label5.MouseEnter
+        Label5.ForeColor = Color.Red
+    End Sub
+    Private Sub Label5_MouseLeave(sender As Object, e As EventArgs) Handles Label5.MouseLeave
+        If Not Label5.ClientRectangle.Contains(Label5.PointToClient(MousePosition)) Then
+            Label5.ForeColor = Color.White
         End If
     End Sub
 End Class
