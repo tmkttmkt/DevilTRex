@@ -6,7 +6,7 @@ public class story : MonoBehaviour
 {
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject start_kabe;
-    private time ti;
+    [SerializeField] private time ti;
     private musi mus;
     private string serihu;
     private int dannraku; 
@@ -59,12 +59,18 @@ public class story : MonoBehaviour
     
     public void syeruta_flg()
     {
+        if (iventID == 6)
+        {
             reba_uku_flg=true;
             StartCoroutine(syeruta_ibent());
+        }
     }
     public void denngonn_flg()
     {
+        if (iventID == 8)
+        {
             StartCoroutine(denngonn_ibent());
+        }
     }
     public void minigame_flg()
     {
@@ -236,8 +242,6 @@ public class story : MonoBehaviour
         ti.set_text("いったいこれは何だろう、何かのパ\nーツに見えるな、後で使える\nかもしれない、念のため\n持っておこう");
         yield return new WaitForSeconds(8.0f);
         ti.set_text("でもなんだろう？画面に何かが表示\nされている、4けたの数字？\nもしかしたら何かのパスワ\nードの数値かもしれない");
-        yield return new WaitForSeconds(8.0f);
-        ti.set_text("あれ？ミニゲームの隣の看板が変わ\nっている。まるでミニゲーム\nがしゃべってるみたいだ...");
         yield return new WaitForSeconds(8.0f);
         ti.set_text("この数値も頭に入れながら探索して\nいこうかな、どんどん探索を\n進めていこう");
         yield return new WaitForSeconds(6.0f);

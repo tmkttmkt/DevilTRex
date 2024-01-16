@@ -19,10 +19,8 @@ public class sitenn : MonoBehaviour
         item=FindObjectOfType<ITEM>();
         t=FindObjectOfType<tatakai>();
         //  Cursor.lockState = CursorLockMode.Locked; // カーソルを画面内にロック
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.None;
-
-
+        
+        
     }
 
     // Update is called once per frame

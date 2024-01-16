@@ -1,5 +1,4 @@
 ﻿Imports System.Threading
-Imports System.Diagnostics
 Public Class Form2
     Dim hozons As String = ""
     Dim displayText As String = "エンターキーで会話を進められます。" ' 表示する文字列
@@ -47,42 +46,7 @@ Public Class Form2
                 ss(3) = "ガチであんま調子に乗んな
 この有象無象！"
                 ss2(3) = "ティラノサウルス"
-                ss(4) = "惨敗をスタンバイ
-しておけよ！！"
-                ss2(4) = "ティラノサウルス"
-                ss(5) = ""
-                ss2(5) = ""
-                Timer1.Enabled = True
-            Case "game_over"
-                ss(0) = "ぎゃはは！"
-                ss2(0) = "ティラノサウルス"
-                displayText = ss(0)
-                Label2.Text = ss2(0)
-                ss(1) = "散々な目にあったな"
-                ss2(1) = "ティラノサウルス"
-                ss(2) = "まああんま気を落とさないで
-いこうぜ！"
-                ss2(2) = "ティラノサウルス"
-                ss(3) = "だがな…"
-                ss2(3) = "ティラノサウルス"
-                ss(4) = "もう一回ボコすけどな！"
-                ss2(4) = "ティラノサウルス"
-                ss(5) = ""
-                ss2(5) = ""
-                Timer1.Enabled = True
-            Case Else
-                ss(0) = "ここは選択画面です。"
-                ss2(0) = "ティラノサウルス"
-                displayText = ss(0)
-                Label2.Text = ss2(0)
-                ss(1) = "どこから始めるのかを選べます。"
-                ss2(1) = "ティラノサウルス"
-                ss(2) = "具体的には"
-                ss2(2) = "ティラノサウルス"
-                ss(3) = "ゲーム本編やサブゲームなどを
-選択できます"
-                ss2(3) = "ティラノサウルス"
-                ss(4) = "お好きなほうをお選びください。"
+                ss(4) = "惨敗をスタンバイしておけよ！！"
                 ss2(4) = "ティラノサウルス"
                 ss(5) = ""
                 ss2(5) = ""
@@ -94,20 +58,29 @@ Public Class Form2
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Select Case count
             Case 4
-                PictureBox1.Image = Images(1)
+                If hozons = "game_clear" Then
+                    PictureBox1.Image = Images(1)
+                End If
             Case 5
-                Label2.Visible = False
-                PictureBox1.Visible = False
-                Label3.Visible = True
-                Label4.Visible = True
-                Label5.Visible = True
-                Label6.Visible = True
+                If hozons = "game_clear" Then
+                    Try
+                        Process.Start("Goodbye Unity.exe")
+                        Application.Exit()
+                    Catch ex As Exception
+                        MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
+                    End Try
+                End If
+            Case 6
         End Select
         Mojiyomi(100)
+    End Sub
+    Private Sub Tugi()
+
     End Sub
 
     Private Sub Form2_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Enter Then
+            Tugi()
             Label1.Text = ""
             currentIndex = 0
             count += 1
@@ -116,59 +89,5 @@ Public Class Form2
             'count2 = count
             'v = count2 - 3
         End If
-    End Sub
-
-    Private Sub Label3_MouseEnter(sender As Object, e As EventArgs) Handles Label3.MouseEnter
-        Label3.ForeColor = Color.Red
-    End Sub
-
-    Private Sub Label4_MouseEnter(sender As Object, e As EventArgs) Handles Label4.MouseEnter
-        Label4.ForeColor = Color.Red
-    End Sub
-
-    Private Sub Label3_MouseLeave(sender As Object, e As EventArgs) Handles Label3.MouseLeave
-        If Not Label3.ClientRectangle.Contains(Label3.PointToClient(MousePosition)) Then
-            Label3.ForeColor = Color.White
-        End If
-    End Sub
-    Private Sub Label4_MouseLeave(sender As Object, e As EventArgs) Handles Label4.MouseLeave
-        If Not Label4.ClientRectangle.Contains(Label4.PointToClient(MousePosition)) Then
-            Label4.ForeColor = Color.White
-        End If
-    End Sub
-    Private Sub Label5_MouseEnter(sender As Object, e As EventArgs) Handles Label5.MouseEnter
-        Label5.ForeColor = Color.Red
-    End Sub
-
-    Private Sub Label5_MouseLeave(sender As Object, e As EventArgs) Handles Label5.MouseLeave
-        If Not Label5.ClientRectangle.Contains(Label5.PointToClient(MousePosition)) Then
-            Label5.ForeColor = Color.White
-        End If
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        Dim filePath As String = "New_Goodbye.exe -Hello"
-
-        Dim process As New Process()
-        process.StartInfo.FileName = filePath
-
-        Try
-            process.Start()
-        Catch ex As Exception
-            MessageBox.Show("エラーが発生しました: " & ex.Message)
-        End Try
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        Dim filePath As String = "New_Goodbye.exe -Sample"
-
-        Dim process As New Process()
-        process.StartInfo.FileName = filePath
-
-        Try
-            process.Start()
-        Catch ex As Exception
-            MessageBox.Show("エラーが発生しました: " & ex.Message)
-        End Try
     End Sub
 End Class

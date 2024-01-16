@@ -12,6 +12,7 @@ public class Movecar : MonoBehaviour
     float speed_mal = 1f;
     float speed = 0f;
     float a = 0.01f;// 移動速度の入力に対する追従度
+    private float speed_tei = 0.2f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,18 +26,15 @@ public class Movecar : MonoBehaviour
     {
         if (re.start == 1)
         {
-            float mouseX = Input.GetAxis("Mouse X");
-            transform.Rotate(Vector3.up, mouseX  * Time.deltaTime);
 
-            transform.position -= transform.forward *  speed*40f* Time.deltaTime;
-            Debug.Log(transform.forward * speed * 40f * Time.deltaTime);
-            //rb.AddForce(transform.forward*speed_tei);
+            float mouseX = Input.GetAxis("Mouse X");
+            transform.Rotate(Vector3.up, mouseX * 100f * Time.deltaTime);
+
+            transform.position -= transform.forward * speed_tei * speed;
+            rb.AddForce(transform.forward*speed_tei);
             if (Input.GetKey(KeyCode.W))//スタートしてから走れるように
             {
-                if (speed < speed_mal)
-                {
-                    speed += a;
-                }
+                if(speed<speed_mal) speed += a;
             }
             if (Input.GetKey(KeyCode.A))
             {

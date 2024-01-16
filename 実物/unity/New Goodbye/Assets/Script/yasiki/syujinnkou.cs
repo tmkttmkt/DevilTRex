@@ -15,7 +15,6 @@ public class syujinnkou: MonoBehaviour
    private Story st;
    private sound sou;
    private tatakai t;
-    float msp = 0.9f;
 
     void Start()
     {
@@ -47,15 +46,9 @@ public class syujinnkou: MonoBehaviour
      
         if(i==0)//キーを押して移動する際のif文
         { 
-            if (!t.gamegamenn.isActiveAndEnabled&&!s.serihucanvas.isActiveAndEnabled&&!item.Itemcanvas.isActiveAndEnabled&&!s.pasCanvas.isActiveAndEnabled&&m.arukanai==0)
+            if ((Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift))&&!t.gamegamenn.isActiveAndEnabled&&!s.serihucanvas.isActiveAndEnabled&&!item.Itemcanvas.isActiveAndEnabled&&!s.pasCanvas.isActiveAndEnabled&&m.arukanai==0)
             {
-                if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
-                {
-                    transform.position += (transform.forward / 7) * Time.deltaTime * 1000f;
-                    //rb.AddForce(msp * ((transform.forward * rb.mass * 200 * rb.drag) - rb.velocity));
-                }
-                //rb.AddForce(-transform.up * 9.8f * 30 * rb.mass);
-                //Debug.Log(msp * ((transform.forward * rb.mass * 30 * rb.drag) - rb.velocity));
+                transform.position+=transform.forward/7;
             }
             else
             {
