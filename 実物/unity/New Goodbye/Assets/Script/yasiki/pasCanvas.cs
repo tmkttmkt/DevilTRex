@@ -21,6 +21,7 @@ public class pasCanvas : MonoBehaviour
     public Text no;
     private int i;
     public int l;
+    private Story ss;
 
     void Start()//「ボタン変数.onClick.AddListener(起動関数);」をスタートメソッドに書くことで、押されたら、関数が動くプログラムを作れる
     {
@@ -32,7 +33,8 @@ public class pasCanvas : MonoBehaviour
         modoru.onClick.AddListener(modaruClick);
         go1.onClick.AddListener(go);
         sou=FindObjectOfType<sound>();
-        s=FindObjectOfType<serihu2>();
+        ss = FindObjectOfType<Story>();
+        s =FindObjectOfType<serihu2>();
         i=0;
     }
     void TaskOnClick1()
@@ -98,14 +100,17 @@ public class pasCanvas : MonoBehaviour
     }
     void modaruClick()//ゲームに戻る
     {
-        pas.enabled=false;
-        sou.Koukaonn3();
-        s.canvas.enabled=true;
-        owari.transform.position+=transform.up/2;
+        if (pas.enabled == true)
+        {
+            pas.enabled = false;
+            sou.Koukaonn3();
+            s.canvas.enabled = true;
+            owari.transform.position += transform.up / 2;
+        }
     }
     void go()
     {
-        if(keta1.text=="7"&&keta2.text=="5"&&keta3.text=="6"&&keta4.text=="4")
+        if(keta1.text=="7"&&keta2.text=="5"&&keta3.text=="6"&&keta4.text=="4"&&ss.storykaunnto==7)
         {
             if(l==0)sou.erebetahiraku1();
             l=1;

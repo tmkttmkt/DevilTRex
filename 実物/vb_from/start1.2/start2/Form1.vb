@@ -146,17 +146,8 @@ Public Class Form1
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        If hozon.Length > 0 Then
-            Dim form2 As New Form2(hozon)
-            form2.Show()
-            Me.Hide()
-        Else
-            PictureBox1.Visible = True
-            Timer3.Enabled = True
-            AxWindowsMediaPlayer2.URL = "shutter1.mp3"
-            AxWindowsMediaPlayer2.Ctlcontrols.play()
-            My.Computer.Audio.Play("sakebi.wav")
-        End If
+        Form3.Show()
+        Me.Hide()
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
@@ -174,14 +165,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-        Try
-            Process.Start("マイプロジェクト（3）.exe")
-            Application.Exit()
-        Catch ex As Exception
-            MessageBox.Show("ファイルが開けませんでした:" & ex.Message)
-        End Try
-    End Sub
+
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         count2 += 1

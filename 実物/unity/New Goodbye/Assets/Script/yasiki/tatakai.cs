@@ -500,9 +500,10 @@ public class tatakai : MonoBehaviour
                     return;
                 }
                 char inputCharacter = Input.inputString[0]; // 入力された文字を取得
+                inputCharacter = char.ToLower(inputCharacter);
 
             // 入力文字が目標の文字と一致するかをチェック
-            if (inputCharacter == targetText[currentIndex])
+                if (inputCharacter == targetText[currentIndex])
             {
                 currentIndex++; // 入力位置を進める
                 UpdateDisplayedText(); // 表示されるテキストを更新

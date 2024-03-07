@@ -30,8 +30,8 @@ public class Movecar : MonoBehaviour
             float mouseX = Input.GetAxis("Mouse X");
             transform.Rotate(Vector3.up, mouseX * 100f * Time.deltaTime);
 
-            transform.position -= transform.forward * speed_tei * speed;
-            rb.AddForce(transform.forward*speed_tei);
+            transform.position -= transform.forward * speed_tei * speed*4;
+            //rb.AddForce(transform.forward*speed_tei);
             if (Input.GetKey(KeyCode.W))//スタートしてから走れるように
             {
                 if(speed<speed_mal) speed += a;

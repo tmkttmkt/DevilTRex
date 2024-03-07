@@ -58,3 +58,12 @@ C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.exe
 C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.xml
 C:\hiroki\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.pdb
 U:\github\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.Form2.resources
+U:\tet\実物\vb_from\start1.2\start2\bin\Debug\Interop.WMPLib.dll
+U:\tet\実物\vb_from\start1.2\start2\bin\Debug\AxInterop.WMPLib.dll
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\Interop.WMPLib.dll
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\AxInterop.WMPLib.dll
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.vbproj.ResolveComReference.cache
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.Form2.resources
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.How3.resources
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.How4.resources
+U:\tet\実物\vb_from\start1.2\start2\obj\Debug\start2.Form3.resources

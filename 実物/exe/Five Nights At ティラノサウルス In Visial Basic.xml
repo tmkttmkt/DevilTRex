@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Five Nights At ティラノサウルス In Visial Basic
+</name>
+</assembly>
+<members>
+<member name="T:Five_Nights_At_ティラノサウルス_In_Visial_Basic.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Five_Nights_At_ティラノサウルス_In_Visial_Basic.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Five_Nights_At_ティラノサウルス_In_Visial_Basic.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+</members>
+</doc>

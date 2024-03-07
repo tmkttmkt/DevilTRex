@@ -87,7 +87,7 @@ public class reesu : MonoBehaviour
             {
                 SceneManager.LoadScene("OVER");//GAME開始する
             }
-            if(aka.text=="4")SceneManager.LoadScene("SampleScene");//GAME開始する
+            if(aka.text=="4")SceneManager.LoadScene("Sample");//GAME開始する
         }
       
     }

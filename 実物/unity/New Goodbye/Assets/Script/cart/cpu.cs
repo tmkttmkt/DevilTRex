@@ -9,7 +9,7 @@ public class cpu : MonoBehaviour
     private reesu re;
     private Movecar m;
     private float speed=1;
-    private float speed_tei = 0.2f;
+    private float speed_tei = 0.5f;
     void Start()
     {
         re=FindAnyObjectByType<reesu>();

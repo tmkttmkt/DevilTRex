@@ -74,7 +74,6 @@
     <Compile Include="Assets\Script\cart\syuu.cs" />
     <Compile Include="Assets\Script\main\ata.cs" />
     <Compile Include="Assets\Script\yasiki\pasuwaado.cs" />
-    <Compile Include="Assets\Script\demo\str_story.cs" />
     <Compile Include="Assets\Script\yasiki\moveeeee1.cs" />
     <Compile Include="Assets\Script\main\tokei.cs" />
     <Compile Include="Assets\Script\main\musi.cs" />
@@ -105,12 +104,9 @@
     <Compile Include="Assets\Script\cart\reesu.cs" />
     <Compile Include="Assets\Script\main\rokaga.cs" />
     <Compile Include="Assets\Script\main\botton.cs" />
-    <Compile Include="Assets\Script\main\seykey.cs" />
-    <Compile Include="Assets\Script\demo\suizyak.cs" />
     <Compile Include="Assets\Script\main\time.cs" />
     <Compile Include="Assets\Script\main\rokka.cs" />
     <Compile Include="Assets\Script\main\idou_mause.cs" />
-    <Compile Include="Assets\Script\demo\card.cs" />
     <Compile Include="Assets\Script\cart\ikikaeru.cs" />
     <Compile Include="Assets\Script\yasiki\pasCanvas.cs" />
     <Compile Include="Assets\Script\yasiki\ITEM.cs" />
@@ -999,16 +995,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Updater">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
@@ -1051,16 +1039,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">

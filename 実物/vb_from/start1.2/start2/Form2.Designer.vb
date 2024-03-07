@@ -61,9 +61,6 @@ Partial Class Form2
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Label1"
         '
-        'Timer1
-        '
-        '
         'Label2
         '
         Me.Label2.AutoSize = True

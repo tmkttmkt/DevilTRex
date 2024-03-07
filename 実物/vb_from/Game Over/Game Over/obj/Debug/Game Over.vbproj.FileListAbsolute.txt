@@ -49,3 +49,20 @@ U:\github\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.vbproj.Core
 U:\github\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.exe
 U:\github\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.xml
 U:\github\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.pdb
+U:\tet\実物\vb_from\Game Over\Game Over\bin\Debug\Game Over.exe.config
+U:\tet\実物\vb_from\Game Over\Game Over\bin\Debug\Game Over.exe
+U:\tet\実物\vb_from\Game Over\Game Over\bin\Debug\Game Over.pdb
+U:\tet\実物\vb_from\Game Over\Game Over\bin\Debug\Game Over.xml
+U:\tet\実物\vb_from\Game Over\Game Over\bin\Debug\Interop.WMPLib.dll
+U:\tet\実物\vb_from\Game Over\Game Over\bin\Debug\AxInterop.WMPLib.dll
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.vbprojAssemblyReference.cache
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Interop.WMPLib.dll
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\AxInterop.WMPLib.dll
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.vbproj.ResolveComReference.cache
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game_Over.Form1.resources
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game_Over.Resources.resources
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.vbproj.GenerateResource.cache
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.vbproj.CoreCompileInputs.cache
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.exe
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.xml
+U:\tet\実物\vb_from\Game Over\Game Over\obj\Debug\Game Over.pdb
