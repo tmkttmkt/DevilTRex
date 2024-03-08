@@ -1,0 +1,108 @@
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbprojAssemblyReference.cache
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+U:\github\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.AssemblyReference.cache
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+C:\hiroki\tet\実物\vb_from\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbprojAssemblyReference.cache
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+R:\_R05課題研究(情報技術科)\２班\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbprojAssemblyReference.cache
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Interop.WMPLib.dll
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\AxInterop.WMPLib.dll
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Interop.WMPLib.dll
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\AxInterop.WMPLib.dll
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.ResolveComReference.cache
+D:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form2.resources
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Interop.WMPLib.dll
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\AxInterop.WMPLib.dll
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.AssemblyReference.cache
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Interop.WMPLib.dll
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\AxInterop.WMPLib.dll
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.ResolveComReference.cache
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form2.resources
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+F:\フレディ\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Interop.WMPLib.dll
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\AxInterop.WMPLib.dll
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.AssemblyReference.cache
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Interop.WMPLib.dll
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\AxInterop.WMPLib.dll
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.ResolveComReference.cache
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form2.resources
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+D:\フレディ2\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe.config
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\Interop.WMPLib.dll
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\bin\Debug\AxInterop.WMPLib.dll
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbprojAssemblyReference.cache
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Interop.WMPLib.dll
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\AxInterop.WMPLib.dll
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.ResolveComReference.cache
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form1.resources
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Form2.resources
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five_Nights_At_ティラノサウルス_In_Visial_Basic.Resources.resources
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.GenerateResource.cache
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.vbproj.CoreCompileInputs.cache
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.exe
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.xml
+D:\フレディ3\Five Nights At ティラノサウルス In Visial Basic\obj\Debug\Five Nights At ティラノサウルス In Visial Basic.pdb

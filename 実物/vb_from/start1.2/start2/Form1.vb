@@ -43,16 +43,16 @@ Public Class Form1
         Label3.ForeColor = Color.Black
         Label4.ForeColor = Color.Black
         'PictureBox1.Image = Image.FromFile("start.png")
-        If File.Exists("R:\_R05課題研究(情報技術科)\２班\最初.mp4") Then
-            AxWindowsMediaPlayer1.URL = "R:\_R05課題研究(情報技術科)\２班\最初.mp4"
+        If File.Exists("最初.mp4") Then
+            AxWindowsMediaPlayer1.URL = "最初.mp4"
             AxWindowsMediaPlayer1.Ctlcontrols.play()
             Timer1.Enabled = True
             PictureBox3.Visible = True
         Else
             MessageBox.Show("動画ファイルが見つかりません。")
         End If
-        If File.Exists("R:\_R05課題研究(情報技術科)\２班\ティラノタイトル.gif") Then
-            PictureBox4.Image = Image.FromFile("R:\_R05課題研究(情報技術科)\２班\シン・ティラノサウルス.gif")
+        If File.Exists("シン・ティラノサウルス.gif") Then
+            PictureBox4.Image = Image.FromFile("シン・ティラノサウルス.gif")
         Else
             MessageBox.Show("画像ファイルが見つかりません。")
         End If
